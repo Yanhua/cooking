@@ -17,3 +17,11 @@ After a meal, add a short note to `feedback.md` or the relevant week: rating, su
 ## Viewing on a phone
 
 `index.html` is a dependency-free, mobile-first viewer for the recipes and weekly plans. It can be published directly with GitHub Pages: in the repository's **Settings → Pages**, choose **Deploy from a branch**, then select the branch and the repository root (`/`). The viewer discovers and renders every Markdown card under `recipes/` from the repository, so new cards need no website code changes.
+
+When you change `app.js` or `styles.css`, cache keys in `index.html` are updated automatically from a hash of those files. Enable the shared git hook once per clone:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+If the hook is not installed locally, a GitHub Action updates `index.html` after pushes to `main`.

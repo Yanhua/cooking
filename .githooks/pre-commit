@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if git diff --cached --name-only | grep -qE '^(app\.js|styles\.css)$'; then
+  "$(git rev-parse --show-toplevel)/scripts/bust-cache.sh"
+  git add index.html
+fi

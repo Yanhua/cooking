@@ -1,0 +1,26 @@
+name: Cache bust
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - app.js
+      - styles.css
+
+permissions:
+  contents: write
+
+jobs:
+  bust-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update asset cache keys
+        run: ./scripts/bust-cache.sh
+
+      - name: Commit index.html
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git diff --quiet index.html || (git add index.html && git commit -m "Update asset cache keys" && git push)

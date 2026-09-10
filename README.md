@@ -16,4 +16,4 @@ After a meal, add a short note to `feedback.md` or the relevant week: rating, su
 
 ## Viewing on a phone
 
-`index.html` is a dependency-free, mobile-first viewer for the recipes and weekly plans. It can be published directly with GitHub Pages: in the repository's **Settings → Pages**, choose **Deploy from a branch**, then select the branch and the repository root (`/`). No build step or server is needed.
+`index.html` is a dependency-free, mobile-first viewer for the recipes and weekly plans. It can be published directly with GitHub Pages: in the repository's **Settings → Pages**, choose **Deploy from a branch**, then select the branch and the repository root (`/`). The viewer discovers and renders every Markdown card under `recipes/` from the repository, so new cards need no website code changes.

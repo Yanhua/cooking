@@ -1,13 +1,54 @@
-const recipes = [
-  { id:'lu-rou-fan', title:'Pressure-cooker Taiwanese lu rou fan', cuisine:'Taiwanese', time:'25 min active · 18 min pressure', icon:'🥘', ingredients:['300 g pork mince','1 brown onion, finely chopped','125 g mushrooms, finely chopped','3 garlic cloves, finely chopped','4 eggs','2 tbsp light soy sauce','1 tbsp dark soy sauce (or another tbsp light soy sauce)','1 tbsp brown sugar','1 tbsp rice vinegar or white vinegar','1 tsp Chinese five-spice','1 star anise, optional','250 ml water','1 bunch baby bok choy, halved lengthways','Steamed rice, to serve'], steps:['Cook the eggs in the pressure cooker on high pressure for 5 minutes, then release pressure and cool them under cold water. Peel and set aside. Alternatively, hard-boil them on the stovetop.','Using the sauté function, cook pork, onion, mushrooms, and garlic for 6–8 minutes, breaking up the pork until browned. Drain excess fat if needed.','Stir in both soy sauces, sugar, vinegar, five-spice, star anise, and water. Nestle in the peeled eggs. Pressure-cook on high for 18 minutes, then quick-release.','While it cooks, steam or blanch bok choy until just tender and cook rice in the rice cooker. Remove star anise, halve the eggs, and spoon the pork and sauce over rice with bok choy.'] },
-  { id:'thai-basil-chicken', title:'Thai basil chicken with green beans', cuisine:'Thai', time:'20 min', icon:'🌿', ingredients:['350 g boneless chicken thighs, thinly sliced','200 g green beans, trimmed and cut in half','1 red capsicum, thinly sliced','2 garlic cloves, finely chopped','25–30 g Thai basil leaves','1 tbsp neutral oil','1½ tbsp oyster sauce','1 tbsp soy sauce','1 tsp fish sauce','1 tsp brown sugar','½–1 tsp chilli flakes or chilli crisp, optional','Steamed rice, to serve'], steps:['Mix oyster sauce, soy sauce, fish sauce, sugar, and chilli (if using) with 2 tbsp water.','Heat a large frying pan or wok until very hot. Add oil, then chicken; stir-fry for 4–5 minutes until browned and cooked through.','Add garlic, beans, and capsicum. Stir-fry for 3–4 minutes, keeping the vegetables bright and tender-crisp.','Add the sauce and toss for about 1 minute until it lightly coats the chicken. Turn off the heat, fold through basil, and serve with rice.'] },
-  { id:'thai-red-curry-pork', title:'Thai red curry pork with carrots and capsicum', cuisine:'Thai', time:'25 min', icon:'🍛', ingredients:['250 g pork mince','1 can (400 ml) coconut milk','1½–2 tbsp Thai red curry paste','2 carrots, thinly sliced','1 red capsicum, sliced','2 garlic cloves, finely chopped','1 tsp brown sugar','1 tbsp fish sauce','1 tbsp neutral oil','Steamed rice, to serve'], steps:['Heat oil in a wide pan. Cook pork mince for 4–5 minutes, breaking it up until browned.','Add garlic and curry paste; fry for 1 minute until fragrant.','Add coconut milk, carrots, capsicum, sugar, and fish sauce. Simmer for 10–12 minutes until the carrots are tender and the sauce has thickened slightly.','Taste and adjust with more fish sauce or sugar if needed. Serve with rice.'] },
-  { id:'vietnamese-caramel-chicken', title:'Vietnamese caramel chicken with green beans', cuisine:'Vietnamese', time:'25 min', icon:'🍗', ingredients:['350 g boneless chicken thighs, bite-sized pieces','200 g green beans, trimmed','3 garlic cloves, finely chopped','1 tbsp neutral oil','1½ tbsp brown sugar','2 tbsp fish sauce','1 tbsp soy sauce','80 ml water','Black pepper','Steamed rice, to serve'], steps:['Mix fish sauce, soy sauce, water, and plenty of black pepper. Heat oil in a wide frying pan and cook chicken for 5–6 minutes until browned.','Push chicken aside. Add brown sugar to the bare part of the pan; let it melt and turn deep amber for 30–60 seconds, then carefully stir in the sauce mixture.','Add garlic and green beans. Toss and simmer for 5–6 minutes until the chicken is cooked, beans are tender-crisp, and the sauce coats everything. Serve with rice.'] },
-  { id:'creamy-garlic-chicken-pasta', title:'Creamy garlic chicken, broccoli and mushroom pasta', cuisine:'Western', time:'25 min', icon:'🍝', ingredients:['350 g boneless chicken thighs, bite-sized pieces','200–250 g dried pasta','1 small broccoli, cut into small florets','125 g mushrooms, sliced','3 garlic cloves, finely chopped','200 ml cooking cream','35 g finely grated Parmesan','1 tbsp olive oil or butter','Salt and black pepper'], steps:['Boil pasta in well-salted water. Add broccoli for the final 3 minutes, then reserve ½ cup pasta water and drain.','Meanwhile, heat oil in a large frying pan. Season chicken and cook for 5–6 minutes until browned and cooked through. Move it to a plate.','Add mushrooms to the pan and cook for 3 minutes. Add garlic and cook for 30 seconds.','Add cream, Parmesan, chicken, pasta, and broccoli. Toss for 1–2 minutes, loosening with a little reserved pasta water. Season to taste.'] },
-  { id:'creamy-tomato-pork-spaghetti', title:'Creamy tomato pork and mushroom spaghetti', cuisine:'Western', time:'25 min', icon:'🍅', ingredients:['250 g pork mince','200–250 g dried spaghetti','125 g mushrooms, sliced','1 small brown onion, finely chopped','2 garlic cloves, finely chopped','1 can (400 g) crushed tomatoes','1 tbsp tomato paste','100 ml cooking cream','1 tbsp olive oil','1 tsp dried Italian herbs or oregano','Salt, black pepper, and Parmesan to serve'], steps:['Cook spaghetti in well-salted water until al dente. Reserve ½ cup pasta water, then drain.','Heat oil in a large frying pan. Cook pork mince for 4–5 minutes, breaking it up until browned.','Add onion and mushrooms; cook for 3 minutes. Add garlic, tomato paste, and herbs; stir for 30 seconds.','Add crushed tomatoes and simmer for 8 minutes. Stir in cream, then toss through spaghetti, adding pasta water as needed. Season and top with Parmesan.'] },
-  { id:'italian-chicken-mushroom-zucchini-pasta', title:'Italian chicken, mushroom and zucchini pasta', cuisine:'Italian', time:'30 min', icon:'🍝', ingredients:['350 g boneless chicken thighs, bite-sized pieces','200–250 g short pasta','1 zucchini, sliced into half-moons','125 g mushrooms, sliced','½ brown onion, finely chopped','2 garlic cloves, finely chopped','1 tbsp tomato paste','1 tsp dried Italian herbs or oregano','40 g finely grated Parmesan, plus more to serve','1 tbsp olive oil','Salt and black pepper'], steps:['Boil pasta in salted water. Reserve ¾ cup pasta water, then drain.','Meanwhile, heat oil in a large frying pan. Season chicken and cook for 5–6 minutes until browned and cooked through; transfer to a plate.','Cook onion, mushrooms, and zucchini in the same pan for 5–6 minutes until soft and lightly browned. Add garlic, tomato paste, and herbs for 30 seconds.','Return chicken to the pan with pasta, Parmesan, and ½ cup pasta water. Toss for 1–2 minutes, adding more water as needed for a glossy sauce. Season and serve.'] },
-  { id:'mexican-pork-corn-skillet', title:'Mexican pork, corn and zucchini rice skillet', cuisine:'Mexican', time:'25 min', icon:'🌽', ingredients:['200 g pork mince','1 zucchini, diced','1 red capsicum, diced','½ brown onion, finely chopped','2 garlic cloves, finely chopped','1 can diced tomatoes (400 g)','150 g frozen corn','1 tbsp tomato paste','1 tsp ground cumin','1 tsp smoked paprika','½ tsp chilli powder, or to taste','100 g shredded cheese','Steamed rice, to serve'], steps:['Heat a large frying pan with oil. Brown pork for 3–4 minutes, then add onion, zucchini, capsicum, and garlic; cook for 5 minutes until softened.','Stir in tomato paste and spices for 30 seconds. Add tomatoes and corn, then simmer for 8–10 minutes until thick.','Top with cheese, cover for 1–2 minutes until melted, and serve over rice. All vegetables are cooked; no raw garnish is required.'] }
-];
+let recipes = [];
+let recipeLoadError = '';
+
+function repository() {
+  const [owner] = location.hostname.split('.');
+  const [repo] = location.pathname.split('/').filter(Boolean);
+  return { owner, repo };
+}
+
+function markdownSection(markdown, heading, marker) {
+  const match = markdown.match(new RegExp(`^## ${heading}\\s*\\n([\\s\\S]*?)(?=^## |(?![\\s\\S]))`, 'm'));
+  return match ? match[1].split('\\n').map(line => line.replace(marker, '').trim()).filter(Boolean) : [];
+}
+
+function parseRecipe(markdown, path) {
+  const title = markdown.match(/^# (.+)$/m)?.[1];
+  if (!title) throw new Error(`Missing title in ${path}`);
+  const serves = markdown.match(/^\*\*Serves:\*\*\s*(.+)$/m)?.[1] || '';
+  const activeTime = markdown.match(/^\*\*Active time:\*\*\s*(.+)$/m)?.[1] || '';
+  const pressureTime = markdown.match(/\*\*pressure time:\*\*\s*(.+)$/mi)?.[1];
+  const category = path.split('/')[1] || 'recipes';
+  return {
+    id: path.split('/').pop().replace(/\.md$/, ''),
+    title,
+    cuisine: category[0].toUpperCase() + category.slice(1),
+    icon: category === 'asian' ? '🥢' : '🍽️',
+    serves,
+    time: [activeTime, pressureTime].filter(Boolean).join(' · '),
+    ingredients: markdownSection(markdown, 'Ingredients', /^-\s+/),
+    steps: markdownSection(markdown, 'Method', /^\d+\.\s+/)
+  };
+}
+
+async function loadRecipes() {
+  const { owner, repo } = repository();
+  if (!owner || !repo || !location.hostname.endsWith('.github.io')) {
+    throw new Error('Recipes are available when viewing the published GitHub Pages site.');
+  }
+  const repositoryResponse = await fetch(`https://api.github.com/repos/${owner}/${repo}`);
+  if (!repositoryResponse.ok) throw new Error('Could not find the recipe repository.');
+  const { default_branch: branch } = await repositoryResponse.json();
+  const treeResponse = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/trees/${branch}?recursive=1`);
+  if (!treeResponse.ok) throw new Error('Could not load the recipe folder.');
+  const { tree } = await treeResponse.json();
+  const paths = tree.filter(item => item.type === 'blob' && /^recipes\/.+\.md$/i.test(item.path)).map(item => item.path).sort();
+  recipes = await Promise.all(paths.map(async path => {
+    const response = await fetch(`https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}`);
+    if (!response.ok) throw new Error(`Could not load ${path}.`);
+    return parseRecipe(await response.text(), path);
+  }));
+}
 
 const weeks = [{ id:'2026-09-14', date:'Week of 14 September 2026', title:'Four dinners, nicely shared', dinners:[['lu-rou-fan','Pressure-cooker Taiwanese lu rou fan with bok choy and egg'],['mexican-pork-corn-skillet','Mexican pork, corn and zucchini rice skillet'],['vietnamese-caramel-chicken','Vietnamese caramel chicken with green beans and rice'],['italian-chicken-mushroom-zucchini-pasta','Italian chicken, mushroom and zucchini pasta']], reuse:['500 g pork-mince pack: 300 g for lu rou fan; 200 g for the Mexican skillet.','700 g chicken-thigh pack: 350 g for Vietnamese caramel chicken; 350 g for Italian pasta.','250 g mushrooms: 125 g in lu rou fan; 125 g in Italian pasta.','2 zucchini: one in the Mexican skillet; one in Italian pasta.','Rice: cooked in the rice cooker for lu rou fan, the Mexican skillet, and Vietnamese chicken.','Garlic bulb: shared across all four dinners; cooked onion is used in the Taiwanese and Mexican dishes.'] }];
 
@@ -21,10 +62,11 @@ function render() {
   if (screen.type === 'weeks') {
     app.innerHTML = pageHeader('Home kitchen', 'Dinner, sorted', 'Simple plans and tried-and-true recipes.') + `<section class="content"><div class="section-title"><h2>Weekly plans</h2><span class="count">${weeks.length} plan</span></div>${weeks.map(w => `<button class="card week-card" data-week="${w.id}"><span class="date">${w.date}</span><h3>${w.title}</h3><p>${w.dinners.length} fresh dinners · all in 30 minutes or less</p><div class="mini-list">${w.dinners.map(([, name]) => `<span class="pill">${esc(name.split(' ').slice(0,2).join(' '))}</span>`).join('')}</div></button>`).join('')}</section>` + nav('weeks');
   } else if (screen.type === 'recipes') {
-    app.innerHTML = pageHeader('Recipe book', 'What’s cooking?', 'Eight quick dinners for two.') + `<section class="content"><div class="section-title"><h2>All recipes</h2><span class="count">${recipes.length} recipes</span></div>${recipes.map(r => `<button class="card recipe-card" data-recipe="${r.id}"><span class="icon">${r.icon}</span><span><h3>${r.title}</h3><span class="recipe-meta">${r.cuisine} · ${r.time}</span></span></button>`).join('')}</section>` + nav('recipes');
+    const body = recipeLoadError ? `<p>${esc(recipeLoadError)}</p>` : recipes.length ? recipes.map(r => `<button class="card recipe-card" data-recipe="${r.id}"><span class="icon">${r.icon}</span><span><h3>${r.title}</h3><span class="recipe-meta">${r.cuisine} · ${r.time}</span></span></button>`).join('') : '<p>Loading recipes…</p>';
+    app.innerHTML = pageHeader('Recipe book', 'What’s cooking?', 'Quick dinners from the recipe library.') + `<section class="content"><div class="section-title"><h2>All recipes</h2><span class="count">${recipes.length} recipes</span></div>${body}</section>` + nav('recipes');
   } else if (screen.type === 'recipe') {
     const r = recipes.find(recipe => recipe.id === screen.id);
-    app.innerHTML = `<section class="content">${back()}<p class="eyebrow" style="margin-top:22px">${r.cuisine}</p><h1 class="detail-title">${r.title}</h1><div class="detail-meta"><span>Serves 2</span><span>${r.time}</span></div><section class="detail-section"><h2>Ingredients</h2><ul class="ingredients">${r.ingredients.map(i => `<li>${i}</li>`).join('')}</ul></section><section class="detail-section"><h2>Method</h2><ol class="steps">${r.steps.map(s => `<li>${s}</li>`).join('')}</ol></section></section>`;
+    app.innerHTML = `<section class="content">${back()}<p class="eyebrow" style="margin-top:22px">${r.cuisine}</p><h1 class="detail-title">${r.title}</h1><div class="detail-meta"><span>Serves ${r.serves}</span><span>${r.time}</span></div><section class="detail-section"><h2>Ingredients</h2><ul class="ingredients">${r.ingredients.map(i => `<li>${i}</li>`).join('')}</ul></section><section class="detail-section"><h2>Method</h2><ol class="steps">${r.steps.map(s => `<li>${s}</li>`).join('')}</ol></section></section>`;
   } else {
     const w = weeks.find(week => week.id === screen.id);
     app.innerHTML = `<section class="content">${back()}<p class="eyebrow" style="margin-top:22px">${w.date}</p><h1 class="detail-title">${w.title}</h1><div class="detail-meta"><span>${w.dinners.length} dinners</span><span>2 people</span><span>≤ 30 min active</span></div><section class="detail-section"><h2>This week</h2>${w.dinners.map(([id, name], n) => { const r = recipes.find(recipe => recipe.id === id); return `<article class="dinner-row"><span class="date">Dinner ${n + 1} · ${r.cuisine} · ${r.time}</span><h3>${name}</h3><button data-recipe="${id}">Open recipe →</button></article>`; }).join('')}</section><section class="detail-section"><h2>Ingredient reuse</h2><ul class="reuse">${w.reuse.map(i => `<li>${i}</li>`).join('')}</ul></section></section>`;
@@ -41,4 +83,4 @@ app.addEventListener('click', event => {
   else return;
   render();
 });
-render();
+loadRecipes().catch(error => { recipeLoadError = error.message; }).finally(render);

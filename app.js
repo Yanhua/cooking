@@ -12,6 +12,13 @@ function markdownSection(markdown, heading, marker) {
   return match ? match[1].split('\\n').map(line => line.replace(marker, '').trim()).filter(Boolean) : [];
 }
 
+function splitIngredient(ingredient) {
+  // Keep the amount together with common recipe units, while leaving the rest
+  // of the line as the ingredient description.
+  const match = ingredient.match(/^(\d+(?:[./]\d+)?(?:\s+\d+\/\d+)?(?:[–-]\d+(?:[./]\d+)?(?:\s+\d+\/\d+)?)?(?:\s+(?:g|kg|ml|l|tbsp|tsp|cups?|cans?))?)\s+(.+)$/i);
+  return match ? { quantity: match[1], name: match[2] } : { quantity: '—', name: ingredient };
+}
+
 function parseRecipe(markdown, path) {
   const title = markdown.match(/^# (.+)$/m)?.[1];
   if (!title) throw new Error(`Missing title in ${path}`);
@@ -26,7 +33,7 @@ function parseRecipe(markdown, path) {
     icon: category === 'asian' ? '🥢' : '🍽️',
     serves,
     time: [activeTime, pressureTime].filter(Boolean).join(' · '),
-    ingredients: markdownSection(markdown, 'Ingredients', /^-\s+/),
+    ingredients: markdownSection(markdown, 'Ingredients', /^-\s+/).map(splitIngredient),
     steps: markdownSection(markdown, 'Method', /^\d+\.\s+/)
   };
 }
@@ -66,7 +73,7 @@ function render() {
     app.innerHTML = pageHeader('Recipe book', 'What’s cooking?', 'Quick dinners from the recipe library.') + `<section class="content"><div class="section-title"><h2>All recipes</h2><span class="count">${recipes.length} recipes</span></div>${body}</section>` + nav('recipes');
   } else if (screen.type === 'recipe') {
     const r = recipes.find(recipe => recipe.id === screen.id);
-    app.innerHTML = `<section class="content">${back()}<p class="eyebrow" style="margin-top:22px">${r.cuisine}</p><h1 class="detail-title">${r.title}</h1><div class="detail-meta"><span>Serves ${r.serves}</span><span>${r.time}</span></div><section class="detail-section"><h2>Ingredients</h2><ul class="ingredients">${r.ingredients.map(i => `<li>${i}</li>`).join('')}</ul></section><section class="detail-section"><h2>Method</h2><ol class="steps">${r.steps.map(s => `<li>${s}</li>`).join('')}</ol></section></section>`;
+    app.innerHTML = `<section class="content">${back()}<p class="eyebrow" style="margin-top:22px">${r.cuisine}</p><h1 class="detail-title">${r.title}</h1><div class="detail-meta"><span>Serves ${r.serves}</span><span>${r.time}</span></div><section class="detail-section"><h2>Ingredients</h2><div class="ingredients" role="list"><div class="ingredient-head" aria-hidden="true"><span>Quantity</span><span>Ingredient</span></div>${r.ingredients.map(({ quantity, name }) => `<div class="ingredient-row" role="listitem"><span class="ingredient-quantity">${esc(quantity)}</span><span class="ingredient-name">${esc(name)}</span></div>`).join('')}</div></section><section class="detail-section"><h2>Method</h2><ol class="steps">${r.steps.map(s => `<li>${s}</li>`).join('')}</ol></section></section>`;
   } else {
     const w = weeks.find(week => week.id === screen.id);
     app.innerHTML = `<section class="content">${back()}<p class="eyebrow" style="margin-top:22px">${w.date}</p><h1 class="detail-title">${w.title}</h1><div class="detail-meta"><span>${w.dinners.length} dinners</span><span>2 people</span><span>≤ 30 min active</span></div><section class="detail-section"><h2>This week</h2>${w.dinners.map(([id, name], n) => { const r = recipes.find(recipe => recipe.id === id); return `<article class="dinner-row"><span class="date">Dinner ${n + 1} · ${r.cuisine} · ${r.time}</span><h3>${name}</h3><button data-recipe="${id}">Open recipe →</button></article>`; }).join('')}</section><section class="detail-section"><h2>Ingredient reuse</h2><ul class="reuse">${w.reuse.map(i => `<li>${i}</li>`).join('')}</ul></section></section>`;

@@ -9,7 +9,7 @@ function repository() {
 
 function markdownSection(markdown, heading, marker) {
   const match = markdown.match(new RegExp(`^## ${heading}\\s*\\n([\\s\\S]*?)(?=^## |(?![\\s\\S]))`, 'm'));
-  return match ? match[1].split('\\n').map(line => line.replace(marker, '').trim()).filter(Boolean) : [];
+  return match ? match[1].split('\n').map(line => line.replace(marker, '').trim()).filter(Boolean) : [];
 }
 
 function splitIngredient(ingredient) {

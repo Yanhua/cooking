@@ -26,10 +26,12 @@ The frontend remains on GitHub Pages. Existing browser saves can be imported aft
 
 ```sh
 python3 scripts/build-data.py
-python3 -m http.server 8000
+node scripts/dev-server.mjs
 ```
 
 Open http://localhost:8000. The app uses static JSON and works without GitHub API access. Opening `index.html` directly as a file is not supported.
+
+For local browser testing, copy `.env.example` to `.env.local` and set `COOKING_HOUSEHOLD_PASSWORD`. The local dev server reads that ignored file and auto-unlocks only on loopback addresses; the password is not included in the deployed frontend. A persistent browser profile will also remain signed in because Firebase browser persistence is enabled.
 
 ## Verify and publish
 
@@ -41,6 +43,17 @@ python3 scripts/build-data.py
 ```
 
 Publish the repository root with GitHub Pages. Run the builder after changing recipe cards. The generated `data/recipes.json` must be committed. Enable the cache hook with `git config core.hooksPath .githooks`; the included GitHub Action also updates asset cache keys.
+
+### Automatic Firestore rules deployment
+
+`.github/workflows/deploy-firestore-rules.yml` deploys only Firestore rules to `dinner-sorted-afff4` after pushes to `main` that change `firestore.rules`, `firebase.json`, or the app's Firestore contract (`app.js` or `cloud-store.mjs`). It can also be run manually with `workflow_dispatch`.
+
+Before enabling it, configure GitHub Actions with these repository secrets:
+
+- `GCP_WORKLOAD_IDENTITY_PROVIDER`: the full Google Cloud Workload Identity Provider resource name for this repository.
+- `GCP_SERVICE_ACCOUNT`: a Google service account trusted by that provider and granted permission to create and update Firebase Rules releases for this project.
+
+The workflow uses short-lived Google credentials and pins the Firebase CLI version. Keep `firestore.rules` in the repository as the source of truth; console edits are overwritten by the next deployment.
 
 - `weeks/`: optional dated plan exports kept as household records and backups; they are not loaded into the app.
 - `feedback.md`: shared household feedback used for future planning.

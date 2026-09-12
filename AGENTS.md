@@ -23,3 +23,7 @@ For explicitly requested recipe additions or improvements, use `.agents/skills/r
 ## App data
 
 Recipe cards contain `recipe-data` JSON metadata with stable IDs and quantified ingredients. Maintain the readable ingredient list alongside the metadata. Ingredient units and editable pack-size estimates are in `data/ingredients.json`. Run `python3 scripts/build-data.py` after content changes and `./scripts/bust-cache.sh` after app changes. Weekly JSON exports belong in `weeks/` for planning history and backups; the builder does not publish them into the app. Never silently alter historical recipe snapshots.
+
+## Firebase rules deployment
+
+Treat Firestore record IDs, payload shapes, and household authorization as a shared app contract. When a feature changes any of these, update `firestore.rules` and its integration tests in the same change. The `Deploy Firestore rules` GitHub Action deploys the version-controlled rules automatically on pushes to `main` when `firestore.rules`, `firebase.json`, `app.js`, or `cloud-store.mjs` changes. Do not consider a rules-affecting feature complete until that workflow succeeds.

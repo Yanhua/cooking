@@ -5,7 +5,7 @@ let removedPlan=null;
 let recipes=[], catalog={}, screen={type:'weeks'}, returnScreen={type:'recipes'}, error='', notice='';
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function read(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback;}catch{return fallback;}}
-let cloud=null, config=null, signedIn=false, ready=false, busy=false, authError='', records={}, incoming=null, feedbackEdit=null, commentEdit=null;
+let cloud=null, config=null, signedIn=false, ready=false, busy=false, authError='', records={}, incoming=null, feedbackEdit=null, commentEdit=null, devAuthPassword='';
 const emptyDraft=()=>({date:today(),count:DEFAULT_COUNT,ids:[],packs:{}});
 let legacy=null;
 function applyRecords(next) {
@@ -41,6 +41,15 @@ function receiveRecords(next){
   applyRecords(next);render(true);
 }
 const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
+async function loadDevAuthPassword(){
+  if(!['localhost','127.0.0.1','::1'].includes(location.hostname))return '';
+  try{
+    const response=await fetch('/__dev/auth.json',{cache:'no-store'});
+    if(!response.ok)return '';
+    const data=await response.json();
+    return typeof data.password==='string'?data.password:'';
+  }catch{return '';}
+}
 legacy={saved:read('dinner-plans-v1',[]),draft:read('dinner-draft-v1',null),tried:read('dinner-tried-v1',{})};
 if(!Array.isArray(legacy.saved))legacy.saved=[];
 if(!legacy.draft || !Array.isArray(legacy.draft.ids))legacy.draft=null;
@@ -204,10 +213,11 @@ app.addEventListener('click',async e=>{
 app.innerHTML=header('Dinner, sorted','Loading the recipe library…');
 async function start(){
   try{
-    const loaded=await Promise.all(['./data/recipes.json','./data/ingredients.json','./firebase-config.json'].map(async url=>{
+    const [loaded, localPassword]=await Promise.all([Promise.all(['./data/recipes.json','./data/ingredients.json','./firebase-config.json'].map(async url=>{
       const response=await fetch(url,{cache:'no-cache'});if(!response.ok)throw new Error('Could not load the planner. Please reload.');return response.json();
-    }));
+    })),loadDevAuthPassword()]);
     [recipes,catalog,config]=loaded;
+    devAuthPassword=localPassword;
     if(!config.firebase?.apiKey || !config.firebase?.authDomain || !config.firebase?.projectId || !config.firebase?.appId || !config.householdUid || !config.householdEmail){render();return;}
     cloud=await connectCloud(config,authenticated=>{
       signedIn=authenticated;ready=false;
@@ -215,6 +225,11 @@ async function start(){
       render(true);
     },receiveRecords,e=>{error=saveMessage(e);ready=false;render(true);});
     render(true);
+    if(devAuthPassword && !signedIn){
+      busy=true;authError='';render(true);
+      try{await cloud.login(devAuthPassword);}catch(e){authError=e.code==='auth/too-many-requests'?'Too many attempts. Please wait and try again.':e.code==='auth/network-request-failed'?'Could not connect. Check your internet connection.':'Could not auto-unlock the planner. Check COOKING_HOUSEHOLD_PASSWORD in .env.local.';}
+      finally{busy=false;render(true);}
+    }
   }catch(e){app.innerHTML=header('Could not connect',e.message)+'<section class="content"><button onclick="location.reload()">Retry</button></section>';}
 }
 window.addEventListener('beforeunload',e=>{if(busy||feedbackEdit||commentEdit){e.preventDefault();e.returnValue='';}});

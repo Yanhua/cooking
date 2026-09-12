@@ -2,33 +2,44 @@ import { DEFAULT_COUNT, totals, validate, advisories, suggest, fmt, shoppingSect
 import { connectCloud, changesFor, decodeRecords } from 'cloud-store';
 const app=document.querySelector('#app');
 let removedPlan=null;
-let recipes=[], catalog={}, screen={type:'weeks'}, returnScreen={type:'recipes'}, error='', notice='';
+let recipes=[], catalog={}, recipePhotos=new Map(), screen={type:'weeks'}, returnScreen={type:'recipes'}, error='', notice='';
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const foodPhotos=[
-  'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=82',
-  'https://images.unsplash.com/photo-1559314809-0d155014e29e?auto=format&fit=crop&w=900&q=82',
-  'https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=82',
-  'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=900&q=82',
-  'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=900&q=82',
-  'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=82',
-  'https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=900&q=82',
-  'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=82'
-];
 const scenePhotos={
   home:'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=84',
   library:'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=84',
   shopping:'https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1200&q=84'
 };
 const hash=value=>[...String(value)].reduce((total,char)=>((total*31)+char.charCodeAt(0))>>>0,0);
-const recipeImage=recipe=>{
+const foodishSizes={biryani:81,burger:87,'butter-chicken':22,pasta:34,rice:35,samosa:22};
+const photoCategory=recipe=>{
   const title=String(recipe?.title||'').toLowerCase();
-  if(/noodle|chow mein/.test(title))return foodPhotos[1];
-  if(/rice|bowl|lu rou/.test(title))return foodPhotos[2];
-  if(/pasta|spaghetti/.test(title))return foodPhotos[/creamy/.test(title)?4:3];
-  if(/curry/.test(title))return foodPhotos[7];
-  if(/egg/.test(title))return foodPhotos[6];
-  if(/beef|chicken|pork|salmon/.test(title))return foodPhotos[5];
-  return foodPhotos[hash(recipe?.id||recipe?.title||'dinner')%foodPhotos.length];
+  if(/noodle|chow mein|pasta|spaghetti/.test(title))return 'pasta';
+  if(/curry|stew|hot pot/.test(title))return 'butter-chicken';
+  if(/rice|bowl|lu rou/.test(title))return 'rice';
+  if(/gyoza/.test(title))return 'samosa';
+  return /chinese|japanese|korean|thai|vietnamese|taiwanese|malaysian|singapore|asian/i.test(recipe?.cuisine||'')?'biryani':'burger';
+};
+const foodishPhoto=(category,number)=>`https://raw.githubusercontent.com/surhud004/Foodish/main/public/assets/images/${category}/${category}${number}.jpg`;
+function assignRecipePhotos(list){
+  const assigned=new Map(),used=new Set(),ordered=[...list].sort((a,b)=>a.id.localeCompare(b.id));
+  for(const recipe of ordered){
+    const category=photoCategory(recipe),size=foodishSizes[category];
+    let number=(hash(recipe.id)%size)+1,attempts=0,url=foodishPhoto(category,number);
+    while(used.has(url)&&attempts<size){number=(number%size)+1;url=foodishPhoto(category,number);attempts++;}
+    if(used.has(url)){
+      for(const [fallback,fallbackSize] of Object.entries(foodishSizes)){
+        for(let i=1;i<=fallbackSize;i++){const candidate=foodishPhoto(fallback,i);if(!used.has(candidate)){url=candidate;break;}}
+        if(!used.has(url))break;
+      }
+    }
+    used.add(url);assigned.set(recipe.id,url);
+  }
+  return assigned;
+}
+const recipeImage=recipe=>{
+  const identity=recipe?.id||recipe?.title||'dinner';
+  const category=photoCategory(recipe),number=(hash(identity)%foodishSizes[category])+1;
+  return recipePhotos.get(identity)||foodishPhoto(category,number);
 };
 const remoteImage=(src,alt='',className='')=>`<img class="${className}" src="${esc(src)}" alt="${esc(alt)}" loading="lazy" decoding="async" data-remote-image>`;
 function read(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback;}catch{return fallback;}}
@@ -131,7 +142,7 @@ function render(keepScroll=false){
     const r=screen.snapshot?weeks().find(w=>w.id===screen.snapshot)?.snapshots?.find(r=>r.id===screen.id):recipes.find(r=>r.id===screen.id);
     html=header(r?.title||'Recipe unavailable','',r?recipeImage(r):scenePhotos.home)+`<section class="content">${back()}${r?`<p class="recipe-summary">${esc(r.cuisine)} · ${r.activeMinutes} min active · Serves ${r.servings}</p><p class="sub">${esc(status(r))} · ${esc(r.equipment.join(', '))}${screen.snapshot?' · Saved recipe version':''}</p>${r.notes?`<p class="advice">${esc(r.notes)}</p>`:''}<div class="recipe-actions"><button class="secondary" data-action="favourite" aria-pressed="${isFavourite(r)}">${isFavourite(r)?'★ Favourite':'☆ Mark as favourite'}</button>${!screen.snapshot?`<button class="secondary" data-action="tried">${status(r)==='Tried'?'Mark as not yet cooked':'Mark as tried'}</button>`:''}</div><h2 class="spaced">Ingredients</h2><div class="ingredients">${r.ingredients.map(i=>`<div class="ingredient-row"><span class="ingredient-quantity">${fmt(i.amount)} ${esc(i.unit||catalog[i.key]?.unit||'')}</span><span>${esc(i.name||catalog[i.key]?.name||i.key)}</span></div>`).join('')}</div><h2 class="spaced">Method</h2><ol class="steps">${r.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol><h2 class="spaced">Your comment</h2><label><textarea id="recipe-comment" rows="4" placeholder="Add a note about this recipe…">${esc(commentEdit?.id===r.id?commentEdit.text:commentFor(r))}</textarea></label><button class="secondary" data-action="comment">Save comment</button>`:'<p>This saved recipe could not be found.</p>'}</section>`;
   }
-  app.innerHTML=`<fieldset class="app-controls" ${busy?'disabled':''}>`+html+ (notice?`<p class="notice" role="status">${esc(notice)}</p>`:'') +(removedPlan?'<div class="content"><button class="secondary" data-action="undo-remove">Undo removal</button></div>':'')+nav()+`<section class="content cloud-controls"><p id="sync-status" class="sub" role="status">${busy?'Saving…':'Connected to your household'}</p><button class="secondary" data-action="lock">Lock planner</button>${incoming?'<button class="secondary" data-action="refresh-cloud">Load latest saves</button>':''}${legacy && (legacy.saved.length || legacy.draft?.ids.length || Object.keys(legacy.tried).length)?'<button class="secondary" data-action="import-local">Import this browser’s old saves</button>':''}<p class="image-credit">Photography via <a href="https://unsplash.com" target="_blank" rel="noreferrer">Unsplash</a></p></section></fieldset>`;
+  app.innerHTML=`<fieldset class="app-controls" ${busy?'disabled':''}>`+html+ (notice?`<p class="notice" role="status">${esc(notice)}</p>`:'') +(removedPlan?'<div class="content"><button class="secondary" data-action="undo-remove">Undo removal</button></div>':'')+nav()+`<section class="content cloud-controls"><p id="sync-status" class="sub" role="status">${busy?'Saving…':'Connected to your household'}</p><button class="secondary" data-action="lock">Lock planner</button>${incoming?'<button class="secondary" data-action="refresh-cloud">Load latest saves</button>':''}${legacy && (legacy.saved.length || legacy.draft?.ids.length || Object.keys(legacy.tried).length)?'<button class="secondary" data-action="import-local">Import this browser’s old saves</button>':''}<p class="image-credit">Images via <a href="https://unsplash.com" target="_blank" rel="noreferrer">Unsplash</a> and <a href="https://github.com/surhud004/Foodish" target="_blank" rel="noreferrer">Foodish</a></p></section></fieldset>`;
   if(!keepScroll)window.scrollTo(0,0);
 }
 function reuse(rows){return rows.filter(r=>r.meals.length>1).map(r=>`${r.name}: ${fmt(r.amount)} ${r.unit} across ${r.meals.join('; ')}`);}
@@ -245,6 +256,7 @@ async function start(){
       const response=await fetch(url,{cache:'no-cache'});if(!response.ok)throw new Error('Could not load the planner. Please reload.');return response.json();
     })),loadDevAuthPassword()]);
     [recipes,catalog,config]=loaded;
+    recipePhotos=assignRecipePhotos(recipes);
     devAuthPassword=localPassword;
     if(!config.firebase?.apiKey || !config.firebase?.authDomain || !config.firebase?.projectId || !config.firebase?.appId || !config.householdUid || !config.householdEmail){render();return;}
     cloud=await connectCloud(config,authenticated=>{

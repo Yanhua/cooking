@@ -16,6 +16,10 @@ For each new week:
 
 When information is missing, first use the stored preferences and previous feedback. Ask only questions that materially affect the plan.
 
+## Change delivery
+
+After each change made in response to a user request, commit the request-related changes and push the commit to the configured remote by default, unless the user explicitly says otherwise. Keep unrelated existing work out of the commit.
+
 ## Recipe development
 
 For explicitly requested recipe additions or improvements, use `.agents/skills/recipe-development/SKILL.md`. This project skill requires verified recipe sources, documented adaptations, and compatible recipe cards. Weekly planning remains selection-only.

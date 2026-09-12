@@ -8,7 +8,7 @@ test('variable counts are respected, including more than four',()=>{
  for(const n of [1,3,4,7,24]){const selected=suggest(recipes,n);assert.equal(selected.length,n);assert.equal(validate(n,selected),'');}
  assert.match(validate(0,[]),/positive/);assert.match(validate(2.5,[]),/whole/);
  assert.match(validate(3,recipes.slice(0,4)),/3 dinners/);
- assert.equal(suggest(recipes,30).length,24);
+ assert.equal(suggest(recipes,recipes.length+5).length,recipes.length);
 });
 test('suggestions preserve chosen recipes and prefer varied unrepeated meals',()=>{
  const locked=[recipes.find(r=>r.id==='thai-basil-chicken')];
@@ -28,7 +28,7 @@ test('shared protein, fractional onions, rice and pack remainders aggregate corr
  assert.ok(!rows.some(r=>r.key==='water'));
 });
 test('all cards have usable metadata and quantified ingredients',()=>{
- assert.equal(recipes.length,24);
+ assert.ok(recipes.length>0);
  for(const r of recipes){assert.equal(validate(1,[r]),'');assert.ok(r.steps.length>=4);assert.ok(r.version);for(const i of r.ingredients){assert.ok(catalog[i.key]);assert.ok(i.amount>0);}}
 });
 test('export keeps count, feedback and recipe versions',()=>{

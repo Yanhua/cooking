@@ -1,0 +1,32 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {changesFor,decodeRecords} from '../cloud-store.mjs';
+const record=(value,revision=1)=>({payload:JSON.stringify(value),revision});
+test('plan JSON round-trips nested arrays and full recipe snapshots',()=>{
+  const week={id:'2026-09-21',dinners:[['chicken','Chicken']],snapshots:[{steps:['Cook'],ingredients:[{amount:2}]}]};
+  const [change]=changesFor('dinner-plans-v1',[week],{});
+  assert.deepEqual(decodeRecords({[change.id]:record(week)},{}).saved,[week]);
+});
+test('saving feedback changes only its week, preserving other record revisions',()=>{
+  const one={id:'2026-09-21',feedback:''},two={id:'2026-09-28',feedback:'Keep'};
+  const records={'week-2026-09-21':record(one,3),'week-2026-09-28':record(two,7)};
+  assert.deepEqual(changesFor('dinner-plans-v1',[{...one,feedback:'Great'},two],records),[
+    {id:'week-2026-09-21',payload:JSON.stringify({...one,feedback:'Great'}),revision:3}
+  ]);
+});
+test('deletions retain tombstone revision and restoring uses it',()=>{
+  const week={id:'2026-09-21'};
+  assert.deepEqual(changesFor('dinner-plans-v1',[],{'week-2026-09-21':record(week,2)}),[
+    {id:'week-2026-09-21',payload:'null',revision:2}
+  ]);
+  const records={'week-2026-09-21':record(null,3)};
+  assert.deepEqual(decodeRecords(records,{}).saved,[]);
+  assert.equal(changesFor('dinner-plans-v1',[week],records)[0].revision,3);
+});
+test('tried status false and draft pack sizes survive decoding',()=>{
+  const draft={date:'2026-09-21',ids:['chicken'],count:1,packs:{chicken:500}};
+  assert.deepEqual(decodeRecords({draft:record(draft),'tried-chicken':record(false)},{}),{saved:[],draft,tried:{chicken:false}});
+});
+test('unchanged records produce no writes',()=>{
+  assert.deepEqual(changesFor('dinner-draft-v1',{ids:[]},{draft:record({ids:[]})}),[]);
+});

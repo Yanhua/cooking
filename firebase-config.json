@@ -1,0 +1,10 @@
+{
+  "firebase": {
+    "apiKey": "",
+    "authDomain": "",
+    "projectId": "",
+    "appId": ""
+  },
+  "householdEmail": "",
+  "householdUid": ""
+}

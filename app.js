@@ -1,16 +1,51 @@
 import { DEFAULT_COUNT, totals, validate, advisories, suggest, fmt, shoppingSections, exportMarkdown } from 'planner';
+import { connectCloud, changesFor, decodeRecords } from 'cloud-store';
 const app=document.querySelector('#app');
 let removedPlan=null;
 let recipes=[], published=[], catalog={}, screen={type:'weeks'}, returnScreen={type:'recipes'}, error='', notice='';
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function read(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback;}catch{return fallback;}}
-function persist(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true;}catch{notice='Browser storage is unavailable or full. Keep this page open and export your plan.';return false;}}
+let cloud=null, config=null, signedIn=false, ready=false, busy=false, authError='', records={}, incoming=null, feedbackEdit=null;
+const emptyDraft=()=>({date:today(),count:DEFAULT_COUNT,ids:[],packs:{}});
+let legacy=null;
+function applyRecords(next) {
+  records=next;
+  ({saved,tried,draft}=decodeRecords(records,emptyDraft()));
+  draft.packs ||= {};
+  ready=true;
+}
+async function persist(key,value){
+  if(!ready || !signedIn) throw new Error('Unlock the planner and wait for your saved data to load.');
+  const changes=changesFor(key,value,records);
+  await cloud.save(changes);
+  for(const change of changes) records[change.id]={payload:change.payload,revision:change.revision+1};
+  return true;
+}
+function saveMessage(e){
+  if(e.code==='app/conflict')return e.message;
+  if(e.code==='permission-denied')return 'Saving was denied. Check the household account and database rules.';
+  return 'Could not save to the cloud. Check your connection and try again. Your last saved data has been kept.';
+}
+async function mutate(action){
+  if(busy || !ready)return;
+  const before=JSON.stringify({saved,draft,tried});
+  busy=true;
+  const controls=app.querySelector('fieldset');if(controls)controls.disabled=true;
+  const sync=app.querySelector('#sync-status');if(sync)sync.textContent='Saving…';
+  try{await action();if(incoming && !feedbackEdit){const merged={...incoming};for(const [id,r] of Object.entries(records))if(!merged[id]||r.revision>merged[id].revision)merged[id]=r;applyRecords(merged);incoming=null;}}
+  catch(e){({saved,draft,tried}=JSON.parse(before));notice=saveMessage(e);}
+  finally{busy=false;render(true);}
+}
+function receiveRecords(next){
+  if((busy && ready) || feedbackEdit || ['week-date','meal-count'].includes(document.activeElement?.id) || document.activeElement?.dataset.pack){incoming=next;return;}
+  applyRecords(next);render(true);
+}
 const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
-let saved=read('dinner-plans-v1',[]);if(!Array.isArray(saved))saved=[];
-let draft=read('dinner-draft-v1',null);
-if(!draft||!Array.isArray(draft.ids))draft={date:today(),count:DEFAULT_COUNT,ids:[],packs:{}};
-draft.packs ||= {};
-let tried=read('dinner-tried-v1',{});
+legacy={saved:read('dinner-plans-v1',[]),draft:read('dinner-draft-v1',null),tried:read('dinner-tried-v1',{})};
+if(!Array.isArray(legacy.saved))legacy.saved=[];
+if(!legacy.draft || !Array.isArray(legacy.draft.ids))legacy.draft=null;
+if(!legacy.tried || typeof legacy.tried!=='object')legacy.tried={};
+let saved=[], draft=emptyDraft(), tried={};
 const status=r=>tried[r.id]===undefined?r.status:(tried[r.id]?'Tried':'Not yet cooked');
 let filters={search:'',cuisine:'',protein:'',status:'',time:'30'};
 const saveDraft=()=>persist('dinner-draft-v1',draft);
@@ -26,9 +61,15 @@ function filterUI(){return `<div class="filters"><label class="wide">Search reci
 function visibleRecipes(){return recipes.filter(r=>(!filters.cuisine||r.cuisine===filters.cuisine)&&(!filters.protein||r.protein===filters.protein)&&(!filters.status||status(r)===filters.status)&&r.activeMinutes<=Number(filters.time)&&`${r.title} ${r.ingredients.map(i=>catalog[i.key].name).join(' ')}`.toLowerCase().includes(filters.search.toLowerCase()));}
 function cards(planning){const recent=recentIds();const chosen=selected();const list=visibleRecipes();return list.length?list.map(r=>{const added=draft.ids.includes(r.id);const shared=r.ingredients.filter(i=>catalog[i.key].category!=='Pantry'&&catalog[i.key].category!=='Water'&&chosen.some(s=>s.id!==r.id&&s.ingredients.some(j=>j.key===i.key))).map(i=>catalog[i.key].name);return `<article class="card"><button class="recipe-link" data-recipe="${esc(r.id)}"><h3>${esc(r.title)}</h3></button><p>${esc(r.cuisine)} · ${r.activeMinutes} min active · Serves ${r.servings}</p><p>${esc(status(r))}${recent.includes(r.id)?' · Recently planned':''}</p>${planning?`${shared.length?`<p class="shared">Shares ${esc(shared.join(', '))}</p>`:''}<button class="secondary" data-toggle="${esc(r.id)}" ${!added&&draft.ids.length>=draft.count?'disabled':''}>${added?'Remove':'Add to week'}</button>`:''}</article>`;}).join(''):'<p>No recipes match these filters.</p>';}
 function render(keepScroll=false){
+  if(!config){app.innerHTML=header('Dinner, sorted','Connecting…');return;}
+  if(!config.firebase?.apiKey || !config.householdUid || !config.householdEmail){
+    app.innerHTML=header('One more step','Cloud saving needs to be connected.')+'<section class="content"><p>Finish the Firebase setup to unlock your shared planner. Existing browser saves are still on this device.</p><a href="./FIREBASE-SETUP.md">Setup instructions</a></section>';return;
+  }
+  if(!signedIn){app.innerHTML=header('Welcome home','Enter your household password to open the planner.')+`<section class="content"><form id="unlock-form"><label>Household password<input id="password" name="password" type="password" autocomplete="current-password" required ${busy?'disabled':''}></label><button class="primary" type="submit" ${busy||!cloud?'disabled':''}>${busy?'Unlocking…':'Unlock planner'}</button><p class="sub">This device will stay signed in until you lock it.</p>${authError?`<p class="notice" role="alert">${esc(authError)}</p>`:''}</form></section>`;return;}
+  if(!ready){app.innerHTML=header('Dinner, sorted',error||'Loading your saved plans…')+'<section class="content"><button class="secondary" data-action="reload">Retry</button><button class="secondary" data-action="lock">Lock planner</button></section>';return;}
   let html='';
   if(error){app.innerHTML=header('Could not load the planner',error)+'<section class="content"><button onclick="location.reload()">Retry</button></section>';return;}
-  if(screen.type==='weeks')html=header('Dinner, sorted','Choose dinners from your recipe library.')+`<section class="content"><button class="primary" data-action="plan">${draft.ids.length?'Continue draft':'Plan a week'}</button><h2 class="spaced">Saved weeks</h2>${weeks().map(w=>`<button class="card week-card" data-week="${esc(w.id)}"><span class="date">Week of ${esc(w.id)}</span><h3>${esc(w.title)}</h3><p>${w.mealCount} dinners · 2 people · ≤ 30 min active</p></button>`).join('')||'<p>No saved weeks yet.</p>'}<p class="sub">New plans are saved in this browser. Export them to keep a repository copy.</p></section>`;
+  if(screen.type==='weeks')html=header('Dinner, sorted','Choose dinners from your recipe library.')+`<section class="content"><button class="primary" data-action="plan">${draft.ids.length?'Continue draft':'Plan a week'}</button><h2 class="spaced">Saved weeks</h2>${weeks().map(w=>`<button class="card week-card" data-week="${esc(w.id)}"><span class="date">Week of ${esc(w.id)}</span><h3>${esc(w.title)}</h3><p>${w.mealCount} dinners · 2 people · ≤ 30 min active</p></button>`).join('')||'<p>No saved weeks yet.</p>'}<p class="sub">Plans and feedback sync across your devices.</p></section>`;
   if(screen.type==='recipes')html=header('Recipe library',`${recipes.length} recipes, ready to choose.`)+`<section class="content">${filterUI()}<div id="recipe-results">${cards(false)}</div></section>`;
   if(screen.type==='plan'){
     const chosen=selected(), problem=validate(draft.count,chosen);
@@ -41,7 +82,7 @@ function render(keepScroll=false){
   if(screen.type==='week'){
     const w=weeks().find(w=>w.id===screen.id);
     if(!w){screen={type:'weeks'};return render();}
-    html=header(`Week of ${w.id}`,`${w.mealCount} dinners · 2 people`)+`<section class="content">${back()}${w.dinners.map(([id,name])=>`<article class="dinner-row"><h3>${esc(name)}</h3><button data-recipe="${esc(id)}" data-snapshot="${esc(w.id)}">Open saved recipe →</button></article>`).join('')}<h2 class="spaced">Shopping list</h2>${shopping(w.shopping)}<h2 class="spaced">Ingredient reuse</h2><ul class="reuse">${w.reuse.map(s=>`<li>${esc(s)}</li>`).join('')}</ul><h2 class="spaced">After cooking</h2><label>Ratings, changes and whether to repeat<textarea id="feedback" rows="4">${esc(w.feedback||'')}</textarea></label><button class="secondary" data-action="feedback">Save feedback</button><div class="actions"><button class="primary" data-action="export">Export plan (.json)</button><button class="secondary" data-action="markdown">Export plan (.md)</button></div>${saved.some(s=>s.id===w.id)?'<button class="secondary" data-action="remove-local">Remove browser copy</button>':''}<p class="sub">JSON includes recipe snapshots and shopping totals. Save it in weeks/ and run the data builder to publish it.</p></section>`;
+    html=header(`Week of ${w.id}`,`${w.mealCount} dinners · 2 people`)+`<section class="content">${back()}${w.dinners.map(([id,name])=>`<article class="dinner-row"><h3>${esc(name)}</h3><button data-recipe="${esc(id)}" data-snapshot="${esc(w.id)}">Open saved recipe →</button></article>`).join('')}<h2 class="spaced">Shopping list</h2>${shopping(w.shopping)}<h2 class="spaced">Ingredient reuse</h2><ul class="reuse">${w.reuse.map(s=>`<li>${esc(s)}</li>`).join('')}</ul><h2 class="spaced">After cooking</h2><label>Ratings, changes and whether to repeat<textarea id="feedback" rows="4">${esc(feedbackEdit?.id===w.id?feedbackEdit.text:w.feedback||'')}</textarea></label><button class="secondary" data-action="feedback">Save feedback</button><div class="actions"><button class="primary" data-action="export">Export plan (.json)</button><button class="secondary" data-action="markdown">Export plan (.md)</button></div>${saved.some(s=>s.id===w.id)?'<button class="secondary" data-action="remove-local">Remove saved week</button>':''}<p class="sub">JSON includes recipe snapshots and shopping totals. Save it in weeks/ and run the data builder to publish it.</p></section>`;
   }
   if(screen.type==='export'){
     const w=weeks().find(w=>w.id===screen.id), json=screen.format==='json';
@@ -52,36 +93,58 @@ function render(keepScroll=false){
     const r=screen.snapshot?weeks().find(w=>w.id===screen.snapshot)?.snapshots?.find(r=>r.id===screen.id):recipes.find(r=>r.id===screen.id);
     html=header(r?.title||'Recipe unavailable')+`<section class="content">${back()}${r?`<p>${esc(r.cuisine)} · ${r.activeMinutes} min active · Serves ${r.servings}</p><p class="sub">${esc(status(r))} · ${esc(r.equipment.join(', '))}${screen.snapshot?' · Saved recipe version':''}</p>${r.notes?`<p class="advice">${esc(r.notes)}</p>`:''}${!screen.snapshot?`<button class="secondary" data-action="tried">${status(r)==='Tried'?'Mark as not yet cooked':'Mark as tried'}</button>`:''}<h2 class="spaced">Ingredients</h2><div class="ingredients">${r.ingredients.map(i=>`<div class="ingredient-row"><span class="ingredient-quantity">${fmt(i.amount)} ${esc(i.unit||catalog[i.key]?.unit||'')}</span><span>${esc(i.name||catalog[i.key]?.name||i.key)}</span></div>`).join('')}</div><h2 class="spaced">Method</h2><ol class="steps">${r.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol>`:'<p>This saved recipe could not be found.</p>'}</section>`;
   }
-  app.innerHTML=html+ (notice?`<p class="notice" role="status">${esc(notice)}</p>`:'') +(removedPlan?'<div class="content"><button class="secondary" data-action="undo-remove">Undo removal</button></div>':'')+nav();
+  app.innerHTML=`<fieldset class="app-controls" ${busy?'disabled':''}>`+html+ (notice?`<p class="notice" role="status">${esc(notice)}</p>`:'') +(removedPlan?'<div class="content"><button class="secondary" data-action="undo-remove">Undo removal</button></div>':'')+nav()+`<section class="content cloud-controls"><p id="sync-status" class="sub" role="status">${busy?'Saving…':'Connected to your household'}</p><button class="secondary" data-action="lock">Lock planner</button>${incoming?'<button class="secondary" data-action="refresh-cloud">Load latest saves</button>':''}${legacy && (legacy.saved.length || legacy.draft?.ids.length || Object.keys(legacy.tried).length)?'<button class="secondary" data-action="import-local">Import this browser’s old saves</button>':''}</section></fieldset>`;
   if(!keepScroll)window.scrollTo(0,0);
 }
 function reuse(rows){return rows.filter(r=>r.meals.length>1).map(r=>`${r.name}: ${fmt(r.amount)} ${r.unit} across ${r.meals.join('; ')}`);}
 function reuseHTML(rows){const lines=reuse(rows);return lines.length?`<ul class="reuse">${lines.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>`:'<p>No shared ingredients in this selection.</p>';}
 
-app.addEventListener('input',e=>{if(e.target.id==='meal-count'){const n=Number(e.target.value);if(Number.isSafeInteger(n)&&n>0){draft.count=n;notice=n<draft.ids.length?'Remove dinners to match the new count. Your selections have been kept.':'';saveDraft();render(true);document.querySelector('#meal-count').focus();}return;}if(e.target.id==='week-date'&&e.target.value){draft.date=e.target.value;saveDraft();return;}if(e.target.id==='search'){filters.search=e.target.value;document.querySelector('#recipe-results').innerHTML=cards(screen.type==='plan');}});
+app.addEventListener('submit',async e=>{
+  if(e.target.id!=='unlock-form')return;e.preventDefault();if(busy || !cloud)return;
+  const password=document.querySelector('#password').value;
+  busy=true;authError='';render(true);
+  try{await cloud.login(password);}catch(e){authError=e.code==='auth/too-many-requests'?'Too many attempts. Please wait and try again.':e.code==='auth/network-request-failed'?'Could not connect. Check your internet connection.':'Could not unlock the planner. Check the household password.';}
+  finally{busy=false;render(true);}
+});
+app.addEventListener('input',e=>{
+  if(e.target.id==='feedback')feedbackEdit={id:screen.id,text:e.target.value};
+  if(e.target.id==='search'){filters.search=e.target.value;document.querySelector('#recipe-results').innerHTML=cards(screen.type==='plan');}
+});
 app.addEventListener('change',e=>{
+  if(!e.target.dataset.filter && !e.target.dataset.pack && !['week-date','meal-count'].includes(e.target.id))return;
+  return mutate(async()=>{
   const el=e.target;
   if(el.dataset.filter){filters[el.dataset.filter]=el.value;render(true);}
-  if(el.id==='week-date'){if(el.value)draft.date=el.value;saveDraft();render(true);}
+  if(el.id==='week-date'){if(el.value)draft.date=el.value;await saveDraft();render(true);}
   if(el.id==='meal-count'){
     const n=Number(el.value);
     if(!Number.isSafeInteger(n)||n<1){notice='Enter a positive whole number of dinners.';render(true);return;}
-    draft.count=n;notice=n<draft.ids.length?'Remove dinners to match the new count. Your selections have been kept.':'';saveDraft();render(true);
+    draft.count=n;notice=n<draft.ids.length?'Remove dinners to match the new count. Your selections have been kept.':'';await saveDraft();render(true);
   }
-  if(el.dataset.pack){const n=Number(el.value);if(n>0&&Number.isFinite(n)){draft.packs[el.dataset.pack]=n;saveDraft();}render(true);}
+  if(el.dataset.pack){const n=Number(el.value);if(n>0&&Number.isFinite(n)){draft.packs[el.dataset.pack]=n;await saveDraft();}render(true);}
 });
-app.addEventListener('click',e=>{
+});
+app.addEventListener('click',async e=>{
   const b=e.target.closest('button');if(!b||b.disabled)return;
   const a=b.dataset.action;
+  if(a==='lock'){
+    if(busy)return;
+    try{await cloud.logout();feedbackEdit=null;incoming=null;removedPlan=null;notice='';records={};saved=[];draft=emptyDraft();tried={};ready=false;render();}catch{notice='Could not lock the planner. Please try again.';render();}return;
+  }
+  if(a==='reload'){location.reload();return;}
+  if(a==='refresh-cloud'){if(incoming){feedbackEdit=null;applyRecords(incoming);incoming=null;notice='Loaded the latest saves.';render();}return;}
+  if(!ready || busy)return;
+  // Navigation does not write data or discard an unsaved feedback field.
+  return mutate(async()=>{
   if(b.dataset.nav){screen={type:b.dataset.nav};notice='';}
   else if(b.dataset.week)screen={type:'week',id:b.dataset.week};
   else if(b.dataset.recipe){returnScreen={...screen};screen={type:'recipe',id:b.dataset.recipe,snapshot:b.dataset.snapshot};}
-  else if(b.dataset.toggle){const id=b.dataset.toggle;if(draft.ids.includes(id))draft.ids=draft.ids.filter(v=>v!==id);else if(draft.ids.length<draft.count)draft.ids.push(id);saveDraft();render(true);return;}
+  else if(b.dataset.toggle){const id=b.dataset.toggle;if(draft.ids.includes(id))draft.ids=draft.ids.filter(v=>v!==id);else if(draft.ids.length<draft.count)draft.ids.push(id);await saveDraft();render(true);return;}
   else if(a==='back')screen=screen.type==='recipe'?returnScreen:screen.type==='review'?{type:'plan'}:screen.type==='export'?{type:'week',id:screen.id}:{type:'weeks'};
   else if(a==='plan')screen={type:'plan'};
   else if(a==='suggest'){
     if(draft.count<draft.ids.length){notice='Remove dinners to match your chosen count first.';}
-    else {draft.ids=suggest(recipes,draft.count,recentIds(),selected()).map(r=>r.id);notice=draft.ids.length<draft.count?'The library does not have enough different recipes for this count. Add recipes separately or choose fewer dinners.':'';saveDraft();}
+    else {draft.ids=suggest(recipes,draft.count,recentIds(),selected()).map(r=>r.id);notice=draft.ids.length<draft.count?'The library does not have enough different recipes for this count. Add recipes separately or choose fewer dinners.':'';await saveDraft();}
   }
   else if(a==='review'){if(!validate(draft.count,selected()))screen={type:'review'};}
   else if(a==='save'){
@@ -90,13 +153,30 @@ app.addEventListener('click',e=>{
     if(weeks().some(w=>w.id===draft.date)){notice='A plan already exists for this date. Choose another date in the planner to keep both plans.';render();return;}
     const rows=totals(selected(),catalog,draft.packs);
     const w={id:draft.date,title:'Dinners from the recipe library',mealCount:draft.count,dinners:selected().map(r=>[r.id,r.title]),snapshots:JSON.parse(JSON.stringify(selected().map(r=>({...r,status:status(r),ingredients:r.ingredients.map(i=>({...i,name:catalog[i.key].name,unit:catalog[i.key].unit}))})))),shopping:shoppingSections(rows),reuse:reuse(rows),packSizes:{...draft.packs},feedback:''};
-    saved.push(w);const ok=persist('dinner-plans-v1',saved);screen={type:'week',id:w.id};draft={date:today(),count:w.mealCount,ids:[],packs:{}};saveDraft();if(ok)notice='Week saved in this browser. Export a copy to keep in the repository.';
+    const nextDraft={date:today(),count:w.mealCount,ids:[],packs:{}};
+    const changes=[...changesFor('dinner-plans-v1',[...saved,w],records),...changesFor('dinner-draft-v1',nextDraft,records)];
+    await cloud.save(changes);
+    for(const change of changes)records[change.id]={payload:change.payload,revision:change.revision+1};
+    saved.push(w);draft=nextDraft;screen={type:'week',id:w.id};notice='Week saved to your household.';
   }
-  else if(a==='remove-local'){removedPlan=saved.find(w=>w.id===screen.id);saved=saved.filter(w=>w.id!==screen.id);persist('dinner-plans-v1',saved);screen={type:'weeks'};notice='Browser copy removed. Published plans remain available.';}
-  else if(a==='undo-remove'){if(removedPlan){saved.push(removedPlan);persist('dinner-plans-v1',saved);removedPlan=null;notice='Browser copy restored.';}}
-  else if(a==='tried'){const r=recipes.find(r=>r.id===screen.id);tried[r.id]=status(r)!=='Tried';if(persist('dinner-tried-v1',tried))notice='Cooking status saved in this browser.';}
+  else if(a==='remove-local'){removedPlan=saved.find(w=>w.id===screen.id);saved=saved.filter(w=>w.id!==screen.id);await persist('dinner-plans-v1',saved);screen={type:'weeks'};notice='Saved week removed from your household. Published plans remain available.';}
+  else if(a==='undo-remove'){if(removedPlan){saved.push(removedPlan);await persist('dinner-plans-v1',saved);removedPlan=null;notice='Saved week restored.';}}
+  else if(a==='tried'){const r=recipes.find(r=>r.id===screen.id);tried[r.id]=status(r)!=='Tried';if(await persist('dinner-tried-v1',tried))notice='Cooking status saved to your household.';}
   else if(a==='feedback'){
-    const w=JSON.parse(JSON.stringify(weeks().find(w=>w.id===screen.id)));w.feedback=document.querySelector('#feedback').value;saved=saved.filter(s=>s.id!==w.id).concat(w);if(persist('dinner-plans-v1',saved))notice='Feedback saved in this browser; export to update the repository.';
+    const w=JSON.parse(JSON.stringify(weeks().find(w=>w.id===screen.id)));w.feedback=feedbackEdit?.id===w.id?feedbackEdit.text:document.querySelector('#feedback').value;saved=saved.filter(s=>s.id!==w.id).concat(w);if(await persist('dinner-plans-v1',saved))notice='Feedback saved to your household.';feedbackEdit=null;
+  }
+  else if(a==='import-local'){
+    // Import only absent records, including respecting cloud deletion tombstones.
+    const additions=legacy.saved.filter(w=>/^\d{4}-\d{2}-\d{2}$/.test(w.id)&&!records[`week-${w.id}`]);
+    const changes=changesFor('dinner-plans-v1',[...saved,...additions],records);
+    if(legacy.draft && !records.draft)changes.push(...changesFor('dinner-draft-v1',legacy.draft,records));
+    const importedTried=Object.fromEntries(Object.entries(legacy.tried).filter(([id])=>!records[`tried-${id}`]));
+    changes.push(...changesFor('dinner-tried-v1',importedTried,records));
+    await cloud.save(changes);
+    for(const change of changes)records[change.id]={payload:change.payload,revision:change.revision+1};
+    applyRecords(records);
+    notice=`Imported ${additions.length} weeks. Existing cloud saves were kept; original browser copies remain on this device.`;
+    legacy=null;
   }
   else if(a==='export'||a==='markdown'){
     screen={type:'export',id:screen.id,format:a==='export'?'json':'md'};
@@ -104,6 +184,23 @@ app.addEventListener('click',e=>{
   else if(a==='select-export'){document.querySelector('#export-text').select();return;}
   else return;
   render();
+  });
 });
 app.innerHTML=header('Dinner, sorted','Loading the recipe library…');
-Promise.all(['recipes','weeks','ingredients'].map(async name=>{const response=await fetch(`./data/${name}.json`,{cache:'no-cache'});if(!response.ok)throw new Error(`Could not load ${name}. Serve this folder over HTTP and run scripts/build-data.py after content changes.`);return response.json();})).then(([r,w,c])=>{recipes=r;published=w;catalog=c;const missing=draft.ids.filter(id=>!recipes.some(r=>r.id===id));if(missing.length){draft.ids=draft.ids.filter(id=>recipes.some(r=>r.id===id));notice='Some draft recipes are no longer in the library. Please choose replacements.';saveDraft();}}).catch(e=>error=e.message).finally(()=>render());
+async function start(){
+  try{
+    const loaded=await Promise.all(['./data/recipes.json','./data/weeks.json','./data/ingredients.json','./firebase-config.json'].map(async url=>{
+      const response=await fetch(url,{cache:'no-cache'});if(!response.ok)throw new Error('Could not load the planner. Please reload.');return response.json();
+    }));
+    [recipes,published,catalog,config]=loaded;
+    if(!config.firebase?.apiKey || !config.householdUid || !config.householdEmail){render();return;}
+    cloud=await connectCloud(config,authenticated=>{
+      signedIn=authenticated;ready=false;
+      if(!authenticated){saved=[];tried={};draft=emptyDraft();records={};incoming=null;feedbackEdit=null;screen={type:'weeks'};}
+      render(true);
+    },receiveRecords,e=>{error=saveMessage(e);ready=false;render(true);});
+    render(true);
+  }catch(e){app.innerHTML=header('Could not connect',e.message)+'<section class="content"><button onclick="location.reload()">Retry</button></section>';}
+}
+window.addEventListener('beforeunload',e=>{if(busy||feedbackEdit){e.preventDefault();e.returnValue='';}});
+start();

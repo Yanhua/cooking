@@ -179,6 +179,75 @@
     ]
   },
   {
+    "id": "chinese-tomato-eggs",
+    "cuisine": "Chinese",
+    "protein": "Eggs",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "fresh-tomato",
+        "amount": 500
+      },
+      {
+        "key": "spring",
+        "amount": 1
+      },
+      {
+        "key": "egg",
+        "amount": 4
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.25
+      },
+      {
+        "key": "sesame",
+        "amount": 0.5
+      },
+      {
+        "key": "shaoxing",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 3
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      },
+      {
+        "key": "water",
+        "amount": 360
+      }
+    ],
+    "notes": "Adapted from Sarah Leung, The Woks of Life. Black pepper and brown sugar replace white pepper and white sugar; reduced salt/sugar. About 35 minutes total including rice. Not yet household-tested.",
+    "title": "Chinese tomato and egg stir-fry with rice",
+    "path": "recipes/asian/chinese-tomato-eggs.md",
+    "version": "9d4983ad21ad",
+    "group": "asian",
+    "steps": [
+      "Put rice and 300 ml water in a small saucepan. Bring to a boil, cover, reduce to low and cook for 12\u201315 minutes until absorbed; rest covered off heat for 10 minutes. Check the rice packet and adjust the measured water if its instructions differ.",
+      "Meanwhile, prepare tomatoes and spring onion. Beat eggs with \u00bc tsp salt, pepper, sesame oil and wine.",
+      "Heat 2 tbsp oil in a wide frying pan over medium-high heat. Scramble eggs into soft curds, then transfer to a bowl.",
+      "Add remaining oil, tomatoes and all spring onion. Stir for 1 minute. Add sugar, remaining salt and 60 ml water; cover and simmer for 2\u20134 minutes until tomatoes and onion soften.",
+      "Fold eggs back in. Cook uncovered until eggs are fully set and sauce lightly coats them; leave enough juices for the rice. Divide rice and stir-fry between two bowls."
+    ]
+  },
+  {
     "id": "japanese-chicken-rice",
     "cuisine": "Japanese-inspired",
     "protein": "Chicken",

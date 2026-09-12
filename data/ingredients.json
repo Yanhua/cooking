@@ -340,5 +340,17 @@
     "unit": "tsp",
     "pack": null,
     "category": "Pantry"
+  },
+  "fresh-tomato": {
+    "name": "fresh tomatoes",
+    "unit": "g",
+    "pack": 500,
+    "category": "Fresh"
+  },
+  "shaoxing": {
+    "name": "Shaoxing cooking wine",
+    "unit": "tsp",
+    "pack": null,
+    "category": "Pantry"
   }
 }

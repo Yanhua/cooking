@@ -70,7 +70,9 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .recipe-actions { display:flex; flex-wrap:wrap; gap:10px; margin:13px 0 2px; }
 .spaced { margin:24px 0 14px; }
 .selection { background:var(--cream); padding:15px; border-radius:12px; margin-bottom:22px; }
-.chosen { display:flex; justify-content:space-between; align-items:center; gap:12px; border-bottom:1px solid var(--line); padding:5px 0; font-size:14px; }
+.chosen { display:grid; grid-template-columns:minmax(0,1fr) auto auto; align-items:center; gap:12px; border-bottom:1px solid var(--line); padding:5px 0; font-size:14px; }
+.chosen .recipe-link { min-width:0; }
+.chosen .secondary { white-space:nowrap; }
 .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
 .advice,.notice { padding:12px; background:#fff0db; border-radius:10px; font-size:14px; line-height:1.5; }
 .notice { margin:16px 20px; }

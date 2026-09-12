@@ -5,12 +5,12 @@ let removedPlan=null;
 let recipes=[], catalog={}, screen={type:'weeks'}, returnScreen={type:'recipes'}, error='', notice='';
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function read(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback;}catch{return fallback;}}
-let cloud=null, config=null, signedIn=false, ready=false, busy=false, authError='', records={}, incoming=null, feedbackEdit=null;
+let cloud=null, config=null, signedIn=false, ready=false, busy=false, authError='', records={}, incoming=null, feedbackEdit=null, commentEdit=null;
 const emptyDraft=()=>({date:today(),count:DEFAULT_COUNT,ids:[],packs:{}});
 let legacy=null;
 function applyRecords(next) {
   records=next;
-  ({saved,tried,draft}=decodeRecords(records,emptyDraft()));
+  ({saved,tried,comments,favourites,draft}=decodeRecords(records,emptyDraft()));
   draft.packs ||= {};
   ready=true;
 }
@@ -28,16 +28,16 @@ function saveMessage(e){
 }
 async function mutate(action){
   if(busy || !ready)return;
-  const before=JSON.stringify({saved,draft,tried});
+  const before=JSON.stringify({saved,draft,tried,comments,favourites});
   busy=true;
   const controls=app.querySelector('fieldset');if(controls)controls.disabled=true;
   const sync=app.querySelector('#sync-status');if(sync)sync.textContent='Saving…';
-  try{await action();if(incoming && !feedbackEdit){const merged={...incoming};for(const [id,r] of Object.entries(records))if(!merged[id]||r.revision>merged[id].revision)merged[id]=r;applyRecords(merged);incoming=null;}}
-  catch(e){({saved,draft,tried}=JSON.parse(before));notice=saveMessage(e);}
+  try{await action();if(incoming && !feedbackEdit && !commentEdit){const merged={...incoming};for(const [id,r] of Object.entries(records))if(!merged[id]||r.revision>merged[id].revision)merged[id]=r;applyRecords(merged);incoming=null;}}
+  catch(e){({saved,draft,tried,comments,favourites}=JSON.parse(before));notice=saveMessage(e);}
   finally{busy=false;render(true);}
 }
 function receiveRecords(next){
-  if((busy && ready) || feedbackEdit || ['week-date','meal-count'].includes(document.activeElement?.id) || document.activeElement?.dataset.pack){incoming=next;return;}
+  if((busy && ready) || feedbackEdit || commentEdit || ['week-date','meal-count'].includes(document.activeElement?.id) || document.activeElement?.dataset.pack){incoming=next;return;}
   applyRecords(next);render(true);
 }
 const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
@@ -45,8 +45,10 @@ legacy={saved:read('dinner-plans-v1',[]),draft:read('dinner-draft-v1',null),trie
 if(!Array.isArray(legacy.saved))legacy.saved=[];
 if(!legacy.draft || !Array.isArray(legacy.draft.ids))legacy.draft=null;
 if(!legacy.tried || typeof legacy.tried!=='object')legacy.tried={};
-let saved=[], draft=emptyDraft(), tried={};
+let saved=[], draft=emptyDraft(), tried={}, comments={}, favourites={};
 const status=r=>tried[r.id]===undefined?r.status:(tried[r.id]?'Tried':'Not yet cooked');
+const commentFor=r=>typeof comments[r.id]==='string'?comments[r.id]:'';
+const isFavourite=r=>favourites[r.id]===true;
 let filters={search:'',cuisine:'',protein:'',status:'',time:'30'};
 const saveDraft=()=>persist('dinner-draft-v1',draft);
 const weeks=()=>[...saved].sort((a,b)=>b.id.localeCompare(a.id));
@@ -59,7 +61,7 @@ const shopping=sections=>sections.map(g=>`<div class="shopping-group"><h3>${esc(
 function options(values,current){return '<option value="">All</option>'+[...new Set(values)].sort().map(v=>`<option ${v===current?'selected':''} value="${esc(v)}">${esc(v)}</option>`).join('');}
 function filterUI(){return `<div class="filters"><label class="wide">Search recipes<input id="search" type="search" value="${esc(filters.search)}" placeholder="Recipe or ingredient"></label><label>Cuisine<select data-filter="cuisine">${options(recipes.map(r=>r.cuisine),filters.cuisine)}</select></label><label>Protein<select data-filter="protein">${options(recipes.map(r=>r.protein),filters.protein)}</select></label><label>Cooking status<select data-filter="status">${options(['Not yet cooked','Tried'],filters.status)}</select></label><label>Active time<select data-filter="time">${[15,20,25,30].map(t=>`<option value="${t}" ${String(t)===filters.time?'selected':''}>≤ ${t} minutes</option>`).join('')}</select></label></div>`;}
 function visibleRecipes(){return recipes.filter(r=>(!filters.cuisine||r.cuisine===filters.cuisine)&&(!filters.protein||r.protein===filters.protein)&&(!filters.status||status(r)===filters.status)&&r.activeMinutes<=Number(filters.time)&&`${r.title} ${r.ingredients.map(i=>catalog[i.key].name).join(' ')}`.toLowerCase().includes(filters.search.toLowerCase()));}
-function cards(planning){const recent=recentIds();const chosen=selected();const list=visibleRecipes();return list.length?list.map(r=>{const added=draft.ids.includes(r.id);const shared=r.ingredients.filter(i=>catalog[i.key].category!=='Pantry'&&catalog[i.key].category!=='Water'&&chosen.some(s=>s.id!==r.id&&s.ingredients.some(j=>j.key===i.key))).map(i=>catalog[i.key].name);return `<article class="card"><button class="recipe-link" data-recipe="${esc(r.id)}"><h3>${esc(r.title)}</h3></button><p>${esc(r.cuisine)} · ${r.activeMinutes} min active · Serves ${r.servings}</p><p>${esc(status(r))}${recent.includes(r.id)?' · Recently planned':''}</p>${planning?`${shared.length?`<p class="shared">Shares ${esc(shared.join(', '))}</p>`:''}<button class="secondary" data-toggle="${esc(r.id)}" ${!added&&draft.ids.length>=draft.count?'disabled':''}>${added?'Remove':'Add to week'}</button>`:''}</article>`;}).join(''):'<p>No recipes match these filters.</p>';}
+function cards(planning){const recent=recentIds();const chosen=selected();const list=visibleRecipes();return list.length?list.map(r=>{const added=draft.ids.includes(r.id);const shared=r.ingredients.filter(i=>catalog[i.key].category!=='Pantry'&&catalog[i.key].category!=='Water'&&chosen.some(s=>s.id!==r.id&&s.ingredients.some(j=>j.key===i.key))).map(i=>catalog[i.key].name);return `<article class="card"><div class="recipe-card-header"><button class="recipe-link" data-recipe="${esc(r.id)}"><h3>${esc(r.title)}</h3></button><button class="favourite-button ${isFavourite(r)?'selected':''}" data-favourite="${esc(r.id)}" aria-label="${isFavourite(r)?'Remove':'Mark'} ${esc(r.title)} as favourite" aria-pressed="${isFavourite(r)}">★</button></div><p>${esc(r.cuisine)} · ${r.activeMinutes} min active · Serves ${r.servings}</p><p>${esc(status(r))}${recent.includes(r.id)?' · Recently planned':''}</p>${planning?`${shared.length?`<p class="shared">Shares ${esc(shared.join(', '))}</p>`:''}<button class="secondary" data-toggle="${esc(r.id)}" ${!added&&draft.ids.length>=draft.count?'disabled':''}>${added?'Remove':'Add to week'}</button>`:''}</article>`;}).join(''):'<p>No recipes match these filters.</p>';}
 function render(keepScroll=false){
   if(!config){app.innerHTML=header('Dinner, sorted','Connecting…');return;}
   if(!config.firebase?.apiKey || !config.firebase?.authDomain || !config.firebase?.projectId || !config.firebase?.appId || !config.householdUid || !config.householdEmail){
@@ -73,7 +75,7 @@ function render(keepScroll=false){
   if(screen.type==='recipes')html=header('Recipe library',`${recipes.length} recipes, ready to choose.`)+`<section class="content">${filterUI()}<div id="recipe-results">${cards(false)}</div></section>`;
   if(screen.type==='plan'){
     const chosen=selected(), problem=validate(draft.count,chosen);
-    html=header('Plan a week','Pick your dinners, then review the shopping list.')+`<section class="content"><div class="filters"><label>Week beginning<input id="week-date" type="date" value="${esc(draft.date)}"></label><label>Number of dinners<input id="meal-count" type="number" min="1" step="1" value="${esc(draft.count)}"></label></div><div class="selection"><h2>${chosen.length} / ${esc(draft.count)} dinners selected</h2>${chosen.map(r=>`<div class="chosen"><button class="recipe-link" data-recipe="${esc(r.id)}">${esc(r.title)}</button><button class="secondary" data-toggle="${esc(r.id)}" aria-label="Remove ${esc(r.title)}">Remove</button></div>`).join('')}<div class="actions"><button class="secondary" data-action="suggest">Suggest remaining dinners</button><button class="primary" data-action="review" ${problem?'disabled':''}>Review week</button></div>${problem?`<p class="sub">${esc(problem)}</p>`:''}</div>${filterUI()}<div id="recipe-results">${cards(true)}</div></section>`;
+    html=header('Plan a week','Pick your dinners, then review the shopping list.')+`<section class="content"><div class="filters"><label>Week beginning<input id="week-date" type="date" value="${esc(draft.date)}"></label><label>Number of dinners<input id="meal-count" type="number" min="1" step="1" value="${esc(draft.count)}"></label></div><div class="selection"><h2>${chosen.length} / ${esc(draft.count)} dinners selected</h2>${chosen.map(r=>`<div class="chosen"><button class="recipe-link" data-recipe="${esc(r.id)}">${esc(r.title)}</button><button class="secondary" data-swap="${esc(r.id)}" aria-label="Swap ${esc(r.title)} for another dinner">Swap</button><button class="secondary" data-toggle="${esc(r.id)}" aria-label="Remove ${esc(r.title)}">Remove</button></div>`).join('')}<div class="actions"><button class="secondary" data-action="suggest">Suggest remaining dinners</button><button class="primary" data-action="review" ${problem?'disabled':''}>Review week</button></div>${problem?`<p class="sub">${esc(problem)}</p>`:''}</div>${filterUI()}<div id="recipe-results">${cards(true)}</div></section>`;
   }
   if(screen.type==='review'){
     const chosen=selected(), rows=totals(chosen,catalog,draft.packs);
@@ -91,7 +93,7 @@ function render(keepScroll=false){
   }
   if(screen.type==='recipe'){
     const r=screen.snapshot?weeks().find(w=>w.id===screen.snapshot)?.snapshots?.find(r=>r.id===screen.id):recipes.find(r=>r.id===screen.id);
-    html=header(r?.title||'Recipe unavailable')+`<section class="content">${back()}${r?`<p>${esc(r.cuisine)} · ${r.activeMinutes} min active · Serves ${r.servings}</p><p class="sub">${esc(status(r))} · ${esc(r.equipment.join(', '))}${screen.snapshot?' · Saved recipe version':''}</p>${r.notes?`<p class="advice">${esc(r.notes)}</p>`:''}${!screen.snapshot?`<button class="secondary" data-action="tried">${status(r)==='Tried'?'Mark as not yet cooked':'Mark as tried'}</button>`:''}<h2 class="spaced">Ingredients</h2><div class="ingredients">${r.ingredients.map(i=>`<div class="ingredient-row"><span class="ingredient-quantity">${fmt(i.amount)} ${esc(i.unit||catalog[i.key]?.unit||'')}</span><span>${esc(i.name||catalog[i.key]?.name||i.key)}</span></div>`).join('')}</div><h2 class="spaced">Method</h2><ol class="steps">${r.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol>`:'<p>This saved recipe could not be found.</p>'}</section>`;
+    html=header(r?.title||'Recipe unavailable')+`<section class="content">${back()}${r?`<p>${esc(r.cuisine)} · ${r.activeMinutes} min active · Serves ${r.servings}</p><p class="sub">${esc(status(r))} · ${esc(r.equipment.join(', '))}${screen.snapshot?' · Saved recipe version':''}</p>${r.notes?`<p class="advice">${esc(r.notes)}</p>`:''}<div class="recipe-actions"><button class="secondary" data-action="favourite" aria-pressed="${isFavourite(r)}">${isFavourite(r)?'★ Favourite':'☆ Mark as favourite'}</button>${!screen.snapshot?`<button class="secondary" data-action="tried">${status(r)==='Tried'?'Mark as not yet cooked':'Mark as tried'}</button>`:''}</div><h2 class="spaced">Your comment</h2><label><textarea id="recipe-comment" rows="4" placeholder="Add a note about this recipe…">${esc(commentEdit?.id===r.id?commentEdit.text:commentFor(r))}</textarea></label><button class="secondary" data-action="comment">Save comment</button><h2 class="spaced">Ingredients</h2><div class="ingredients">${r.ingredients.map(i=>`<div class="ingredient-row"><span class="ingredient-quantity">${fmt(i.amount)} ${esc(i.unit||catalog[i.key]?.unit||'')}</span><span>${esc(i.name||catalog[i.key]?.name||i.key)}</span></div>`).join('')}</div><h2 class="spaced">Method</h2><ol class="steps">${r.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol>`:'<p>This saved recipe could not be found.</p>'}</section>`;
   }
   app.innerHTML=`<fieldset class="app-controls" ${busy?'disabled':''}>`+html+ (notice?`<p class="notice" role="status">${esc(notice)}</p>`:'') +(removedPlan?'<div class="content"><button class="secondary" data-action="undo-remove">Undo removal</button></div>':'')+nav()+`<section class="content cloud-controls"><p id="sync-status" class="sub" role="status">${busy?'Saving…':'Connected to your household'}</p><button class="secondary" data-action="lock">Lock planner</button>${incoming?'<button class="secondary" data-action="refresh-cloud">Load latest saves</button>':''}${legacy && (legacy.saved.length || legacy.draft?.ids.length || Object.keys(legacy.tried).length)?'<button class="secondary" data-action="import-local">Import this browser’s old saves</button>':''}</section></fieldset>`;
   if(!keepScroll)window.scrollTo(0,0);
@@ -108,6 +110,7 @@ app.addEventListener('submit',async e=>{
 });
 app.addEventListener('input',e=>{
   if(e.target.id==='feedback')feedbackEdit={id:screen.id,text:e.target.value};
+  if(e.target.id==='recipe-comment')commentEdit={id:screen.id,text:e.target.value};
   if(e.target.id==='search'){filters.search=e.target.value;document.querySelector('#recipe-results').innerHTML=cards(screen.type==='plan');}
 });
 app.addEventListener('change',e=>{
@@ -129,7 +132,7 @@ app.addEventListener('click',async e=>{
   const a=b.dataset.action;
   if(a==='lock'){
     if(busy)return;
-    try{await cloud.logout();feedbackEdit=null;incoming=null;removedPlan=null;notice='';records={};saved=[];draft=emptyDraft();tried={};ready=false;render();}catch{notice='Could not lock the planner. Please try again.';render();}return;
+    try{await cloud.logout();feedbackEdit=null;commentEdit=null;incoming=null;removedPlan=null;notice='';records={};saved=[];draft=emptyDraft();tried={};comments={};favourites={};ready=false;render();}catch{notice='Could not lock the planner. Please try again.';render();}return;
   }
   if(a==='reload'){location.reload();return;}
   if(a==='refresh-cloud'){if(incoming){feedbackEdit=null;applyRecords(incoming);incoming=null;notice='Loaded the latest saves.';render();}return;}
@@ -139,7 +142,14 @@ app.addEventListener('click',async e=>{
   if(b.dataset.nav){screen={type:b.dataset.nav};notice='';}
   else if(b.dataset.week)screen={type:'week',id:b.dataset.week};
   else if(b.dataset.recipe){returnScreen={...screen};screen={type:'recipe',id:b.dataset.recipe,snapshot:b.dataset.snapshot};}
+  else if(b.dataset.favourite){const id=b.dataset.favourite;favourites={...favourites,[id]:!favourites[id]};if(await persist('dinner-favourites-v1',favourites))notice=favourites[id]?'Recipe added to favourites.':'Recipe removed from favourites.';}
   else if(b.dataset.toggle){const id=b.dataset.toggle;if(draft.ids.includes(id))draft.ids=draft.ids.filter(v=>v!==id);else if(draft.ids.length<draft.count)draft.ids.push(id);await saveDraft();render(true);return;}
+  else if(b.dataset.swap){
+    const id=b.dataset.swap, current=selected(), locked=current.filter(r=>r.id!==id);
+    const replacement=suggest(recipes,draft.count,recentIds(),locked,[id]).find(r=>!locked.some(s=>s.id===r.id));
+    if(replacement){draft.ids=draft.ids.map(v=>v===id?replacement.id:v);notice=`Swapped in ${replacement.title}.`;await saveDraft();}
+    else notice='No different recipe is available to swap in.';
+  }
   else if(a==='back')screen=screen.type==='recipe'?returnScreen:screen.type==='review'?{type:'plan'}:screen.type==='export'?{type:'week',id:screen.id}:{type:'weeks'};
   else if(a==='plan')screen={type:'plan'};
   else if(a==='suggest'){
@@ -162,6 +172,11 @@ app.addEventListener('click',async e=>{
   else if(a==='remove-local'){removedPlan=saved.find(w=>w.id===screen.id);saved=saved.filter(w=>w.id!==screen.id);await persist('dinner-plans-v1',saved);screen={type:'weeks'};notice='Saved week removed from your household.';}
   else if(a==='undo-remove'){if(removedPlan){saved.push(removedPlan);await persist('dinner-plans-v1',saved);removedPlan=null;notice='Saved week restored.';}}
   else if(a==='tried'){const r=recipes.find(r=>r.id===screen.id);tried[r.id]=status(r)!=='Tried';if(await persist('dinner-tried-v1',tried))notice='Cooking status saved to your household.';}
+  else if(a==='favourite'){const r=recipes.find(r=>r.id===screen.id);if(r){favourites={...favourites,[r.id]:!isFavourite(r)};if(await persist('dinner-favourites-v1',favourites))notice=favourites[r.id]?'Recipe added to favourites.':'Recipe removed from favourites.';}}
+  else if(a==='comment'){
+    const r=recipes.find(r=>r.id===screen.id), text=commentEdit?.id===screen.id?commentEdit.text:document.querySelector('#recipe-comment')?.value||'';
+    if(r){comments={...comments,[r.id]:text};if(await persist('dinner-comments-v1',comments))notice=text?'Recipe comment saved to your household.':'Recipe comment cleared.';commentEdit=null;}
+  }
   else if(a==='feedback'){
     const w=JSON.parse(JSON.stringify(weeks().find(w=>w.id===screen.id)));w.feedback=feedbackEdit?.id===w.id?feedbackEdit.text:document.querySelector('#feedback').value;saved=saved.filter(s=>s.id!==w.id).concat(w);if(await persist('dinner-plans-v1',saved))notice='Feedback saved to your household.';feedbackEdit=null;
   }
@@ -196,11 +211,11 @@ async function start(){
     if(!config.firebase?.apiKey || !config.firebase?.authDomain || !config.firebase?.projectId || !config.firebase?.appId || !config.householdUid || !config.householdEmail){render();return;}
     cloud=await connectCloud(config,authenticated=>{
       signedIn=authenticated;ready=false;
-      if(!authenticated){saved=[];tried={};draft=emptyDraft();records={};incoming=null;feedbackEdit=null;screen={type:'weeks'};}
+      if(!authenticated){saved=[];tried={};comments={};favourites={};draft=emptyDraft();records={};incoming=null;feedbackEdit=null;commentEdit=null;screen={type:'weeks'};}
       render(true);
     },receiveRecords,e=>{error=saveMessage(e);ready=false;render(true);});
     render(true);
   }catch(e){app.innerHTML=header('Could not connect',e.message)+'<section class="content"><button onclick="location.reload()">Retry</button></section>';}
 }
-window.addEventListener('beforeunload',e=>{if(busy||feedbackEdit){e.preventDefault();e.returnValue='';}});
+window.addEventListener('beforeunload',e=>{if(busy||feedbackEdit||commentEdit){e.preventDefault();e.returnValue='';}});
 start();

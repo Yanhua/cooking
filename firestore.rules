@@ -10,7 +10,7 @@ service cloud.firestore {
     match /households/{uid}/records/{recordId} {
       allow read: if householdMember(uid);
       allow create, update: if householdMember(uid)
-        && recordId.matches('^(draft|week-[0-9]{4}-[0-9]{2}-[0-9]{2}|tried-[a-z0-9-]+)$')
+        && recordId.matches('^(draft|week-[0-9]{4}-[0-9]{2}-[0-9]{2}|tried-[a-z0-9-]+|comment-[a-z0-9-]+|favourite-[a-z0-9-]+)$')
         && request.resource.data.keys().hasOnly(['payload', 'revision', 'updatedAt'])
         && request.resource.data.payload is string
         && request.resource.data.payload.size() < 900000

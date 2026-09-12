@@ -30,9 +30,10 @@ export function advisories(selected,recentIds=[]) {
   if(recent.length) notes.push(`Recently planned: ${recent.map(r=>r.title).join(', ')}.`);
   return notes;
 }
-export function suggest(recipes,count,recentIds=[],locked=[]) {
+export function suggest(recipes,count,recentIds=[],locked=[],excludedIds=[]) {
   const chosen=[...locked];
-  const candidates=recipes.filter(r=>r.servings===2&&r.activeMinutes<=30&&!chosen.some(s=>s.id===r.id));
+  const excluded=new Set(excludedIds);
+  const candidates=recipes.filter(r=>r.servings===2&&r.activeMinutes<=30&&!excluded.has(r.id)&&!chosen.some(s=>s.id===r.id));
   while(chosen.length<count && candidates.length) {
     const score=r=> (recentIds.includes(r.id)?-20:0) + (chosen.some(s=>cuisineFamily(s)===cuisineFamily(r))?-8:8) + (chosen.some(s=>s.group===r.group)?0:5) + (['Thai','Chinese'].includes(cuisineFamily(r))?2:0) + r.ingredients.reduce((score,i)=>score+(chosen.some(s=>s.ingredients.some(j=>j.key===i.key)) ? (['chicken','pork','beef','tofu'].includes(i.key)?6:['onion','garlic','rice','oil','soy','sugar','salt','pepper','water'].includes(i.key)?.1:1) : 0),0);
     candidates.sort((a,b)=>score(b)-score(a)||a.title.localeCompare(b.title));

@@ -62,6 +62,12 @@ input, select, textarea { width:100%; margin:6px 0 12px; border:1px solid var(--
 button:disabled { opacity:.45; cursor:default; }
 button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible { outline:3px solid var(--olive); outline-offset:3px; }
 .recipe-link { display:block; text-align:left; border:0; background:none; padding:0; cursor:pointer; color:var(--ink); }
+.recipe-card-header { display:flex; align-items:flex-start; gap:10px; }
+.recipe-card-header .recipe-link { flex:1; min-width:0; }
+.favourite-button { flex:0 0 auto; border:0; background:none; padding:0 2px; color:var(--muted); cursor:pointer; font-size:23px; line-height:1; }
+.favourite-button.selected { color:var(--sun); }
+.favourite-button:focus-visible { outline:3px solid var(--olive); outline-offset:3px; border-radius:4px; }
+.recipe-actions { display:flex; flex-wrap:wrap; gap:10px; margin:13px 0 2px; }
 .spaced { margin:24px 0 14px; }
 .selection { background:var(--cream); padding:15px; border-radius:12px; margin-bottom:22px; }
 .chosen { display:flex; justify-content:space-between; align-items:center; gap:12px; border-bottom:1px solid var(--line); padding:5px 0; font-size:14px; }

@@ -18,6 +18,13 @@ test('suggestions preserve chosen recipes and prefer varied unrepeated meals',()
  assert.ok(!result.some(r=>recent.includes(r.id)));
  assert.equal(new Set(result.map(r=>r.group)).size,2);
 });
+test('suggestions can exclude a recipe when swapping it out',()=>{
+ const locked=['thai-basil-chicken','creamy-tomato-pork-spaghetti','mexican-pork-corn-skillet'].map(id=>recipes.find(r=>r.id===id));
+ const result=suggest(recipes,4,[],locked,['vietnamese-caramel-chicken']);
+ assert.equal(result.length,4);
+ assert.ok(!result.some(r=>r.id==='vietnamese-caramel-chicken'));
+ assert.deepEqual(result.slice(0,3).map(r=>r.id),locked.map(r=>r.id));
+});
 test('shared protein, fractional onions, rice and pack remainders aggregate correctly',()=>{
  const chosen=['creamy-tomato-pork-spaghetti','mexican-pork-corn-skillet'].map(id=>recipes.find(r=>r.id===id));
  const rows=totals(chosen,catalog);

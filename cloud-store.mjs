@@ -6,6 +6,12 @@ export function changesFor(key, value, records) {
     const payload = JSON.stringify(data);
     if (records[id]?.payload !== payload) changes.push({id, payload, revision: records[id]?.revision || 0});
   };
+  const addMap = (prefix, map) => {
+    for (const [id, item] of Object.entries(map)) add(`${prefix}-${id}`, item);
+    for (const [id, record] of Object.entries(records)) {
+      if (id.startsWith(`${prefix}-`) && record.payload !== 'null' && !Object.hasOwn(map, id.slice(prefix.length + 1))) add(id, null);
+    }
+  };
   if (key === 'dinner-plans-v1') {
     for (const week of value) add(`week-${week.id}`, week);
     for (const [id, record] of Object.entries(records)) {
@@ -14,21 +20,26 @@ export function changesFor(key, value, records) {
   } else if (key === 'dinner-draft-v1') add('draft', value);
   else if (key === 'dinner-tried-v1') {
     for (const [id, tried] of Object.entries(value)) add(`tried-${id}`, tried);
-  } else throw new Error('Unknown save type');
+  }
+  else if (key === 'dinner-comments-v1') addMap('comment', value);
+  else if (key === 'dinner-favourites-v1') addMap('favourite', value);
+  else throw new Error('Unknown save type');
   return changes;
 }
 
 export function decodeRecords(records, emptyDraft) {
-  const saved = [], tried = {};
+  const saved = [], tried = {}, comments = {}, favourites = {};
   let draft = emptyDraft;
   for (const [id, record] of Object.entries(records)) {
     const value = JSON.parse(record.payload);
     if (value === null) continue;
     if (id.startsWith('week-')) saved.push(value);
     else if (id.startsWith('tried-')) tried[id.slice(6)] = value;
+    else if (id.startsWith('comment-')) comments[id.slice(8)] = value;
+    else if (id.startsWith('favourite-')) favourites[id.slice(10)] = value;
     else if (id === 'draft') draft = value;
   }
-  return {saved, tried, draft};
+  return {saved, tried, comments, favourites, draft};
 }
 
 export async function connectCloud(config, onAuth, onRecords, onError) {

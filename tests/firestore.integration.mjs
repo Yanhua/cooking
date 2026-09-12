@@ -20,6 +20,8 @@ const path='households/household-test/records';
 const data=(revision=1)=>({payload:'{"ids":[]}',revision,updatedAt:sdk.serverTimestamp()});
 test('only the household UID can read and write records',async()=>{
   await assertSucceeds(sdk.setDoc(sdk.doc(owner,path,'draft'),data()));
+  await assertSucceeds(sdk.setDoc(sdk.doc(owner,path,'comment-chicken'),data()));
+  await assertSucceeds(sdk.setDoc(sdk.doc(owner,path,'favourite-chicken'),data()));
   await assertSucceeds(sdk.getDoc(sdk.doc(owner,path,'draft')));
   for(const db of [env.unauthenticatedContext().firestore(),env.authenticatedContext('stranger').firestore()]){
     await assertFails(sdk.getDoc(sdk.doc(db,path,'draft')));
@@ -32,6 +34,7 @@ test('rules deny malformed documents, stale revisions and hard deletes',async()=
   await assertFails(sdk.setDoc(sdk.doc(owner,path,'draft'),data(1)));
   await assertFails(sdk.setDoc(sdk.doc(owner,path,'draft'),{...data(2),extra:true}));
   await assertFails(sdk.setDoc(sdk.doc(owner,path,'invalid'),data()));
+  await assertFails(sdk.setDoc(sdk.doc(owner,path,'comment-Chicken'),data()));
   await assertFails(sdk.deleteDoc(sdk.doc(owner,path,'draft')));
   await assertSucceeds(sdk.setDoc(sdk.doc(owner,path,'draft'),data(2)));
 });

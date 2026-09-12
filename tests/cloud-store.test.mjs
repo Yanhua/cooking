@@ -23,9 +23,18 @@ test('deletions retain tombstone revision and restoring uses it',()=>{
   assert.deepEqual(decodeRecords(records,{}).saved,[]);
   assert.equal(changesFor('dinner-plans-v1',[week],records)[0].revision,3);
 });
-test('tried status false and draft pack sizes survive decoding',()=>{
+test('recipe comments, favourites, tried status and draft pack sizes survive decoding',()=>{
   const draft={date:'2026-09-21',ids:['chicken'],count:1,packs:{chicken:500}};
-  assert.deepEqual(decodeRecords({draft:record(draft),'tried-chicken':record(false)},{}),{saved:[],draft,tried:{chicken:false}});
+  assert.deepEqual(decodeRecords({draft:record(draft),'tried-chicken':record(false),'comment-chicken':record('Use less salt'),'favourite-chicken':record(true)},{}),{saved:[],draft,tried:{chicken:false},comments:{chicken:'Use less salt'},favourites:{chicken:true}});
+});
+test('recipe preference maps only write changed records and retain tombstone revisions',()=>{
+  const records={'comment-chicken':record('Old',3),'favourite-chicken':record(true,4)};
+  assert.deepEqual(changesFor('dinner-comments-v1',{chicken:'New'},records),[
+    {id:'comment-chicken',payload:JSON.stringify('New'),revision:3}
+  ]);
+  assert.deepEqual(changesFor('dinner-favourites-v1',{},records),[
+    {id:'favourite-chicken',payload:'null',revision:4}
+  ]);
 });
 test('unchanged records produce no writes',()=>{
   assert.deepEqual(changesFor('dinner-draft-v1',{ids:[]},{draft:record({ids:[]})}),[]);

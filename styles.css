@@ -95,6 +95,8 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .chosen .secondary { white-space:nowrap; }
 .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
 .actions .primary,.actions .secondary { margin:0; }
+.feedback-actions { display:flex; flex-wrap:wrap; gap:10px; }
+.feedback-actions .primary,.feedback-actions .secondary { margin:0; }
 .advice,.notice { padding:12px; background:#fff0db; border-radius:10px; font-size:14px; line-height:1.5; }
 .notice { margin:16px 20px; }
 .shared { color:var(--olive)!important; margin-top:8px!important; }

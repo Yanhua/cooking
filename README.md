@@ -5,7 +5,7 @@ A recipe-library-first dinner planner for two people in New Zealand. Build the l
 ## Planning in the app
 
 1. Choose **Plan a week**, a date and the number of dinners.
-2. Search or filter the recipe library and add dinners. **Suggest remaining dinners** keeps your selections and fills open slots using existing recipes, preferring cuisine variety and avoiding the latest two earlier weeks. Suggestions never generate recipes.
+2. Search or filter the recipe library and add dinners. **Suggest remaining dinners** keeps your selections and fills open slots using existing recipes, balancing protein families and cuisine variety while avoiding the latest two earlier weeks. **Swap** evaluates the whole current week, rotates through recently explored alternatives, and uses ingredient reuse only as a tie-breaker. Suggestions never generate recipes.
 3. Review ingredient reuse and shopping totals. Pack sizes are editable estimates, not live supermarket listings. Pantry items are a check before buying. Reducing the count keeps your selections until you remove the extras.
 4. Unlock with the shared household password and save the plan. Drafts, saved weeks, feedback, tried statuses, recipe comments and favourites sync through Firebase. Export JSON for a durable copy and Markdown for a readable plan. Plans are private household data and are not published from the repository.
 5. Existing dates cannot be overwritten from the picker.

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {totals,validate,suggest,advisories,exportMarkdown} from '../planner.mjs';
+import {totals,validate,suggest,proteinCounts,advisories,exportMarkdown} from '../planner.mjs';
 const recipes=JSON.parse(fs.readFileSync(new URL('../data/recipes.json',import.meta.url)));
 const catalog=JSON.parse(fs.readFileSync(new URL('../data/ingredients.json',import.meta.url)));
 test('variable counts are respected, including more than four',()=>{
@@ -19,11 +19,29 @@ test('suggestions preserve chosen recipes and prefer varied unrepeated meals',()
  assert.equal(new Set(result.map(r=>r.group)).size,2);
 });
 test('suggestions can exclude a recipe when swapping it out',()=>{
- const locked=['thai-basil-chicken','creamy-tomato-pork-spaghetti','mexican-pork-corn-skillet'].map(id=>recipes.find(r=>r.id===id));
- const result=suggest(recipes,4,[],locked,['vietnamese-caramel-chicken']);
- assert.equal(result.length,4);
- assert.ok(!result.some(r=>r.id==='vietnamese-caramel-chicken'));
- assert.deepEqual(result.slice(0,3).map(r=>r.id),locked.map(r=>r.id));
+  const locked=['thai-basil-chicken','creamy-tomato-pork-spaghetti','mexican-pork-corn-skillet'].map(id=>recipes.find(r=>r.id===id));
+  const result=suggest(recipes,4,[],locked,['vietnamese-caramel-chicken']);
+  assert.equal(result.length,4);
+  assert.ok(!result.some(r=>r.id==='vietnamese-caramel-chicken'));
+  assert.deepEqual(result.slice(0,3).map(r=>r.id),locked.map(r=>r.id));
+});
+test('suggestions balance protein families around a locked selection',()=>{
+ const result=suggest(recipes,5);
+ const counts=proteinCounts(result);
+ assert.ok(Object.keys(counts).length>=4);
+ assert.ok(Math.max(...Object.values(counts))<=2);
+
+ const chickenHeavy=['thai-basil-chicken','creamy-garlic-chicken-pasta','chinese-crispy-sesame-chicken','japanese-chicken-teriyaki'].map(id=>recipes.find(r=>r.id===id));
+ const balanced=suggest(recipes,5,[],chickenHeavy);
+ assert.equal(balanced.length,5);
+ assert.notEqual(balanced.at(-1).protein,'Chicken');
+ assert.ok(advisories(chickenHeavy).some(note=>/Protein mix is weighted toward Chicken/.test(note)));
+});
+test('suggestions avoid previously explored alternatives when asked',()=>{
+ const context=['thai-basil-chicken','creamy-garlic-chicken-pasta','chinese-crispy-sesame-chicken','japanese-chicken-teriyaki'].map(id=>recipes.find(r=>r.id===id));
+ const first=suggest(recipes,context.length+1,[],context,['thai-basil-chicken']).at(-1);
+ const next=suggest(recipes,context.length+1,[],context,['thai-basil-chicken'],{avoidIds:[first.id]});
+ assert.notEqual(next.at(-1).id,first.id);
 });
 test('shared protein, fractional onions, rice and pack remainders aggregate correctly',()=>{
  const chosen=['creamy-tomato-pork-spaghetti','mexican-pork-corn-skillet'].map(id=>recipes.find(r=>r.id===id));

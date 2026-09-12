@@ -23,8 +23,8 @@ test('deletions retain tombstone revision and restoring uses it',()=>{
   assert.deepEqual(decodeRecords(records,{}).saved,[]);
   assert.equal(changesFor('dinner-plans-v1',[week],records)[0].revision,3);
 });
-test('recipe comments, favourites, tried status and draft pack sizes survive decoding',()=>{
-  const draft={date:'2026-09-21',ids:['chicken'],count:1,packs:{chicken:500}};
+test('recipe comments, favourites, draft pack sizes and suggestion history survive decoding',()=>{
+  const draft={date:'2026-09-21',ids:['chicken'],count:1,packs:{chicken:500},suggestionHistory:['pork'],swapHistory:{0:['chicken','pork']}};
   assert.deepEqual(decodeRecords({draft:record(draft),'tried-chicken':record(false),'comment-chicken':record('Use less salt'),'favourite-chicken':record(true)},{}),{saved:[],draft,tried:{chicken:false},comments:{chicken:'Use less salt'},favourites:{chicken:true}});
 });
 test('recipe preference maps only write changed records and retain tombstone revisions',()=>{

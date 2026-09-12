@@ -1,4 +1,4 @@
-import { DEFAULT_COUNT, totals, validate, advisories, suggest, fmt, shoppingSections, exportMarkdown } from 'planner';
+import { DEFAULT_COUNT, totals, validate, advisories, suggest, proteinCounts, fmt, shoppingSections, exportMarkdown } from 'planner';
 import { connectCloud, changesFor, decodeRecords } from 'cloud-store';
 const app=document.querySelector('#app');
 let removedPlan=null;
@@ -44,12 +44,24 @@ const recipeImage=recipe=>{
 const remoteImage=(src,alt='',className='')=>`<img class="${className}" src="${esc(src)}" alt="${esc(alt)}" loading="lazy" decoding="async" data-remote-image>`;
 function read(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback;}catch{return fallback;}}
 let cloud=null, config=null, signedIn=false, ready=false, busy=false, authError='', records={}, incoming=null, feedbackEdit=null, commentEdit=null, devAuthPassword='';
-const emptyDraft=()=>({date:today(),count:DEFAULT_COUNT,ids:[],packs:{}});
+const SUGGESTION_HISTORY_LIMIT=32;
+const SWAP_HISTORY_LIMIT=24;
+const emptyDraft=()=>({date:today(),count:DEFAULT_COUNT,ids:[],packs:{},suggestionHistory:[],swapHistory:{}});
+const normaliseIds=value=>[...new Set(Array.isArray(value)?value.filter(id=>typeof id==='string'):[])];
+const normaliseDraft=value=>{
+  const source=value&&typeof value==='object'&&!Array.isArray(value)?value:{};
+  const base=emptyDraft();
+  const count=Number.isSafeInteger(source.count)&&source.count>0?source.count:base.count;
+  const swapHistory=source.swapHistory&&typeof source.swapHistory==='object'&&!Array.isArray(source.swapHistory)
+    ?Object.fromEntries(Object.entries(source.swapHistory).filter(([slot,ids])=>/^\d+$/.test(slot)&&Array.isArray(ids)).map(([slot,ids])=>[slot,normaliseIds(ids).slice(0,SWAP_HISTORY_LIMIT)]))
+    :{};
+  return {...base,...source,date:typeof source.date==='string'?source.date:base.date,count,ids:normaliseIds(source.ids),packs:source.packs&&typeof source.packs==='object'&&!Array.isArray(source.packs)?{...source.packs}:{},suggestionHistory:normaliseIds(source.suggestionHistory).slice(0,SUGGESTION_HISTORY_LIMIT),swapHistory};
+};
 let legacy=null;
 function applyRecords(next) {
   records=next;
   ({saved,tried,comments,favourites,draft}=decodeRecords(records,emptyDraft()));
-  draft.packs ||= {};
+  draft=normaliseDraft(draft);
   ready=true;
 }
 async function persist(key,value){
@@ -91,16 +103,20 @@ async function loadDevAuthPassword(){
 legacy={saved:read('dinner-plans-v1',[]),draft:read('dinner-draft-v1',null),tried:read('dinner-tried-v1',{})};
 if(!Array.isArray(legacy.saved))legacy.saved=[];
 if(!legacy.draft || !Array.isArray(legacy.draft.ids))legacy.draft=null;
+if(legacy.draft)legacy.draft=normaliseDraft(legacy.draft);
 if(!legacy.tried || typeof legacy.tried!=='object')legacy.tried={};
 let saved=[], draft=emptyDraft(), tried={}, comments={}, favourites={};
 const status=r=>tried[r.id]===undefined?r.status:(tried[r.id]?'Tried':'Not yet cooked');
 const commentFor=r=>typeof comments[r.id]==='string'?comments[r.id]:'';
 const isFavourite=r=>favourites[r.id]===true;
+const preferredIds=()=>Object.entries(favourites).filter(([,value])=>value===true).map(([id])=>id);
 let filters={search:'',cuisine:'',protein:'',status:'',time:'30'};
 const saveDraft=()=>persist('dinner-draft-v1',draft);
 const weeks=()=>[...saved].sort((a,b)=>b.id.localeCompare(a.id));
 const recentIds=()=>weeks().filter(w=>w.id<draft.date).slice(0,2).flatMap(w=>w.dinners.map(d=>d[0]));
 const selected=()=>draft.ids.map(id=>recipes.find(r=>r.id===id)).filter(Boolean);
+const rememberIds=(history,ids,limit)=>normaliseIds([...ids,...history]).slice(0,limit);
+const proteinMix=chosen=>Object.entries(proteinCounts(chosen)).map(([protein,count])=>`${count} × ${protein}`).join(' · ');
 const header=(title,sub='',image=scenePhotos.home)=>`<header class="top visual-header" style="--header-image:url('${image}')"><div class="header-copy"><p class="eyebrow">Home kitchen</p><h1>${esc(title)}</h1>${sub?`<p class="sub">${esc(sub)}</p>`:''}</div></header>`;
 const nav=()=>`<nav class="bottom-nav" aria-label="Main navigation"><button data-nav="weeks" class="nav-button ${screen.type==='weeks'?'active':''}">▣ Weeks</button><button data-nav="recipes" class="nav-button ${screen.type==='recipes'?'active':''}">✦ Recipes</button></nav>`;
 const back=()=>'<button class="back" data-action="back">← Back</button>';
@@ -122,7 +138,7 @@ function render(keepScroll=false){
   if(screen.type==='recipes')html=header('Recipe library',`${recipes.length} recipes, ready to choose.`,scenePhotos.library)+`<section class="content">${filterUI()}<div id="recipe-results">${cards(false)}</div></section>`;
   if(screen.type==='plan'){
     const chosen=selected(), problem=validate(draft.count,chosen);
-    html=header('Plan a week','Pick your dinners, then review the shopping list.',scenePhotos.library)+`<section class="content"><div class="filters"><label>Week beginning<input id="week-date" type="date" value="${esc(draft.date)}"></label><label>Number of dinners<input id="meal-count" type="number" min="1" step="1" value="${esc(draft.count)}"></label></div><div class="selection"><h2>${chosen.length} / ${esc(draft.count)} dinners selected</h2>${chosen.map(r=>`<div class="chosen"><span class="chosen-thumb">${remoteImage(recipeImage(r),'')}</span><button class="recipe-link" data-recipe="${esc(r.id)}">${esc(r.title)}</button><button class="secondary" data-swap="${esc(r.id)}" aria-label="Swap ${esc(r.title)} for another dinner">Swap</button><button class="secondary" data-toggle="${esc(r.id)}" aria-label="Remove ${esc(r.title)}">Remove</button></div>`).join('')}<div class="actions"><button class="secondary" data-action="suggest">Suggest remaining dinners</button><button class="primary" data-action="review" ${problem?'disabled':''}>Review week</button></div>${problem?`<p class="sub">${esc(problem)}</p>`:''}</div>${filterUI()}<div id="recipe-results">${cards(true)}</div></section>`;
+    html=header('Plan a week','Pick your dinners, then review the shopping list.',scenePhotos.library)+`<section class="content"><div class="filters"><label>Week beginning<input id="week-date" type="date" value="${esc(draft.date)}"></label><label>Number of dinners<input id="meal-count" type="number" min="1" step="1" value="${esc(draft.count)}"></label></div><div class="selection"><h2>${chosen.length} / ${esc(draft.count)} dinners selected</h2>${chosen.length?`<p class="sub protein-mix">Protein mix: ${esc(proteinMix(chosen))}</p>`:''}${chosen.map(r=>`<div class="chosen"><span class="chosen-thumb">${remoteImage(recipeImage(r),'')}</span><button class="recipe-link" data-recipe="${esc(r.id)}">${esc(r.title)}</button><button class="secondary" data-swap="${esc(r.id)}" aria-label="Swap ${esc(r.title)} for another dinner">Swap</button><button class="secondary" data-toggle="${esc(r.id)}" aria-label="Remove ${esc(r.title)}">Remove</button></div>`).join('')}<div class="actions"><button class="secondary" data-action="suggest">Suggest remaining dinners</button><button class="primary" data-action="review" ${problem?'disabled':''}>Review week</button></div>${problem?`<p class="sub">${esc(problem)}</p>`:''}</div>${filterUI()}<div id="recipe-results">${cards(true)}</div></section>`;
   }
   if(screen.type==='review'){
     const chosen=selected(), rows=totals(chosen,catalog,draft.packs);
@@ -166,7 +182,10 @@ app.addEventListener('change',e=>{
   return mutate(async()=>{
   const el=e.target;
   if(el.dataset.filter){filters[el.dataset.filter]=el.value;render(true);}
-  if(el.id==='week-date'){if(el.value)draft.date=el.value;await saveDraft();render(true);}
+  if(el.id==='week-date'){
+    if(el.value&&el.value!==draft.date){draft.date=el.value;draft.suggestionHistory=[];draft.swapHistory={};}
+    await saveDraft();render(true);
+  }
   if(el.id==='meal-count'){
     const n=Number(el.value);
     if(!Number.isSafeInteger(n)||n<1){notice='Enter a positive whole number of dinners.';render(true);return;}
@@ -191,18 +210,43 @@ app.addEventListener('click',async e=>{
   else if(b.dataset.week)screen={type:'week',id:b.dataset.week};
   else if(b.dataset.recipe){returnScreen={...screen};screen={type:'recipe',id:b.dataset.recipe,snapshot:b.dataset.snapshot};}
   else if(b.dataset.favourite){const id=b.dataset.favourite;favourites={...favourites,[id]:!favourites[id]};if(await persist('dinner-favourites-v1',favourites))notice=favourites[id]?'Recipe added to favourites.':'Recipe removed from favourites.';}
-  else if(b.dataset.toggle){const id=b.dataset.toggle;if(draft.ids.includes(id))draft.ids=draft.ids.filter(v=>v!==id);else if(draft.ids.length<draft.count)draft.ids.push(id);await saveDraft();render(true);return;}
+  else if(b.dataset.toggle){
+    const id=b.dataset.toggle;
+    if(draft.ids.includes(id)){draft.ids=draft.ids.filter(v=>v!==id);draft.suggestionHistory=rememberIds(draft.suggestionHistory,[id],SUGGESTION_HISTORY_LIMIT);}
+    else if(draft.ids.length<draft.count)draft.ids.push(id);
+    draft.swapHistory={};
+    await saveDraft();render(true);return;
+  }
   else if(b.dataset.swap){
-    const id=b.dataset.swap, current=selected(), locked=current.filter(r=>r.id!==id);
-    const replacement=suggest(recipes,draft.count,recentIds(),locked,[id]).find(r=>!locked.some(s=>s.id===r.id));
-    if(replacement){draft.ids=draft.ids.map(v=>v===id?replacement.id:v);notice=`Swapped in ${replacement.title}.`;await saveDraft();}
+    const id=b.dataset.swap, current=selected(), slot=draft.ids.indexOf(id), context=current;
+    const slotHistory=slot>=0&&Array.isArray(draft.swapHistory?.[slot])?draft.swapHistory[slot]:[];
+    const explored=normaliseIds([...slotHistory,...draft.suggestionHistory]);
+    const preferred=preferredIds(), targetCount=current.length+1, currentIds=new Set(current.map(r=>r.id));
+    let result=suggest(recipes,targetCount,recentIds(),context,[id,...explored],{preferredIds:preferred});
+    let replacement=result.find(r=>!currentIds.has(r.id));
+    if(!replacement){
+      result=suggest(recipes,targetCount,recentIds(),context,[id],{avoidIds:explored,preferredIds:preferred});
+      replacement=result.find(r=>!currentIds.has(r.id));
+    }
+    if(replacement){
+      draft.ids=draft.ids.map(v=>v===id?replacement.id:v);
+      if(slot>=0)draft.swapHistory={...draft.swapHistory,[slot]:normaliseIds([replacement.id,id,...slotHistory]).slice(0,SWAP_HISTORY_LIMIT)};
+      draft.suggestionHistory=rememberIds(draft.suggestionHistory,[replacement.id,id],SUGGESTION_HISTORY_LIMIT);
+      notice=`Swapped in ${replacement.title}.`;await saveDraft();
+    }
     else notice='No different recipe is available to swap in.';
   }
   else if(a==='back')screen=screen.type==='recipe'?returnScreen:screen.type==='review'?{type:'plan'}:screen.type==='export'?{type:'week',id:screen.id}:{type:'weeks'};
   else if(a==='plan')screen={type:'plan'};
   else if(a==='suggest'){
     if(draft.count<draft.ids.length){notice='Remove dinners to match your chosen count first.';}
-    else {draft.ids=suggest(recipes,draft.count,recentIds(),selected()).map(r=>r.id);notice=draft.ids.length<draft.count?'The library does not have enough different recipes for this count. Add recipes separately or choose fewer dinners.':'';await saveDraft();}
+    else {
+      const before=new Set(draft.ids), result=suggest(recipes,draft.count,recentIds(),selected(),[],{avoidIds:draft.suggestionHistory,preferredIds:preferredIds()});
+      draft.ids=result.map(r=>r.id);
+      draft.suggestionHistory=rememberIds(draft.suggestionHistory,result.filter(r=>!before.has(r.id)).map(r=>r.id),SUGGESTION_HISTORY_LIMIT);
+      notice=draft.ids.length<draft.count?'The library does not have enough different recipes for this count. Add recipes separately or choose fewer dinners.':'';
+      await saveDraft();
+    }
   }
   else if(a==='review'){if(!validate(draft.count,selected()))screen={type:'review'};}
   else if(a==='save'){
@@ -211,7 +255,7 @@ app.addEventListener('click',async e=>{
     if(weeks().some(w=>w.id===draft.date)){notice='A plan already exists for this date. Choose another date in the planner to keep both plans.';render();return;}
     const rows=totals(selected(),catalog,draft.packs);
     const w={id:draft.date,title:'Dinners from the recipe library',mealCount:draft.count,dinners:selected().map(r=>[r.id,r.title]),snapshots:JSON.parse(JSON.stringify(selected().map(r=>({...r,status:status(r),ingredients:r.ingredients.map(i=>({...i,name:catalog[i.key].name,unit:catalog[i.key].unit}))})))),shopping:shoppingSections(rows),reuse:reuse(rows),packSizes:{...draft.packs},feedback:''};
-    const nextDraft={date:today(),count:w.mealCount,ids:[],packs:{}};
+    const nextDraft=emptyDraft();
     const changes=[...changesFor('dinner-plans-v1',[...saved,w],records),...changesFor('dinner-draft-v1',nextDraft,records)];
     await cloud.save(changes);
     for(const change of changes)records[change.id]={payload:change.payload,revision:change.revision+1};

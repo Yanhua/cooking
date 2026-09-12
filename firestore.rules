@@ -9,6 +9,9 @@ service cloud.firestore {
     }
     match /households/{uid}/records/{recordId} {
       allow read: if householdMember(uid);
+      // The draft payload is planner-owned JSON. Current drafts may include
+      // suggestionHistory and per-slot swapHistory; keeping it opaque preserves
+      // compatibility with older drafts while the record envelope remains strict.
       allow create, update: if householdMember(uid)
         && recordId.matches('^(draft|week-[0-9]{4}-[0-9]{2}-[0-9]{2}|tried-[a-z0-9-]+|comment-[a-z0-9-]+|favourite-[a-z0-9-]+)$')
         && request.resource.data.keys().hasOnly(['payload', 'revision', 'updatedAt'])

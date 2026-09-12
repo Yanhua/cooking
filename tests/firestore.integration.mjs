@@ -17,9 +17,10 @@ const env=await initializeTestEnvironment({projectId:'demo-dinner-sorted',firest
 after(()=>env.cleanup());
 const owner=env.authenticatedContext('household-test').firestore();
 const path='households/household-test/records';
-const data=(revision=1)=>({payload:'{"ids":[]}',revision,updatedAt:sdk.serverTimestamp()});
+const data=(revision=1,payload='{"ids":[]}')=>({payload,revision,updatedAt:sdk.serverTimestamp()});
 test('only the household UID can read and write records',async()=>{
-  await assertSucceeds(sdk.setDoc(sdk.doc(owner,path,'draft'),data()));
+  const draft=JSON.stringify({date:'2026-09-21',count:4,ids:[],packs:{},suggestionHistory:['pork'],swapHistory:{0:['chicken','pork']}});
+  await assertSucceeds(sdk.setDoc(sdk.doc(owner,path,'draft'),data(1,draft)));
   await assertSucceeds(sdk.setDoc(sdk.doc(owner,path,'comment-chicken'),data()));
   await assertSucceeds(sdk.setDoc(sdk.doc(owner,path,'favourite-chicken'),data()));
   await assertSucceeds(sdk.getDoc(sdk.doc(owner,path,'draft')));

@@ -7,7 +7,7 @@ A recipe-library-first dinner planner for two people in New Zealand. Build the l
 1. Choose **Plan a week**, a date and the number of dinners.
 2. Search or filter the recipe library and add dinners. **Suggest remaining dinners** keeps your selections and fills open slots using existing recipes, balancing protein families and cuisine variety while avoiding the latest two earlier weeks. **Swap** evaluates the whole current week, rotates through recently explored alternatives, and uses ingredient reuse only as a tie-breaker. Suggestions never generate recipes.
 3. Review ingredient reuse and shopping totals. Pack sizes are editable estimates, not live supermarket listings. Pantry items are a check before buying. Reducing the count keeps your selections until you remove the extras.
-4. Unlock with the shared household password and save the plan. Drafts, saved weeks, feedback, tried statuses, recipe comments and favourites sync through Firebase. Export JSON for a durable copy and Markdown for a readable plan. Plans are private household data and are not published from the repository.
+4. Unlock with the shared household password and save the plan. Drafts, saved weeks, feedback, tried statuses, recipe comments and favourites sync through Firebase. Plans are private household data and are not published from the repository.
 5. Existing dates cannot be overwritten from the picker.
 
 A recipe's “Not yet cooked” status does not claim that it has been tested. Use **Mark as tried** on a library recipe after cooking; this status is saved to the household and included in new plan snapshots. Record household feedback after cooking and update the repository recipe status for a shared record.
@@ -58,4 +58,4 @@ The workflow uses short-lived Google credentials and pins the Firebase CLI versi
 - `weeks/`: optional dated plan exports kept as household records and backups; they are not loaded into the app.
 - `feedback.md`: shared household feedback used for future planning.
 
-Household feedback is included in exports. Copy relevant notes into `feedback.md` when planning future weeks, and update recipe cards separately for lasting improvements.
+Household feedback is stored with saved weeks. Copy relevant notes into `feedback.md` when planning future weeks, and update recipe cards separately for lasting improvements.

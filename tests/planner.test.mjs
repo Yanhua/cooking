@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {totals,validate,suggest,proteinCounts,advisories,exportMarkdown} from '../planner.mjs';
+import {totals,validate,suggest,proteinCounts,advisories} from '../planner.mjs';
 const recipes=JSON.parse(fs.readFileSync(new URL('../data/recipes.json',import.meta.url)));
 const catalog=JSON.parse(fs.readFileSync(new URL('../data/ingredients.json',import.meta.url)));
 test('variable counts are respected, including more than four',()=>{
@@ -55,9 +55,4 @@ test('shared protein, fractional onions, rice and pack remainders aggregate corr
 test('all cards have usable metadata and quantified ingredients',()=>{
  assert.ok(recipes.length>0);
  for(const r of recipes){assert.equal(validate(1,[r]),'');assert.ok(r.steps.length>=4);assert.ok(r.version);for(const i of r.ingredients){assert.ok(catalog[i.key]);assert.ok(i.amount>0);}}
-});
-test('export keeps count, feedback and recipe versions',()=>{
- const r=recipes[0];const md=exportMarkdown({id:'2026-09-21',mealCount:1,snapshots:[r],reuse:[],shopping:[],feedback:'Very good'});
- assert.match(md,/1 dinners/);assert.ok(md.includes(r.version));assert.ok(md.includes('Very good'));
- assert.ok(advisories([r,r],[r.id]).length>=2);
 });

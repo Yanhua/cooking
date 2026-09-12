@@ -121,6 +121,3 @@ export function shoppingSections(rows) {
   }
   return Object.entries(groups).map(([category,items])=>({category,items}));
 }
-export function exportMarkdown(w) {
-  return `# Dinner plan — ${w.id}\n\n${w.mealCount} dinners · 2 people\n\n## Dinners\n\n` + w.snapshots.map((r,i)=>`${i+1}. [${r.title}](../${r.path}) — ${r.cuisine}; ${r.activeMinutes} min active; recipe version ${r.version}`).join('\n') + '\n\n## Ingredient-reuse map\n\n'+w.reuse.map(s=>`- ${s}`).join('\n')+'\n\n## Shopping list\n\n'+w.shopping.map(g=>`### ${g.category}\n\n${g.items.map(s=>`- ${s}`).join('\n')}`).join('\n\n')+'\n\n## Post-cooking notes\n\n'+(w.feedback||'| Dinner | Rating / notes | Repeat? |\n|---|---|---|\n'+w.snapshots.map(r=>`| ${r.title} | | |`).join('\n'))+'\n';
-}

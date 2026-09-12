@@ -100,9 +100,6 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .shared { color:var(--olive)!important; margin-top:8px!important; }
 .pack-label { margin-top:14px; }
 summary { cursor:pointer; padding:12px 0; }
-.download { display:inline-block; text-decoration:none; margin-bottom:18px; }
-#export-text { font:12px/1.5 "DM Mono",monospace; }
-
 .app-controls { border:0; padding:0; margin:0; min-width:0; }
 .cloud-controls { border-top:1px solid var(--line); }
 .image-credit { margin:14px 0 0; color:var(--muted); font-size:11px; }

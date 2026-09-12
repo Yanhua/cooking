@@ -1,4 +1,4 @@
-import { DEFAULT_COUNT, totals, validate, advisories, suggest, proteinCounts, fmt, shoppingSections, exportMarkdown } from 'planner';
+import { DEFAULT_COUNT, totals, validate, advisories, suggest, proteinCounts, fmt, shoppingSections } from 'planner';
 import { connectCloud, changesFor, decodeRecords } from 'cloud-store';
 const app=document.querySelector('#app');
 let removedPlan=null;
@@ -147,12 +147,7 @@ function render(keepScroll=false){
   if(screen.type==='week'){
     const w=weeks().find(w=>w.id===screen.id);
     if(!w){screen={type:'weeks'};return render();}
-    html=header(`Week of ${w.id}`,`${w.mealCount} dinners · 2 people`,recipeImage(w.snapshots?.[0]||{id:w.id}))+`<section class="content">${back()}${w.dinners.map(([id,name])=>{const recipe=w.snapshots?.find(r=>r.id===id)||{id,title:name};return `<article class="dinner-row"><span class="dinner-thumb">${remoteImage(recipeImage(recipe),'')}</span><span><h3>${esc(name)}</h3><button data-recipe="${esc(id)}" data-snapshot="${esc(w.id)}">Open saved recipe →</button></span></article>`;}).join('')}<h2 class="spaced">Shopping list</h2>${shopping(w.shopping)}<h2 class="spaced">Ingredient reuse</h2><ul class="reuse">${w.reuse.map(s=>`<li>${esc(s)}</li>`).join('')}</ul><h2 class="spaced">After cooking</h2><label>Ratings, changes and whether to repeat<textarea id="feedback" rows="4">${esc(feedbackEdit?.id===w.id?feedbackEdit.text:w.feedback||'')}</textarea></label><button class="secondary" data-action="feedback">Save feedback</button><div class="actions"><button class="primary" data-action="export">Export plan (.json)</button><button class="secondary" data-action="markdown">Export plan (.md)</button></div>${saved.some(s=>s.id===w.id)?'<button class="secondary" data-action="remove-local">Remove saved week</button>':''}<p class="sub">JSON includes recipe snapshots and shopping totals. Keep it as a backup or share it privately with your household.</p></section>`;
-  }
-  if(screen.type==='export'){
-    const w=weeks().find(w=>w.id===screen.id), json=screen.format==='json';
-    const body=json?JSON.stringify(w,null,2):exportMarkdown(w);
-    html=header('Export your plan',`${w.id}.${screen.format}`)+`<section class="content">${back()}<p>Download the file, or copy the text below if your browser does not support downloads.</p><a class="primary download" download="${esc(w.id)}.${screen.format}" href="data:${json?'application/json':'text/markdown'};charset=utf-8,${encodeURIComponent(body)}">Download ${screen.format.toUpperCase()}</a><label>Plan export<textarea id="export-text" rows="16" readonly>${esc(body)}</textarea></label><button class="secondary" data-action="select-export">Select export text</button></section>`;
+    html=header(`Week of ${w.id}`,`${w.mealCount} dinners · 2 people`,recipeImage(w.snapshots?.[0]||{id:w.id}))+`<section class="content">${back()}${w.dinners.map(([id,name])=>{const recipe=w.snapshots?.find(r=>r.id===id)||{id,title:name};return `<article class="dinner-row"><span class="dinner-thumb">${remoteImage(recipeImage(recipe),'')}</span><span><h3>${esc(name)}</h3><button data-recipe="${esc(id)}" data-snapshot="${esc(w.id)}">Open saved recipe →</button></span></article>`;}).join('')}<h2 class="spaced">Shopping list</h2>${shopping(w.shopping)}<h2 class="spaced">Ingredient reuse</h2><ul class="reuse">${w.reuse.map(s=>`<li>${esc(s)}</li>`).join('')}</ul><h2 class="spaced">After cooking</h2><label>Ratings, changes and whether to repeat<textarea id="feedback" rows="4">${esc(feedbackEdit?.id===w.id?feedbackEdit.text:w.feedback||'')}</textarea></label><button class="secondary" data-action="feedback">Save feedback</button>${saved.some(s=>s.id===w.id)?'<button class="secondary" data-action="remove-local">Remove saved week</button>':''}</section>`;
   }
   if(screen.type==='recipe'){
     const r=screen.snapshot?weeks().find(w=>w.id===screen.snapshot)?.snapshots?.find(r=>r.id===screen.id):recipes.find(r=>r.id===screen.id);
@@ -236,7 +231,7 @@ app.addEventListener('click',async e=>{
     }
     else notice='No different recipe is available to swap in.';
   }
-  else if(a==='back')screen=screen.type==='recipe'?returnScreen:screen.type==='review'?{type:'plan'}:screen.type==='export'?{type:'week',id:screen.id}:{type:'weeks'};
+  else if(a==='back')screen=screen.type==='recipe'?returnScreen:screen.type==='review'?{type:'plan'}:{type:'weeks'};
   else if(a==='plan')screen={type:'plan'};
   else if(a==='suggest'){
     if(draft.count<draft.ids.length){notice='Remove dinners to match your chosen count first.';}
@@ -285,10 +280,6 @@ app.addEventListener('click',async e=>{
     notice=`Imported ${additions.length} weeks. Existing cloud saves were kept; original browser copies remain on this device.`;
     legacy=null;
   }
-  else if(a==='export'||a==='markdown'){
-    screen={type:'export',id:screen.id,format:a==='export'?'json':'md'};
-  }
-  else if(a==='select-export'){document.querySelector('#export-text').select();return;}
   else return;
   render();
   });

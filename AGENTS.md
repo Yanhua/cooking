@@ -16,6 +16,10 @@ For each new week:
 
 When information is missing, first use the stored preferences and previous feedback. Ask only questions that materially affect the plan.
 
+## Recipe development
+
+For explicitly requested recipe additions or improvements, use `.agents/skills/recipe-development/SKILL.md`. This project skill requires verified recipe sources, documented adaptations, and compatible recipe cards. Weekly planning remains selection-only.
+
 ## App data
 
 Recipe cards contain `recipe-data` JSON metadata with stable IDs and quantified ingredients. Maintain the readable ingredient list alongside the metadata. Ingredient units and editable pack-size estimates are in `data/ingredients.json`. Run `python3 scripts/build-data.py` after content changes and `./scripts/bust-cache.sh` after app changes. Weekly JSON exports belong in `weeks/`; the builder publishes them and generates Markdown plans and standalone shopping lists. Never silently alter historical recipe snapshots.

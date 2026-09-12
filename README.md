@@ -52,7 +52,8 @@ To auto-unlock during local browser testing, copy `.env.example` to `.env.local`
 2. Search or filter the library and add dinners. **Suggest remaining dinners** preserves current selections and fills open slots while balancing protein families and cuisine variety and avoiding the latest two earlier weeks. **Swap** evaluates the whole week and rotates through recently explored alternatives. Ingredient reuse is a tie-breaker; suggestions never create recipes.
 3. Review ingredient reuse and shopping totals. Pack sizes are editable estimates rather than live supermarket listings. Pantry items are a check before buying. Reducing the dinner count preserves selections until extras are removed.
 4. Unlock with the shared household password and save. Drafts, saved weeks, feedback, tried status, comments, and favourites sync through Firebase as private household data; they are not published from this repository.
-5. Existing dates cannot be overwritten from the date picker.
+5. Open any saved week and choose **Edit week** to change its dinners, count, date, or pack-size estimates. Saving recalculates its shopping list and updates the saved week while preserving feedback; changing to another occupied date is blocked.
+6. Existing dates cannot be overwritten from the date picker when creating a new plan.
 
 A recipe marked **Not yet cooked** is not claimed to be tested. After cooking, use **Mark as tried**, record household feedback, and update the repository recipe separately if the shared card should change. Comments and favourites are stored independently of saved plan snapshots, so they follow a recipe across plans and catalogue updates.
 

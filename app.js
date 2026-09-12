@@ -46,7 +46,7 @@ function read(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fa
 let cloud=null, config=null, signedIn=false, ready=false, busy=false, authError='', records={}, incoming=null, feedbackEdit=null, commentEdit=null, devAuthPassword='';
 const SUGGESTION_HISTORY_LIMIT=32;
 const SWAP_HISTORY_LIMIT=24;
-const emptyDraft=()=>({date:today(),count:DEFAULT_COUNT,ids:[],packs:{},suggestionHistory:[],swapHistory:{}});
+const emptyDraft=()=>({date:today(),count:DEFAULT_COUNT,ids:[],packs:{},suggestionHistory:[],swapHistory:{},snapshots:[],editingWeekId:null,feedback:''});
 const normaliseIds=value=>[...new Set(Array.isArray(value)?value.filter(id=>typeof id==='string'):[])];
 const normaliseDraft=value=>{
   const source=value&&typeof value==='object'&&!Array.isArray(value)?value:{};
@@ -55,7 +55,10 @@ const normaliseDraft=value=>{
   const swapHistory=source.swapHistory&&typeof source.swapHistory==='object'&&!Array.isArray(source.swapHistory)
     ?Object.fromEntries(Object.entries(source.swapHistory).filter(([slot,ids])=>/^\d+$/.test(slot)&&Array.isArray(ids)).map(([slot,ids])=>[slot,normaliseIds(ids).slice(0,SWAP_HISTORY_LIMIT)]))
     :{};
-  return {...base,...source,date:typeof source.date==='string'?source.date:base.date,count,ids:normaliseIds(source.ids),packs:source.packs&&typeof source.packs==='object'&&!Array.isArray(source.packs)?{...source.packs}:{},suggestionHistory:normaliseIds(source.suggestionHistory).slice(0,SUGGESTION_HISTORY_LIMIT),swapHistory};
+  const snapshots=Array.isArray(source.snapshots)?source.snapshots.filter(snapshot=>snapshot&&typeof snapshot==='object'&&typeof snapshot.id==='string'):[];
+  const editingWeekId=typeof source.editingWeekId==='string'?source.editingWeekId:null;
+  const feedback=typeof source.feedback==='string'?source.feedback:'';
+  return {...base,...source,date:typeof source.date==='string'?source.date:base.date,count,ids:normaliseIds(source.ids),packs:source.packs&&typeof source.packs==='object'&&!Array.isArray(source.packs)?{...source.packs}:{},suggestionHistory:normaliseIds(source.suggestionHistory).slice(0,SUGGESTION_HISTORY_LIMIT),swapHistory,snapshots,editingWeekId,feedback};
 };
 let legacy=null;
 function applyRecords(next) {
@@ -113,10 +116,25 @@ const preferredIds=()=>Object.entries(favourites).filter(([,value])=>value===tru
 let filters={search:'',cuisine:'',protein:'',status:'',time:'30'};
 const saveDraft=()=>persist('dinner-draft-v1',draft);
 const weeks=()=>[...saved].sort((a,b)=>b.id.localeCompare(a.id));
-const recentIds=()=>weeks().filter(w=>w.id<draft.date).slice(0,2).flatMap(w=>w.dinners.map(d=>d[0]));
-const selected=()=>draft.ids.map(id=>recipes.find(r=>r.id===id)).filter(Boolean);
+const editingWeek=()=>draft.editingWeekId?weeks().find(w=>w.id===draft.editingWeekId):null;
+const recentIds=()=>weeks().filter(w=>w.id<draft.date&&w.id!==draft.editingWeekId).slice(0,2).flatMap(w=>w.dinners.map(d=>d[0]));
+const selected=()=>draft.ids.map(id=>draft.snapshots.find(r=>r.id===id)||recipes.find(r=>r.id===id)).filter(Boolean);
 const rememberIds=(history,ids,limit)=>normaliseIds([...ids,...history]).slice(0,limit);
 const proteinMix=chosen=>Object.entries(proteinCounts(chosen)).map(([protein,count])=>`${count} × ${protein}`).join(' · ');
+function savedWeekFromDraft(existing=null){
+  const chosen=selected(), rows=totals(chosen,catalog,draft.packs);
+  return {
+    id:draft.date,
+    title:existing?.title||'Dinners from the recipe library',
+    mealCount:draft.count,
+    dinners:chosen.map(r=>[r.id,r.title]),
+    snapshots:JSON.parse(JSON.stringify(chosen.map(r=>({...r,status:status(r),ingredients:r.ingredients.map(i=>({...i,name:i.name||catalog[i.key].name,unit:i.unit||catalog[i.key].unit}))})))),
+    shopping:shoppingSections(rows),
+    reuse:reuse(rows),
+    packSizes:{...draft.packs},
+    feedback:typeof draft.feedback==='string'?draft.feedback:existing?.feedback||'',
+  };
+}
 const header=(title,sub='',image=scenePhotos.home)=>`<header class="top visual-header" style="--header-image:url('${image}')"><div class="header-copy"><p class="eyebrow">Home kitchen</p><h1>${esc(title)}</h1>${sub?`<p class="sub">${esc(sub)}</p>`:''}</div></header>`;
 const navPage=()=>screen.type==='recipes'||(screen.type==='recipe'&&!screen.snapshot)?'recipes':'weeks';
 const nav=()=>{
@@ -138,20 +156,20 @@ function render(keepScroll=false){
   if(!ready){app.innerHTML=header('Dinner, sorted',error||'Loading your saved plans…')+'<section class="content"><button class="secondary" data-action="reload">Retry</button><button class="secondary" data-action="lock">Lock planner</button></section>';return;}
   let html='';
   if(error){app.innerHTML=header('Could not load the planner',error)+'<section class="content"><button onclick="location.reload()">Retry</button></section>';return;}
-  if(screen.type==='weeks')html=header('Dinner, sorted','Choose dinners from your recipe library.',scenePhotos.home)+`<section class="content"><button class="primary" data-action="plan">${draft.ids.length?'Continue draft':'Plan a week'}</button><h2 class="spaced">Saved weeks</h2>${weeks().map(w=>`<button class="card week-card" data-week="${esc(w.id)}"><span class="week-card-image">${remoteImage(recipeImage(w.snapshots?.[0]||{id:w.id}),'')}</span><span class="week-card-copy"><span class="date">Week of ${esc(w.id)}</span><strong>${esc(w.title)}</strong><small>${w.mealCount} dinners · 2 people · ≤ 30 min active</small></span></button>`).join('')||'<div class="empty-state"><span aria-hidden="true">🗓️</span><p>No saved weeks yet. Your first plan will appear here.</p></div>'}<p class="sub">Plans and feedback sync across your devices.</p></section>`;
+  if(screen.type==='weeks')html=header('Dinner, sorted','Choose dinners from your recipe library.',scenePhotos.home)+`<section class="content"><button class="primary" data-action="plan">${draft.editingWeekId&&editingWeek()?'Continue editing week':draft.ids.length?'Continue draft':'Plan a week'}</button><h2 class="spaced">Saved weeks</h2>${weeks().map(w=>`<button class="card week-card" data-week="${esc(w.id)}"><span class="week-card-image">${remoteImage(recipeImage(w.snapshots?.[0]||{id:w.id}),'')}</span><span class="week-card-copy"><span class="date">Week of ${esc(w.id)}</span><strong>${esc(w.title)}</strong><small>${w.mealCount} dinners · 2 people · ≤ 30 min active</small></span></button>`).join('')||'<div class="empty-state"><span aria-hidden="true">🗓️</span><p>No saved weeks yet. Your first plan will appear here.</p></div>'}<p class="sub">Plans and feedback sync across your devices.</p></section>`;
   if(screen.type==='recipes')html=header('Recipe library',`${recipes.length} recipes, ready to choose.`,scenePhotos.library)+`<section class="content">${filterUI()}<div id="recipe-results">${cards(false)}</div></section>`;
   if(screen.type==='plan'){
-    const chosen=selected(), problem=validate(draft.count,chosen);
-    html=header('Plan a week','Pick your dinners, then review the shopping list.',scenePhotos.library)+`<section class="content"><div class="filters"><label>Week beginning<input id="week-date" type="date" value="${esc(draft.date)}"></label><label>Number of dinners<input id="meal-count" type="number" min="1" step="1" value="${esc(draft.count)}"></label></div><div class="selection"><h2>${chosen.length} / ${esc(draft.count)} dinners selected</h2>${chosen.length?`<p class="sub protein-mix">Protein mix: ${esc(proteinMix(chosen))}</p>`:''}${chosen.map(r=>`<div class="chosen"><span class="chosen-thumb">${remoteImage(recipeImage(r),'')}</span><button class="recipe-link" data-recipe="${esc(r.id)}">${esc(r.title)}</button><button class="secondary" data-swap="${esc(r.id)}" aria-label="Swap ${esc(r.title)} for another dinner">Swap</button><button class="secondary" data-toggle="${esc(r.id)}" aria-label="Remove ${esc(r.title)}">Remove</button></div>`).join('')}<div class="actions"><button class="secondary" data-action="suggest">Suggest remaining dinners</button><button class="primary" data-action="review" ${problem?'disabled':''}>Review week</button></div>${problem?`<p class="sub">${esc(problem)}</p>`:''}</div>${filterUI()}<div id="recipe-results">${cards(true)}</div></section>`;
+    const chosen=selected(), problem=validate(draft.count,chosen), currentEdit=editingWeek();
+    html=header(currentEdit?'Edit saved week':'Plan a week',currentEdit?'Update the dinners, date, or shopping estimates, then save your changes.':'Pick your dinners, then review the shopping list.',scenePhotos.library)+`<section class="content"><div class="filters"><label>Week beginning<input id="week-date" type="date" value="${esc(draft.date)}"></label><label>Number of dinners<input id="meal-count" type="number" min="1" step="1" value="${esc(draft.count)}"></label></div><div class="selection"><h2>${chosen.length} / ${esc(draft.count)} dinners selected</h2>${chosen.length?`<p class="sub protein-mix">Protein mix: ${esc(proteinMix(chosen))}</p>`:''}${chosen.map(r=>`<div class="chosen"><span class="chosen-thumb">${remoteImage(recipeImage(r),'')}</span><button class="recipe-link" data-recipe="${esc(r.id)}">${esc(r.title)}</button><button class="secondary" data-swap="${esc(r.id)}" aria-label="Swap ${esc(r.title)} for another dinner">Swap</button><button class="secondary" data-toggle="${esc(r.id)}" aria-label="Remove ${esc(r.title)}">Remove</button></div>`).join('')}<div class="actions"><button class="secondary" data-action="suggest">Suggest remaining dinners</button><button class="primary" data-action="review" ${problem?'disabled':''}>Review week</button>${currentEdit?'<button class="secondary" data-action="cancel-edit">Cancel editing</button>':''}</div>${problem?`<p class="sub">${esc(problem)}</p>`:''}</div>${filterUI()}<div id="recipe-results">${cards(true)}</div></section>`;
   }
   if(screen.type==='review'){
     const chosen=selected(), rows=totals(chosen,catalog,draft.packs);
-    html=header('Review your week',`${chosen.length} dinners for two · ${draft.date}`,scenePhotos.shopping)+`<section class="content">${back()}<div class="meal-gallery">${chosen.map(r=>`<figure>${remoteImage(recipeImage(r),'')}<figcaption>${esc(r.title)}</figcaption></figure>`).join('')}</div>${advisories(chosen,recentIds()).map(s=>`<p class="advice">${esc(s)}</p>`).join('')}<h2 class="spaced">Shopping list</h2>${shopping(shoppingSections(rows))}<details><summary>Adjust pack sizes</summary><p class="sub">These are editable shopping estimates; available packs vary by supermarket. Garlic assumes 10 cloves per bulb.</p>${rows.filter(r=>r.pack).map(r=>`<label class="pack-label">${esc(r.name)} (${esc(r.unit)} per pack)<input type="number" min="0.01" step="any" data-pack="${r.key}" value="${r.pack}"></label>`).join('')}</details><h2 class="spaced">Ingredient reuse</h2>${reuseHTML(rows)}<button class="primary" data-action="save">Save week</button></section>`;
+    html=header('Review your week',`${chosen.length} dinners for two · ${draft.date}`,scenePhotos.shopping)+`<section class="content">${back()}<div class="meal-gallery">${chosen.map(r=>`<figure>${remoteImage(recipeImage(r),'')}<figcaption>${esc(r.title)}</figcaption></figure>`).join('')}</div>${advisories(chosen,recentIds()).map(s=>`<p class="advice">${esc(s)}</p>`).join('')}<h2 class="spaced">Shopping list</h2>${shopping(shoppingSections(rows))}<details><summary>Adjust pack sizes</summary><p class="sub">These are editable shopping estimates; available packs vary by supermarket. Garlic assumes 10 cloves per bulb.</p>${rows.filter(r=>r.pack).map(r=>`<label class="pack-label">${esc(r.name)} (${esc(r.unit)} per pack)<input type="number" min="0.01" step="any" data-pack="${r.key}" value="${r.pack}"></label>`).join('')}</details><h2 class="spaced">Ingredient reuse</h2>${reuseHTML(rows)}<button class="primary" data-action="save">${draft.editingWeekId?'Update week':'Save week'}</button></section>`;
   }
   if(screen.type==='week'){
     const w=weeks().find(w=>w.id===screen.id);
     if(!w){screen={type:'weeks'};return render();}
-    html=header(`Week of ${w.id}`,`${w.mealCount} dinners · 2 people`,recipeImage(w.snapshots?.[0]||{id:w.id}))+`<section class="content">${back()}${w.dinners.map(([id,name])=>{const recipe=w.snapshots?.find(r=>r.id===id)||{id,title:name};return `<article class="dinner-row"><span class="dinner-thumb">${remoteImage(recipeImage(recipe),'')}</span><span><h3>${esc(name)}</h3><button data-recipe="${esc(id)}" data-snapshot="${esc(w.id)}">Open saved recipe →</button></span></article>`;}).join('')}<h2 class="spaced">Shopping list</h2>${shopping(w.shopping)}<h2 class="spaced">Ingredient reuse</h2><ul class="reuse">${w.reuse.map(s=>`<li>${esc(s)}</li>`).join('')}</ul><h2 class="spaced">After cooking</h2><label>Ratings, changes and whether to repeat<textarea id="feedback" rows="4">${esc(feedbackEdit?.id===w.id?feedbackEdit.text:w.feedback||'')}</textarea></label><div class="feedback-actions"><button class="secondary" data-action="feedback">Save feedback</button>${saved.some(s=>s.id===w.id)?'<button class="secondary" data-action="remove-local">Remove saved week</button>':''}</div></section>`;
+    html=header(`Week of ${w.id}`,`${w.mealCount} dinners · 2 people`,recipeImage(w.snapshots?.[0]||{id:w.id}))+`<section class="content">${back()}<div class="actions week-actions"><button class="primary" data-action="edit-week">Edit week</button></div>${w.dinners.map(([id,name])=>{const recipe=w.snapshots?.find(r=>r.id===id)||{id,title:name};return `<article class="dinner-row"><span class="dinner-thumb">${remoteImage(recipeImage(recipe),'')}</span><span><h3>${esc(name)}</h3><button data-recipe="${esc(id)}" data-snapshot="${esc(w.id)}">Open saved recipe →</button></span></article>`;}).join('')}<h2 class="spaced">Shopping list</h2>${shopping(w.shopping)}<h2 class="spaced">Ingredient reuse</h2><ul class="reuse">${w.reuse.map(s=>`<li>${esc(s)}</li>`).join('')}</ul><h2 class="spaced">After cooking</h2><label>Ratings, changes and whether to repeat<textarea id="feedback" rows="4">${esc(feedbackEdit?.id===w.id?feedbackEdit.text:w.feedback||'')}</textarea></label><div class="feedback-actions"><button class="secondary" data-action="feedback">Save feedback</button>${saved.some(s=>s.id===w.id)?'<button class="secondary" data-action="remove-local">Remove saved week</button>':''}</div></section>`;
   }
   if(screen.type==='recipe'){
     const r=screen.snapshot?weeks().find(w=>w.id===screen.snapshot)?.snapshots?.find(r=>r.id===screen.id):recipes.find(r=>r.id===screen.id);
@@ -210,10 +228,21 @@ app.addEventListener('click',async e=>{
   if(b.dataset.nav){screen={type:b.dataset.nav};notice='';}
   else if(b.dataset.week)screen={type:'week',id:b.dataset.week};
   else if(b.dataset.recipe){returnScreen={...screen};screen={type:'recipe',id:b.dataset.recipe,snapshot:b.dataset.snapshot};}
+  else if(a==='edit-week'){
+    const w=weeks().find(w=>w.id===screen.id);
+    if(!w){screen={type:'weeks'};return;}
+    const dinnerIds=Array.isArray(w.dinners)?w.dinners.map(d=>Array.isArray(d)?d[0]:null).filter(id=>typeof id==='string'):[];
+    const snapshots=Array.isArray(w.snapshots)?JSON.parse(JSON.stringify(w.snapshots)):[];
+    const snapshotIds=new Set(snapshots.map(r=>r.id));
+    const ids=normaliseIds(dinnerIds.filter(id=>recipes.some(r=>r.id===id)||snapshotIds.has(id)));
+    draft={...emptyDraft(),date:w.id,count:Number.isSafeInteger(w.mealCount)&&w.mealCount>0?w.mealCount:ids.length||DEFAULT_COUNT,ids,packs:w.packSizes&&typeof w.packSizes==='object'&&!Array.isArray(w.packSizes)?{...w.packSizes}:{},snapshots,editingWeekId:w.id,feedback:feedbackEdit?.id===w.id?feedbackEdit.text:(typeof w.feedback==='string'?w.feedback:'')};
+    feedbackEdit=null;commentEdit=null;notice=ids.length<dinnerIds.length?'One or more saved recipes is no longer in the library. Replace it before updating this week.':'';
+    await saveDraft();screen={type:'plan'};
+  }
   else if(b.dataset.favourite){const id=b.dataset.favourite;favourites={...favourites,[id]:!favourites[id]};if(await persist('dinner-favourites-v1',favourites))notice=favourites[id]?'Recipe added to favourites.':'Recipe removed from favourites.';}
   else if(b.dataset.toggle){
     const id=b.dataset.toggle;
-    if(draft.ids.includes(id)){draft.ids=draft.ids.filter(v=>v!==id);draft.suggestionHistory=rememberIds(draft.suggestionHistory,[id],SUGGESTION_HISTORY_LIMIT);}
+    if(draft.ids.includes(id)){draft.ids=draft.ids.filter(v=>v!==id);draft.snapshots=draft.snapshots.filter(r=>r.id!==id);draft.suggestionHistory=rememberIds(draft.suggestionHistory,[id],SUGGESTION_HISTORY_LIMIT);}
     else if(draft.ids.length<draft.count)draft.ids.push(id);
     draft.swapHistory={};
     await saveDraft();render(true);return;
@@ -250,17 +279,21 @@ app.addEventListener('click',async e=>{
     }
   }
   else if(a==='review'){if(!validate(draft.count,selected()))screen={type:'review'};}
+  else if(a==='cancel-edit'){
+    const id=draft.editingWeekId;draft=emptyDraft();await saveDraft();screen=id&&weeks().some(w=>w.id===id)?{type:'week',id}:{type:'weeks'};notice='Editing cancelled.';
+  }
   else if(a==='save'){
     const problem=validate(draft.count,selected());if(problem){notice=problem;render();return;}
     if(!/^\d{4}-\d{2}-\d{2}$/.test(draft.date)){notice='Choose a week date.';render();return;}
-    if(weeks().some(w=>w.id===draft.date)){notice='A plan already exists for this date. Choose another date in the planner to keep both plans.';render();return;}
-    const rows=totals(selected(),catalog,draft.packs);
-    const w={id:draft.date,title:'Dinners from the recipe library',mealCount:draft.count,dinners:selected().map(r=>[r.id,r.title]),snapshots:JSON.parse(JSON.stringify(selected().map(r=>({...r,status:status(r),ingredients:r.ingredients.map(i=>({...i,name:catalog[i.key].name,unit:catalog[i.key].unit}))})))),shopping:shoppingSections(rows),reuse:reuse(rows),packSizes:{...draft.packs},feedback:''};
+    const editingId=draft.editingWeekId||null, existing=editingId?weeks().find(w=>w.id===editingId):null;
+    if(editingId&&!existing){notice='This saved week is no longer available. Load the latest saves before updating it.';render();return;}
+    if(weeks().some(w=>w.id===draft.date&&w.id!==editingId)){notice='A plan already exists for this date. Choose another date in the planner to keep both plans.';render();return;}
+    const w=savedWeekFromDraft(existing), nextSaved=existing?saved.filter(s=>s.id!==editingId).concat(w):[...saved,w];
     const nextDraft=emptyDraft();
-    const changes=[...changesFor('dinner-plans-v1',[...saved,w],records),...changesFor('dinner-draft-v1',nextDraft,records)];
+    const changes=[...changesFor('dinner-plans-v1',nextSaved,records),...changesFor('dinner-draft-v1',nextDraft,records)];
     await cloud.save(changes);
     for(const change of changes)records[change.id]={payload:change.payload,revision:change.revision+1};
-    saved.push(w);draft=nextDraft;screen={type:'week',id:w.id};notice='Week saved to your household.';
+    saved=nextSaved;draft=nextDraft;screen={type:'week',id:w.id};notice=existing?'Week updated in your household.':'Week saved to your household.';
   }
   else if(a==='remove-local'){removedPlan=saved.find(w=>w.id===screen.id);saved=saved.filter(w=>w.id!==screen.id);await persist('dinner-plans-v1',saved);screen={type:'weeks'};notice='Saved week removed from your household.';}
   else if(a==='undo-remove'){if(removedPlan){saved.push(removedPlan);await persist('dinner-plans-v1',saved);removedPlan=null;notice='Saved week restored.';}}

@@ -14,6 +14,13 @@ test('saving feedback changes only its week, preserving other record revisions',
     {id:'week-2026-09-21',payload:JSON.stringify({...one,feedback:'Great'}),revision:3}
   ]);
 });
+test('moving an edited week keeps the old date tombstoned and the new date versioned',()=>{
+  const old={id:'2026-09-21',feedback:'Keep'},moved={id:'2026-10-05',feedback:'Keep'};
+  assert.deepEqual(changesFor('dinner-plans-v1',[moved],{'week-2026-09-21':record(old,4)}),[
+    {id:'week-2026-10-05',payload:JSON.stringify(moved),revision:0},
+    {id:'week-2026-09-21',payload:'null',revision:4},
+  ]);
+});
 test('deletions retain tombstone revision and restoring uses it',()=>{
   const week={id:'2026-09-21'};
   assert.deepEqual(changesFor('dinner-plans-v1',[],{'week-2026-09-21':record(week,2)}),[

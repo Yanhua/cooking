@@ -9,7 +9,10 @@ import {writeChanges} from '../cloud-store.mjs';
 const require=createRequire(`${process.env.FIREBASE_TEST_MODULES}/test.cjs`);
 const {initializeTestEnvironment,assertFails,assertSucceeds}=require('@firebase/rules-unit-testing');
 const sdk=require('firebase/firestore');
-const rules=readFileSync(new URL('../firestore.rules',import.meta.url),'utf8').replaceAll('REPLACE_WITH_HOUSEHOLD_UID','household-test');
+const config=JSON.parse(readFileSync(new URL('../firebase-config.json',import.meta.url),'utf8'));
+const rules=readFileSync(new URL('../firestore.rules',import.meta.url),'utf8')
+  .replaceAll(config.householdUid,'household-test')
+  .replaceAll('REPLACE_WITH_HOUSEHOLD_UID','household-test');
 const env=await initializeTestEnvironment({projectId:'demo-dinner-sorted',firestore:{rules}});
 after(()=>env.cleanup());
 const owner=env.authenticatedContext('household-test').firestore();

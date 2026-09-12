@@ -2,7 +2,7 @@ import { DEFAULT_COUNT, totals, validate, advisories, suggest, fmt, shoppingSect
 import { connectCloud, changesFor, decodeRecords } from 'cloud-store';
 const app=document.querySelector('#app');
 let removedPlan=null;
-let recipes=[], published=[], catalog={}, screen={type:'weeks'}, returnScreen={type:'recipes'}, error='', notice='';
+let recipes=[], catalog={}, screen={type:'weeks'}, returnScreen={type:'recipes'}, error='', notice='';
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function read(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback;}catch{return fallback;}}
 let cloud=null, config=null, signedIn=false, ready=false, busy=false, authError='', records={}, incoming=null, feedbackEdit=null;
@@ -49,7 +49,7 @@ let saved=[], draft=emptyDraft(), tried={};
 const status=r=>tried[r.id]===undefined?r.status:(tried[r.id]?'Tried':'Not yet cooked');
 let filters={search:'',cuisine:'',protein:'',status:'',time:'30'};
 const saveDraft=()=>persist('dinner-draft-v1',draft);
-const weeks=()=>[...published.filter(w=>!saved.some(s=>s.id===w.id)),...saved].sort((a,b)=>b.id.localeCompare(a.id));
+const weeks=()=>[...saved].sort((a,b)=>b.id.localeCompare(a.id));
 const recentIds=()=>weeks().filter(w=>w.id<draft.date).slice(0,2).flatMap(w=>w.dinners.map(d=>d[0]));
 const selected=()=>draft.ids.map(id=>recipes.find(r=>r.id===id)).filter(Boolean);
 const header=(title,sub='')=>`<header class="top"><p class="eyebrow">Home kitchen</p><h1>${esc(title)}</h1><p class="sub">${esc(sub)}</p></header>`;
@@ -62,8 +62,8 @@ function visibleRecipes(){return recipes.filter(r=>(!filters.cuisine||r.cuisine=
 function cards(planning){const recent=recentIds();const chosen=selected();const list=visibleRecipes();return list.length?list.map(r=>{const added=draft.ids.includes(r.id);const shared=r.ingredients.filter(i=>catalog[i.key].category!=='Pantry'&&catalog[i.key].category!=='Water'&&chosen.some(s=>s.id!==r.id&&s.ingredients.some(j=>j.key===i.key))).map(i=>catalog[i.key].name);return `<article class="card"><button class="recipe-link" data-recipe="${esc(r.id)}"><h3>${esc(r.title)}</h3></button><p>${esc(r.cuisine)} · ${r.activeMinutes} min active · Serves ${r.servings}</p><p>${esc(status(r))}${recent.includes(r.id)?' · Recently planned':''}</p>${planning?`${shared.length?`<p class="shared">Shares ${esc(shared.join(', '))}</p>`:''}<button class="secondary" data-toggle="${esc(r.id)}" ${!added&&draft.ids.length>=draft.count?'disabled':''}>${added?'Remove':'Add to week'}</button>`:''}</article>`;}).join(''):'<p>No recipes match these filters.</p>';}
 function render(keepScroll=false){
   if(!config){app.innerHTML=header('Dinner, sorted','Connecting…');return;}
-  if(!config.firebase?.apiKey || !config.householdUid || !config.householdEmail){
-    app.innerHTML=header('One more step','Cloud saving needs to be connected.')+'<section class="content"><p>Finish the Firebase setup to unlock your shared planner. Existing browser saves are still on this device.</p><a href="./FIREBASE-SETUP.md">Setup instructions</a></section>';return;
+  if(!config.firebase?.apiKey || !config.firebase?.authDomain || !config.firebase?.projectId || !config.firebase?.appId || !config.householdUid || !config.householdEmail){
+    app.innerHTML=header('Could not connect','Cloud saving is not configured.')+'<section class="content"><p>Check the deployed application configuration, then reload.</p><button class="secondary" data-action="reload">Retry</button></section>';return;
   }
   if(!signedIn){app.innerHTML=header('Welcome home','Enter your household password to open the planner.')+`<section class="content"><form id="unlock-form"><label>Household password<input id="password" name="password" type="password" autocomplete="current-password" required ${busy?'disabled':''}></label><button class="primary" type="submit" ${busy||!cloud?'disabled':''}>${busy?'Unlocking…':'Unlock planner'}</button><p class="sub">This device will stay signed in until you lock it.</p>${authError?`<p class="notice" role="alert">${esc(authError)}</p>`:''}</form></section>`;return;}
   if(!ready){app.innerHTML=header('Dinner, sorted',error||'Loading your saved plans…')+'<section class="content"><button class="secondary" data-action="reload">Retry</button><button class="secondary" data-action="lock">Lock planner</button></section>';return;}
@@ -82,7 +82,7 @@ function render(keepScroll=false){
   if(screen.type==='week'){
     const w=weeks().find(w=>w.id===screen.id);
     if(!w){screen={type:'weeks'};return render();}
-    html=header(`Week of ${w.id}`,`${w.mealCount} dinners · 2 people`)+`<section class="content">${back()}${w.dinners.map(([id,name])=>`<article class="dinner-row"><h3>${esc(name)}</h3><button data-recipe="${esc(id)}" data-snapshot="${esc(w.id)}">Open saved recipe →</button></article>`).join('')}<h2 class="spaced">Shopping list</h2>${shopping(w.shopping)}<h2 class="spaced">Ingredient reuse</h2><ul class="reuse">${w.reuse.map(s=>`<li>${esc(s)}</li>`).join('')}</ul><h2 class="spaced">After cooking</h2><label>Ratings, changes and whether to repeat<textarea id="feedback" rows="4">${esc(feedbackEdit?.id===w.id?feedbackEdit.text:w.feedback||'')}</textarea></label><button class="secondary" data-action="feedback">Save feedback</button><div class="actions"><button class="primary" data-action="export">Export plan (.json)</button><button class="secondary" data-action="markdown">Export plan (.md)</button></div>${saved.some(s=>s.id===w.id)?'<button class="secondary" data-action="remove-local">Remove saved week</button>':''}<p class="sub">JSON includes recipe snapshots and shopping totals. Save it in weeks/ and run the data builder to publish it.</p></section>`;
+    html=header(`Week of ${w.id}`,`${w.mealCount} dinners · 2 people`)+`<section class="content">${back()}${w.dinners.map(([id,name])=>`<article class="dinner-row"><h3>${esc(name)}</h3><button data-recipe="${esc(id)}" data-snapshot="${esc(w.id)}">Open saved recipe →</button></article>`).join('')}<h2 class="spaced">Shopping list</h2>${shopping(w.shopping)}<h2 class="spaced">Ingredient reuse</h2><ul class="reuse">${w.reuse.map(s=>`<li>${esc(s)}</li>`).join('')}</ul><h2 class="spaced">After cooking</h2><label>Ratings, changes and whether to repeat<textarea id="feedback" rows="4">${esc(feedbackEdit?.id===w.id?feedbackEdit.text:w.feedback||'')}</textarea></label><button class="secondary" data-action="feedback">Save feedback</button><div class="actions"><button class="primary" data-action="export">Export plan (.json)</button><button class="secondary" data-action="markdown">Export plan (.md)</button></div>${saved.some(s=>s.id===w.id)?'<button class="secondary" data-action="remove-local">Remove saved week</button>':''}<p class="sub">JSON includes recipe snapshots and shopping totals. Keep it as a backup or share it privately with your household.</p></section>`;
   }
   if(screen.type==='export'){
     const w=weeks().find(w=>w.id===screen.id), json=screen.format==='json';
@@ -159,7 +159,7 @@ app.addEventListener('click',async e=>{
     for(const change of changes)records[change.id]={payload:change.payload,revision:change.revision+1};
     saved.push(w);draft=nextDraft;screen={type:'week',id:w.id};notice='Week saved to your household.';
   }
-  else if(a==='remove-local'){removedPlan=saved.find(w=>w.id===screen.id);saved=saved.filter(w=>w.id!==screen.id);await persist('dinner-plans-v1',saved);screen={type:'weeks'};notice='Saved week removed from your household. Published plans remain available.';}
+  else if(a==='remove-local'){removedPlan=saved.find(w=>w.id===screen.id);saved=saved.filter(w=>w.id!==screen.id);await persist('dinner-plans-v1',saved);screen={type:'weeks'};notice='Saved week removed from your household.';}
   else if(a==='undo-remove'){if(removedPlan){saved.push(removedPlan);await persist('dinner-plans-v1',saved);removedPlan=null;notice='Saved week restored.';}}
   else if(a==='tried'){const r=recipes.find(r=>r.id===screen.id);tried[r.id]=status(r)!=='Tried';if(await persist('dinner-tried-v1',tried))notice='Cooking status saved to your household.';}
   else if(a==='feedback'){
@@ -189,11 +189,11 @@ app.addEventListener('click',async e=>{
 app.innerHTML=header('Dinner, sorted','Loading the recipe library…');
 async function start(){
   try{
-    const loaded=await Promise.all(['./data/recipes.json','./data/weeks.json','./data/ingredients.json','./firebase-config.json'].map(async url=>{
+    const loaded=await Promise.all(['./data/recipes.json','./data/ingredients.json','./firebase-config.json'].map(async url=>{
       const response=await fetch(url,{cache:'no-cache'});if(!response.ok)throw new Error('Could not load the planner. Please reload.');return response.json();
     }));
-    [recipes,published,catalog,config]=loaded;
-    if(!config.firebase?.apiKey || !config.householdUid || !config.householdEmail){render();return;}
+    [recipes,catalog,config]=loaded;
+    if(!config.firebase?.apiKey || !config.firebase?.authDomain || !config.firebase?.projectId || !config.firebase?.appId || !config.householdUid || !config.householdEmail){render();return;}
     cloud=await connectCloud(config,authenticated=>{
       signedIn=authenticated;ready=false;
       if(!authenticated){saved=[];tried={};draft=emptyDraft();records={};incoming=null;feedbackEdit=null;screen={type:'weeks'};}

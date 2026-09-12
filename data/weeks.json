@@ -1,0 +1,476 @@
+[
+  {
+    "id": "2026-09-14",
+    "date": "Week of 14 September 2026",
+    "title": "Four dinners, nicely shared",
+    "dinners": [
+      [
+        "taiwanese-lu-rou-fan",
+        "Pressure-cooker Taiwanese lu rou fan with bok choy and egg"
+      ],
+      [
+        "mexican-pork-corn-skillet",
+        "Mexican pork, corn and zucchini rice skillet"
+      ],
+      [
+        "vietnamese-caramel-chicken",
+        "Vietnamese caramel chicken with green beans and rice"
+      ],
+      [
+        "italian-chicken-mushroom-zucchini-pasta",
+        "Italian chicken, mushroom and zucchini pasta"
+      ]
+    ],
+    "reuse": [
+      "500 g pork-mince pack: 300 g for lu rou fan; 200 g for the Mexican skillet.",
+      "700 g chicken-thigh pack: 350 g for Vietnamese caramel chicken; 350 g for Italian pasta.",
+      "250 g mushrooms: 125 g in lu rou fan; 125 g in Italian pasta.",
+      "2 zucchini: one in the Mexican skillet; one in Italian pasta.",
+      "Rice: cooked in the rice cooker for lu rou fan, the Mexican skillet, and Vietnamese chicken.",
+      "Garlic bulb: shared across all four dinners; cooked onion is used in the Taiwanese and Mexican dishes."
+    ],
+    "shopping": [
+      {
+        "category": "Fresh protein and produce",
+        "items": [
+          "700 g boneless chicken thighs",
+          "500 g pork mince",
+          "1 bag green beans (about 200 g)",
+          "1 red capsicum",
+          "2 zucchini",
+          "250 g mushrooms",
+          "1 bunch baby bok choy",
+          "2 brown onions",
+          "1 garlic bulb",
+          "6 eggs"
+        ]
+      },
+      {
+        "category": "Chilled and dry goods",
+        "items": [
+          "Parmesan (about 40 g)",
+          "200\u2013250 g short pasta",
+          "1 can diced tomatoes (400 g)",
+          "Shredded cheese (about 100 g)",
+          "Rice, if needed (about 500 g dry for the week)"
+        ]
+      },
+      {
+        "category": "Pantry check",
+        "items": [
+          "Light soy sauce and dark soy sauce (or extra light soy sauce)",
+          "Fish sauce",
+          "Rice vinegar or white vinegar",
+          "Brown sugar",
+          "Chinese five-spice and 1 star anise (optional but recommended)",
+          "Tomato paste",
+          "Dried Italian herbs or oregano",
+          "Ground cumin, smoked paprika, and chilli powder",
+          "Frozen corn (about 150 g)",
+          "Olive oil"
+        ]
+      }
+    ],
+    "snapshots": [
+      {
+        "id": "taiwanese-lu-rou-fan",
+        "cuisine": "Taiwanese",
+        "protein": "Pork",
+        "servings": 2,
+        "activeMinutes": 25,
+        "equipment": [
+          "stovetop",
+          "rice cooker",
+          "pressure cooker"
+        ],
+        "status": "Not yet cooked",
+        "ingredients": [
+          {
+            "key": "pork",
+            "amount": 300.0,
+            "name": "pork mince",
+            "unit": "g"
+          },
+          {
+            "key": "onion",
+            "amount": 1.0,
+            "name": "brown onion",
+            "unit": "each"
+          },
+          {
+            "key": "mushrooms",
+            "amount": 125.0,
+            "name": "mushrooms",
+            "unit": "g"
+          },
+          {
+            "key": "garlic",
+            "amount": 3.0,
+            "name": "garlic",
+            "unit": "cloves"
+          },
+          {
+            "key": "egg",
+            "amount": 4.0,
+            "name": "eggs",
+            "unit": "each"
+          },
+          {
+            "key": "soy",
+            "amount": 2.0,
+            "name": "light soy sauce",
+            "unit": "tbsp"
+          },
+          {
+            "key": "darksoy",
+            "amount": 1.0,
+            "name": "dark soy sauce",
+            "unit": "tbsp"
+          },
+          {
+            "key": "sugar",
+            "amount": 1.0,
+            "name": "brown sugar",
+            "unit": "tbsp"
+          },
+          {
+            "key": "vinegar",
+            "amount": 1.0,
+            "name": "rice vinegar",
+            "unit": "tbsp"
+          },
+          {
+            "key": "fivespice",
+            "amount": 1.0,
+            "name": "Chinese five-spice",
+            "unit": "tsp"
+          },
+          {
+            "key": "anise",
+            "amount": 1.0,
+            "name": "star anise",
+            "unit": "each"
+          },
+          {
+            "key": "water",
+            "amount": 250.0,
+            "name": "water",
+            "unit": "ml"
+          },
+          {
+            "key": "bokchoy",
+            "amount": 1.0,
+            "name": "baby bok choy",
+            "unit": "bunch"
+          },
+          {
+            "key": "rice",
+            "amount": 150.0,
+            "name": "dry rice",
+            "unit": "g"
+          }
+        ],
+        "title": "Pressure-cooker Taiwanese lu rou fan",
+        "path": "recipes/asian/taiwanese-lu-rou-fan.md",
+        "version": "713c8d375c95",
+        "group": "asian",
+        "steps": [
+          "Start the measured dry rice in the rice cooker according to its instructions.",
+          "Cook the eggs in the pressure cooker on high pressure for 5 minutes, then release pressure and cool them under cold water. Peel and set aside. (Alternatively, hard-boil them on the stovetop.)",
+          "Using the saut\u00e9 function, cook pork, onion, mushrooms, and garlic for 6\u20138 minutes, breaking up the pork until browned. Drain excess fat if needed.",
+          "Stir in both soy sauces, sugar, vinegar, five-spice, star anise, and water. Nestle in the peeled eggs. Pressure-cook on high for 18 minutes, then quick-release.",
+          "While it cooks, steam or blanch bok choy until just tender and cook rice in the rice cooker. Remove star anise, halve the eggs, and spoon the pork and sauce over rice with bok choy."
+        ]
+      },
+      {
+        "id": "mexican-pork-corn-skillet",
+        "cuisine": "Mexican",
+        "protein": "Pork",
+        "servings": 2,
+        "activeMinutes": 25,
+        "equipment": [
+          "stovetop",
+          "rice cooker"
+        ],
+        "status": "Not yet cooked",
+        "ingredients": [
+          {
+            "key": "pork",
+            "amount": 200.0,
+            "name": "pork mince",
+            "unit": "g"
+          },
+          {
+            "key": "zucchini",
+            "amount": 1.0,
+            "name": "zucchini",
+            "unit": "each"
+          },
+          {
+            "key": "capsicum",
+            "amount": 1.0,
+            "name": "red capsicum",
+            "unit": "each"
+          },
+          {
+            "key": "onion",
+            "amount": 0.5,
+            "name": "brown onion",
+            "unit": "each"
+          },
+          {
+            "key": "garlic",
+            "amount": 2.0,
+            "name": "garlic",
+            "unit": "cloves"
+          },
+          {
+            "key": "tomato",
+            "amount": 400.0,
+            "name": "canned tomatoes",
+            "unit": "g"
+          },
+          {
+            "key": "corn",
+            "amount": 150.0,
+            "name": "frozen corn",
+            "unit": "g"
+          },
+          {
+            "key": "paste",
+            "amount": 1.0,
+            "name": "tomato paste",
+            "unit": "tbsp"
+          },
+          {
+            "key": "cumin",
+            "amount": 1.0,
+            "name": "ground cumin",
+            "unit": "tsp"
+          },
+          {
+            "key": "paprika",
+            "amount": 1.0,
+            "name": "smoked paprika",
+            "unit": "tsp"
+          },
+          {
+            "key": "chilli",
+            "amount": 0.5,
+            "name": "chilli flakes",
+            "unit": "tsp"
+          },
+          {
+            "key": "cheese",
+            "amount": 100.0,
+            "name": "shredded cheese",
+            "unit": "g"
+          },
+          {
+            "key": "rice",
+            "amount": 150.0,
+            "name": "dry rice",
+            "unit": "g"
+          },
+          {
+            "key": "oil",
+            "amount": 1.0,
+            "name": "cooking oil",
+            "unit": "tbsp"
+          }
+        ],
+        "title": "Mexican pork, corn and zucchini rice skillet",
+        "path": "recipes/western/mexican-pork-corn-skillet.md",
+        "version": "97f55c44f60e",
+        "group": "western",
+        "steps": [
+          "Start the measured dry rice in the rice cooker according to its instructions.",
+          "Heat a large frying pan with oil. Brown pork for 3\u20134 minutes, then add onion, zucchini, capsicum, and garlic; cook for 5 minutes until softened.",
+          "Stir in tomato paste and spices for 30 seconds. Add tomatoes and corn, then simmer for 8\u201310 minutes until thick.",
+          "Top with cheese, cover for 1\u20132 minutes until melted, and serve over rice. All vegetables are cooked; no raw garnish is required."
+        ]
+      },
+      {
+        "id": "vietnamese-caramel-chicken",
+        "cuisine": "Vietnamese",
+        "protein": "Chicken",
+        "servings": 2,
+        "activeMinutes": 25,
+        "equipment": [
+          "stovetop",
+          "rice cooker"
+        ],
+        "status": "Not yet cooked",
+        "ingredients": [
+          {
+            "key": "chicken",
+            "amount": 350.0,
+            "name": "boneless chicken thighs",
+            "unit": "g"
+          },
+          {
+            "key": "beans",
+            "amount": 200.0,
+            "name": "green beans",
+            "unit": "g"
+          },
+          {
+            "key": "garlic",
+            "amount": 3.0,
+            "name": "garlic",
+            "unit": "cloves"
+          },
+          {
+            "key": "oil",
+            "amount": 1.0,
+            "name": "cooking oil",
+            "unit": "tbsp"
+          },
+          {
+            "key": "sugar",
+            "amount": 1.5,
+            "name": "brown sugar",
+            "unit": "tbsp"
+          },
+          {
+            "key": "fish",
+            "amount": 2.0,
+            "name": "fish sauce",
+            "unit": "tbsp"
+          },
+          {
+            "key": "soy",
+            "amount": 1.0,
+            "name": "light soy sauce",
+            "unit": "tbsp"
+          },
+          {
+            "key": "water",
+            "amount": 80.0,
+            "name": "water",
+            "unit": "ml"
+          },
+          {
+            "key": "pepper",
+            "amount": 0.25,
+            "name": "black pepper",
+            "unit": "tsp"
+          },
+          {
+            "key": "rice",
+            "amount": 150.0,
+            "name": "dry rice",
+            "unit": "g"
+          }
+        ],
+        "title": "Vietnamese caramel chicken with green beans",
+        "path": "recipes/asian/vietnamese-caramel-chicken.md",
+        "version": "6248cdac6b98",
+        "group": "asian",
+        "steps": [
+          "Start the measured dry rice in the rice cooker according to its instructions.",
+          "Mix fish sauce, soy sauce, water, and plenty of black pepper. Heat oil in a wide frying pan and cook chicken for 5\u20136 minutes until browned.",
+          "Push chicken aside. Add brown sugar to the bare part of the pan; let it melt and turn deep amber for 30\u201360 seconds, then carefully stir in the sauce mixture.",
+          "Add garlic and green beans. Toss and simmer for 5\u20136 minutes until the chicken is cooked, beans are tender-crisp, and the sauce coats everything. Serve with rice."
+        ]
+      },
+      {
+        "id": "italian-chicken-mushroom-zucchini-pasta",
+        "cuisine": "Italian",
+        "protein": "Chicken",
+        "servings": 2,
+        "activeMinutes": 30,
+        "equipment": [
+          "stovetop"
+        ],
+        "status": "Not yet cooked",
+        "ingredients": [
+          {
+            "key": "chicken",
+            "amount": 350.0,
+            "name": "boneless chicken thighs",
+            "unit": "g"
+          },
+          {
+            "key": "pasta",
+            "amount": 250.0,
+            "name": "dried pasta",
+            "unit": "g"
+          },
+          {
+            "key": "zucchini",
+            "amount": 1.0,
+            "name": "zucchini",
+            "unit": "each"
+          },
+          {
+            "key": "mushrooms",
+            "amount": 125.0,
+            "name": "mushrooms",
+            "unit": "g"
+          },
+          {
+            "key": "onion",
+            "amount": 0.5,
+            "name": "brown onion",
+            "unit": "each"
+          },
+          {
+            "key": "garlic",
+            "amount": 2.0,
+            "name": "garlic",
+            "unit": "cloves"
+          },
+          {
+            "key": "paste",
+            "amount": 1.0,
+            "name": "tomato paste",
+            "unit": "tbsp"
+          },
+          {
+            "key": "herbs",
+            "amount": 1.0,
+            "name": "dried Italian herbs",
+            "unit": "tsp"
+          },
+          {
+            "key": "parmesan",
+            "amount": 40.0,
+            "name": "Parmesan",
+            "unit": "g"
+          },
+          {
+            "key": "oil",
+            "amount": 1.0,
+            "name": "cooking oil",
+            "unit": "tbsp"
+          },
+          {
+            "key": "salt",
+            "amount": 0.25,
+            "name": "salt",
+            "unit": "tsp"
+          },
+          {
+            "key": "pepper",
+            "amount": 0.25,
+            "name": "black pepper",
+            "unit": "tsp"
+          }
+        ],
+        "title": "Italian chicken, mushroom and zucchini pasta",
+        "path": "recipes/western/italian-chicken-mushroom-zucchini-pasta.md",
+        "version": "b287ae6a384d",
+        "group": "western",
+        "steps": [
+          "Boil pasta in salted water. Reserve 3/4 cup pasta water, then drain.",
+          "Meanwhile, heat oil in a large frying pan. Season chicken and cook for 5\u20136 minutes until browned and cooked through; transfer to a plate.",
+          "Cook onion, mushrooms, and zucchini in the same pan for 5\u20136 minutes until soft and lightly browned. Add garlic, tomato paste, and herbs for 30 seconds.",
+          "Return chicken to the pan with pasta, Parmesan, and 1/2 cup pasta water. Toss for 1\u20132 minutes, adding more water as needed for a glossy sauce. Season and serve."
+        ]
+      }
+    ],
+    "mealCount": 4,
+    "feedback": ""
+  }
+]

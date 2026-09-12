@@ -1,27 +1,45 @@
 # Dinner planning
 
-This folder keeps weekly dinner plans, tested recipes, shopping lists, and cooking feedback in one place.
+A recipe-library-first dinner planner for two people in New Zealand. Build the library separately, then select existing recipes for each week. Four dinners is the default; each week can have any positive whole-number count. Every library dinner has at most 30 minutes of active cooking; total elapsed time may be longer.
 
-To start a new week, ask: “Plan next week's dinners using this cooking project.” The agent should follow `AGENTS.md`, read the preference and feedback files, then add a dated plan and shopping list.
+## Planning in the app
 
-## Folders
+1. Choose **Plan a week**, a date and the number of dinners.
+2. Search or filter the recipe library and add dinners. **Suggest remaining dinners** keeps your selections and fills open slots using existing recipes, preferring cuisine variety and avoiding the latest two earlier weeks. Suggestions never generate recipes.
+3. Review ingredient reuse and shopping totals. Pack sizes are editable estimates, not live supermarket listings. Pantry items are a check before buying. Reducing the count keeps your selections until you remove the extras.
+4. Save the plan. Drafts, saved weeks and feedback stay in this browser; they do not automatically sync between devices. Export JSON for a durable copy and Markdown for a readable plan.
+5. Put the JSON export in `weeks/`, run the data builder, and commit the resulting files to publish a shared plan. Existing dates cannot be overwritten from the picker.
 
-- `recipes/` — reusable recipe cards, organised by cuisine.
-- `weeks/` — dated weekly plans, including ingredient reuse and post-cooking notes.
-- `shopping-lists/` — standalone shopping lists for use at the supermarket.
+A recipe's “Not yet cooked” status does not claim that it has been tested. Use **Mark as tried** on a library recipe after cooking; this status is saved in the browser and included in new plan snapshots. Record household feedback after cooking and update the repository recipe status for a shared record.
 
-## Keeping it useful
+## Library maintenance
 
-After a meal, add a short note to `feedback.md` or the relevant week: rating, substitutions, portion size, and whether to repeat it. Those notes are the source of future improvements.
+Ask separately to expand the recipe library. Cards live in `recipes/` and include a `recipe-data` JSON comment: stable ID, cuisine, protein, servings, active minutes, equipment, cooking status and ingredient amounts. Keep this metadata and the readable recipe in agreement. Ingredient keys refer to `data/ingredients.json`, which defines canonical units and default pack sizes. Rice amounts are dry weights; chickpea amounts are drained weights (240 g per estimated 400 g can). Garlic uses an estimated 10 cloves per bulb.
 
-## Viewing on a phone
+The library starts with 24 recipes. The previous Spam fried rice card has been standardised to two servings. Saved plan JSON contains full recipe snapshots; later library changes do not change an already saved plan's recipes or shopping list.
 
-`index.html` is a dependency-free, mobile-first viewer for the recipes and weekly plans. It can be published directly with GitHub Pages: in the repository's **Settings → Pages**, choose **Deploy from a branch**, then select the branch and the repository root (`/`). The viewer discovers and renders every Markdown card under `recipes/` from the repository, so new cards need no website code changes.
+## Run locally
 
-When you change `app.js` or `styles.css`, cache keys in `index.html` are updated automatically from a hash of those files. Enable the shared git hook once per clone:
-
-```bash
-git config core.hooksPath .githooks
+```sh
+python3 scripts/build-data.py
+python3 -m http.server 8000
 ```
 
-If the hook is not installed locally, a GitHub Action updates `index.html` after pushes to `main`.
+Open http://localhost:8000. The app uses static JSON and works without GitHub API access. Opening `index.html` directly as a file is not supported.
+
+## Verify and publish
+
+```sh
+node --test tests/planner.test.mjs
+python3 tests/build-data.test.py
+python3 scripts/build-data.py
+./scripts/bust-cache.sh
+```
+
+Publish the repository root with GitHub Pages. Run the builder after changing recipe cards or importing weekly JSON. The generated `data/recipes.json` and `data/weeks.json` must be committed. Enable the cache hook with `git config core.hooksPath .githooks`; the included GitHub Action also updates asset cache keys.
+
+- `weeks/`: dated plans and browser JSON exports, including ingredient reuse and feedback.
+- `shopping-lists/`: standalone supermarket lists.
+- `feedback.md`: shared household feedback used for future planning.
+
+Local browser feedback is included in exports. Copy relevant notes into `feedback.md` when importing, and update recipe cards separately for lasting improvements.

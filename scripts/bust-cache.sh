@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-for file in app.js styles.css index.html; do
+for file in app.js planner.mjs styles.css index.html; do
   if [[ ! -f "$file" ]]; then
     echo "bust-cache: missing $file" >&2
     exit 1
@@ -20,7 +20,7 @@ hash_files() {
 }
 
 HASH=$(
-  hash_files app.js styles.css | hash_files | awk '{print substr($1, 1, 8)}'
+  hash_files app.js planner.mjs styles.css | hash_files | awk '{print substr($1, 1, 8)}'
 )
 
 if grep -q "?v=$HASH\"" index.html; then

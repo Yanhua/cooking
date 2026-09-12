@@ -1,0 +1,344 @@
+{
+  "chicken": {
+    "name": "boneless chicken thighs",
+    "unit": "g",
+    "pack": 700,
+    "category": "Fresh"
+  },
+  "pork": {
+    "name": "pork mince",
+    "unit": "g",
+    "pack": 500,
+    "category": "Fresh"
+  },
+  "beef": {
+    "name": "beef mince",
+    "unit": "g",
+    "pack": 500,
+    "category": "Fresh"
+  },
+  "tofu": {
+    "name": "firm tofu",
+    "unit": "g",
+    "pack": 300,
+    "category": "Chilled"
+  },
+  "beans": {
+    "name": "green beans",
+    "unit": "g",
+    "pack": 200,
+    "category": "Fresh"
+  },
+  "capsicum": {
+    "name": "red capsicum",
+    "unit": "each",
+    "pack": 1,
+    "category": "Fresh"
+  },
+  "zucchini": {
+    "name": "zucchini",
+    "unit": "each",
+    "pack": 1,
+    "category": "Fresh"
+  },
+  "mushrooms": {
+    "name": "mushrooms",
+    "unit": "g",
+    "pack": 250,
+    "category": "Fresh"
+  },
+  "onion": {
+    "name": "brown onion",
+    "unit": "each",
+    "pack": 1,
+    "category": "Fresh"
+  },
+  "garlic": {
+    "name": "garlic",
+    "unit": "cloves",
+    "pack": 10,
+    "category": "Fresh"
+  },
+  "carrot": {
+    "name": "carrot",
+    "unit": "each",
+    "pack": 1,
+    "category": "Fresh"
+  },
+  "broccoli": {
+    "name": "broccoli",
+    "unit": "each",
+    "pack": 1,
+    "category": "Fresh"
+  },
+  "bokchoy": {
+    "name": "baby bok choy",
+    "unit": "bunch",
+    "pack": 1,
+    "category": "Fresh"
+  },
+  "basil": {
+    "name": "Thai basil",
+    "unit": "g",
+    "pack": 30,
+    "category": "Fresh"
+  },
+  "ginger": {
+    "name": "ginger",
+    "unit": "g",
+    "pack": 100,
+    "category": "Fresh"
+  },
+  "potato": {
+    "name": "potatoes",
+    "unit": "g",
+    "pack": 1000,
+    "category": "Fresh"
+  },
+  "cabbage": {
+    "name": "cabbage",
+    "unit": "g",
+    "pack": 1000,
+    "category": "Fresh"
+  },
+  "lemon": {
+    "name": "lemon",
+    "unit": "each",
+    "pack": 1,
+    "category": "Fresh"
+  },
+  "egg": {
+    "name": "eggs",
+    "unit": "each",
+    "pack": 6,
+    "category": "Chilled"
+  },
+  "cream": {
+    "name": "cooking cream",
+    "unit": "ml",
+    "pack": 300,
+    "category": "Chilled"
+  },
+  "parmesan": {
+    "name": "Parmesan",
+    "unit": "g",
+    "pack": 100,
+    "category": "Chilled"
+  },
+  "cheese": {
+    "name": "shredded cheese",
+    "unit": "g",
+    "pack": 250,
+    "category": "Chilled"
+  },
+  "rice": {
+    "name": "dry rice",
+    "unit": "g",
+    "pack": 1000,
+    "category": "Pantry"
+  },
+  "pasta": {
+    "name": "dried pasta",
+    "unit": "g",
+    "pack": 500,
+    "category": "Dry goods"
+  },
+  "spaghetti": {
+    "name": "dried spaghetti",
+    "unit": "g",
+    "pack": 500,
+    "category": "Dry goods"
+  },
+  "noodles": {
+    "name": "dried egg noodles",
+    "unit": "g",
+    "pack": 250,
+    "category": "Dry goods"
+  },
+  "coconut": {
+    "name": "coconut milk",
+    "unit": "ml",
+    "pack": 400,
+    "category": "Dry goods"
+  },
+  "tomato": {
+    "name": "canned tomatoes",
+    "unit": "g",
+    "pack": 400,
+    "category": "Dry goods"
+  },
+  "chickpea": {
+    "name": "chickpeas (drained)",
+    "unit": "g",
+    "pack": 240,
+    "category": "Dry goods"
+  },
+  "spam": {
+    "name": "Spam",
+    "unit": "g",
+    "pack": 340,
+    "category": "Dry goods"
+  },
+  "corn": {
+    "name": "frozen corn",
+    "unit": "g",
+    "pack": 500,
+    "category": "Frozen"
+  },
+  "peas": {
+    "name": "frozen peas",
+    "unit": "g",
+    "pack": 500,
+    "category": "Frozen"
+  },
+  "spring": {
+    "name": "spring onions",
+    "unit": "each",
+    "pack": 6,
+    "category": "Fresh"
+  },
+  "oil": {
+    "name": "cooking oil",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "soy": {
+    "name": "light soy sauce",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "darksoy": {
+    "name": "dark soy sauce",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "fish": {
+    "name": "fish sauce",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "oyster": {
+    "name": "oyster sauce",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "sugar": {
+    "name": "brown sugar",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "vinegar": {
+    "name": "rice vinegar",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "fivespice": {
+    "name": "Chinese five-spice",
+    "unit": "tsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "anise": {
+    "name": "star anise",
+    "unit": "each",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "chilli": {
+    "name": "chilli flakes",
+    "unit": "tsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "redcurry": {
+    "name": "Thai red curry paste",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "paste": {
+    "name": "tomato paste",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "herbs": {
+    "name": "dried Italian herbs",
+    "unit": "tsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "cumin": {
+    "name": "ground cumin",
+    "unit": "tsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "paprika": {
+    "name": "smoked paprika",
+    "unit": "tsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "pepper": {
+    "name": "black pepper",
+    "unit": "tsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "salt": {
+    "name": "salt",
+    "unit": "tsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "sesame": {
+    "name": "sesame oil",
+    "unit": "tsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "kecap": {
+    "name": "kecap manis",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "water": {
+    "name": "water",
+    "unit": "ml",
+    "pack": null,
+    "category": "Water"
+  },
+  "honey": {
+    "name": "honey",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "mustard": {
+    "name": "Dijon mustard",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "gochujang": {
+    "name": "gochujang",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "curry": {
+    "name": "curry powder",
+    "unit": "tsp",
+    "pack": null,
+    "category": "Pantry"
+  }
+}

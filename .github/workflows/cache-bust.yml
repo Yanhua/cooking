@@ -6,6 +6,7 @@ on:
     paths:
       - app.js
       - styles.css
+      - planner.mjs
 
 permissions:
   contents: write

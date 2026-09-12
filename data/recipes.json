@@ -1,0 +1,1550 @@
+[
+  {
+    "id": "chinese-ginger-chicken",
+    "cuisine": "Chinese",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350.0
+      },
+      {
+        "key": "broccoli",
+        "amount": 1.0
+      },
+      {
+        "key": "carrot",
+        "amount": 1.0
+      },
+      {
+        "key": "ginger",
+        "amount": 20.0
+      },
+      {
+        "key": "garlic",
+        "amount": 2.0
+      },
+      {
+        "key": "soy",
+        "amount": 2.0
+      },
+      {
+        "key": "oyster",
+        "amount": 1.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "rice",
+        "amount": 150.0
+      }
+    ],
+    "notes": "",
+    "title": "Ginger chicken with broccoli and rice",
+    "path": "recipes/asian/chinese-ginger-chicken.md",
+    "version": "a7aeb7728205",
+    "group": "asian",
+    "steps": [
+      "Cook rice in the rice cooker. Slice chicken thinly, broccoli into small florets and carrot into thin half-moons.",
+      "Heat oil in a wok. Stir-fry chicken for 5\u20137 minutes until cooked through; transfer to a plate.",
+      "Stir-fry vegetables with a splash of water for 4\u20135 minutes. Add minced ginger and garlic for 30 seconds.",
+      "Return chicken, add soy and oyster sauces, and toss for 1 minute. Serve with rice."
+    ]
+  },
+  {
+    "id": "chinese-pork-cabbage",
+    "cuisine": "Chinese",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork",
+        "amount": 250.0
+      },
+      {
+        "key": "cabbage",
+        "amount": 300.0
+      },
+      {
+        "key": "carrot",
+        "amount": 1.0
+      },
+      {
+        "key": "garlic",
+        "amount": 2.0
+      },
+      {
+        "key": "soy",
+        "amount": 2.0
+      },
+      {
+        "key": "vinegar",
+        "amount": 1.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "rice",
+        "amount": 150.0
+      }
+    ],
+    "notes": "",
+    "title": "Pork and cabbage stir-fry",
+    "path": "recipes/asian/chinese-pork-cabbage.md",
+    "version": "537fbdf5517b",
+    "group": "asian",
+    "steps": [
+      "Start the rice. Thinly shred cabbage and slice carrot.",
+      "Brown pork in oil for 5\u20136 minutes, breaking it apart.",
+      "Add carrot and cabbage; stir-fry for 6\u20138 minutes until tender. Add minced garlic for 30 seconds.",
+      "Stir in soy sauce and vinegar. Cook for another minute and serve with rice."
+    ]
+  },
+  {
+    "id": "chinese-tofu-mushrooms",
+    "cuisine": "Chinese",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 300.0
+      },
+      {
+        "key": "mushrooms",
+        "amount": 250.0
+      },
+      {
+        "key": "bokchoy",
+        "amount": 1.0
+      },
+      {
+        "key": "garlic",
+        "amount": 2.0
+      },
+      {
+        "key": "ginger",
+        "amount": 15.0
+      },
+      {
+        "key": "soy",
+        "amount": 2.0
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "rice",
+        "amount": 150.0
+      }
+    ],
+    "notes": "",
+    "title": "Soy-braised tofu and mushrooms",
+    "path": "recipes/asian/chinese-tofu-mushrooms.md",
+    "version": "df1b9ef8df72",
+    "group": "asian",
+    "steps": [
+      "Start rice. Pat tofu dry and cube; slice mushrooms and bok choy.",
+      "Pan-fry tofu in oil for 6\u20138 minutes, turning gently.",
+      "Add mushrooms and cook for 4 minutes. Add minced garlic and ginger, then soy, sugar and 100 ml water.",
+      "Simmer for 4 minutes. Add bok choy and cook for 3 minutes until tender. Serve with rice."
+    ]
+  },
+  {
+    "id": "japanese-chicken-rice",
+    "cuisine": "Japanese-inspired",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350.0
+      },
+      {
+        "key": "broccoli",
+        "amount": 1.0
+      },
+      {
+        "key": "carrot",
+        "amount": 1.0
+      },
+      {
+        "key": "soy",
+        "amount": 2.0
+      },
+      {
+        "key": "honey",
+        "amount": 1.0
+      },
+      {
+        "key": "vinegar",
+        "amount": 1.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "rice",
+        "amount": 150.0
+      }
+    ],
+    "notes": "",
+    "title": "Teriyaki-style chicken rice bowls",
+    "path": "recipes/asian/japanese-chicken-rice.md",
+    "version": "6645a7e927dc",
+    "group": "asian",
+    "steps": [
+      "Start rice. Cut chicken into small pieces and vegetables into bite-sized pieces.",
+      "Steam broccoli and carrot until tender, about 6\u20138 minutes.",
+      "Fry chicken in oil for 6\u20138 minutes until cooked through.",
+      "Add soy, honey, vinegar and 2 tbsp water. Simmer for 2 minutes to glaze. Serve with vegetables and rice."
+    ]
+  },
+  {
+    "id": "korean-pork-bowls",
+    "cuisine": "Korean-inspired",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork",
+        "amount": 250.0
+      },
+      {
+        "key": "cabbage",
+        "amount": 300.0
+      },
+      {
+        "key": "carrot",
+        "amount": 1.0
+      },
+      {
+        "key": "gochujang",
+        "amount": 1.0
+      },
+      {
+        "key": "soy",
+        "amount": 1.0
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "sesame",
+        "amount": 1.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "rice",
+        "amount": 150.0
+      }
+    ],
+    "notes": "",
+    "title": "Gochujang pork and cabbage bowls",
+    "path": "recipes/asian/korean-pork-bowls.md",
+    "version": "7a88866866ff",
+    "group": "asian",
+    "steps": [
+      "Start rice. Shred cabbage and slice carrot finely.",
+      "Brown pork in oil for 5\u20136 minutes.",
+      "Add vegetables and stir-fry for 6\u20138 minutes until tender.",
+      "Stir in gochujang, soy, sugar and 2 tbsp water. Cook for 2 minutes; finish with sesame oil and serve with rice."
+    ]
+  },
+  {
+    "id": "malaysian-curry-chicken",
+    "cuisine": "Malaysian-inspired",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350.0
+      },
+      {
+        "key": "coconut",
+        "amount": 400.0
+      },
+      {
+        "key": "curry",
+        "amount": 2.0
+      },
+      {
+        "key": "carrot",
+        "amount": 1.0
+      },
+      {
+        "key": "beans",
+        "amount": 200.0
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "rice",
+        "amount": 150.0
+      }
+    ],
+    "notes": "",
+    "title": "Malaysian-inspired coconut chicken curry",
+    "path": "recipes/asian/malaysian-curry-chicken.md",
+    "version": "702fdd73c022",
+    "group": "asian",
+    "steps": [
+      "Start rice. Slice chicken, onion and carrot; trim beans.",
+      "Fry onion and chicken in oil for 5 minutes. Add minced garlic and curry powder for 30 seconds.",
+      "Add coconut milk and carrot. Simmer for 8 minutes.",
+      "Add beans and simmer for 5 minutes until chicken is cooked through and vegetables are tender. Serve with rice."
+    ]
+  },
+  {
+    "id": "spam-egg-fried-rice",
+    "cuisine": "Chinese-inspired",
+    "protein": "Spam",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "rice",
+        "amount": 180.0
+      },
+      {
+        "key": "egg",
+        "amount": 2.0
+      },
+      {
+        "key": "spam",
+        "amount": 150.0
+      },
+      {
+        "key": "spring",
+        "amount": 2.0
+      },
+      {
+        "key": "peas",
+        "amount": 100.0
+      },
+      {
+        "key": "soy",
+        "amount": 1.0
+      },
+      {
+        "key": "kecap",
+        "amount": 0.5
+      },
+      {
+        "key": "sesame",
+        "amount": 0.25
+      },
+      {
+        "key": "pepper",
+        "amount": 0.25
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      }
+    ],
+    "notes": "Requires cooked rice prepared and chilled ahead; the active time excludes that earlier preparation.",
+    "title": "Spam egg fried rice",
+    "path": "recipes/asian/spam-egg-fried-rice.md",
+    "version": "c76af9d1a79e",
+    "group": "asian",
+    "steps": [
+      "Dice the Spam, slice spring onions and keep the white and green parts separate.",
+      "Use cooked rice made from 180 g dry rice, prepared ahead and chilled. Break up any clumps.",
+      "Heat a wok or large frying pan over high heat. Add 1 tbsp oil, then scramble the eggs until about 80% cooked. Transfer to a plate.",
+      "Add the Spam to the dry pan and fry until browned and lightly crisp at the edges. If it releases a lot of fat, carefully remove any excess.",
+      "Add the spring-onion whites and frozen peas. Stir-fry for 1\u20132 minutes.",
+      "Increase the heat to high, add the rice, and stir-fry vigorously for 3\u20135 minutes until hot and the grains are separate.",
+      "Add the soy sauce, kecap manis, and a few grinds of pepper. Toss well.",
+      "Return the eggs, add the spring-onion greens and, if using, sesame oil. Stir-fry for another 2 minutes until the greens are cooked, then serve."
+    ]
+  },
+  {
+    "id": "taiwanese-lu-rou-fan",
+    "cuisine": "Taiwanese",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker",
+      "pressure cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork",
+        "amount": 300.0
+      },
+      {
+        "key": "onion",
+        "amount": 1.0
+      },
+      {
+        "key": "mushrooms",
+        "amount": 125.0
+      },
+      {
+        "key": "garlic",
+        "amount": 3.0
+      },
+      {
+        "key": "egg",
+        "amount": 4.0
+      },
+      {
+        "key": "soy",
+        "amount": 2.0
+      },
+      {
+        "key": "darksoy",
+        "amount": 1.0
+      },
+      {
+        "key": "sugar",
+        "amount": 1.0
+      },
+      {
+        "key": "vinegar",
+        "amount": 1.0
+      },
+      {
+        "key": "fivespice",
+        "amount": 1.0
+      },
+      {
+        "key": "anise",
+        "amount": 1.0
+      },
+      {
+        "key": "water",
+        "amount": 250.0
+      },
+      {
+        "key": "bokchoy",
+        "amount": 1.0
+      },
+      {
+        "key": "rice",
+        "amount": 150.0
+      }
+    ],
+    "notes": "Allow extra elapsed time for the egg cycle, 18 minutes pressure cooking, and pressure build-up and release.",
+    "title": "Pressure-cooker Taiwanese lu rou fan",
+    "path": "recipes/asian/taiwanese-lu-rou-fan.md",
+    "version": "bc43301343b2",
+    "group": "asian",
+    "steps": [
+      "Finely chop onion, mushrooms and garlic; halve bok choy lengthways.",
+      "Start the measured dry rice in the rice cooker according to its instructions.",
+      "Cook the eggs in the pressure cooker on high pressure for 5 minutes, then release pressure and cool them under cold water. Peel and set aside. (Alternatively, hard-boil them on the stovetop.)",
+      "Using the saut\u00e9 function, cook pork, onion, mushrooms, and garlic for 6\u20138 minutes, breaking up the pork until browned. Drain excess fat if needed.",
+      "Stir in both soy sauces, sugar, vinegar, five-spice, star anise, and water. Nestle in the peeled eggs. Pressure-cook on high for 18 minutes, then quick-release.",
+      "While it cooks, steam or blanch bok choy until just tender and cook rice in the rice cooker. Remove star anise, halve the eggs, and spoon the pork and sauce over rice with bok choy."
+    ]
+  },
+  {
+    "id": "thai-basil-chicken",
+    "cuisine": "Thai",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350.0
+      },
+      {
+        "key": "beans",
+        "amount": 200.0
+      },
+      {
+        "key": "capsicum",
+        "amount": 1.0
+      },
+      {
+        "key": "garlic",
+        "amount": 2.0
+      },
+      {
+        "key": "basil",
+        "amount": 30.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "oyster",
+        "amount": 1.5
+      },
+      {
+        "key": "soy",
+        "amount": 1.0
+      },
+      {
+        "key": "fish",
+        "amount": 0.333333
+      },
+      {
+        "key": "sugar",
+        "amount": 0.333333
+      },
+      {
+        "key": "chilli",
+        "amount": 0.5
+      },
+      {
+        "key": "rice",
+        "amount": 150.0
+      }
+    ],
+    "notes": "",
+    "title": "Thai basil chicken with green beans",
+    "path": "recipes/asian/thai-basil-chicken.md",
+    "version": "a71a99c80197",
+    "group": "asian",
+    "steps": [
+      "Thinly slice chicken and capsicum. Trim and halve beans and mince garlic.",
+      "Start the measured dry rice in the rice cooker according to its instructions.",
+      "Mix oyster sauce, soy sauce, fish sauce, sugar, and chilli (if using) with 2 tbsp water.",
+      "Heat a large frying pan or wok until very hot. Add oil, then chicken; stir-fry for 4\u20135 minutes until browned and cooked through.",
+      "Add garlic, beans, and capsicum. Stir-fry for 3\u20134 minutes, keeping the vegetables bright and tender-crisp.",
+      "Add the sauce and toss for about 1 minute until it lightly coats the chicken. Turn off the heat, fold through basil, and serve with rice."
+    ]
+  },
+  {
+    "id": "thai-chicken-noodles",
+    "cuisine": "Thai",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350.0
+      },
+      {
+        "key": "noodles",
+        "amount": 200.0
+      },
+      {
+        "key": "carrot",
+        "amount": 1.0
+      },
+      {
+        "key": "capsicum",
+        "amount": 1.0
+      },
+      {
+        "key": "garlic",
+        "amount": 2.0
+      },
+      {
+        "key": "fish",
+        "amount": 1.0
+      },
+      {
+        "key": "soy",
+        "amount": 1.0
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "chilli",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Thai-inspired chicken and vegetable noodles",
+    "path": "recipes/asian/thai-chicken-noodles.md",
+    "version": "a05b7d53f011",
+    "group": "asian",
+    "steps": [
+      "Cook noodles following the packet and drain.",
+      "Thinly slice chicken and vegetables. Stir-fry chicken in oil for 5\u20137 minutes until cooked through.",
+      "Add vegetables and cook for 4 minutes; add minced garlic.",
+      "Toss in noodles, sauces, sugar and chilli with a splash of water. Cook for 2 minutes."
+    ]
+  },
+  {
+    "id": "thai-red-curry-pork",
+    "cuisine": "Thai",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork",
+        "amount": 250.0
+      },
+      {
+        "key": "coconut",
+        "amount": 400.0
+      },
+      {
+        "key": "redcurry",
+        "amount": 2.0
+      },
+      {
+        "key": "carrot",
+        "amount": 2.0
+      },
+      {
+        "key": "capsicum",
+        "amount": 1.0
+      },
+      {
+        "key": "garlic",
+        "amount": 2.0
+      },
+      {
+        "key": "sugar",
+        "amount": 0.333333
+      },
+      {
+        "key": "fish",
+        "amount": 1.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "rice",
+        "amount": 150.0
+      }
+    ],
+    "notes": "",
+    "title": "Thai red curry pork with carrots and capsicum",
+    "path": "recipes/asian/thai-red-curry-pork.md",
+    "version": "bfa15547f350",
+    "group": "asian",
+    "steps": [
+      "Thinly slice carrots and capsicum and mince garlic.",
+      "Start the measured dry rice in the rice cooker according to its instructions.",
+      "Heat oil in a wide pan. Cook pork mince for 4\u20135 minutes, breaking it up until browned.",
+      "Add garlic and curry paste; fry for 1 minute until fragrant.",
+      "Add coconut milk, carrots, capsicum, sugar, and fish sauce. Simmer for 10\u201312 minutes until the carrots are tender and the sauce has thickened slightly.",
+      "Taste and adjust with more fish sauce or sugar if needed. Serve with rice."
+    ]
+  },
+  {
+    "id": "thai-tofu-red-curry",
+    "cuisine": "Thai",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 300.0
+      },
+      {
+        "key": "broccoli",
+        "amount": 1.0
+      },
+      {
+        "key": "carrot",
+        "amount": 1.0
+      },
+      {
+        "key": "coconut",
+        "amount": 400.0
+      },
+      {
+        "key": "redcurry",
+        "amount": 2.0
+      },
+      {
+        "key": "soy",
+        "amount": 1.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "rice",
+        "amount": 150.0
+      }
+    ],
+    "notes": "",
+    "title": "Thai red curry tofu and broccoli",
+    "path": "recipes/asian/thai-tofu-red-curry.md",
+    "version": "0f9251790d0b",
+    "group": "asian",
+    "steps": [
+      "Start rice and cut tofu into cubes and vegetables into small pieces.",
+      "Fry curry paste in oil for 1 minute.",
+      "Add coconut milk, carrot and tofu. Simmer for 8 minutes.",
+      "Add broccoli and soy sauce; simmer for 5 minutes until vegetables are tender. Serve with rice. Choose a vegetarian curry paste if needed."
+    ]
+  },
+  {
+    "id": "vietnamese-caramel-chicken",
+    "cuisine": "Vietnamese",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350.0
+      },
+      {
+        "key": "beans",
+        "amount": 200.0
+      },
+      {
+        "key": "garlic",
+        "amount": 3.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "sugar",
+        "amount": 1.5
+      },
+      {
+        "key": "fish",
+        "amount": 2.0
+      },
+      {
+        "key": "soy",
+        "amount": 1.0
+      },
+      {
+        "key": "water",
+        "amount": 80.0
+      },
+      {
+        "key": "pepper",
+        "amount": 0.25
+      },
+      {
+        "key": "rice",
+        "amount": 150.0
+      }
+    ],
+    "notes": "",
+    "title": "Vietnamese caramel chicken with green beans",
+    "path": "recipes/asian/vietnamese-caramel-chicken.md",
+    "version": "9ecfad670635",
+    "group": "asian",
+    "steps": [
+      "Cut chicken into bite-sized pieces, trim beans and mince garlic.",
+      "Start the measured dry rice in the rice cooker according to its instructions.",
+      "Mix fish sauce, soy sauce, water, and plenty of black pepper. Heat oil in a wide frying pan and cook chicken for 5\u20136 minutes until browned.",
+      "Push chicken aside. Add brown sugar to the bare part of the pan; let it melt and turn deep amber for 30\u201360 seconds, then carefully stir in the sauce mixture.",
+      "Add garlic and green beans. Toss and simmer for 5\u20136 minutes until the chicken is cooked, beans are tender-crisp, and the sauce coats everything. Serve with rice."
+    ]
+  },
+  {
+    "id": "vietnamese-tofu-bowls",
+    "cuisine": "Vietnamese-inspired",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 300.0
+      },
+      {
+        "key": "beans",
+        "amount": 200.0
+      },
+      {
+        "key": "garlic",
+        "amount": 2.0
+      },
+      {
+        "key": "soy",
+        "amount": 2.0
+      },
+      {
+        "key": "sugar",
+        "amount": 1.0
+      },
+      {
+        "key": "vinegar",
+        "amount": 1.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "rice",
+        "amount": 150.0
+      }
+    ],
+    "notes": "",
+    "title": "Caramel tofu with green beans and rice",
+    "path": "recipes/asian/vietnamese-tofu-bowls.md",
+    "version": "a683d83f3117",
+    "group": "asian",
+    "steps": [
+      "Start rice. Pat tofu dry, cube it and trim beans.",
+      "Pan-fry tofu in oil for 8 minutes, turning until golden.",
+      "Add beans with 3 tbsp water, cover and cook for 5 minutes.",
+      "Add minced garlic, soy, sugar and vinegar. Toss and simmer for 3 minutes until beans are tender and tofu is coated; serve with rice."
+    ]
+  },
+  {
+    "id": "beef-tomato-pasta",
+    "cuisine": "Italian",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef",
+        "amount": 250.0
+      },
+      {
+        "key": "pasta",
+        "amount": 250.0
+      },
+      {
+        "key": "zucchini",
+        "amount": 1.0
+      },
+      {
+        "key": "tomato",
+        "amount": 400.0
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2.0
+      },
+      {
+        "key": "herbs",
+        "amount": 1.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "parmesan",
+        "amount": 30.0
+      }
+    ],
+    "notes": "",
+    "title": "Beef and zucchini tomato pasta",
+    "path": "recipes/western/beef-tomato-pasta.md",
+    "version": "3bf5cf1edb08",
+    "group": "western",
+    "steps": [
+      "Cook pasta according to the packet.",
+      "Finely chop onion and dice zucchini. Brown beef in oil for 5 minutes.",
+      "Add onion and zucchini for 5 minutes, then minced garlic and herbs.",
+      "Add tomatoes and simmer for 8 minutes until beef is cooked. Toss with pasta and finish with Parmesan."
+    ]
+  },
+  {
+    "id": "british-pork-potato",
+    "cuisine": "British-inspired",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 30,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork",
+        "amount": 250.0
+      },
+      {
+        "key": "potato",
+        "amount": 400.0
+      },
+      {
+        "key": "peas",
+        "amount": 150.0
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "mustard",
+        "amount": 1.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "salt",
+        "amount": 0.25
+      },
+      {
+        "key": "pepper",
+        "amount": 0.25
+      }
+    ],
+    "notes": "",
+    "title": "Pork, potato and pea skillet",
+    "path": "recipes/western/british-pork-potato.md",
+    "version": "a3d860e8a7c1",
+    "group": "western",
+    "steps": [
+      "Dice potatoes into 1.5 cm pieces and boil for 10\u201312 minutes until tender, then drain.",
+      "Chop onion. Brown pork and onion in oil for 6\u20138 minutes until pork is cooked.",
+      "Add potatoes and fry for 4 minutes.",
+      "Stir in peas, mustard and 3 tbsp water. Cover and cook for 3\u20134 minutes until peas are hot. Season and serve."
+    ]
+  },
+  {
+    "id": "chickpea-tomato-skillet",
+    "cuisine": "Spanish-inspired",
+    "protein": "Chickpeas",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chickpea",
+        "amount": 480.0
+      },
+      {
+        "key": "zucchini",
+        "amount": 1.0
+      },
+      {
+        "key": "capsicum",
+        "amount": 1.0
+      },
+      {
+        "key": "tomato",
+        "amount": 400.0
+      },
+      {
+        "key": "garlic",
+        "amount": 2.0
+      },
+      {
+        "key": "paprika",
+        "amount": 1.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "rice",
+        "amount": 150.0
+      }
+    ],
+    "notes": "",
+    "title": "Smoky chickpea and zucchini skillet",
+    "path": "recipes/western/chickpea-tomato-skillet.md",
+    "version": "31a461232a6b",
+    "group": "western",
+    "steps": [
+      "Start rice. Dice zucchini and capsicum and drain chickpeas.",
+      "Fry vegetables in oil for 5 minutes.",
+      "Add minced garlic and paprika for 30 seconds. Stir in tomatoes and chickpeas.",
+      "Simmer for 10 minutes until vegetables are tender. Serve with rice."
+    ]
+  },
+  {
+    "id": "creamy-garlic-chicken-pasta",
+    "cuisine": "Italian-inspired",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350.0
+      },
+      {
+        "key": "pasta",
+        "amount": 250.0
+      },
+      {
+        "key": "broccoli",
+        "amount": 1.0
+      },
+      {
+        "key": "mushrooms",
+        "amount": 125.0
+      },
+      {
+        "key": "garlic",
+        "amount": 3.0
+      },
+      {
+        "key": "cream",
+        "amount": 200.0
+      },
+      {
+        "key": "parmesan",
+        "amount": 35.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "salt",
+        "amount": 0.25
+      },
+      {
+        "key": "pepper",
+        "amount": 0.25
+      }
+    ],
+    "notes": "",
+    "title": "Creamy garlic chicken, broccoli and mushroom pasta",
+    "path": "recipes/western/creamy-garlic-chicken-pasta.md",
+    "version": "772577bb2f4f",
+    "group": "western",
+    "steps": [
+      "Cut chicken into bite-sized pieces and broccoli into small florets. Slice mushrooms and mince garlic.",
+      "Boil pasta in well-salted water. Add broccoli for the final 3 minutes, then reserve 1/2 cup pasta water and drain.",
+      "Meanwhile, heat oil in a large frying pan. Season chicken and cook for 5\u20136 minutes until browned and cooked through. Move it to a plate.",
+      "Add mushrooms to the pan and cook for 3 minutes. Add garlic and cook for 30 seconds.",
+      "Add cream, Parmesan, chicken, pasta, and broccoli. Toss for 1\u20132 minutes, loosening with a little reserved pasta water. Season to taste."
+    ]
+  },
+  {
+    "id": "creamy-tomato-pork-spaghetti",
+    "cuisine": "Italian-inspired",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork",
+        "amount": 250.0
+      },
+      {
+        "key": "spaghetti",
+        "amount": 250.0
+      },
+      {
+        "key": "mushrooms",
+        "amount": 125.0
+      },
+      {
+        "key": "onion",
+        "amount": 1.0
+      },
+      {
+        "key": "garlic",
+        "amount": 2.0
+      },
+      {
+        "key": "tomato",
+        "amount": 400.0
+      },
+      {
+        "key": "paste",
+        "amount": 1.0
+      },
+      {
+        "key": "cream",
+        "amount": 100.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "herbs",
+        "amount": 1.0
+      },
+      {
+        "key": "salt",
+        "amount": 0.25
+      },
+      {
+        "key": "pepper",
+        "amount": 0.25
+      },
+      {
+        "key": "parmesan",
+        "amount": 30.0
+      }
+    ],
+    "notes": "",
+    "title": "Creamy tomato pork and mushroom spaghetti",
+    "path": "recipes/western/creamy-tomato-pork-spaghetti.md",
+    "version": "80c39c548350",
+    "group": "western",
+    "steps": [
+      "Finely chop onion and garlic and slice mushrooms.",
+      "Cook spaghetti in well-salted water until al dente. Reserve 1/2 cup pasta water, then drain.",
+      "Heat oil in a large frying pan. Cook pork mince for 4\u20135 minutes, breaking it up until browned.",
+      "Add onion and mushrooms; cook for 3 minutes. Add garlic, tomato paste, and herbs; stir for 30 seconds.",
+      "Add crushed tomatoes and simmer for 8 minutes. Stir in cream, then toss through spaghetti, adding pasta water as needed. Season and top with Parmesan."
+    ]
+  },
+  {
+    "id": "italian-chicken-mushroom-zucchini-pasta",
+    "cuisine": "Italian",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 30,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350.0
+      },
+      {
+        "key": "pasta",
+        "amount": 250.0
+      },
+      {
+        "key": "zucchini",
+        "amount": 1.0
+      },
+      {
+        "key": "mushrooms",
+        "amount": 125.0
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2.0
+      },
+      {
+        "key": "paste",
+        "amount": 1.0
+      },
+      {
+        "key": "herbs",
+        "amount": 1.0
+      },
+      {
+        "key": "parmesan",
+        "amount": 40.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "salt",
+        "amount": 0.25
+      },
+      {
+        "key": "pepper",
+        "amount": 0.25
+      }
+    ],
+    "notes": "",
+    "title": "Italian chicken, mushroom and zucchini pasta",
+    "path": "recipes/western/italian-chicken-mushroom-zucchini-pasta.md",
+    "version": "f1213eb9b8e6",
+    "group": "western",
+    "steps": [
+      "Cut chicken into bite-sized pieces. Slice zucchini and mushrooms and finely chop onion and garlic.",
+      "Boil pasta in salted water. Reserve 3/4 cup pasta water, then drain.",
+      "Meanwhile, heat oil in a large frying pan. Season chicken and cook for 5\u20136 minutes until browned and cooked through; transfer to a plate.",
+      "Cook onion, mushrooms, and zucchini in the same pan for 5\u20136 minutes until soft and lightly browned. Add garlic, tomato paste, and herbs for 30 seconds.",
+      "Return chicken to the pan with pasta, Parmesan, and 1/2 cup pasta water. Toss for 1\u20132 minutes, adding more water as needed for a glossy sauce. Season and serve."
+    ]
+  },
+  {
+    "id": "lemon-chicken-potatoes",
+    "cuisine": "Mediterranean-inspired",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 30,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350.0
+      },
+      {
+        "key": "potato",
+        "amount": 400.0
+      },
+      {
+        "key": "beans",
+        "amount": 200.0
+      },
+      {
+        "key": "lemon",
+        "amount": 1.0
+      },
+      {
+        "key": "garlic",
+        "amount": 2.0
+      },
+      {
+        "key": "herbs",
+        "amount": 1.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "salt",
+        "amount": 0.25
+      },
+      {
+        "key": "pepper",
+        "amount": 0.25
+      }
+    ],
+    "notes": "",
+    "title": "Lemon chicken with potatoes and beans",
+    "path": "recipes/western/lemon-chicken-potatoes.md",
+    "version": "33fdbe65471c",
+    "group": "western",
+    "steps": [
+      "Cut potatoes into 2 cm cubes and boil for 12\u201315 minutes; add beans for the last 4 minutes, then drain.",
+      "Meanwhile, slice chicken and fry in oil for 6\u20138 minutes until cooked through.",
+      "Add minced garlic and herbs for 30 seconds. Stir in lemon juice and 2 tbsp water.",
+      "Toss in drained potatoes and beans; season and cook together for 2 minutes."
+    ]
+  },
+  {
+    "id": "mexican-beef-rice",
+    "cuisine": "Mexican-inspired",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef",
+        "amount": 250.0
+      },
+      {
+        "key": "corn",
+        "amount": 150.0
+      },
+      {
+        "key": "capsicum",
+        "amount": 1.0
+      },
+      {
+        "key": "tomato",
+        "amount": 400.0
+      },
+      {
+        "key": "cumin",
+        "amount": 1.0
+      },
+      {
+        "key": "paprika",
+        "amount": 1.0
+      },
+      {
+        "key": "cheese",
+        "amount": 50.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "rice",
+        "amount": 150.0
+      }
+    ],
+    "notes": "",
+    "title": "Mexican-inspired beef and corn rice",
+    "path": "recipes/western/mexican-beef-rice.md",
+    "version": "b47e91f9d56e",
+    "group": "western",
+    "steps": [
+      "Start rice and dice capsicum.",
+      "Brown beef in oil for 5\u20136 minutes.",
+      "Add capsicum and spices; cook for 3 minutes. Stir in tomatoes and corn.",
+      "Simmer for 8 minutes until beef is cooked and capsicum is tender. Serve over rice topped with cheese."
+    ]
+  },
+  {
+    "id": "mexican-pork-corn-skillet",
+    "cuisine": "Mexican",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork",
+        "amount": 200.0
+      },
+      {
+        "key": "zucchini",
+        "amount": 1.0
+      },
+      {
+        "key": "capsicum",
+        "amount": 1.0
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2.0
+      },
+      {
+        "key": "tomato",
+        "amount": 400.0
+      },
+      {
+        "key": "corn",
+        "amount": 150.0
+      },
+      {
+        "key": "paste",
+        "amount": 1.0
+      },
+      {
+        "key": "cumin",
+        "amount": 1.0
+      },
+      {
+        "key": "paprika",
+        "amount": 1.0
+      },
+      {
+        "key": "chilli",
+        "amount": 0.5
+      },
+      {
+        "key": "cheese",
+        "amount": 100.0
+      },
+      {
+        "key": "rice",
+        "amount": 150.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      }
+    ],
+    "notes": "",
+    "title": "Mexican pork, corn and zucchini rice skillet",
+    "path": "recipes/western/mexican-pork-corn-skillet.md",
+    "version": "f732ecd54bb5",
+    "group": "western",
+    "steps": [
+      "Dice zucchini and capsicum and finely chop onion and garlic.",
+      "Start the measured dry rice in the rice cooker according to its instructions.",
+      "Heat a large frying pan with oil. Brown pork for 3\u20134 minutes, then add onion, zucchini, capsicum, and garlic; cook for 5 minutes until softened.",
+      "Stir in tomato paste and spices for 30 seconds. Add tomatoes and corn, then simmer for 8\u201310 minutes until thick.",
+      "Top with cheese, cover for 1\u20132 minutes until melted, and serve over rice. All vegetables are cooked; no raw garnish is required."
+    ]
+  },
+  {
+    "id": "mustard-chicken",
+    "cuisine": "French-inspired",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350.0
+      },
+      {
+        "key": "mushrooms",
+        "amount": 125.0
+      },
+      {
+        "key": "cream",
+        "amount": 100.0
+      },
+      {
+        "key": "mustard",
+        "amount": 1.0
+      },
+      {
+        "key": "beans",
+        "amount": 200.0
+      },
+      {
+        "key": "potato",
+        "amount": 400.0
+      },
+      {
+        "key": "oil",
+        "amount": 1.0
+      },
+      {
+        "key": "salt",
+        "amount": 0.25
+      },
+      {
+        "key": "pepper",
+        "amount": 0.25
+      }
+    ],
+    "notes": "",
+    "title": "Creamy mustard chicken and mushrooms",
+    "path": "recipes/western/mustard-chicken.md",
+    "version": "274e8b9e843b",
+    "group": "western",
+    "steps": [
+      "Cube potatoes and boil for 12\u201315 minutes. Add beans for the final 4 minutes.",
+      "Slice chicken and mushrooms. Fry chicken in oil for 6\u20138 minutes until cooked through.",
+      "Add mushrooms and cook for 4 minutes. Stir in mustard, cream and a splash of water.",
+      "Simmer for 2 minutes, season and serve with drained potatoes and beans."
+    ]
+  }
+]

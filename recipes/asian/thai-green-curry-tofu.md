@@ -1,0 +1,99 @@
+# Thai green curry tofu with eggplant
+
+<!-- recipe-data
+{
+  "id": "thai-green-curry-tofu",
+  "cuisine": "Thai",
+  "protein": "Tofu",
+  "servings": 2,
+  "activeMinutes": 25,
+  "equipment": [
+    "stovetop",
+    "rice cooker"
+  ],
+  "status": "Not yet cooked",
+  "ingredients": [
+    {
+      "key": "tofu",
+      "amount": 300
+    },
+    {
+      "key": "greencurry",
+      "amount": 2
+    },
+    {
+      "key": "coconut",
+      "amount": 400
+    },
+    {
+      "key": "water",
+      "amount": 120
+    },
+    {
+      "key": "eggplant",
+      "amount": 1
+    },
+    {
+      "key": "capsicum",
+      "amount": 1
+    },
+    {
+      "key": "beans",
+      "amount": 150
+    },
+    {
+      "key": "fish",
+      "amount": 1
+    },
+    {
+      "key": "sugar",
+      "amount": 0.5
+    },
+    {
+      "key": "basil",
+      "amount": 20
+    },
+    {
+      "key": "rice",
+      "amount": 150
+    }
+  ],
+  "notes": ""
+}
+-->
+
+**Serves:** 2
+
+**Active time:** 25 minutes
+**Total time:** 30 minutes
+
+## Ingredients
+
+- 300 g firm tofu, pressed and cubed
+- 2 tbsp Thai green curry paste
+- 400 ml coconut milk
+- 120 ml water
+- 1 eggplant, cubed
+- 1 red capsicum
+- 150 g green beans
+- 1 tbsp fish sauce
+- 1/2 tbsp brown sugar
+- 20 g Thai basil
+- 150 g dry rice
+
+## Source
+
+- Primary: Pailin Chongchitnant, “Authentic & Easy Thai Green Curry Chicken,” [https://hot-thai-kitchen.com/green-curry-new-2/](https://hot-thai-kitchen.com/green-curry-new-2/) (accessed 12 September 2026).
+
+## Adaptations
+
+- Adapts Pailin's green curry vegetable options to firm tofu, keeping the traditional coconut reduction and basil finish.
+- Uses eggplant, capsicum and beans as cooked vegetables; fish sauce can be replaced with soy for vegetarian service.
+
+## Method
+
+1. Start rice. Reduce half the coconut milk in a saucepan, then fry green curry paste in it for 1 minute.
+2. Add the firm tofu and coat it; pour in remaining coconut milk and water.
+3. Add eggplant, capsicum and beans and simmer until tender.
+4. Season with fish sauce and sugar, fold through basil, and serve over rice.
+

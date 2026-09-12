@@ -23,6 +23,18 @@
     "pack": 500,
     "category": "Fresh"
   },
+  "beef-steak": {
+    "name": "beef rump steak",
+    "unit": "g",
+    "pack": 500,
+    "category": "Fresh"
+  },
+  "pork-loin": {
+    "name": "pork loin",
+    "unit": "g",
+    "pack": 500,
+    "category": "Fresh"
+  },
   "tofu": {
     "name": "firm tofu",
     "unit": "g",
@@ -275,6 +287,12 @@
     "pack": null,
     "category": "Pantry"
   },
+  "greencurry": {
+    "name": "Thai green curry paste",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
   "paste": {
     "name": "tomato paste",
     "unit": "tbsp",
@@ -380,6 +398,156 @@
   "cinnamon": {
     "name": "cinnamon stick",
     "unit": "each",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "salmon": {
+    "name": "salmon fillets",
+    "unit": "g",
+    "pack": 400,
+    "category": "Fresh"
+  },
+  "prawns": {
+    "name": "raw prawns",
+    "unit": "g",
+    "pack": 300,
+    "category": "Fresh"
+  },
+  "whitefish": {
+    "name": "white fish fillets",
+    "unit": "g",
+    "pack": 400,
+    "category": "Fresh"
+  },
+  "spinach": {
+    "name": "baby spinach",
+    "unit": "g",
+    "pack": 120,
+    "category": "Fresh"
+  },
+  "eggplant": {
+    "name": "eggplant",
+    "unit": "each",
+    "pack": 1,
+    "category": "Fresh"
+  },
+  "sausage": {
+    "name": "pork sausages",
+    "unit": "g",
+    "pack": 500,
+    "category": "Fresh"
+  },
+  "lentils": {
+    "name": "brown lentils",
+    "unit": "g",
+    "pack": 500,
+    "category": "Dry goods"
+  },
+  "lime": {
+    "name": "limes",
+    "unit": "each",
+    "pack": 4,
+    "category": "Fresh"
+  },
+  "bamboo": {
+    "name": "canned bamboo shoots",
+    "unit": "g",
+    "pack": 225,
+    "category": "Dry goods"
+  },
+  "miso": {
+    "name": "white miso",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Chilled"
+  },
+  "mirin": {
+    "name": "mirin",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "sake": {
+    "name": "cooking sake",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "cornstarch": {
+    "name": "cornflour",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "gochugaru": {
+    "name": "Korean chilli flakes",
+    "unit": "tsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "ketchup": {
+    "name": "tomato ketchup",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "sesame-seeds": {
+    "name": "sesame seeds",
+    "unit": "tsp",
+    "pack": 100,
+    "category": "Pantry"
+  },
+  "peanuts": {
+    "name": "roasted peanuts",
+    "unit": "g",
+    "pack": 250,
+    "category": "Pantry"
+  },
+  "rice-noodles": {
+    "name": "dried rice noodles",
+    "unit": "g",
+    "pack": 400,
+    "category": "Dry goods"
+  },
+  "tortillas": {
+    "name": "small flour tortillas",
+    "unit": "each",
+    "pack": 8,
+    "category": "Dry goods"
+  },
+  "stock": {
+    "name": "chicken stock",
+    "unit": "ml",
+    "pack": 1000,
+    "category": "Pantry"
+  },
+  "balsamic": {
+    "name": "balsamic vinegar",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "doenjang": {
+    "name": "doenjang",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Chilled"
+  },
+  "gyoza-wrappers": {
+    "name": "gyoza wrappers",
+    "unit": "each",
+    "pack": 50,
+    "category": "Chilled"
+  },
+  "yoghurt": {
+    "name": "Greek yoghurt",
+    "unit": "g",
+    "pack": 500,
+    "category": "Chilled"
+  },
+  "peanut-butter": {
+    "name": "smooth peanut butter",
+    "unit": "tbsp",
     "pack": null,
     "category": "Pantry"
   }

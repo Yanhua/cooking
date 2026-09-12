@@ -1,5 +1,662 @@
 [
   {
+    "id": "chinese-beef-broccoli-skillet",
+    "cuisine": "Chinese",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef-steak",
+        "amount": 250
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "soy",
+        "amount": 1.5
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "shaoxing",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "cornstarch",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 90
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Chinese beef and broccoli skillet",
+    "path": "recipes/asian/chinese-beef-broccoli-skillet.md",
+    "version": "3449dc1c17ef",
+    "group": "asian",
+    "steps": [
+      "Start the rice and stir soy, oyster sauce, Shaoxing wine, sugar, cornflour and water together.",
+      "Sear the thinly sliced steak in batches until browned; transfer it out.",
+      "Cook broccoli, garlic and ginger with a splash of water until tender.",
+      "Return the protein, add sauce, toss until glossy, and serve over rice."
+    ]
+  },
+  {
+    "id": "chinese-beef-chow-mein",
+    "cuisine": "Chinese",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef-steak",
+        "amount": 250
+      },
+      {
+        "key": "noodles",
+        "amount": 180
+      },
+      {
+        "key": "cabbage",
+        "amount": 250
+      },
+      {
+        "key": "carrot",
+        "amount": 1
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "soy",
+        "amount": 1.5
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "shaoxing",
+        "amount": 1
+      },
+      {
+        "key": "sesame",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 45
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Chinese beef chow mein with capsicum",
+    "path": "recipes/asian/chinese-beef-chow-mein.md",
+    "version": "797f8268eefd",
+    "group": "asian",
+    "steps": [
+      "Soak or boil noodles until barely tender and drain. Mix soy, oyster sauce, Shaoxing wine, sesame oil and water.",
+      "Stir-fry the thinly sliced steak until cooked, then transfer it out.",
+      "Stir-fry cabbage, carrot, capsicum, garlic and ginger until tender.",
+      "Return protein, add noodles and sauce, and toss until steaming."
+    ]
+  },
+  {
+    "id": "chinese-beef-green-beans",
+    "cuisine": "Chinese",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef-steak",
+        "amount": 250
+      },
+      {
+        "key": "beans",
+        "amount": 300
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "darksoy",
+        "amount": 1
+      },
+      {
+        "key": "shaoxing",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "chilli",
+        "amount": 0.25
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Chinese beef and green beans with rice",
+    "path": "recipes/asian/chinese-beef-green-beans.md",
+    "version": "d1b7c5beea70",
+    "group": "asian",
+    "steps": [
+      "Start the rice. Char green beans in a hot pan with half the oil until blistered; transfer them out.",
+      "Cook the thinly sliced steak with garlic and ginger in remaining oil until browned and cooked.",
+      "Add dark soy, Shaoxing wine, sugar and chilli; toss to coat.",
+      "Return beans and serve over rice."
+    ]
+  },
+  {
+    "id": "chinese-beef-rice-noodles",
+    "cuisine": "Chinese",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef-steak",
+        "amount": 250
+      },
+      {
+        "key": "rice-noodles",
+        "amount": 200
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "soy",
+        "amount": 2
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "shaoxing",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 45
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Chinese beef rice noodles with broccoli",
+    "path": "recipes/asian/chinese-beef-rice-noodles.md",
+    "version": "b418b0ad2006",
+    "group": "asian",
+    "steps": [
+      "Soak rice noodles until pliable and drain. Mix soy, oyster sauce, Shaoxing wine, sugar and water.",
+      "Stir-fry the thinly sliced rump steak until browned and cooked; transfer it out.",
+      "Stir-fry broccoli, capsicum, garlic and ginger.",
+      "Return protein, add noodles and sauce, toss until absorbed, and serve."
+    ]
+  },
+  {
+    "id": "chinese-chicken-broccoli-skillet",
+    "cuisine": "Chinese",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "soy",
+        "amount": 1.5
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "shaoxing",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "cornstarch",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 90
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Chinese chicken and broccoli skillet",
+    "path": "recipes/asian/chinese-chicken-broccoli-skillet.md",
+    "version": "1acb663622e4",
+    "group": "asian",
+    "steps": [
+      "Start the rice and stir soy, oyster sauce, Shaoxing wine, sugar, cornflour and water together.",
+      "Sear the thinly sliced chicken thighs in batches until browned; transfer it out.",
+      "Cook broccoli, garlic and ginger with a splash of water until tender.",
+      "Return the protein, add sauce, toss until glossy, and serve over rice."
+    ]
+  },
+  {
+    "id": "chinese-chicken-chow-mein",
+    "cuisine": "Chinese",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 300
+      },
+      {
+        "key": "noodles",
+        "amount": 180
+      },
+      {
+        "key": "cabbage",
+        "amount": 250
+      },
+      {
+        "key": "carrot",
+        "amount": 1
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "soy",
+        "amount": 1.5
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "shaoxing",
+        "amount": 1
+      },
+      {
+        "key": "sesame",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 45
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Chinese chicken chow mein with cabbage",
+    "path": "recipes/asian/chinese-chicken-chow-mein.md",
+    "version": "8e670f6b6a8f",
+    "group": "asian",
+    "steps": [
+      "Soak or boil noodles until barely tender and drain. Mix soy, oyster sauce, Shaoxing wine, sesame oil and water.",
+      "Stir-fry the thinly sliced chicken thighs until cooked, then transfer it out.",
+      "Stir-fry cabbage, carrot, capsicum, garlic and ginger until tender.",
+      "Return protein, add noodles and sauce, and toss until steaming."
+    ]
+  },
+  {
+    "id": "chinese-chicken-rice-noodles",
+    "cuisine": "Chinese",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 300
+      },
+      {
+        "key": "rice-noodles",
+        "amount": 200
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "soy",
+        "amount": 2
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "shaoxing",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 45
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Chinese chicken rice noodles with broccoli",
+    "path": "recipes/asian/chinese-chicken-rice-noodles.md",
+    "version": "26ae0a61986b",
+    "group": "asian",
+    "steps": [
+      "Soak rice noodles until pliable and drain. Mix soy, oyster sauce, Shaoxing wine, sugar and water.",
+      "Stir-fry the thinly sliced chicken thighs until browned and cooked; transfer it out.",
+      "Stir-fry broccoli, capsicum, garlic and ginger.",
+      "Return protein, add noodles and sauce, toss until absorbed, and serve."
+    ]
+  },
+  {
+    "id": "chinese-crispy-sesame-chicken",
+    "cuisine": "Chinese",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "cornstarch",
+        "amount": 1.5
+      },
+      {
+        "key": "oil",
+        "amount": 2
+      },
+      {
+        "key": "soy",
+        "amount": 1.5
+      },
+      {
+        "key": "vinegar",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 1
+      },
+      {
+        "key": "sesame",
+        "amount": 1
+      },
+      {
+        "key": "cornstarch",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 60
+      },
+      {
+        "key": "sesame-seeds",
+        "amount": 1
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Chinese crispy sesame chicken with broccoli",
+    "path": "recipes/asian/chinese-crispy-sesame-chicken.md",
+    "version": "cc0ceeb2b6a4",
+    "group": "asian",
+    "steps": [
+      "Start the rice. Pat the protein dry and coat it with cornflour.",
+      "Pan-fry the bite-size chicken thighs in oil until crisp and cooked through.",
+      "Mix soy, vinegar, sugar, sesame oil, cornflour and water; bubble until glossy.",
+      "Toss through sesame seeds and serve with broccoli and rice."
+    ]
+  },
+  {
+    "id": "chinese-crispy-sesame-tofu",
+    "cuisine": "Chinese",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 300
+      },
+      {
+        "key": "cornstarch",
+        "amount": 1.5
+      },
+      {
+        "key": "oil",
+        "amount": 2
+      },
+      {
+        "key": "soy",
+        "amount": 1.5
+      },
+      {
+        "key": "vinegar",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 1
+      },
+      {
+        "key": "sesame",
+        "amount": 1
+      },
+      {
+        "key": "cornstarch",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 60
+      },
+      {
+        "key": "sesame-seeds",
+        "amount": 1
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Chinese crispy sesame tofu with broccoli",
+    "path": "recipes/asian/chinese-crispy-sesame-tofu.md",
+    "version": "6c23481ad79a",
+    "group": "asian",
+    "steps": [
+      "Start the rice. Pat the protein dry and coat it with cornflour.",
+      "Pan-fry the firm tofu in oil until crisp and cooked through.",
+      "Mix soy, vinegar, sugar, sesame oil, cornflour and water; bubble until glossy.",
+      "Toss through sesame seeds and serve with broccoli and rice."
+    ]
+  },
+  {
     "id": "chinese-ginger-chicken",
     "cuisine": "Chinese",
     "protein": "Chicken",
@@ -61,6 +718,407 @@
     ]
   },
   {
+    "id": "chinese-kung-pao-chicken",
+    "cuisine": "Chinese",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "peanuts",
+        "amount": 50
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "chilli",
+        "amount": 0.5
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "vinegar",
+        "amount": 1
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "cornstarch",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 45
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Chinese kung pao chicken with peanuts",
+    "path": "recipes/asian/chinese-kung-pao-chicken.md",
+    "version": "3e379ca93773",
+    "group": "asian",
+    "steps": [
+      "Start the rice and mix soy, vinegar, sugar, oyster sauce, cornflour and water.",
+      "Cook the bite-size chicken thighs in hot oil until browned; remove it.",
+      "Stir-fry garlic, ginger, chilli and capsicum until fragrant.",
+      "Return protein, add peanuts and sauce, toss until bubbling, and serve over rice."
+    ]
+  },
+  {
+    "id": "chinese-kung-pao-tofu",
+    "cuisine": "Chinese",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 300
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "peanuts",
+        "amount": 50
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "chilli",
+        "amount": 0.5
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "vinegar",
+        "amount": 1
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "cornstarch",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 45
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Chinese kung pao tofu with peanuts",
+    "path": "recipes/asian/chinese-kung-pao-tofu.md",
+    "version": "335c2568f510",
+    "group": "asian",
+    "steps": [
+      "Start the rice and mix soy, vinegar, sugar, oyster sauce, cornflour and water.",
+      "Cook the firm tofu in hot oil until browned; remove it.",
+      "Stir-fry garlic, ginger, chilli and capsicum until fragrant.",
+      "Return protein, add peanuts and sauce, toss until bubbling, and serve over rice."
+    ]
+  },
+  {
+    "id": "chinese-mapo-tofu-beef",
+    "cuisine": "Chinese",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef",
+        "amount": 150
+      },
+      {
+        "key": "tofu",
+        "amount": 300
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "gochujang",
+        "amount": 1
+      },
+      {
+        "key": "gochugaru",
+        "amount": 0.5
+      },
+      {
+        "key": "soy",
+        "amount": 1.5
+      },
+      {
+        "key": "stock",
+        "amount": 150
+      },
+      {
+        "key": "cornstarch",
+        "amount": 0.5
+      },
+      {
+        "key": "sesame",
+        "amount": 0.5
+      },
+      {
+        "key": "spring",
+        "amount": 2
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Chinese mapo tofu with beef mince",
+    "path": "recipes/asian/chinese-mapo-tofu-beef.md",
+    "version": "01154d077c13",
+    "group": "asian",
+    "steps": [
+      "Start the rice. Mix gochujang, gochugaru, soy, stock and cornflour.",
+      "Cook the beef mince with garlic, ginger and onion until browned.",
+      "Add sauce and simmer; fold in tofu gently for 3\u20134 minutes.",
+      "Stir in sesame oil and spring onion. Serve over rice."
+    ]
+  },
+  {
+    "id": "chinese-mapo-tofu-pork",
+    "cuisine": "Chinese",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork",
+        "amount": 150
+      },
+      {
+        "key": "tofu",
+        "amount": 300
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "gochujang",
+        "amount": 1
+      },
+      {
+        "key": "gochugaru",
+        "amount": 0.5
+      },
+      {
+        "key": "soy",
+        "amount": 1.5
+      },
+      {
+        "key": "stock",
+        "amount": 150
+      },
+      {
+        "key": "cornstarch",
+        "amount": 0.5
+      },
+      {
+        "key": "sesame",
+        "amount": 0.5
+      },
+      {
+        "key": "spring",
+        "amount": 2
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Chinese mapo tofu with pork mince",
+    "path": "recipes/asian/chinese-mapo-tofu-pork.md",
+    "version": "389b2b47942b",
+    "group": "asian",
+    "steps": [
+      "Start the rice. Mix gochujang, gochugaru, soy, stock and cornflour.",
+      "Cook the pork mince with garlic, ginger and onion until browned.",
+      "Add sauce and simmer; fold in tofu gently for 3\u20134 minutes.",
+      "Stir in sesame oil and spring onion. Serve over rice."
+    ]
+  },
+  {
+    "id": "chinese-moo-goo-gai-pan",
+    "cuisine": "Chinese",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "mushrooms",
+        "amount": 150
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "carrot",
+        "amount": 1
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "soy",
+        "amount": 1.5
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "shaoxing",
+        "amount": 1
+      },
+      {
+        "key": "cornstarch",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 90
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Chinese moo goo gai pan chicken",
+    "path": "recipes/asian/chinese-moo-goo-gai-pan.md",
+    "version": "29e25f94a6cb",
+    "group": "asian",
+    "steps": [
+      "Start the rice. Slice chicken, mushrooms, broccoli and carrot.",
+      "Mix soy, oyster sauce, Shaoxing wine, cornflour and water.",
+      "Stir-fry chicken in oil, then add mushrooms, broccoli, carrot, garlic and ginger until tender-crisp.",
+      "Add sauce and toss until thickened. Serve with rice."
+    ]
+  },
+  {
     "id": "chinese-pork-cabbage",
     "cuisine": "Chinese",
     "protein": "Pork",
@@ -115,6 +1173,423 @@
       "Brown pork in oil for 5\u20136 minutes, breaking it apart.",
       "Add carrot and cabbage; stir-fry for 6\u20138 minutes until tender. Add minced garlic for 30 seconds.",
       "Stir in soy sauce and vinegar. Cook for another minute and serve with rice."
+    ]
+  },
+  {
+    "id": "chinese-pork-chow-mein",
+    "cuisine": "Chinese",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork",
+        "amount": 300
+      },
+      {
+        "key": "noodles",
+        "amount": 180
+      },
+      {
+        "key": "cabbage",
+        "amount": 200
+      },
+      {
+        "key": "mushrooms",
+        "amount": 125
+      },
+      {
+        "key": "carrot",
+        "amount": 1
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "soy",
+        "amount": 1.5
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "shaoxing",
+        "amount": 1
+      },
+      {
+        "key": "sesame",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 45
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Chinese pork chow mein with mushrooms",
+    "path": "recipes/asian/chinese-pork-chow-mein.md",
+    "version": "7f2cd03dcc7d",
+    "group": "asian",
+    "steps": [
+      "Soak or boil noodles until barely tender and drain. Mix soy, oyster sauce, Shaoxing wine, sesame oil and water.",
+      "Stir-fry the thinly sliced pork loin until cooked, then transfer it out.",
+      "Stir-fry cabbage, carrot, capsicum, garlic and ginger until tender.",
+      "Return protein, add noodles and sauce, and toss until steaming."
+    ]
+  },
+  {
+    "id": "chinese-pork-green-beans",
+    "cuisine": "Chinese",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork",
+        "amount": 250
+      },
+      {
+        "key": "beans",
+        "amount": 300
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "darksoy",
+        "amount": 1
+      },
+      {
+        "key": "shaoxing",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "chilli",
+        "amount": 0.25
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Chinese pork and green beans with rice",
+    "path": "recipes/asian/chinese-pork-green-beans.md",
+    "version": "7bed8a8d4e51",
+    "group": "asian",
+    "steps": [
+      "Start the rice. Char green beans in a hot pan with half the oil until blistered; transfer them out.",
+      "Cook the pork mince with garlic and ginger in remaining oil until browned and cooked.",
+      "Add dark soy, Shaoxing wine, sugar and chilli; toss to coat.",
+      "Return beans and serve over rice."
+    ]
+  },
+  {
+    "id": "chinese-pork-rice-noodles",
+    "cuisine": "Chinese",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork",
+        "amount": 300
+      },
+      {
+        "key": "rice-noodles",
+        "amount": 200
+      },
+      {
+        "key": "mushrooms",
+        "amount": 125
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "soy",
+        "amount": 2
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "shaoxing",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 45
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Chinese pork rice noodles with mushrooms",
+    "path": "recipes/asian/chinese-pork-rice-noodles.md",
+    "version": "e752a6a16658",
+    "group": "asian",
+    "steps": [
+      "Soak rice noodles until pliable and drain. Mix soy, oyster sauce, Shaoxing wine, sugar and water.",
+      "Stir-fry the thinly sliced pork loin until browned and cooked; transfer it out.",
+      "Stir-fry broccoli, capsicum, garlic and ginger.",
+      "Return protein, add noodles and sauce, toss until absorbed, and serve."
+    ]
+  },
+  {
+    "id": "chinese-shredded-chicken",
+    "cuisine": "Chinese",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "pressure cooker",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "soy",
+        "amount": 1.5
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "ginger",
+        "amount": 20
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "water",
+        "amount": 150
+      },
+      {
+        "key": "bokchoy",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Chinese pressure-cooker shredded chicken with bok choy",
+    "path": "recipes/asian/chinese-shredded-chicken.md",
+    "version": "f845b2d9f967",
+    "group": "asian",
+    "steps": [
+      "Put chicken, soy, oyster sauce, ginger, garlic and water in the pressure cooker.",
+      "Cook on high pressure for 10 minutes, allow 5 minutes natural release, then release the rest.",
+      "Shred chicken in its liquid and taste for seasoning.",
+      "Serve with rice and steamed bok choy."
+    ]
+  },
+  {
+    "id": "chinese-tofu-broccoli-skillet",
+    "cuisine": "Chinese",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 300
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "soy",
+        "amount": 1.5
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "shaoxing",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "cornstarch",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 90
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Chinese tofu and broccoli skillet",
+    "path": "recipes/asian/chinese-tofu-broccoli-skillet.md",
+    "version": "99246b8b6eed",
+    "group": "asian",
+    "steps": [
+      "Start the rice and stir soy, oyster sauce, Shaoxing wine, sugar, cornflour and water together.",
+      "Sear the firm tofu in batches until browned; transfer it out.",
+      "Cook broccoli, garlic and ginger with a splash of water until tender.",
+      "Return the protein, add sauce, toss until glossy, and serve over rice."
+    ]
+  },
+  {
+    "id": "chinese-tofu-green-beans",
+    "cuisine": "Chinese",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 300
+      },
+      {
+        "key": "beans",
+        "amount": 300
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "darksoy",
+        "amount": 1
+      },
+      {
+        "key": "shaoxing",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "chilli",
+        "amount": 0.25
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Chinese tofu and green beans with rice",
+    "path": "recipes/asian/chinese-tofu-green-beans.md",
+    "version": "7853e502a7f0",
+    "group": "asian",
+    "steps": [
+      "Start the rice. Char green beans in a hot pan with half the oil until blistered; transfer them out.",
+      "Cook the firm tofu with garlic and ginger in remaining oil until browned and cooked.",
+      "Add dark soy, Shaoxing wine, sugar and chilli; toss to coat.",
+      "Return beans and serve over rice."
     ]
   },
   {
@@ -248,6 +1723,75 @@
     ]
   },
   {
+    "id": "japanese-beef-chinjao-rosu",
+    "cuisine": "Japanese",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef-steak",
+        "amount": 250
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "bamboo",
+        "amount": 150
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "soy",
+        "amount": 2
+      },
+      {
+        "key": "sake",
+        "amount": 2
+      },
+      {
+        "key": "cornstarch",
+        "amount": 1
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 45
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Japanese beef chinjao rosu with bamboo shoots",
+    "path": "recipes/asian/japanese-beef-chinjao-rosu.md",
+    "version": "d87c48bb441c",
+    "group": "asian",
+    "steps": [
+      "Start the rice. Mix the protein with soy, sake and cornflour; mix the sauce separately.",
+      "Stir-fry capsicum and bamboo shoots until tender, then transfer out.",
+      "Stir-fry the thinly sliced rump steak in remaining oil until browned and nearly cooked.",
+      "Return vegetables, add sauce, toss until thickened, and serve with rice."
+    ]
+  },
+  {
     "id": "japanese-chicken-rice",
     "cuisine": "Japanese-inspired",
     "protein": "Chicken",
@@ -302,6 +1846,1347 @@
       "Steam broccoli and carrot until tender, about 6\u20138 minutes.",
       "Fry chicken in oil for 6\u20138 minutes until cooked through.",
       "Add soy, honey, vinegar and 2 tbsp water. Simmer for 2 minutes to glaze. Serve with vegetables and rice."
+    ]
+  },
+  {
+    "id": "japanese-chicken-teriyaki",
+    "cuisine": "Japanese",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "soy",
+        "amount": 2
+      },
+      {
+        "key": "mirin",
+        "amount": 1
+      },
+      {
+        "key": "sake",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Japanese chicken teriyaki with broccoli",
+    "path": "recipes/asian/japanese-chicken-teriyaki.md",
+    "version": "07695dab4dbb",
+    "group": "asian",
+    "steps": [
+      "Start the rice in the rice cooker.",
+      "Pat the boneless chicken thighs dry and cut it into even pieces. Mix the soy sauce, mirin, sake and sugar.",
+      "Sear the boneless chicken thighs in oil until browned and cooked through.",
+      "Pour in the sauce and simmer until glossy. Serve with the cooked vegetables and rice."
+    ]
+  },
+  {
+    "id": "japanese-hot-pot-chicken",
+    "cuisine": "Japanese",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 300
+      },
+      {
+        "key": "tofu",
+        "amount": 200
+      },
+      {
+        "key": "cabbage",
+        "amount": 300
+      },
+      {
+        "key": "mushrooms",
+        "amount": 150
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "sesame",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 500
+      },
+      {
+        "key": "spring",
+        "amount": 2
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Japanese chicken and tofu hot pot with cabbage",
+    "path": "recipes/asian/japanese-hot-pot-chicken.md",
+    "version": "803fe8f9d79c",
+    "group": "asian",
+    "steps": [
+      "Start rice. Bring water, ginger, soy and sesame oil to a simmer in a wide saucepan.",
+      "Add cabbage and mushrooms and cook 2 minutes.",
+      "Arrange the boneless chicken thighs and tofu over the vegetables, cover and simmer until cooked through.",
+      "Taste broth, add spring onion, and serve with rice."
+    ]
+  },
+  {
+    "id": "japanese-hot-pot-pork",
+    "cuisine": "Japanese",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork-loin",
+        "amount": 250
+      },
+      {
+        "key": "tofu",
+        "amount": 200
+      },
+      {
+        "key": "cabbage",
+        "amount": 300
+      },
+      {
+        "key": "mushrooms",
+        "amount": 150
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "sesame",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 500
+      },
+      {
+        "key": "spring",
+        "amount": 2
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Japanese pork and tofu hot pot with cabbage",
+    "path": "recipes/asian/japanese-hot-pot-pork.md",
+    "version": "e61500a7e486",
+    "group": "asian",
+    "steps": [
+      "Start rice. Bring water, ginger, soy and sesame oil to a simmer in a wide saucepan.",
+      "Add cabbage and mushrooms and cook 2 minutes.",
+      "Arrange the pork loin and tofu over the vegetables, cover and simmer until cooked through.",
+      "Taste broth, add spring onion, and serve with rice."
+    ]
+  },
+  {
+    "id": "japanese-miso-ginger-chicken",
+    "cuisine": "Japanese",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "ginger",
+        "amount": 25
+      },
+      {
+        "key": "sake",
+        "amount": 2
+      },
+      {
+        "key": "soy",
+        "amount": 1.5
+      },
+      {
+        "key": "miso",
+        "amount": 1
+      },
+      {
+        "key": "mirin",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 30
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Japanese miso ginger chicken with broccoli",
+    "path": "recipes/asian/japanese-miso-ginger-chicken.md",
+    "version": "44724955ca0d",
+    "group": "asian",
+    "steps": [
+      "Start the rice. Mix ginger, sake and soy sauce, coat the protein and rest briefly.",
+      "Sear the boneless chicken thighs in oil until just cooked through.",
+      "Whisk miso, soy, sake, mirin, sugar and water; pour into the pan and turn the protein until thickened.",
+      "Serve with cooked vegetables and rice."
+    ]
+  },
+  {
+    "id": "japanese-miso-ginger-pork",
+    "cuisine": "Japanese",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork-loin",
+        "amount": 350
+      },
+      {
+        "key": "ginger",
+        "amount": 25
+      },
+      {
+        "key": "sake",
+        "amount": 2
+      },
+      {
+        "key": "soy",
+        "amount": 1.5
+      },
+      {
+        "key": "miso",
+        "amount": 1
+      },
+      {
+        "key": "mirin",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 30
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "cabbage",
+        "amount": 250
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Japanese miso ginger pork with cabbage",
+    "path": "recipes/asian/japanese-miso-ginger-pork.md",
+    "version": "7a7d07a203f6",
+    "group": "asian",
+    "steps": [
+      "Start the rice. Mix ginger, sake and soy sauce, coat the protein and rest briefly.",
+      "Sear the pork loin in oil until just cooked through.",
+      "Whisk miso, soy, sake, mirin, sugar and water; pour into the pan and turn the protein until thickened.",
+      "Serve with cooked vegetables and rice."
+    ]
+  },
+  {
+    "id": "japanese-niku-miso-chicken",
+    "cuisine": "Japanese",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "spring",
+        "amount": 2
+      },
+      {
+        "key": "sesame",
+        "amount": 0.5
+      },
+      {
+        "key": "miso",
+        "amount": 1
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "mirin",
+        "amount": 1
+      },
+      {
+        "key": "sake",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 1
+      },
+      {
+        "key": "cornstarch",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 60
+      },
+      {
+        "key": "cabbage",
+        "amount": 250
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Japanese niku miso chicken with cabbage",
+    "path": "recipes/asian/japanese-niku-miso-chicken.md",
+    "version": "20588e51039e",
+    "group": "asian",
+    "steps": [
+      "Start the rice and cook the vegetables until tender.",
+      "Stir miso, soy sauce, mirin, sake, sugar, cornflour and water until smooth.",
+      "Cook the boneless chicken thighs with ginger and spring onion in sesame oil until browned and cooked through.",
+      "Add sauce and simmer until it clings. Serve over rice."
+    ]
+  },
+  {
+    "id": "japanese-niku-miso-pork",
+    "cuisine": "Japanese",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 15,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork",
+        "amount": 300
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "spring",
+        "amount": 2
+      },
+      {
+        "key": "sesame",
+        "amount": 0.5
+      },
+      {
+        "key": "miso",
+        "amount": 1
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "mirin",
+        "amount": 1
+      },
+      {
+        "key": "sake",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 1
+      },
+      {
+        "key": "cornstarch",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 60
+      },
+      {
+        "key": "zucchini",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Japanese niku miso pork rice bowls",
+    "path": "recipes/asian/japanese-niku-miso-pork.md",
+    "version": "32b8d1bd7234",
+    "group": "asian",
+    "steps": [
+      "Start the rice and cook the vegetables until tender.",
+      "Stir miso, soy sauce, mirin, sake, sugar, cornflour and water until smooth.",
+      "Cook the pork mince with ginger and spring onion in sesame oil until browned and cooked through.",
+      "Add sauce and simmer until it clings. Serve over rice."
+    ]
+  },
+  {
+    "id": "japanese-niku-miso-tofu",
+    "cuisine": "Japanese",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 300
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "spring",
+        "amount": 2
+      },
+      {
+        "key": "sesame",
+        "amount": 0.5
+      },
+      {
+        "key": "miso",
+        "amount": 1
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "mirin",
+        "amount": 1
+      },
+      {
+        "key": "sake",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 1
+      },
+      {
+        "key": "cornstarch",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 60
+      },
+      {
+        "key": "mushrooms",
+        "amount": 150
+      },
+      {
+        "key": "bokchoy",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Japanese niku miso tofu with mushrooms",
+    "path": "recipes/asian/japanese-niku-miso-tofu.md",
+    "version": "630343b2119b",
+    "group": "asian",
+    "steps": [
+      "Start the rice and cook the vegetables until tender.",
+      "Stir miso, soy sauce, mirin, sake, sugar, cornflour and water until smooth.",
+      "Cook the firm tofu with ginger and spring onion in sesame oil until browned and cooked through.",
+      "Add sauce and simmer until it clings. Serve over rice."
+    ]
+  },
+  {
+    "id": "japanese-pork-chinjao-rosu",
+    "cuisine": "Japanese",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork-loin",
+        "amount": 300
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "bamboo",
+        "amount": 150
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "soy",
+        "amount": 2
+      },
+      {
+        "key": "sake",
+        "amount": 2
+      },
+      {
+        "key": "cornstarch",
+        "amount": 1
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 45
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Japanese pork chinjao rosu with capsicum",
+    "path": "recipes/asian/japanese-pork-chinjao-rosu.md",
+    "version": "32a75ccc6724",
+    "group": "asian",
+    "steps": [
+      "Start the rice. Mix the protein with soy, sake and cornflour; mix the sauce separately.",
+      "Stir-fry capsicum and bamboo shoots until tender, then transfer out.",
+      "Stir-fry the thinly sliced pork loin in remaining oil until browned and nearly cooked.",
+      "Return vegetables, add sauce, toss until thickened, and serve with rice."
+    ]
+  },
+  {
+    "id": "japanese-pork-gyoza",
+    "cuisine": "Japanese",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 30,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork",
+        "amount": 250
+      },
+      {
+        "key": "cabbage",
+        "amount": 250
+      },
+      {
+        "key": "mushrooms",
+        "amount": 75
+      },
+      {
+        "key": "spring",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 10
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "sesame",
+        "amount": 1
+      },
+      {
+        "key": "gyoza-wrappers",
+        "amount": 20
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 100
+      },
+      {
+        "key": "vinegar",
+        "amount": 1
+      },
+      {
+        "key": "bokchoy",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Japanese pork and cabbage gyoza",
+    "path": "recipes/asian/japanese-pork-gyoza.md",
+    "version": "3b0d244a13d1",
+    "group": "asian",
+    "steps": [
+      "Mix pork, cabbage, mushrooms, spring onion, ginger, garlic, soy and sesame oil.",
+      "Place about 1 tbsp filling in each wrapper, fold and press closed; make about 20.",
+      "Pan-fry dumplings in oil until bottoms are golden, add water, cover and steam 5\u20136 minutes.",
+      "Uncover and cook until dry; serve with soy and vinegar."
+    ]
+  },
+  {
+    "id": "japanese-salmon-teriyaki",
+    "cuisine": "Japanese",
+    "protein": "Salmon",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "salmon",
+        "amount": 350
+      },
+      {
+        "key": "soy",
+        "amount": 2
+      },
+      {
+        "key": "mirin",
+        "amount": 1
+      },
+      {
+        "key": "sake",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "bokchoy",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Japanese salmon teriyaki with bok choy",
+    "path": "recipes/asian/japanese-salmon-teriyaki.md",
+    "version": "9870928bd335",
+    "group": "asian",
+    "steps": [
+      "Start the rice in the rice cooker.",
+      "Pat the salmon fillets dry and cut it into even pieces. Mix the soy sauce, mirin, sake and sugar.",
+      "Sear the salmon fillets in oil until browned and cooked through.",
+      "Pour in the sauce and simmer until glossy. Serve with the cooked vegetables and rice."
+    ]
+  },
+  {
+    "id": "japanese-tofu-teriyaki",
+    "cuisine": "Japanese",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 300
+      },
+      {
+        "key": "cornstarch",
+        "amount": 1
+      },
+      {
+        "key": "soy",
+        "amount": 2
+      },
+      {
+        "key": "mirin",
+        "amount": 1
+      },
+      {
+        "key": "sake",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Japanese tofu teriyaki with capsicum",
+    "path": "recipes/asian/japanese-tofu-teriyaki.md",
+    "version": "02a1ed400776",
+    "group": "asian",
+    "steps": [
+      "Start the rice in the rice cooker.",
+      "Pat the firm tofu dry and cut it into even pieces. Mix the soy sauce, mirin, sake and sugar.",
+      "Sear the firm tofu in oil until browned and cooked through.",
+      "Pour in the sauce and simmer until glossy. Serve with the cooked vegetables and rice."
+    ]
+  },
+  {
+    "id": "korean-beef-bulgogi-skillet",
+    "cuisine": "Korean",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef-steak",
+        "amount": 300
+      },
+      {
+        "key": "soy",
+        "amount": 2
+      },
+      {
+        "key": "sugar",
+        "amount": 1
+      },
+      {
+        "key": "sesame",
+        "amount": 1
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 10
+      },
+      {
+        "key": "pepper",
+        "amount": 0.25
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "mushrooms",
+        "amount": 125
+      },
+      {
+        "key": "bokchoy",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Korean beef bulgogi skillet with mushrooms",
+    "path": "recipes/asian/korean-beef-bulgogi-skillet.md",
+    "version": "af2c6a7747e4",
+    "group": "asian",
+    "steps": [
+      "Mix soy, sugar, sesame oil, ginger, garlic and pepper; coat the protein and rest 20\u201330 minutes.",
+      "Cook the beef rump steak in batches in a very hot pan so the edges caramelise.",
+      "Add onion and mushrooms and cook until tender.",
+      "Serve with rice and blanched bok choy; these replace raw wrap accompaniments."
+    ]
+  },
+  {
+    "id": "korean-beef-doenjang-stew",
+    "cuisine": "Korean",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef-steak",
+        "amount": 150
+      },
+      {
+        "key": "tofu",
+        "amount": 150
+      },
+      {
+        "key": "potato",
+        "amount": 200
+      },
+      {
+        "key": "zucchini",
+        "amount": 1
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "doenjang",
+        "amount": 2
+      },
+      {
+        "key": "gochugaru",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 450
+      },
+      {
+        "key": "spring",
+        "amount": 2
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Korean beef doenjang stew with zucchini",
+    "path": "recipes/asian/korean-beef-doenjang-stew.md",
+    "version": "811f34ba3c91",
+    "group": "asian",
+    "steps": [
+      "Start rice. Heat oil and cook the beef rump steak with garlic until browned.",
+      "Add water, doenjang and gochugaru and bring to a simmer.",
+      "Add potato, onion, zucchini and tofu; cover and cook about 12 minutes.",
+      "Taste, add spring onion, and serve with rice."
+    ]
+  },
+  {
+    "id": "korean-beef-sundubu-stew",
+    "cuisine": "Korean",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef-steak",
+        "amount": 200
+      },
+      {
+        "key": "tofu",
+        "amount": 300
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "spring",
+        "amount": 2
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "gochugaru",
+        "amount": 1.5
+      },
+      {
+        "key": "sesame",
+        "amount": 1
+      },
+      {
+        "key": "pepper",
+        "amount": 0.25
+      },
+      {
+        "key": "fish",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 450
+      },
+      {
+        "key": "egg",
+        "amount": 2
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Korean beef sundubu stew with egg",
+    "path": "recipes/asian/korean-beef-sundubu-stew.md",
+    "version": "d138b46e2be1",
+    "group": "asian",
+    "steps": [
+      "Mix gochugaru, sesame oil and pepper. Start rice.",
+      "Cook the beef rump steak with onion and garlic in oil until no longer pink.",
+      "Add water, fish sauce and the spicy seasoning; simmer 5 minutes.",
+      "Add tofu, cook 3\u20134 minutes, crack in eggs and cover until set. Serve with rice."
+    ]
+  },
+  {
+    "id": "korean-chicken-doenjang-stew",
+    "cuisine": "Korean",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 250
+      },
+      {
+        "key": "tofu",
+        "amount": 150
+      },
+      {
+        "key": "potato",
+        "amount": 200
+      },
+      {
+        "key": "zucchini",
+        "amount": 1
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "doenjang",
+        "amount": 2
+      },
+      {
+        "key": "gochugaru",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 450
+      },
+      {
+        "key": "spring",
+        "amount": 2
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Korean chicken doenjang stew with zucchini",
+    "path": "recipes/asian/korean-chicken-doenjang-stew.md",
+    "version": "468b468efde5",
+    "group": "asian",
+    "steps": [
+      "Start rice. Heat oil and cook the boneless chicken thighs with garlic until browned.",
+      "Add water, doenjang and gochugaru and bring to a simmer.",
+      "Add potato, onion, zucchini and tofu; cover and cook about 12 minutes.",
+      "Taste, add spring onion, and serve with rice."
+    ]
+  },
+  {
+    "id": "korean-garlic-fried-chicken",
+    "cuisine": "Korean-Chinese",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 30,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "ginger",
+        "amount": 10
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "pepper",
+        "amount": 0.25
+      },
+      {
+        "key": "cornstarch",
+        "amount": 3
+      },
+      {
+        "key": "oil",
+        "amount": 3
+      },
+      {
+        "key": "garlic",
+        "amount": 4
+      },
+      {
+        "key": "chilli",
+        "amount": 1
+      },
+      {
+        "key": "spring",
+        "amount": 2
+      },
+      {
+        "key": "vinegar",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 45
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Korean garlic fried chicken with rice",
+    "path": "recipes/asian/korean-garlic-fried-chicken.md",
+    "version": "5aad6ba71ae4",
+    "group": "asian",
+    "steps": [
+      "Toss chicken with ginger, soy, pepper and cornflour.",
+      "Shallow-fry chicken in batches until crisp, golden and cooked through.",
+      "Stir-fry garlic, chilli and spring onion in the same pan.",
+      "Add soy, vinegar, sugar and water; bubble briefly, return chicken, toss, and serve with rice."
+    ]
+  },
+  {
+    "id": "korean-gochujang-beef-rice",
+    "cuisine": "Korean",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef-steak",
+        "amount": 300
+      },
+      {
+        "key": "gochujang",
+        "amount": 1.5
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "honey",
+        "amount": 1
+      },
+      {
+        "key": "sesame",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 45
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 10
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "sesame-seeds",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Korean gochujang beef rice bowls",
+    "path": "recipes/asian/korean-gochujang-beef-rice.md",
+    "version": "549dc2ef7f77",
+    "group": "asian",
+    "steps": [
+      "Start rice. Stir gochujang, soy, honey, sesame oil and water together.",
+      "Cook the beef rump steak in a hot pan until browned and cooked through.",
+      "Add garlic, ginger, capsicum and broccoli and stir-fry until tender.",
+      "Add sauce and toss until sticky; serve over rice with sesame seeds."
+    ]
+  },
+  {
+    "id": "korean-gochujang-chicken-rice",
+    "cuisine": "Korean",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "gochujang",
+        "amount": 1.5
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "honey",
+        "amount": 1
+      },
+      {
+        "key": "sesame",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 45
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 10
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "sesame-seeds",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Korean gochujang chicken rice bowls",
+    "path": "recipes/asian/korean-gochujang-chicken-rice.md",
+    "version": "39cfc4a764b4",
+    "group": "asian",
+    "steps": [
+      "Start rice. Stir gochujang, soy, honey, sesame oil and water together.",
+      "Cook the boneless chicken thighs in a hot pan until browned and cooked through.",
+      "Add garlic, ginger, capsicum and broccoli and stir-fry until tender.",
+      "Add sauce and toss until sticky; serve over rice with sesame seeds."
     ]
   },
   {
@@ -366,6 +3251,518 @@
     ]
   },
   {
+    "id": "korean-pork-bulgogi-skillet",
+    "cuisine": "Korean",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork-loin",
+        "amount": 300
+      },
+      {
+        "key": "gochujang",
+        "amount": 1.5
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 1
+      },
+      {
+        "key": "sesame",
+        "amount": 1
+      },
+      {
+        "key": "garlic",
+        "amount": 3
+      },
+      {
+        "key": "ginger",
+        "amount": 10
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "mushrooms",
+        "amount": 125
+      },
+      {
+        "key": "bokchoy",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Korean pork bulgogi skillet with mushrooms",
+    "path": "recipes/asian/korean-pork-bulgogi-skillet.md",
+    "version": "8e49f5e95778",
+    "group": "asian",
+    "steps": [
+      "Mix soy, sugar, sesame oil, ginger, garlic and pepper; coat the protein and rest 20\u201330 minutes.",
+      "Cook the pork loin in batches in a very hot pan so the edges caramelise.",
+      "Add onion and mushrooms and cook until tender.",
+      "Serve with rice and blanched bok choy; these replace raw wrap accompaniments."
+    ]
+  },
+  {
+    "id": "korean-pork-sundubu-stew",
+    "cuisine": "Korean",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork",
+        "amount": 200
+      },
+      {
+        "key": "tofu",
+        "amount": 300
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "spring",
+        "amount": 2
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "gochugaru",
+        "amount": 1.5
+      },
+      {
+        "key": "sesame",
+        "amount": 1
+      },
+      {
+        "key": "pepper",
+        "amount": 0.25
+      },
+      {
+        "key": "fish",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 450
+      },
+      {
+        "key": "egg",
+        "amount": 2
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Korean pork sundubu stew with egg",
+    "path": "recipes/asian/korean-pork-sundubu-stew.md",
+    "version": "c9efc6eb3162",
+    "group": "asian",
+    "steps": [
+      "Mix gochugaru, sesame oil and pepper. Start rice.",
+      "Cook the pork mince with onion and garlic in oil until no longer pink.",
+      "Add water, fish sauce and the spicy seasoning; simmer 5 minutes.",
+      "Add tofu, cook 3\u20134 minutes, crack in eggs and cover until set. Serve with rice."
+    ]
+  },
+  {
+    "id": "korean-spicy-chicken-stir-fry",
+    "cuisine": "Korean",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "gochujang",
+        "amount": 2
+      },
+      {
+        "key": "gochugaru",
+        "amount": 1
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 1
+      },
+      {
+        "key": "sesame",
+        "amount": 1
+      },
+      {
+        "key": "ginger",
+        "amount": 10
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "cabbage",
+        "amount": 250
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Korean spicy chicken stir-fry with cabbage",
+    "path": "recipes/asian/korean-spicy-chicken-stir-fry.md",
+    "version": "fffacdc81701",
+    "group": "asian",
+    "steps": [
+      "Mix gochujang, gochugaru, soy, sugar, sesame oil, ginger and garlic; coat the protein and rest 20 minutes.",
+      "Cook the boneless chicken thighs with onion in a very hot pan until deeply coloured and cooked through.",
+      "Add cabbage and a splash of water and toss until softened and sticky.",
+      "Serve with rice and cooked vegetables."
+    ]
+  },
+  {
+    "id": "korean-spicy-pork-stew",
+    "cuisine": "Korean",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork",
+        "amount": 250
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "potato",
+        "amount": 300
+      },
+      {
+        "key": "tofu",
+        "amount": 150
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 10
+      },
+      {
+        "key": "gochujang",
+        "amount": 1.5
+      },
+      {
+        "key": "gochugaru",
+        "amount": 1
+      },
+      {
+        "key": "sesame",
+        "amount": 1
+      },
+      {
+        "key": "fish",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 500
+      },
+      {
+        "key": "spring",
+        "amount": 2
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Korean spicy pork stew with tofu and potato",
+    "path": "recipes/asian/korean-spicy-pork-stew.md",
+    "version": "969e494b4d8d",
+    "group": "asian",
+    "steps": [
+      "Mix gochujang, gochugaru, sesame oil, ginger, garlic and pepper.",
+      "Put onion, potato and pork mince in a saucepan and toss with the paste.",
+      "Add water and fish sauce, cover and simmer 20\u201325 minutes until tender.",
+      "Fold in tofu and spring onion for the final 3 minutes; serve with rice."
+    ]
+  },
+  {
+    "id": "korean-spicy-pork-stir-fry",
+    "cuisine": "Korean",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork-loin",
+        "amount": 350
+      },
+      {
+        "key": "gochujang",
+        "amount": 2
+      },
+      {
+        "key": "gochugaru",
+        "amount": 1
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 1
+      },
+      {
+        "key": "sesame",
+        "amount": 1
+      },
+      {
+        "key": "ginger",
+        "amount": 10
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "cabbage",
+        "amount": 250
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Korean spicy pork stir-fry with cabbage",
+    "path": "recipes/asian/korean-spicy-pork-stir-fry.md",
+    "version": "e1c2e310598c",
+    "group": "asian",
+    "steps": [
+      "Mix gochujang, gochugaru, soy, sugar, sesame oil, ginger and garlic; coat the protein and rest 20 minutes.",
+      "Cook the pork loin with onion in a very hot pan until deeply coloured and cooked through.",
+      "Add cabbage and a splash of water and toss until softened and sticky.",
+      "Serve with rice and cooked vegetables."
+    ]
+  },
+  {
+    "id": "korean-sweet-crunchy-tofu",
+    "cuisine": "Korean temple-inspired",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 300
+      },
+      {
+        "key": "cornstarch",
+        "amount": 2
+      },
+      {
+        "key": "oil",
+        "amount": 2
+      },
+      {
+        "key": "gochujang",
+        "amount": 1.5
+      },
+      {
+        "key": "ketchup",
+        "amount": 1
+      },
+      {
+        "key": "honey",
+        "amount": 1
+      },
+      {
+        "key": "vinegar",
+        "amount": 1
+      },
+      {
+        "key": "sesame-seeds",
+        "amount": 1
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Korean sweet-and-crunchy tofu with broccoli",
+    "path": "recipes/asian/korean-sweet-crunchy-tofu.md",
+    "version": "b7e02fe0bf3c",
+    "group": "asian",
+    "steps": [
+      "Start rice. Pat tofu dry and coat it with cornflour.",
+      "Pan-fry tofu in oil until golden and crisp.",
+      "Simmer gochujang, ketchup, honey and vinegar for 1\u20132 minutes.",
+      "Turn tofu through the sauce and serve with broccoli and rice."
+    ]
+  },
+  {
+    "id": "korean-tofu-mapadubu",
+    "cuisine": "Korean-Chinese",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 300
+      },
+      {
+        "key": "pork",
+        "amount": 120
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 10
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "gochujang",
+        "amount": 1
+      },
+      {
+        "key": "gochugaru",
+        "amount": 0.5
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "stock",
+        "amount": 150
+      },
+      {
+        "key": "zucchini",
+        "amount": 1
+      },
+      {
+        "key": "sesame",
+        "amount": 0.5
+      },
+      {
+        "key": "spring",
+        "amount": 2
+      },
+      {
+        "key": "cornstarch",
+        "amount": 0.5
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Korean-style mapadubu with tofu and vegetables",
+    "path": "recipes/asian/korean-tofu-mapadubu.md",
+    "version": "7b157c2365bf",
+    "group": "asian",
+    "steps": [
+      "Start rice. Stir gochujang, gochugaru, soy, stock and cornflour together.",
+      "Cook the firm tofu with garlic, ginger and onion until browned.",
+      "Add sauce and simmer; fold in tofu gently for 3\u20134 minutes.",
+      "Stir in sesame oil and spring onion and serve over rice."
+    ]
+  },
+  {
     "id": "malaysian-curry-chicken",
     "cuisine": "Malaysian-inspired",
     "protein": "Chicken",
@@ -424,6 +3821,311 @@
       "Fry onion and chicken in oil for 5 minutes. Add minced garlic and curry powder for 30 seconds.",
       "Add coconut milk and carrot. Simmer for 8 minutes.",
       "Add beans and simmer for 5 minutes until chicken is cooked through and vegetables are tender. Serve with rice."
+    ]
+  },
+  {
+    "id": "portuguese-chicken-rice",
+    "cuisine": "Portuguese-inspired",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "oven"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "paprika",
+        "amount": 2
+      },
+      {
+        "key": "cumin",
+        "amount": 1
+      },
+      {
+        "key": "chilli",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "paste",
+        "amount": 1
+      },
+      {
+        "key": "tomato",
+        "amount": 200
+      },
+      {
+        "key": "stock",
+        "amount": 300
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Portuguese-inspired peri-peri chicken and rice",
+    "path": "recipes/asian/portuguese-chicken-rice.md",
+    "version": "98ede7ce9a0f",
+    "group": "asian",
+    "steps": [
+      "Mix paprika, cumin, chilli, garlic, salt and oil and coat the chicken.",
+      "Sear chicken in a wide lidded pan until browned; remove it.",
+      "Cook rice with onion, capsicum, tomato paste and stock. Nestle chicken on top, cover and simmer 15 minutes.",
+      "Rest covered 5 minutes, fluff, and serve."
+    ]
+  },
+  {
+    "id": "singapore-chicken-noodles",
+    "cuisine": "Singaporean",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 250
+      },
+      {
+        "key": "rice-noodles",
+        "amount": 180
+      },
+      {
+        "key": "egg",
+        "amount": 2
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "peas",
+        "amount": 100
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "soy",
+        "amount": 2
+      },
+      {
+        "key": "shaoxing",
+        "amount": 2
+      },
+      {
+        "key": "curry",
+        "amount": 2.5
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.25
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      }
+    ],
+    "notes": "",
+    "title": "Singapore chicken rice noodles",
+    "path": "recipes/asian/singapore-chicken-noodles.md",
+    "version": "879ed3f454ef",
+    "group": "asian",
+    "steps": [
+      "Soak rice noodles until pliable and drain. Mix soy, Shaoxing wine, curry powder, sugar and pepper.",
+      "Scramble the eggs in half the oil and transfer out.",
+      "Stir-fry the boneless chicken thighs until cooked, then add onion, capsicum and garlic.",
+      "Add noodles, peas and sauce; toss until hot and fold through egg."
+    ]
+  },
+  {
+    "id": "singapore-pork-noodles",
+    "cuisine": "Singaporean",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork-loin",
+        "amount": 250
+      },
+      {
+        "key": "rice-noodles",
+        "amount": 180
+      },
+      {
+        "key": "egg",
+        "amount": 2
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "peas",
+        "amount": 100
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "soy",
+        "amount": 2
+      },
+      {
+        "key": "shaoxing",
+        "amount": 2
+      },
+      {
+        "key": "curry",
+        "amount": 2.5
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.25
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      }
+    ],
+    "notes": "",
+    "title": "Singapore pork rice noodles",
+    "path": "recipes/asian/singapore-pork-noodles.md",
+    "version": "f6e6f3b0dd8f",
+    "group": "asian",
+    "steps": [
+      "Soak rice noodles until pliable and drain. Mix soy, Shaoxing wine, curry powder, sugar and pepper.",
+      "Scramble the eggs in half the oil and transfer out.",
+      "Stir-fry the pork loin until cooked, then add onion, capsicum and garlic.",
+      "Add noodles, peas and sauce; toss until hot and fold through egg."
+    ]
+  },
+  {
+    "id": "singapore-tofu-noodles",
+    "cuisine": "Singaporean",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 250
+      },
+      {
+        "key": "rice-noodles",
+        "amount": 180
+      },
+      {
+        "key": "egg",
+        "amount": 2
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "peas",
+        "amount": 100
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "soy",
+        "amount": 2
+      },
+      {
+        "key": "shaoxing",
+        "amount": 2
+      },
+      {
+        "key": "curry",
+        "amount": 2.5
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.25
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      }
+    ],
+    "notes": "",
+    "title": "Singapore tofu rice noodles",
+    "path": "recipes/asian/singapore-tofu-noodles.md",
+    "version": "dfc5a2230fea",
+    "group": "asian",
+    "steps": [
+      "Soak rice noodles until pliable and drain. Mix soy, Shaoxing wine, curry powder, sugar and pepper.",
+      "Scramble the eggs in half the oil and transfer out.",
+      "Stir-fry the firm tofu until cooked, then add onion, capsicum and garlic.",
+      "Add noodles, peas and sauce; toss until hot and fold through egg."
     ]
   },
   {
@@ -655,6 +4357,91 @@
     ]
   },
   {
+    "id": "thai-beef-pad-kra-pao",
+    "cuisine": "Thai",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef",
+        "amount": 300
+      },
+      {
+        "key": "garlic",
+        "amount": 4
+      },
+      {
+        "key": "chilli",
+        "amount": 1
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "onion",
+        "amount": 0.25
+      },
+      {
+        "key": "basil",
+        "amount": 30
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "fish",
+        "amount": 2
+      },
+      {
+        "key": "darksoy",
+        "amount": 0.5
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 30
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "egg",
+        "amount": 2
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Thai beef pad kra pao with fried egg",
+    "path": "recipes/asian/thai-beef-pad-kra-pao.md",
+    "version": "9247d08655b3",
+    "group": "asian",
+    "steps": [
+      "Start rice and mix oyster sauce, soy, fish sauce, dark soy, sugar and water.",
+      "Stir-fry garlic and chilli in hot oil, then add the beef mince and cook until browned.",
+      "Add onion and capsicum and toss until tender; add sauce and reduce briefly.",
+      "Turn off heat, fold through basil until wilted, and serve with rice and fried eggs if using."
+    ]
+  },
+  {
     "id": "thai-chicken-noodles",
     "cuisine": "Thai",
     "protein": "Chicken",
@@ -716,6 +4503,521 @@
       "Thinly slice chicken and vegetables. Stir-fry chicken in oil for 5\u20137 minutes until cooked through.",
       "Add vegetables and cook for 4 minutes; add minced garlic.",
       "Toss in noodles, sauces, sugar and chilli with a splash of water. Cook for 2 minutes."
+    ]
+  },
+  {
+    "id": "thai-chicken-pad-see-ew",
+    "cuisine": "Thai",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 225
+      },
+      {
+        "key": "rice-noodles",
+        "amount": 250
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "egg",
+        "amount": 2
+      },
+      {
+        "key": "garlic",
+        "amount": 4
+      },
+      {
+        "key": "soy",
+        "amount": 2
+      },
+      {
+        "key": "darksoy",
+        "amount": 1
+      },
+      {
+        "key": "oyster",
+        "amount": 2
+      },
+      {
+        "key": "fish",
+        "amount": 0.5
+      },
+      {
+        "key": "sugar",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 2
+      }
+    ],
+    "notes": "",
+    "title": "Thai chicken pad see ew with broccoli",
+    "path": "recipes/asian/thai-chicken-pad-see-ew.md",
+    "version": "d849bce6002b",
+    "group": "asian",
+    "steps": [
+      "Soak rice noodles until pliable and drain. Mix oyster sauce, soy, fish sauce, dark soy and sugar.",
+      "Stir-fry the boneless chicken thighs until cooked and transfer it out.",
+      "Add oil, garlic and egg; scramble, then add broccoli and cook until tender-crisp.",
+      "Add noodles and sauce and toss over high heat; return protein and serve."
+    ]
+  },
+  {
+    "id": "thai-drunken-beef-noodles",
+    "cuisine": "Thai",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef",
+        "amount": 250
+      },
+      {
+        "key": "rice-noodles",
+        "amount": 220
+      },
+      {
+        "key": "garlic",
+        "amount": 3
+      },
+      {
+        "key": "chilli",
+        "amount": 1
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "basil",
+        "amount": 30
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "fish",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "vinegar",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 45
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Thai drunken beef rice noodles",
+    "path": "recipes/asian/thai-drunken-beef-noodles.md",
+    "version": "b8a9e1f7c9eb",
+    "group": "asian",
+    "steps": [
+      "Soak rice noodles until pliable and drain. Mix oyster sauce, soy, fish sauce, sugar, vinegar and water.",
+      "Stir-fry the beef mince until cooked and transfer it out.",
+      "Stir-fry garlic, chilli, capsicum and broccoli until fragrant.",
+      "Add noodles and sauce, toss until glossy, return protein, and fold through basil."
+    ]
+  },
+  {
+    "id": "thai-drunken-tofu-noodles",
+    "cuisine": "Thai",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 300
+      },
+      {
+        "key": "rice-noodles",
+        "amount": 220
+      },
+      {
+        "key": "garlic",
+        "amount": 3
+      },
+      {
+        "key": "chilli",
+        "amount": 1
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "basil",
+        "amount": 30
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "soy",
+        "amount": 1.5
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "vinegar",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 45
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Thai drunken tofu rice noodles",
+    "path": "recipes/asian/thai-drunken-tofu-noodles.md",
+    "version": "656d4fa6224a",
+    "group": "asian",
+    "steps": [
+      "Soak rice noodles until pliable and drain. Mix oyster sauce, soy, fish sauce, sugar, vinegar and water.",
+      "Stir-fry the firm tofu until cooked and transfer it out.",
+      "Stir-fry garlic, chilli, capsicum and broccoli until fragrant.",
+      "Add noodles and sauce, toss until glossy, return protein, and fold through basil."
+    ]
+  },
+  {
+    "id": "thai-green-curry-chicken",
+    "cuisine": "Thai",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "greencurry",
+        "amount": 2
+      },
+      {
+        "key": "coconut",
+        "amount": 400
+      },
+      {
+        "key": "water",
+        "amount": 120
+      },
+      {
+        "key": "eggplant",
+        "amount": 1
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "beans",
+        "amount": 150
+      },
+      {
+        "key": "fish",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "basil",
+        "amount": 20
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Thai green curry chicken with eggplant",
+    "path": "recipes/asian/thai-green-curry-chicken.md",
+    "version": "7487f0611f63",
+    "group": "asian",
+    "steps": [
+      "Start rice. Reduce half the coconut milk in a saucepan, then fry green curry paste in it for 1 minute.",
+      "Add the boneless chicken thighs and coat it; pour in remaining coconut milk and water.",
+      "Add eggplant, capsicum and beans and simmer until tender.",
+      "Season with fish sauce and sugar, fold through basil, and serve over rice."
+    ]
+  },
+  {
+    "id": "thai-green-curry-tofu",
+    "cuisine": "Thai",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 300
+      },
+      {
+        "key": "greencurry",
+        "amount": 2
+      },
+      {
+        "key": "coconut",
+        "amount": 400
+      },
+      {
+        "key": "water",
+        "amount": 120
+      },
+      {
+        "key": "eggplant",
+        "amount": 1
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "beans",
+        "amount": 150
+      },
+      {
+        "key": "fish",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "basil",
+        "amount": 20
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Thai green curry tofu with eggplant",
+    "path": "recipes/asian/thai-green-curry-tofu.md",
+    "version": "52787f9e7eb3",
+    "group": "asian",
+    "steps": [
+      "Start rice. Reduce half the coconut milk in a saucepan, then fry green curry paste in it for 1 minute.",
+      "Add the firm tofu and coat it; pour in remaining coconut milk and water.",
+      "Add eggplant, capsicum and beans and simmer until tender.",
+      "Season with fish sauce and sugar, fold through basil, and serve over rice."
+    ]
+  },
+  {
+    "id": "thai-pork-pad-kra-pao",
+    "cuisine": "Thai",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork",
+        "amount": 300
+      },
+      {
+        "key": "garlic",
+        "amount": 4
+      },
+      {
+        "key": "chilli",
+        "amount": 0.5
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "onion",
+        "amount": 0.25
+      },
+      {
+        "key": "basil",
+        "amount": 30
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "fish",
+        "amount": 2
+      },
+      {
+        "key": "darksoy",
+        "amount": 0.5
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 30
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "egg",
+        "amount": 2
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Thai pork pad kra pao with fried egg",
+    "path": "recipes/asian/thai-pork-pad-kra-pao.md",
+    "version": "917c86f97af7",
+    "group": "asian",
+    "steps": [
+      "Start rice and mix oyster sauce, soy, fish sauce, dark soy, sugar and water.",
+      "Stir-fry garlic and chilli in hot oil, then add the pork mince and cook until browned.",
+      "Add onion and capsicum and toss until tender; add sauce and reduce briefly.",
+      "Turn off heat, fold through basil until wilted, and serve with rice and fried eggs if using."
+    ]
+  },
+  {
+    "id": "thai-pork-pad-see-ew",
+    "cuisine": "Thai",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork-loin",
+        "amount": 225
+      },
+      {
+        "key": "rice-noodles",
+        "amount": 250
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "egg",
+        "amount": 2
+      },
+      {
+        "key": "garlic",
+        "amount": 4
+      },
+      {
+        "key": "soy",
+        "amount": 2
+      },
+      {
+        "key": "darksoy",
+        "amount": 1
+      },
+      {
+        "key": "oyster",
+        "amount": 2
+      },
+      {
+        "key": "fish",
+        "amount": 0.5
+      },
+      {
+        "key": "sugar",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 2
+      }
+    ],
+    "notes": "",
+    "title": "Thai pork pad see ew with broccoli",
+    "path": "recipes/asian/thai-pork-pad-see-ew.md",
+    "version": "bcfd4dfd4b15",
+    "group": "asian",
+    "steps": [
+      "Soak rice noodles until pliable and drain. Mix oyster sauce, soy, fish sauce, dark soy and sugar.",
+      "Stir-fry the pork loin until cooked and transfer it out.",
+      "Add oil, garlic and egg; scramble, then add broccoli and cook until tender-crisp.",
+      "Add noodles and sauce and toss over high heat; return protein and serve."
     ]
   },
   {
@@ -786,6 +5088,211 @@
     ]
   },
   {
+    "id": "thai-rice-noodles-chicken",
+    "cuisine": "Thai",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 300
+      },
+      {
+        "key": "rice-noodles",
+        "amount": 220
+      },
+      {
+        "key": "egg",
+        "amount": 2
+      },
+      {
+        "key": "garlic",
+        "amount": 3
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "darksoy",
+        "amount": 0.5
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 60
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      }
+    ],
+    "notes": "",
+    "title": "Thai rice noodles with chicken (guay tiew kua gai)",
+    "path": "recipes/asian/thai-rice-noodles-chicken.md",
+    "version": "a7061d497f03",
+    "group": "asian",
+    "steps": [
+      "Soak rice noodles until pliable and drain. Mix soy, dark soy, sugar, oyster sauce and water.",
+      "Sear chicken in a hot wok until browned and almost cooked; transfer it out.",
+      "Scramble egg with garlic, add noodles and sauce, and toss until absorbed.",
+      "Return chicken, add broccoli, toss until tender, and serve hot."
+    ]
+  },
+  {
+    "id": "thai-tofu-pad-kra-pao",
+    "cuisine": "Thai",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 300
+      },
+      {
+        "key": "garlic",
+        "amount": 4
+      },
+      {
+        "key": "chilli",
+        "amount": 0.5
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "onion",
+        "amount": 0.25
+      },
+      {
+        "key": "basil",
+        "amount": 30
+      },
+      {
+        "key": "oyster",
+        "amount": 1
+      },
+      {
+        "key": "soy",
+        "amount": 2
+      },
+      {
+        "key": "sugar",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 30
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Thai tofu pad kra pao with basil",
+    "path": "recipes/asian/thai-tofu-pad-kra-pao.md",
+    "version": "ca9e733d1b09",
+    "group": "asian",
+    "steps": [
+      "Start rice and mix oyster sauce, soy, fish sauce, dark soy, sugar and water.",
+      "Stir-fry garlic and chilli in hot oil, then add the firm tofu and cook until browned.",
+      "Add onion and capsicum and toss until tender; add sauce and reduce briefly.",
+      "Turn off heat, fold through basil until wilted, and serve with rice and fried eggs if using."
+    ]
+  },
+  {
+    "id": "thai-tofu-pad-see-ew",
+    "cuisine": "Thai",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 250
+      },
+      {
+        "key": "rice-noodles",
+        "amount": 250
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "egg",
+        "amount": 2
+      },
+      {
+        "key": "garlic",
+        "amount": 4
+      },
+      {
+        "key": "soy",
+        "amount": 2
+      },
+      {
+        "key": "darksoy",
+        "amount": 1
+      },
+      {
+        "key": "oyster",
+        "amount": 2
+      },
+      {
+        "key": "sugar",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 2
+      }
+    ],
+    "notes": "",
+    "title": "Thai tofu pad see ew with broccoli",
+    "path": "recipes/asian/thai-tofu-pad-see-ew.md",
+    "version": "e5be028271e4",
+    "group": "asian",
+    "steps": [
+      "Soak rice noodles until pliable and drain. Mix oyster sauce, soy, fish sauce, dark soy and sugar.",
+      "Stir-fry the firm tofu until cooked and transfer it out.",
+      "Add oil, garlic and egg; scramble, then add broccoli and cook until tender-crisp.",
+      "Add noodles and sauce and toss over high heat; return protein and serve."
+    ]
+  },
+  {
     "id": "thai-tofu-red-curry",
     "cuisine": "Thai",
     "protein": "Tofu",
@@ -840,6 +5347,79 @@
       "Fry curry paste in oil for 1 minute.",
       "Add coconut milk, carrot and tofu. Simmer for 8 minutes.",
       "Add broccoli and soy sauce; simmer for 5 minutes until vegetables are tender. Serve with rice. Choose a vegetarian curry paste if needed."
+    ]
+  },
+  {
+    "id": "vietnamese-caramel-beef-bowls",
+    "cuisine": "Vietnamese",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef",
+        "amount": 300
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "sugar",
+        "amount": 1.5
+      },
+      {
+        "key": "fish",
+        "amount": 1.5
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 60
+      },
+      {
+        "key": "beans",
+        "amount": 200
+      },
+      {
+        "key": "carrot",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Vietnamese caramelised beef bowls",
+    "path": "recipes/asian/vietnamese-caramel-beef-bowls.md",
+    "version": "d7381f5ea2a1",
+    "group": "asian",
+    "steps": [
+      "Start rice. Cook onion, ginger and garlic in oil until fragrant.",
+      "Sprinkle in sugar and let it melt to amber. Add the beef mince and stir until browned.",
+      "Add fish sauce, soy and water and simmer until glossy and cooked through.",
+      "Add beans and carrot for the final few minutes and serve over rice."
     ]
   },
   {
@@ -909,6 +5489,156 @@
     ]
   },
   {
+    "id": "vietnamese-caramel-pork-bowls",
+    "cuisine": "Vietnamese",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork",
+        "amount": 300
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "sugar",
+        "amount": 1.5
+      },
+      {
+        "key": "fish",
+        "amount": 1.5
+      },
+      {
+        "key": "soy",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 60
+      },
+      {
+        "key": "beans",
+        "amount": 200
+      },
+      {
+        "key": "carrot",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Vietnamese caramelised pork bowls",
+    "path": "recipes/asian/vietnamese-caramel-pork-bowls.md",
+    "version": "94d4d4a94c5f",
+    "group": "asian",
+    "steps": [
+      "Start rice. Cook onion, ginger and garlic in oil until fragrant.",
+      "Sprinkle in sugar and let it melt to amber. Add the pork mince and stir until browned.",
+      "Add fish sauce, soy and water and simmer until glossy and cooked through.",
+      "Add beans and carrot for the final few minutes and serve over rice."
+    ]
+  },
+  {
+    "id": "vietnamese-caramel-tofu-bowls",
+    "cuisine": "Vietnamese-inspired",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 300
+      },
+      {
+        "key": "cornstarch",
+        "amount": 1
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "sugar",
+        "amount": 1.5
+      },
+      {
+        "key": "fish",
+        "amount": 0.5
+      },
+      {
+        "key": "soy",
+        "amount": 1.5
+      },
+      {
+        "key": "water",
+        "amount": 60
+      },
+      {
+        "key": "beans",
+        "amount": 200
+      },
+      {
+        "key": "carrot",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      }
+    ],
+    "notes": "",
+    "title": "Vietnamese caramelised tofu bowls",
+    "path": "recipes/asian/vietnamese-caramel-tofu-bowls.md",
+    "version": "79d56fb01250",
+    "group": "asian",
+    "steps": [
+      "Start rice. Cook onion, ginger and garlic in oil until fragrant.",
+      "Sprinkle in sugar and let it melt to amber. Add the firm tofu and stir until browned.",
+      "Add fish sauce, soy and water and simmer until glossy and cooked through.",
+      "Add beans and carrot for the final few minutes and serve over rice."
+    ]
+  },
+  {
     "id": "vietnamese-tofu-bowls",
     "cuisine": "Vietnamese-inspired",
     "protein": "Tofu",
@@ -963,6 +5693,142 @@
       "Pan-fry tofu in oil for 8 minutes, turning until golden.",
       "Add beans with 3 tbsp water, cover and cook for 5 minutes.",
       "Add minced garlic, soy, sugar and vinegar. Toss and simmer for 3 minutes until beans are tender and tofu is coated; serve with rice."
+    ]
+  },
+  {
+    "id": "beef-fajitas-cooked-veg",
+    "cuisine": "Mexican-inspired",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef-steak",
+        "amount": 300
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "paprika",
+        "amount": 1
+      },
+      {
+        "key": "cumin",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "lime",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "tortillas",
+        "amount": 4
+      }
+    ],
+    "notes": "",
+    "title": "Beef fajitas with cooked capsicum and onion",
+    "path": "recipes/western/beef-fajitas-cooked-veg.md",
+    "version": "f22bd5bfc252",
+    "group": "western",
+    "steps": [
+      "Heat oven to 180\u00b0C and wrap tortillas in foil to warm.",
+      "Mix paprika, cumin, garlic, oil and lime and coat the beef rump steak with capsicum and onion.",
+      "Cook everything in a very hot pan until the protein is done and vegetables are charred and tender.",
+      "Serve hot filling in warm tortillas; omit raw salsa or salad."
+    ]
+  },
+  {
+    "id": "beef-taco-pasta",
+    "cuisine": "Mexican-inspired",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef",
+        "amount": 250
+      },
+      {
+        "key": "pasta",
+        "amount": 180
+      },
+      {
+        "key": "tomato",
+        "amount": 400
+      },
+      {
+        "key": "corn",
+        "amount": 100
+      },
+      {
+        "key": "zucchini",
+        "amount": 1
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "cumin",
+        "amount": 1
+      },
+      {
+        "key": "paprika",
+        "amount": 1
+      },
+      {
+        "key": "chilli",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 300
+      },
+      {
+        "key": "cheese",
+        "amount": 80
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Mexican beef taco pasta",
+    "path": "recipes/western/beef-taco-pasta.md",
+    "version": "37b4e368b88c",
+    "group": "western",
+    "steps": [
+      "Cook onion and garlic in oil in a deep skillet until softened.",
+      "Add the beef mince, cumin, paprika and chilli and cook until browned.",
+      "Stir in tomatoes, corn, pasta and water. Cover and simmer, stirring often, until pasta is tender.",
+      "Fold through cheese, taste for seasoning, and serve hot."
     ]
   },
   {
@@ -1026,6 +5892,78 @@
     ]
   },
   {
+    "id": "beef-veggie-pasta",
+    "cuisine": "Italian-inspired",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef",
+        "amount": 250
+      },
+      {
+        "key": "pasta",
+        "amount": 200
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "carrot",
+        "amount": 1
+      },
+      {
+        "key": "zucchini",
+        "amount": 1
+      },
+      {
+        "key": "mushrooms",
+        "amount": 125
+      },
+      {
+        "key": "tomato",
+        "amount": 400
+      },
+      {
+        "key": "spinach",
+        "amount": 100
+      },
+      {
+        "key": "herbs",
+        "amount": 1
+      },
+      {
+        "key": "parmesan",
+        "amount": 25
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Beef and vegetable tomato pasta",
+    "path": "recipes/western/beef-veggie-pasta.md",
+    "version": "de27934d8eff",
+    "group": "western",
+    "steps": [
+      "Boil pasta until just tender and reserve some cooking water.",
+      "Cook onion, garlic, carrot, zucchini and mushrooms in oil until softened.",
+      "Add beef mince and tomatoes with herbs and simmer until saucy.",
+      "Toss in pasta and spinach, loosening with cooking water; finish with Parmesan."
+    ]
+  },
+  {
     "id": "british-pork-potato",
     "cuisine": "British-inspired",
     "protein": "Pork",
@@ -1079,6 +6017,679 @@
       "Chop onion. Brown pork and onion in oil for 6\u20138 minutes until pork is cooked.",
       "Add potatoes and fry for 4 minutes.",
       "Stir in peas, mustard and 3 tbsp water. Cover and cook for 3\u20134 minutes until peas are hot. Season and serve."
+    ]
+  },
+  {
+    "id": "cheesy-broccoli-pasta-bake",
+    "cuisine": "Italian-inspired",
+    "protein": "Vegetarian",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "oven"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pasta",
+        "amount": 200
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "cream",
+        "amount": 200
+      },
+      {
+        "key": "mustard",
+        "amount": 1
+      },
+      {
+        "key": "cheese",
+        "amount": 100
+      },
+      {
+        "key": "parmesan",
+        "amount": 20
+      },
+      {
+        "key": "pepper",
+        "amount": 0.25
+      }
+    ],
+    "notes": "",
+    "title": "Cheesy broccoli pasta bake",
+    "path": "recipes/western/cheesy-broccoli-pasta-bake.md",
+    "version": "5b270f21bccb",
+    "group": "western",
+    "steps": [
+      "Heat the oven grill to high. Boil pasta, adding broccoli for the final 4 minutes; drain.",
+      "Heat cream, mustard, Parmesan, half the cheese and a splash of pasta water until smooth.",
+      "Fold pasta and broccoli through sauce and transfer to an ovenproof dish.",
+      "Top with remaining cheese and grill 3\u20134 minutes until bubbling and golden."
+    ]
+  },
+  {
+    "id": "cheesy-broccoli-tofu-bake",
+    "cuisine": "Italian-inspired",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "oven"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 300
+      },
+      {
+        "key": "pasta",
+        "amount": 180
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "cream",
+        "amount": 180
+      },
+      {
+        "key": "mustard",
+        "amount": 1
+      },
+      {
+        "key": "cheese",
+        "amount": 100
+      },
+      {
+        "key": "parmesan",
+        "amount": 20
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Cheesy broccoli tofu pasta bake",
+    "path": "recipes/western/cheesy-broccoli-tofu-bake.md",
+    "version": "7db076d0c90d",
+    "group": "western",
+    "steps": [
+      "Heat the oven grill to high. Boil pasta, adding broccoli for the final 4 minutes; drain.",
+      "Heat cream, mustard, Parmesan, half the cheese and a splash of pasta water until smooth.",
+      "Fold pasta and broccoli through sauce and transfer to an ovenproof dish.",
+      "Top with remaining cheese and grill 3\u20134 minutes until bubbling and golden."
+    ]
+  },
+  {
+    "id": "chicken-alfredo-pasta",
+    "cuisine": "Italian-American",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 300
+      },
+      {
+        "key": "pasta",
+        "amount": 200
+      },
+      {
+        "key": "cream",
+        "amount": 200
+      },
+      {
+        "key": "parmesan",
+        "amount": 50
+      },
+      {
+        "key": "peas",
+        "amount": 100
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "pepper",
+        "amount": 0.25
+      }
+    ],
+    "notes": "",
+    "title": "Chicken Alfredo with peas",
+    "path": "recipes/western/chicken-alfredo-pasta.md",
+    "version": "230d00fbb727",
+    "group": "western",
+    "steps": [
+      "Cook chicken in oil until browned and cooked through, then slice or shred it.",
+      "Boil pasta until just tender and reserve cooking water.",
+      "Simmer cream and Parmesan until smooth; add peas or spinach until warmed or wilted.",
+      "Toss in pasta and chicken, loosen with cooking water, and season with pepper."
+    ]
+  },
+  {
+    "id": "chicken-fajitas-cooked-veg",
+    "cuisine": "Mexican-inspired",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "paprika",
+        "amount": 1
+      },
+      {
+        "key": "cumin",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "lime",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "tortillas",
+        "amount": 4
+      }
+    ],
+    "notes": "",
+    "title": "Chicken fajitas with cooked capsicum and onion",
+    "path": "recipes/western/chicken-fajitas-cooked-veg.md",
+    "version": "4a8301bbb3e3",
+    "group": "western",
+    "steps": [
+      "Heat oven to 180\u00b0C and wrap tortillas in foil to warm.",
+      "Mix paprika, cumin, garlic, oil and lime and coat the boneless chicken thighs with capsicum and onion.",
+      "Cook everything in a very hot pan until the protein is done and vegetables are charred and tender.",
+      "Serve hot filling in warm tortillas; omit raw salsa or salad."
+    ]
+  },
+  {
+    "id": "chicken-spinach-peanut-curry",
+    "cuisine": "British-inspired",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 300
+      },
+      {
+        "key": "spinach",
+        "amount": 120
+      },
+      {
+        "key": "peanut-butter",
+        "amount": 1.5
+      },
+      {
+        "key": "coconut",
+        "amount": 200
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "cumin",
+        "amount": 1
+      },
+      {
+        "key": "curry",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 100
+      },
+      {
+        "key": "lime",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Chicken, spinach and peanut coconut curry",
+    "path": "recipes/western/chicken-spinach-peanut-curry.md",
+    "version": "7f23232ef29a",
+    "group": "western",
+    "steps": [
+      "Start the rice. Cook onion, garlic, cumin and curry powder in oil until fragrant.",
+      "Add chickpeas, coconut milk, peanut butter and water and simmer until thick.",
+      "Fold in spinach and cook until wilted; add lemon or lime and taste.",
+      "Serve over rice with peanuts."
+    ]
+  },
+  {
+    "id": "chicken-taco-pasta",
+    "cuisine": "Mexican-inspired",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 300
+      },
+      {
+        "key": "pasta",
+        "amount": 180
+      },
+      {
+        "key": "tomato",
+        "amount": 400
+      },
+      {
+        "key": "corn",
+        "amount": 100
+      },
+      {
+        "key": "zucchini",
+        "amount": 1
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "cumin",
+        "amount": 1
+      },
+      {
+        "key": "paprika",
+        "amount": 1
+      },
+      {
+        "key": "chilli",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 300
+      },
+      {
+        "key": "cheese",
+        "amount": 80
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Mexican chicken taco pasta",
+    "path": "recipes/western/chicken-taco-pasta.md",
+    "version": "170e26b346e3",
+    "group": "western",
+    "steps": [
+      "Cook onion and garlic in oil in a deep skillet until softened.",
+      "Add the boneless chicken thighs, cumin, paprika and chilli and cook until browned.",
+      "Stir in tomatoes, corn, pasta and water. Cover and simmer, stirring often, until pasta is tender.",
+      "Fold through cheese, taste for seasoning, and serve hot."
+    ]
+  },
+  {
+    "id": "chicken-veggie-pasta",
+    "cuisine": "Italian-inspired",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 250
+      },
+      {
+        "key": "pasta",
+        "amount": 200
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "carrot",
+        "amount": 1
+      },
+      {
+        "key": "zucchini",
+        "amount": 1
+      },
+      {
+        "key": "mushrooms",
+        "amount": 125
+      },
+      {
+        "key": "tomato",
+        "amount": 400
+      },
+      {
+        "key": "spinach",
+        "amount": 100
+      },
+      {
+        "key": "herbs",
+        "amount": 1
+      },
+      {
+        "key": "parmesan",
+        "amount": 25
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Chicken and vegetable tomato pasta",
+    "path": "recipes/western/chicken-veggie-pasta.md",
+    "version": "f40088591f00",
+    "group": "western",
+    "steps": [
+      "Boil pasta until just tender and reserve some cooking water.",
+      "Cook onion, garlic, carrot, zucchini and mushrooms in oil until softened.",
+      "Add boneless chicken thighs and tomatoes with herbs and simmer until saucy.",
+      "Toss in pasta and spinach, loosening with cooking water; finish with Parmesan."
+    ]
+  },
+  {
+    "id": "chickpea-spinach-bowl",
+    "cuisine": "British-inspired",
+    "protein": "Chickpeas",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chickpea",
+        "amount": 240
+      },
+      {
+        "key": "spinach",
+        "amount": 120
+      },
+      {
+        "key": "peanut-butter",
+        "amount": 1.5
+      },
+      {
+        "key": "coconut",
+        "amount": 200
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "cumin",
+        "amount": 1
+      },
+      {
+        "key": "curry",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 100
+      },
+      {
+        "key": "lemon",
+        "amount": 1
+      },
+      {
+        "key": "peanuts",
+        "amount": 30
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Chickpea, spinach and peanut butter rice bowl",
+    "path": "recipes/western/chickpea-spinach-bowl.md",
+    "version": "27e1360dd58f",
+    "group": "western",
+    "steps": [
+      "Start the rice. Cook onion, garlic, cumin and curry powder in oil until fragrant.",
+      "Add chickpeas, coconut milk, peanut butter and water and simmer until thick.",
+      "Fold in spinach and cook until wilted; add lemon or lime and taste.",
+      "Serve over rice with peanuts."
+    ]
+  },
+  {
+    "id": "chickpea-spinach-peanut-curry",
+    "cuisine": "British-inspired",
+    "protein": "Chickpeas",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chickpea",
+        "amount": 240
+      },
+      {
+        "key": "spinach",
+        "amount": 120
+      },
+      {
+        "key": "peanut-butter",
+        "amount": 1.5
+      },
+      {
+        "key": "coconut",
+        "amount": 200
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "cumin",
+        "amount": 1
+      },
+      {
+        "key": "curry",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 100
+      },
+      {
+        "key": "lime",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Chickpea, spinach and peanut coconut curry",
+    "path": "recipes/western/chickpea-spinach-peanut-curry.md",
+    "version": "a79175ac766e",
+    "group": "western",
+    "steps": [
+      "Start the rice. Cook onion, garlic, cumin and curry powder in oil until fragrant.",
+      "Add chickpeas, coconut milk, peanut butter and water and simmer until thick.",
+      "Fold in spinach and cook until wilted; add lemon or lime and taste.",
+      "Serve over rice with peanuts."
+    ]
+  },
+  {
+    "id": "chickpea-taco-pasta",
+    "cuisine": "Mexican-inspired",
+    "protein": "Chickpeas",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chickpea",
+        "amount": 240
+      },
+      {
+        "key": "pasta",
+        "amount": 180
+      },
+      {
+        "key": "tomato",
+        "amount": 400
+      },
+      {
+        "key": "corn",
+        "amount": 100
+      },
+      {
+        "key": "zucchini",
+        "amount": 1
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "cumin",
+        "amount": 1
+      },
+      {
+        "key": "paprika",
+        "amount": 1
+      },
+      {
+        "key": "chilli",
+        "amount": 0.5
+      },
+      {
+        "key": "water",
+        "amount": 300
+      },
+      {
+        "key": "cheese",
+        "amount": 80
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Mexican chickpea taco pasta",
+    "path": "recipes/western/chickpea-taco-pasta.md",
+    "version": "48de1b97da36",
+    "group": "western",
+    "steps": [
+      "Cook onion and garlic in oil in a deep skillet until softened.",
+      "Add the chickpeas, cumin, paprika and chilli and cook until browned.",
+      "Stir in tomatoes, corn, pasta and water. Cover and simmer, stirring often, until pasta is tender.",
+      "Fold through cheese, taste for seasoning, and serve hot."
     ]
   },
   {
@@ -1201,6 +6812,66 @@
       "Meanwhile, heat oil in a large frying pan. Season chicken and cook for 5\u20136 minutes until browned and cooked through. Move it to a plate.",
       "Add mushrooms to the pan and cook for 3 minutes. Add garlic and cook for 30 seconds.",
       "Add cream, Parmesan, chicken, pasta, and broccoli. Toss for 1\u20132 minutes, loosening with a little reserved pasta water. Season to taste."
+    ]
+  },
+  {
+    "id": "creamy-mushroom-spinach-pasta",
+    "cuisine": "Italian-inspired",
+    "protein": "Vegetarian",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pasta",
+        "amount": 200
+      },
+      {
+        "key": "mushrooms",
+        "amount": 150
+      },
+      {
+        "key": "spinach",
+        "amount": 120
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "cream",
+        "amount": 200
+      },
+      {
+        "key": "parmesan",
+        "amount": 20
+      },
+      {
+        "key": "chilli",
+        "amount": 0.5
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Creamy mushroom and spinach pasta",
+    "path": "recipes/western/creamy-mushroom-spinach-pasta.md",
+    "version": "cfae77297307",
+    "group": "western",
+    "steps": [
+      "Boil pasta until just tender and reserve cooking water.",
+      "Cook mushrooms and garlic in oil until browned, then add cream and simmer briefly.",
+      "Stir in spinach, Parmesan, chilli and pepper.",
+      "Toss through pasta, loosening with cooking water, and serve."
     ]
   },
   {
@@ -1354,6 +7025,180 @@
     ]
   },
   {
+    "id": "italian-salmon-broccoli-pasta",
+    "cuisine": "Italian-inspired",
+    "protein": "Salmon",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "salmon",
+        "amount": 300
+      },
+      {
+        "key": "pasta",
+        "amount": 200
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "peas",
+        "amount": 100
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "cream",
+        "amount": 160
+      },
+      {
+        "key": "lemon",
+        "amount": 1
+      },
+      {
+        "key": "parmesan",
+        "amount": 20
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Italian salmon and broccoli cream pasta",
+    "path": "recipes/western/italian-salmon-broccoli-pasta.md",
+    "version": "ea9abbfa79e3",
+    "group": "western",
+    "steps": [
+      "Boil pasta until just tender; reserve 50 ml cooking water and drain.",
+      "Cook onion in oil until soft, then add peas, salmon, cream and water.",
+      "Cook 3\u20134 minutes until salmon flakes and is cooked through.",
+      "Stir through pasta with lemon and pepper and serve."
+    ]
+  },
+  {
+    "id": "italian-sausage-broccoli-pasta",
+    "cuisine": "Italian",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "oven"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "sausage",
+        "amount": 250
+      },
+      {
+        "key": "pasta",
+        "amount": 200
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "cream",
+        "amount": 180
+      },
+      {
+        "key": "mustard",
+        "amount": 1
+      },
+      {
+        "key": "cheese",
+        "amount": 80
+      },
+      {
+        "key": "parmesan",
+        "amount": 20
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      }
+    ],
+    "notes": "",
+    "title": "Italian sausage and broccoli cheesy pasta",
+    "path": "recipes/western/italian-sausage-broccoli-pasta.md",
+    "version": "0ca8030c5c9d",
+    "group": "western",
+    "steps": [
+      "Boil pasta, adding broccoli for the final 4 minutes; drain.",
+      "Brown sausage meat with garlic and onion, then add cream and mustard.",
+      "Fold pasta, broccoli, Parmesan and half the cheese through the sauce.",
+      "Transfer to a dish, top with remaining cheese, and grill until golden."
+    ]
+  },
+  {
+    "id": "italian-tofu-broccoli-pasta",
+    "cuisine": "Italian-inspired",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "oven"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 300
+      },
+      {
+        "key": "pasta",
+        "amount": 200
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "cream",
+        "amount": 180
+      },
+      {
+        "key": "mustard",
+        "amount": 1
+      },
+      {
+        "key": "cheese",
+        "amount": 80
+      },
+      {
+        "key": "parmesan",
+        "amount": 20
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Italian tofu and broccoli cheesy pasta",
+    "path": "recipes/western/italian-tofu-broccoli-pasta.md",
+    "version": "2480652c6f0b",
+    "group": "western",
+    "steps": [
+      "Heat the oven grill to high. Boil pasta, adding broccoli for the final 4 minutes; drain.",
+      "Heat cream, mustard, Parmesan, half the cheese and a splash of pasta water until smooth.",
+      "Fold pasta and broccoli through sauce and transfer to an ovenproof dish.",
+      "Top with remaining cheese and grill 3\u20134 minutes until bubbling and golden."
+    ]
+  },
+  {
     "id": "lemon-chicken-potatoes",
     "cuisine": "Mediterranean-inspired",
     "protein": "Chicken",
@@ -1411,6 +7256,148 @@
       "Meanwhile, slice chicken and fry in oil for 6\u20138 minutes until cooked through.",
       "Add minced garlic and herbs for 30 seconds. Stir in lemon juice and 2 tbsp water.",
       "Toss in drained potatoes and beans; season and cook together for 2 minutes."
+    ]
+  },
+  {
+    "id": "lemon-pork-potatoes",
+    "cuisine": "British-inspired",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 30,
+    "equipment": [
+      "stovetop",
+      "oven"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork-loin",
+        "amount": 350
+      },
+      {
+        "key": "potato",
+        "amount": 500
+      },
+      {
+        "key": "beans",
+        "amount": 200
+      },
+      {
+        "key": "lemon",
+        "amount": 1
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "herbs",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 60
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Lemon pork with potatoes and green beans",
+    "path": "recipes/western/lemon-pork-potatoes.md",
+    "version": "8bdc29ba55e2",
+    "group": "western",
+    "steps": [
+      "Heat oven to 220\u00b0C. Toss potatoes with oil, lemon, garlic, herbs, salt and water and roast 15 minutes.",
+      "Add the pork loin and green beans and roast until the protein is cooked and potatoes are tender.",
+      "Turn the protein once and spoon over the lemony pan juices.",
+      "Rest 2 minutes and serve hot."
+    ]
+  },
+  {
+    "id": "lentil-tomato-spinach-stew",
+    "cuisine": "Mediterranean-inspired",
+    "protein": "Lentils",
+    "servings": 2,
+    "activeMinutes": 30,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "lentils",
+        "amount": 160
+      },
+      {
+        "key": "tomato",
+        "amount": 400
+      },
+      {
+        "key": "spinach",
+        "amount": 120
+      },
+      {
+        "key": "carrot",
+        "amount": 1
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "cumin",
+        "amount": 1
+      },
+      {
+        "key": "paprika",
+        "amount": 0.5
+      },
+      {
+        "key": "chilli",
+        "amount": 0.25
+      },
+      {
+        "key": "stock",
+        "amount": 500
+      },
+      {
+        "key": "lemon",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 100
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Lentil, tomato and spinach stew",
+    "path": "recipes/western/lentil-tomato-spinach-stew.md",
+    "version": "b8a2afbff3ca",
+    "group": "western",
+    "steps": [
+      "Rinse lentils. Cook onion, carrot, garlic, cumin and paprika in oil until softened.",
+      "Add tomatoes, lentils and stock. Cover and simmer until lentils are tender.",
+      "Fold in spinach for the final 2 minutes and season with lemon, salt and pepper.",
+      "Serve as a thick stew with rice."
     ]
   },
   {
@@ -1557,6 +7544,281 @@
     ]
   },
   {
+    "id": "mexican-whitefish-rice-skillet",
+    "cuisine": "Mexican-inspired",
+    "protein": "White fish",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "whitefish",
+        "amount": 350
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      },
+      {
+        "key": "tomato",
+        "amount": 200
+      },
+      {
+        "key": "corn",
+        "amount": 100
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "paprika",
+        "amount": 1
+      },
+      {
+        "key": "cumin",
+        "amount": 0.5
+      },
+      {
+        "key": "lemon",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "water",
+        "amount": 250
+      }
+    ],
+    "notes": "",
+    "title": "Mexican-spiced white fish and corn rice skillet",
+    "path": "recipes/western/mexican-whitefish-rice-skillet.md",
+    "version": "3f9fc088fb12",
+    "group": "western",
+    "steps": [
+      "Start rice. Season fish with paprika, cumin, salt and pepper.",
+      "Sear fish in oil until just cooked and transfer out.",
+      "Cook onion, capsicum and garlic, then add tomatoes and corn and simmer until hot.",
+      "Return fish briefly to warm through; serve over rice with lemon."
+    ]
+  },
+  {
+    "id": "moroccan-chicken-chickpea-tomato",
+    "cuisine": "Moroccan-inspired",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "chickpea",
+        "amount": 240
+      },
+      {
+        "key": "tomato",
+        "amount": 400
+      },
+      {
+        "key": "stock",
+        "amount": 250
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "cumin",
+        "amount": 1
+      },
+      {
+        "key": "paprika",
+        "amount": 1
+      },
+      {
+        "key": "cinnamon",
+        "amount": 0.5
+      },
+      {
+        "key": "ginger",
+        "amount": 10
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Moroccan chicken and chickpea tomato tagine",
+    "path": "recipes/western/moroccan-chicken-chickpea-tomato.md",
+    "version": "d08597ed3068",
+    "group": "western",
+    "steps": [
+      "Start rice. Cook onion, garlic, cumin, paprika and cinnamon in oil until fragrant.",
+      "Add chicken and brown the outside.",
+      "Stir in chickpeas, tomatoes and stock, cover and simmer until chicken is cooked and sauce thickens.",
+      "Taste and serve over rice."
+    ]
+  },
+  {
+    "id": "mushroom-ragu-pasta",
+    "cuisine": "Italian",
+    "protein": "Vegetarian",
+    "servings": 2,
+    "activeMinutes": 30,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "mushrooms",
+        "amount": 300
+      },
+      {
+        "key": "pasta",
+        "amount": 200
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 3
+      },
+      {
+        "key": "tomato",
+        "amount": 400
+      },
+      {
+        "key": "stock",
+        "amount": 150
+      },
+      {
+        "key": "herbs",
+        "amount": 1
+      },
+      {
+        "key": "parmesan",
+        "amount": 30
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Italian mushroom ragu pasta",
+    "path": "recipes/western/mushroom-ragu-pasta.md",
+    "version": "6d517e9991c6",
+    "group": "western",
+    "steps": [
+      "Boil pasta until just tender and reserve cooking water.",
+      "Brown mushrooms, onion and garlic in oil until deeply coloured.",
+      "Add tomatoes, stock and herbs and simmer until thick and savoury.",
+      "Toss through pasta, loosen with cooking water, and finish with Parmesan."
+    ]
+  },
+  {
+    "id": "mustard-beef-mushroom",
+    "cuisine": "British",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 30,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef-steak",
+        "amount": 300
+      },
+      {
+        "key": "mushrooms",
+        "amount": 200
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 1
+      },
+      {
+        "key": "paprika",
+        "amount": 1
+      },
+      {
+        "key": "mustard",
+        "amount": 1
+      },
+      {
+        "key": "cream",
+        "amount": 180
+      },
+      {
+        "key": "vinegar",
+        "amount": 1
+      },
+      {
+        "key": "stock",
+        "amount": 120
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Beef stroganoff with mushrooms and mustard",
+    "path": "recipes/western/mustard-beef-mushroom.md",
+    "version": "8288e01c0cc2",
+    "group": "western",
+    "steps": [
+      "Start rice or boil potatoes. Cook the beef rump steak in oil until browned and cooked; transfer out.",
+      "Cook onion, garlic and mushrooms until soft.",
+      "Stir mustard, cream and stock into the pan and simmer until slightly thickened.",
+      "Return protein, warm through, and serve over rice or potatoes."
+    ]
+  },
+  {
     "id": "mustard-chicken",
     "cuisine": "French-inspired",
     "protein": "Chicken",
@@ -1614,6 +7876,751 @@
       "Slice chicken and mushrooms. Fry chicken in oil for 6\u20138 minutes until cooked through.",
       "Add mushrooms and cook for 4 minutes. Stir in mustard, cream and a splash of water.",
       "Simmer for 2 minutes, season and serve with drained potatoes and beans."
+    ]
+  },
+  {
+    "id": "mustard-pork-mushroom",
+    "cuisine": "British",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork-loin",
+        "amount": 350
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 1
+      },
+      {
+        "key": "mushrooms",
+        "amount": 150
+      },
+      {
+        "key": "cream",
+        "amount": 150
+      },
+      {
+        "key": "mustard",
+        "amount": 1
+      },
+      {
+        "key": "basil",
+        "amount": 15
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Creamy mustard pork with mushrooms",
+    "path": "recipes/western/mustard-pork-mushroom.md",
+    "version": "9daf48f9d5f1",
+    "group": "western",
+    "steps": [
+      "Start rice or boil potatoes. Cook the pork loin in oil until browned and cooked; transfer out.",
+      "Cook onion, garlic and mushrooms until soft.",
+      "Stir mustard, cream and stock into the pan and simmer until slightly thickened.",
+      "Return protein, warm through, and serve over rice or potatoes."
+    ]
+  },
+  {
+    "id": "prawn-fajitas",
+    "cuisine": "Mexican-inspired",
+    "protein": "Prawns",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "prawns",
+        "amount": 300
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "paprika",
+        "amount": 1
+      },
+      {
+        "key": "cumin",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "lime",
+        "amount": 1
+      },
+      {
+        "key": "corn",
+        "amount": 100
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "tortillas",
+        "amount": 4
+      }
+    ],
+    "notes": "",
+    "title": "Prawn fajitas with cooked capsicum and corn",
+    "path": "recipes/western/prawn-fajitas.md",
+    "version": "f0ce4e022046",
+    "group": "western",
+    "steps": [
+      "Heat oven to 180\u00b0C and wrap tortillas in foil to warm.",
+      "Mix paprika, cumin, garlic, oil and lime and coat the raw prawns with capsicum and onion.",
+      "Cook everything in a very hot pan until the protein is done and vegetables are charred and tender.",
+      "Serve hot filling in warm tortillas; omit raw salsa or salad."
+    ]
+  },
+  {
+    "id": "quick-beef-paprika-pea-pan",
+    "cuisine": "British-inspired",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef-steak",
+        "amount": 300
+      },
+      {
+        "key": "paprika",
+        "amount": 1
+      },
+      {
+        "key": "cumin",
+        "amount": 1
+      },
+      {
+        "key": "stock",
+        "amount": 225
+      },
+      {
+        "key": "peas",
+        "amount": 100
+      },
+      {
+        "key": "yoghurt",
+        "amount": 50
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Quick beef with paprika, peas and yoghurt",
+    "path": "recipes/western/quick-beef-paprika-pea-pan.md",
+    "version": "d5ef970035b2",
+    "group": "western",
+    "steps": [
+      "Start rice or boil potatoes. Slice the protein and prepare peas.",
+      "Stir-fry the beef rump steak in oil until browned and cooked; transfer it out.",
+      "Bloom paprika and cumin in the pan, add stock and reduce by half.",
+      "Stir in peas and yoghurt, return protein, warm through, and serve."
+    ]
+  },
+  {
+    "id": "quick-chicken-paprika-pea-pan",
+    "cuisine": "British-inspired",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "paprika",
+        "amount": 1
+      },
+      {
+        "key": "cumin",
+        "amount": 1
+      },
+      {
+        "key": "stock",
+        "amount": 225
+      },
+      {
+        "key": "peas",
+        "amount": 100
+      },
+      {
+        "key": "yoghurt",
+        "amount": 50
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Quick chicken with paprika, peas and yoghurt",
+    "path": "recipes/western/quick-chicken-paprika-pea-pan.md",
+    "version": "f047a923d661",
+    "group": "western",
+    "steps": [
+      "Start rice or boil potatoes. Slice the protein and prepare peas.",
+      "Stir-fry the boneless chicken thighs in oil until browned and cooked; transfer it out.",
+      "Bloom paprika and cumin in the pan, add stock and reduce by half.",
+      "Stir in peas and yoghurt, return protein, warm through, and serve."
+    ]
+  },
+  {
+    "id": "quick-pork-paprika-pea-pan",
+    "cuisine": "British-inspired",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork-loin",
+        "amount": 350
+      },
+      {
+        "key": "paprika",
+        "amount": 1
+      },
+      {
+        "key": "cumin",
+        "amount": 1
+      },
+      {
+        "key": "stock",
+        "amount": 225
+      },
+      {
+        "key": "peas",
+        "amount": 100
+      },
+      {
+        "key": "yoghurt",
+        "amount": 50
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      }
+    ],
+    "notes": "",
+    "title": "Quick pork with paprika, peas and yoghurt",
+    "path": "recipes/western/quick-pork-paprika-pea-pan.md",
+    "version": "f06f82aa8ae7",
+    "group": "western",
+    "steps": [
+      "Start rice or boil potatoes. Slice the protein and prepare peas.",
+      "Stir-fry the pork loin in oil until browned and cooked; transfer it out.",
+      "Bloom paprika and cumin in the pan, add stock and reduce by half.",
+      "Stir in peas and yoghurt, return protein, warm through, and serve."
+    ]
+  },
+  {
+    "id": "quick-veggie-pasta",
+    "cuisine": "Italian-inspired",
+    "protein": "Vegetarian",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pasta",
+        "amount": 200
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "carrot",
+        "amount": 1
+      },
+      {
+        "key": "zucchini",
+        "amount": 1
+      },
+      {
+        "key": "mushrooms",
+        "amount": 150
+      },
+      {
+        "key": "tomato",
+        "amount": 400
+      },
+      {
+        "key": "spinach",
+        "amount": 100
+      },
+      {
+        "key": "herbs",
+        "amount": 1
+      },
+      {
+        "key": "chilli",
+        "amount": 0.25
+      },
+      {
+        "key": "parmesan",
+        "amount": 25
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Quick vegetable tomato pasta",
+    "path": "recipes/western/quick-veggie-pasta.md",
+    "version": "82e97497b7f0",
+    "group": "western",
+    "steps": [
+      "Boil pasta until just tender and reserve some cooking water.",
+      "Cook onion, garlic, carrot, zucchini and mushrooms in oil until softened.",
+      "Add vegetables and tomatoes with herbs and simmer until saucy.",
+      "Toss in pasta and spinach, loosening with cooking water; finish with Parmesan."
+    ]
+  },
+  {
+    "id": "salmon-fajitas",
+    "cuisine": "Mexican-inspired",
+    "protein": "Salmon",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "salmon",
+        "amount": 300
+      },
+      {
+        "key": "paprika",
+        "amount": 1
+      },
+      {
+        "key": "cumin",
+        "amount": 0.5
+      },
+      {
+        "key": "chilli",
+        "amount": 0.5
+      },
+      {
+        "key": "lime",
+        "amount": 1
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "corn",
+        "amount": 100
+      },
+      {
+        "key": "tortillas",
+        "amount": 4
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Blackened salmon fajitas with cooked corn",
+    "path": "recipes/western/salmon-fajitas.md",
+    "version": "d8a989314867",
+    "group": "western",
+    "steps": [
+      "Heat oven to 180\u00b0C and wrap tortillas in foil to warm.",
+      "Coat salmon with oil, paprika, cumin, chilli and lime.",
+      "Pan-fry salmon 3\u20134 minutes per side until blackened and just cooked; cook capsicum and corn in the same pan.",
+      "Flake salmon into warm tortillas with the cooked vegetables and serve with lime."
+    ]
+  },
+  {
+    "id": "salmon-pea-pasta",
+    "cuisine": "Italian-inspired",
+    "protein": "Salmon",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "salmon",
+        "amount": 300
+      },
+      {
+        "key": "pasta",
+        "amount": 200
+      },
+      {
+        "key": "peas",
+        "amount": 140
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "cream",
+        "amount": 140
+      },
+      {
+        "key": "water",
+        "amount": 50
+      },
+      {
+        "key": "lemon",
+        "amount": 1
+      },
+      {
+        "key": "pepper",
+        "amount": 0.25
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Creamy salmon and pea pasta",
+    "path": "recipes/western/salmon-pea-pasta.md",
+    "version": "98e473dece4b",
+    "group": "western",
+    "steps": [
+      "Boil pasta until just tender; reserve 50 ml cooking water and drain.",
+      "Cook onion in oil until soft, then add peas, salmon, cream and water.",
+      "Cook 3\u20134 minutes until salmon flakes and is cooked through.",
+      "Stir through pasta with lemon and pepper and serve."
+    ]
+  },
+  {
+    "id": "sausage-bolognese-pasta",
+    "cuisine": "Italian",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "sausage",
+        "amount": 300
+      },
+      {
+        "key": "mushrooms",
+        "amount": 125
+      },
+      {
+        "key": "tomato",
+        "amount": 400
+      },
+      {
+        "key": "paste",
+        "amount": 1
+      },
+      {
+        "key": "pasta",
+        "amount": 200
+      },
+      {
+        "key": "parmesan",
+        "amount": 25
+      },
+      {
+        "key": "herbs",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Quick sausage bolognese pasta",
+    "path": "recipes/western/sausage-bolognese-pasta.md",
+    "version": "6bd955cf8af4",
+    "group": "western",
+    "steps": [
+      "Boil pasta until just tender.",
+      "Remove sausage meat from casings and cook in a frying pan with mushrooms until browned.",
+      "Add tomatoes and herbs and simmer until reduced.",
+      "Toss pasta through the sauce and finish with Parmesan."
+    ]
+  },
+  {
+    "id": "sausage-mushroom-pasta",
+    "cuisine": "Italian",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "sausage",
+        "amount": 300
+      },
+      {
+        "key": "mushrooms",
+        "amount": 200
+      },
+      {
+        "key": "pasta",
+        "amount": 200
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "cream",
+        "amount": 150
+      },
+      {
+        "key": "parmesan",
+        "amount": 25
+      },
+      {
+        "key": "herbs",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Creamy sausage and mushroom pasta",
+    "path": "recipes/western/sausage-mushroom-pasta.md",
+    "version": "08ee57aefa86",
+    "group": "western",
+    "steps": [
+      "Boil pasta until just tender.",
+      "Remove sausage meat from casings and cook in a frying pan with mushrooms until browned.",
+      "Add tomatoes and herbs and simmer until reduced.",
+      "Toss pasta through the sauce and finish with Parmesan."
+    ]
+  },
+  {
+    "id": "smoky-chickpea-eggplant-tomato",
+    "cuisine": "Mediterranean-inspired",
+    "protein": "Chickpeas",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop",
+      "rice cooker"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chickpea",
+        "amount": 240
+      },
+      {
+        "key": "eggplant",
+        "amount": 1
+      },
+      {
+        "key": "tomato",
+        "amount": 400
+      },
+      {
+        "key": "spinach",
+        "amount": 100
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "ginger",
+        "amount": 15
+      },
+      {
+        "key": "cumin",
+        "amount": 1
+      },
+      {
+        "key": "paprika",
+        "amount": 1
+      },
+      {
+        "key": "chilli",
+        "amount": 0.25
+      },
+      {
+        "key": "coconut",
+        "amount": 100
+      },
+      {
+        "key": "lemon",
+        "amount": 1
+      },
+      {
+        "key": "rice",
+        "amount": 150
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      }
+    ],
+    "notes": "",
+    "title": "Smoky chickpea and eggplant tomato skillet",
+    "path": "recipes/western/smoky-chickpea-eggplant-tomato.md",
+    "version": "66a7aa7edede",
+    "group": "western",
+    "steps": [
+      "Start rice. Brown eggplant in oil until softened.",
+      "Add onion, garlic, cumin, paprika and chilli and cook until fragrant.",
+      "Stir in tomatoes, chickpeas and water; cover and simmer until eggplant is tender.",
+      "Fold in spinach if using, taste, and serve over rice."
+    ]
+  },
+  {
+    "id": "tofu-fajitas",
+    "cuisine": "Mexican-inspired",
+    "protein": "Tofu",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "tofu",
+        "amount": 300
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "paprika",
+        "amount": 1
+      },
+      {
+        "key": "cumin",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "lime",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "tortillas",
+        "amount": 4
+      }
+    ],
+    "notes": "",
+    "title": "Tofu fajitas with cooked capsicum and onion",
+    "path": "recipes/western/tofu-fajitas.md",
+    "version": "062387130e61",
+    "group": "western",
+    "steps": [
+      "Heat oven to 180\u00b0C and wrap tortillas in foil to warm.",
+      "Mix paprika, cumin, garlic, oil and lime and coat the firm tofu with capsicum and onion.",
+      "Cook everything in a very hot pan until the protein is done and vegetables are charred and tender.",
+      "Serve hot filling in warm tortillas; omit raw salsa or salad."
     ]
   }
 ]

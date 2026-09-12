@@ -19,12 +19,12 @@ test('suggestions preserve chosen recipes and prefer varied unrepeated meals',()
  assert.equal(new Set(result.map(r=>r.group)).size,2);
 });
 test('shared protein, fractional onions, rice and pack remainders aggregate correctly',()=>{
- const chosen=['taiwanese-lu-rou-fan','mexican-pork-corn-skillet'].map(id=>recipes.find(r=>r.id===id));
+ const chosen=['creamy-tomato-pork-spaghetti','mexican-pork-corn-skillet'].map(id=>recipes.find(r=>r.id===id));
  const rows=totals(chosen,catalog);
- const pork=rows.find(r=>r.key==='pork');assert.equal(pork.amount,500);assert.equal(pork.count,1);assert.equal(pork.left,0);assert.equal(pork.meals.length,2);
+ const pork=rows.find(r=>r.key==='pork');assert.equal(pork.amount,450);assert.equal(pork.count,1);assert.equal(pork.left,50);assert.equal(pork.meals.length,2);
  const onion=rows.find(r=>r.key==='onion');assert.equal(onion.amount,1.5);assert.equal(onion.buy,2);assert.equal(onion.left,.5);
- assert.equal(rows.find(r=>r.key==='rice').amount,300);
- assert.equal(totals(chosen,catalog,{pork:400}).find(r=>r.key==='pork').left,300);
+ assert.equal(rows.find(r=>r.key==='rice').amount,150);
+ assert.equal(totals(chosen,catalog,{pork:400}).find(r=>r.key==='pork').left,350);
  assert.ok(!rows.some(r=>r.key==='water'));
 });
 test('all cards have usable metadata and quantified ingredients',()=>{

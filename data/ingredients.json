@@ -11,6 +11,12 @@
     "pack": 500,
     "category": "Fresh"
   },
+  "pork-belly": {
+    "name": "skin-on pork belly",
+    "unit": "g",
+    "pack": 500,
+    "category": "Fresh"
+  },
   "beef": {
     "name": "beef mince",
     "unit": "g",
@@ -46,6 +52,12 @@
     "unit": "g",
     "pack": 250,
     "category": "Fresh"
+  },
+  "dried-shiitake": {
+    "name": "dried shiitake mushrooms",
+    "unit": "g",
+    "pack": 50,
+    "category": "Dry goods"
   },
   "onion": {
     "name": "brown onion",
@@ -350,6 +362,24 @@
   "shaoxing": {
     "name": "Shaoxing cooking wine",
     "unit": "tsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "fried-shallots": {
+    "name": "fried Asian shallots",
+    "unit": "g",
+    "pack": 100,
+    "category": "Pantry"
+  },
+  "rock-sugar": {
+    "name": "Chinese rock sugar",
+    "unit": "g",
+    "pack": 400,
+    "category": "Pantry"
+  },
+  "cinnamon": {
+    "name": "cinnamon stick",
+    "unit": "each",
     "pack": null,
     "category": "Pantry"
   }

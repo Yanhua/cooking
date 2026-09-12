@@ -509,52 +509,52 @@
     "status": "Not yet cooked",
     "ingredients": [
       {
-        "key": "pork",
-        "amount": 300.0
+        "key": "pork-belly",
+        "amount": 250.0
       },
       {
-        "key": "onion",
-        "amount": 1.0
-      },
-      {
-        "key": "mushrooms",
-        "amount": 125.0
+        "key": "dried-shiitake",
+        "amount": 12.0
       },
       {
         "key": "garlic",
-        "amount": 3.0
+        "amount": 1.0
       },
       {
         "key": "egg",
-        "amount": 4.0
-      },
-      {
-        "key": "soy",
         "amount": 2.0
       },
       {
+        "key": "fried-shallots",
+        "amount": 20.0
+      },
+      {
+        "key": "soy",
+        "amount": 1.0
+      },
+      {
         "key": "darksoy",
-        "amount": 1.0
+        "amount": 0.67
       },
       {
-        "key": "sugar",
-        "amount": 1.0
+        "key": "shaoxing",
+        "amount": 4.0
       },
       {
-        "key": "vinegar",
-        "amount": 1.0
-      },
-      {
-        "key": "fivespice",
-        "amount": 1.0
+        "key": "rock-sugar",
+        "amount": 8.0
       },
       {
         "key": "anise",
         "amount": 1.0
       },
       {
+        "key": "cinnamon",
+        "amount": 0.5
+      },
+      {
         "key": "water",
-        "amount": 250.0
+        "amount": 350.0
       },
       {
         "key": "bokchoy",
@@ -565,18 +565,18 @@
         "amount": 150.0
       }
     ],
-    "notes": "Allow extra elapsed time for the egg cycle, 18 minutes pressure cooking, and pressure build-up and release.",
-    "title": "Pressure-cooker Taiwanese lu rou fan",
+    "notes": "Hand-cut skin-on pork belly and fried shallots give this Taiwanese-style braise its characteristic rich, glossy sauce. Total elapsed time is about 1 hour 45 minutes, mostly unattended.",
+    "title": "Taiwanese lu rou fan (braised pork rice)",
     "path": "recipes/asian/taiwanese-lu-rou-fan.md",
-    "version": "bc43301343b2",
+    "version": "31171aaffb07",
     "group": "asian",
     "steps": [
-      "Finely chop onion, mushrooms and garlic; halve bok choy lengthways.",
-      "Start the measured dry rice in the rice cooker according to its instructions.",
-      "Cook the eggs in the pressure cooker on high pressure for 5 minutes, then release pressure and cool them under cold water. Peel and set aside. (Alternatively, hard-boil them on the stovetop.)",
-      "Using the saut\u00e9 function, cook pork, onion, mushrooms, and garlic for 6\u20138 minutes, breaking up the pork until browned. Drain excess fat if needed.",
-      "Stir in both soy sauces, sugar, vinegar, five-spice, star anise, and water. Nestle in the peeled eggs. Pressure-cook on high for 18 minutes, then quick-release.",
-      "While it cooks, steam or blanch bok choy until just tender and cook rice in the rice cooker. Remove star anise, halve the eggs, and spoon the pork and sauce over rice with bok choy."
+      "Put the dried shiitake in a bowl with 250 ml of the boiling water; cover and soak for 20 minutes. Lift them out, squeeze gently, remove the tough stems, and slice the caps into 5 mm strips. Strain and reserve the soaking liquid, leaving any grit behind. Meanwhile, toss the chilled pork belly with 1 tsp of the Shaoxing wine and 1/2 tsp of the dark soy sauce.",
+      "Start the rice in the rice cooker according to its instructions. Boil the eggs for 9 minutes, cool under cold running water, and peel. Halve the bok choy lengthways; blanch it in the egg water for 1\u20132 minutes until tender, then drain.",
+      "Put the pork and its marinade in a dry, small heavy-based saucepan over medium heat. Cook for 5\u20137 minutes, stirring, until some fat renders and the edges are lightly browned. Stir in the garlic for 20 seconds.",
+      "Add the remaining 3 tsp Shaoxing wine, remaining 1 1/2 tsp dark soy sauce, light soy sauce, rock sugar, star anise, cinnamon, fried shallots, and shiitake. Stir for 30 seconds, then add the reserved mushroom liquid. Add up to the remaining 100 ml boiling water as needed so the pork is just covered.",
+      "Bring to a boil, then lower the heat to a very gentle simmer and partially cover. Braise for 60\u201375 minutes, stirring every 20 minutes. Add the peeled eggs for the final 30 minutes, turning once. The pork is ready when the skin and fat are yielding and the meat is tender; add a splash of hot water if the pan threatens to dry out before then.",
+      "Remove the eggs and whole spices. If the sauce is watery, simmer uncovered for 5\u201310 minutes until glossy and loose enough to soak into rice; if it becomes sticky, loosen it with hot water. Taste before adding any salt. Halve the eggs and spoon the pork, sauce, and egg over the rice with the blanched bok choy."
     ]
   },
   {

@@ -1,10 +1,11 @@
 {
   "firebase": {
-    "apiKey": "",
-    "authDomain": "",
-    "projectId": "",
-    "appId": ""
+    "apiKey": "AIzaSyD4mv6GNsqvwVmxDquhTyVB3DP25boCRFg",
+    "authDomain": "dinner-sorted-afff4.firebaseapp.com",
+    "projectId": "dinner-sorted-afff4",
+    "appId": "1:930389536850:web:76193ff090e4b926266f8b"
   },
-  "householdEmail": "",
-  "householdUid": ""
+  "householdEmail": "yanhuanz@gmail.com",
+  "householdUid": "6BghJs4kuRbkGOrlrx5Cay54JNE3"
 }
+

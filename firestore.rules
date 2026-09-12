@@ -4,7 +4,7 @@ service cloud.firestore {
     function householdMember(uid) {
       // Replace this with the one Firebase Authentication user's UID.
       return request.auth != null
-        && request.auth.uid == 'REPLACE_WITH_HOUSEHOLD_UID'
+        && request.auth.uid == '6BghJs4kuRbkGOrlrx5Cay54JNE3'
         && uid == request.auth.uid;
     }
     match /households/{uid}/records/{recordId} {

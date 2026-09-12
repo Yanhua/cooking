@@ -5696,6 +5696,141 @@
     ]
   },
   {
+    "id": "baked-eggs-potatoes-mushrooms-cheese",
+    "cuisine": "British",
+    "protein": "Vegetarian",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "oven",
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "egg",
+        "amount": 4
+      },
+      {
+        "key": "potato",
+        "amount": 450
+      },
+      {
+        "key": "mushrooms",
+        "amount": 250
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "cheese",
+        "amount": 80
+      },
+      {
+        "key": "herbs",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Baked eggs with potatoes, mushrooms and cheese",
+    "path": "recipes/western/baked-eggs-potatoes-mushrooms-cheese.md",
+    "version": "7ac8510d367b",
+    "group": "western",
+    "steps": [
+      "Heat the oven to 200\u00b0C. Cut the potatoes into 2 cm chunks and boil for 5 minutes. Drain well.",
+      "Heat the oil in an ovenproof frying pan. Fry the potatoes for 5 minutes, then add the sliced mushrooms and garlic and cook for 5\u20138 minutes until browned. Season with the salt, pepper and herbs.",
+      "Stir through half the cheese. Make four wells and crack in the eggs. Sprinkle over the remaining cheese.",
+      "Bake for 12\u201315 minutes, until the whites are set and the yolks are still soft, then serve from the pan."
+    ]
+  },
+  {
+    "id": "beef-cottage-pie",
+    "cuisine": "British",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 30,
+    "equipment": [
+      "stovetop",
+      "oven"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef",
+        "amount": 400
+      },
+      {
+        "key": "potato",
+        "amount": 600
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "carrot",
+        "amount": 1
+      },
+      {
+        "key": "peas",
+        "amount": 100
+      },
+      {
+        "key": "paste",
+        "amount": 1
+      },
+      {
+        "key": "worcestershire",
+        "amount": 1
+      },
+      {
+        "key": "stock",
+        "amount": 300
+      },
+      {
+        "key": "cream",
+        "amount": 60
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Quick beef cottage pie",
+    "path": "recipes/western/beef-cottage-pie.md",
+    "version": "8824a7127c13",
+    "group": "western",
+    "steps": [
+      "Peel and chunk the potatoes. Boil for 12\u201315 minutes until tender, drain, mash with the cream and season with half the salt and pepper.",
+      "Heat the oil in a frying pan. Cook the onion and carrot for 5 minutes, then add the beef and brown for another 5 minutes, breaking it up.",
+      "Stir in the tomato paste and Worcestershire sauce for 1 minute. Add the stock and simmer uncovered for 8\u201310 minutes until thickened. Stir in the peas for the last 2 minutes.",
+      "Heat the oven to 220\u00b0C. Spoon the filling into a small ovenproof dish, top with the mash and roughen the surface with a fork.",
+      "Bake for 15 minutes until bubbling and lightly browned. Rest for 5 minutes before serving."
+    ]
+  },
+  {
     "id": "beef-fajitas-cooked-veg",
     "cuisine": "Mexican-inspired",
     "protein": "Beef",
@@ -5753,6 +5888,148 @@
       "Mix paprika, cumin, garlic, oil and lime and coat the beef rump steak with capsicum and onion.",
       "Cook everything in a very hot pan until the protein is done and vegetables are charred and tender.",
       "Serve hot filling in warm tortillas; omit raw salsa or salad."
+    ]
+  },
+  {
+    "id": "beef-meatballs-mushroom-mash",
+    "cuisine": "British",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 30,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef",
+        "amount": 300
+      },
+      {
+        "key": "potato",
+        "amount": 450
+      },
+      {
+        "key": "mushrooms",
+        "amount": 200
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "parmesan",
+        "amount": 20
+      },
+      {
+        "key": "cream",
+        "amount": 100
+      },
+      {
+        "key": "stock",
+        "amount": 75
+      },
+      {
+        "key": "peas",
+        "amount": 150
+      },
+      {
+        "key": "herbs",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Beef meatballs with creamy mushrooms and mash",
+    "path": "recipes/western/beef-meatballs-mushroom-mash.md",
+    "version": "7b7609f4b9eb",
+    "group": "western",
+    "steps": [
+      "Boil the potatoes for 15 minutes until tender. Drain, mash with 30 ml of the cream and season with a pinch of salt, then keep warm.",
+      "Mix the beef, Parmesan, herbs, half the salt and half the pepper. Shape into 10\u201312 small meatballs.",
+      "Heat 1 tbsp oil in a wide frying pan. Brown the meatballs for 6\u20138 minutes, turning, until cooked through. Transfer to a plate.",
+      "Add the remaining oil and cook the onion for 4 minutes. Add the garlic and mushrooms and cook for 5 minutes until softened and browned.",
+      "Add the stock and remaining cream and simmer for 3 minutes. Return the meatballs and simmer for 2 minutes until hot. Boil the peas separately for 3 minutes, then serve with the mash."
+    ]
+  },
+  {
+    "id": "beef-potato-hash",
+    "cuisine": "American-inspired",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef",
+        "amount": 300
+      },
+      {
+        "key": "potato",
+        "amount": 450
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "fresh-tomato",
+        "amount": 250
+      },
+      {
+        "key": "cream",
+        "amount": 60
+      },
+      {
+        "key": "worcestershire",
+        "amount": 1
+      },
+      {
+        "key": "peas",
+        "amount": 100
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "American beef and potato hash",
+    "path": "recipes/western/beef-potato-hash.md",
+    "version": "34904b6cc27f",
+    "group": "western",
+    "steps": [
+      "Dice the potatoes into 1.5 cm pieces and boil for 8 minutes until nearly tender. Drain well.",
+      "Heat the oil in a large frying pan. Cook the onion for 3 minutes, add the beef and brown for 5\u20136 minutes, breaking it up.",
+      "Add the potatoes and fry for 5 minutes, stirring occasionally, until the edges are golden.",
+      "Stir in the tomatoes, cream, Worcestershire sauce and peas. Simmer for 4\u20135 minutes until the peas are hot and the sauce coats the hash.",
+      "Season with the salt and pepper and serve hot."
     ]
   },
   {
@@ -6243,6 +6520,78 @@
       "Mix paprika, cumin, garlic, oil and lime and coat the boneless chicken thighs with capsicum and onion.",
       "Cook everything in a very hot pan until the protein is done and vegetables are charred and tender.",
       "Serve hot filling in warm tortillas; omit raw salsa or salad."
+    ]
+  },
+  {
+    "id": "chicken-red-pepper-potato-traybake",
+    "cuisine": "Mediterranean-inspired",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "oven"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "potato",
+        "amount": 400
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 1
+      },
+      {
+        "key": "cumin",
+        "amount": 1
+      },
+      {
+        "key": "paprika",
+        "amount": 1
+      },
+      {
+        "key": "lemon",
+        "amount": 1
+      },
+      {
+        "key": "yoghurt",
+        "amount": 100
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Mediterranean chicken, red pepper and potato traybake",
+    "path": "recipes/western/chicken-red-pepper-potato-traybake.md",
+    "version": "5b58f9711a0a",
+    "group": "western",
+    "steps": [
+      "Heat the oven to 200\u00b0C. Cut the potatoes, capsicum and onion into bite-sized pieces. Toss them and the chicken with the garlic, cumin, paprika, lemon zest and juice, oil, salt and pepper.",
+      "Spread everything in a roasting dish and roast for 35\u201340 minutes, turning the vegetables once, until the potatoes are tender and the chicken is cooked through.",
+      "Remove the tray from the oven and rest the chicken for 2 minutes.",
+      "Spoon the roasting juices over the chicken and potatoes and serve with the yoghurt."
     ]
   },
   {
@@ -6875,6 +7224,75 @@
     ]
   },
   {
+    "id": "creamy-salmon-potato-traybake",
+    "cuisine": "British-inspired",
+    "protein": "Salmon",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "oven",
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "salmon",
+        "amount": 300
+      },
+      {
+        "key": "potato",
+        "amount": 350
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 1
+      },
+      {
+        "key": "peas",
+        "amount": 100
+      },
+      {
+        "key": "cream",
+        "amount": 120
+      },
+      {
+        "key": "stock",
+        "amount": 75
+      },
+      {
+        "key": "lemon",
+        "amount": 0.5
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Creamy salmon with potatoes and peas",
+    "path": "recipes/western/creamy-salmon-potato-traybake.md",
+    "version": "20ff355dff65",
+    "group": "western",
+    "steps": [
+      "Heat the oven to 200\u00b0C. Cut the potatoes into thin wedges, toss with 1 tbsp oil, salt and pepper, and roast for 20 minutes.",
+      "Meanwhile, cook the sliced onion in the remaining oil for 5 minutes. Add the garlic, cream, stock, lemon zest and peas and simmer for 3 minutes.",
+      "Pour the cream mixture over the potatoes. Season the salmon, place it on top and bake for 8\u201310 minutes, or grill briefly, until the salmon is just cooked.",
+      "Rest for 2 minutes and serve with the creamy potatoes."
+    ]
+  },
+  {
     "id": "creamy-tomato-pork-spaghetti",
     "cuisine": "Italian-inspired",
     "protein": "Pork",
@@ -6949,6 +7367,200 @@
       "Heat oil in a large frying pan. Cook pork mince for 4\u20135 minutes, breaking it up until browned.",
       "Add onion and mushrooms; cook for 3 minutes. Add garlic, tomato paste, and herbs; stir for 30 seconds.",
       "Add crushed tomatoes and simmer for 8 minutes. Stir in cream, then toss through spaghetti, adding pasta water as needed. Season and top with Parmesan."
+    ]
+  },
+  {
+    "id": "honey-mustard-chicken-potatoes",
+    "cuisine": "British-inspired",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 15,
+    "equipment": [
+      "oven"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "potato",
+        "amount": 350
+      },
+      {
+        "key": "spinach",
+        "amount": 100
+      },
+      {
+        "key": "peas",
+        "amount": 100
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "lemon",
+        "amount": 1
+      },
+      {
+        "key": "honey",
+        "amount": 1
+      },
+      {
+        "key": "mustard",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Honey-mustard chicken with roast potatoes, peas and spinach",
+    "path": "recipes/western/honey-mustard-chicken-potatoes.md",
+    "version": "6bec0b42975d",
+    "group": "western",
+    "steps": [
+      "Heat the oven to 200\u00b0C. Mix the honey, mustard, crushed garlic, lemon zest and juice, salt and pepper. Coat the chicken with half of the mixture.",
+      "Cut the potatoes into wedges and put them on a baking tray with the chicken. Toss the potatoes with the oil and roast for 35 minutes, turning the potatoes once.",
+      "Stir the remaining honey-mustard mixture through the tray. Add the peas and spinach for the final 3\u20134 minutes, until hot and wilted.",
+      "Rest the chicken for 2 minutes, then serve with the roast potatoes and greens."
+    ]
+  },
+  {
+    "id": "honey-mustard-pork-potatoes",
+    "cuisine": "British-inspired",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "oven",
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork-loin",
+        "amount": 350
+      },
+      {
+        "key": "potato",
+        "amount": 450
+      },
+      {
+        "key": "beans",
+        "amount": 200
+      },
+      {
+        "key": "garlic",
+        "amount": 1
+      },
+      {
+        "key": "paprika",
+        "amount": 0.5
+      },
+      {
+        "key": "honey",
+        "amount": 1
+      },
+      {
+        "key": "mustard",
+        "amount": 1
+      },
+      {
+        "key": "lemon",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Honey-mustard pork chops with roast potatoes and beans",
+    "path": "recipes/western/honey-mustard-pork-potatoes.md",
+    "version": "3d0e15913fcc",
+    "group": "western",
+    "steps": [
+      "Heat the oven to 210\u00b0C. Cut the potatoes into wedges, toss with 1 tbsp oil, salt and pepper, and roast for 10 minutes.",
+      "Mix the honey, mustard, crushed garlic, paprika and lemon juice. Coat the pork chops with the glaze.",
+      "Add the chops and beans to the tray. Roast for 15 minutes, then grill for 3\u20135 minutes until the glaze is browned and the pork is cooked through.",
+      "Rest the pork for 3 minutes and serve with the potatoes and beans."
+    ]
+  },
+  {
+    "id": "honey-mustard-salmon-potatoes",
+    "cuisine": "British-inspired",
+    "protein": "Salmon",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "oven",
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "salmon",
+        "amount": 300
+      },
+      {
+        "key": "potato",
+        "amount": 300
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "honey",
+        "amount": 1
+      },
+      {
+        "key": "mustard",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Honey-mustard salmon with roast potatoes and broccoli",
+    "path": "recipes/western/honey-mustard-salmon-potatoes.md",
+    "version": "5a5c470e10dd",
+    "group": "western",
+    "steps": [
+      "Heat the oven to 180\u00b0C. Cut the potatoes into small chunks and boil for 8\u201310 minutes. Add the broccoli for the final 2 minutes, then drain.",
+      "Put the potatoes and broccoli in a roasting dish. Mix the honey, mustard and oil, then toss half through the vegetables.",
+      "Season the salmon with salt and pepper, place it on the tray and brush with the remaining glaze. Roast for 15\u201320 minutes, until the salmon flakes and the potatoes are browned.",
+      "Serve immediately with the tray juices."
     ]
   },
   {
@@ -7259,6 +7871,75 @@
     ]
   },
   {
+    "id": "lemon-oregano-chicken-traybake",
+    "cuisine": "Mediterranean-inspired",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "oven",
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "potato",
+        "amount": 400
+      },
+      {
+        "key": "beans",
+        "amount": 200
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "lemon",
+        "amount": 1
+      },
+      {
+        "key": "herbs",
+        "amount": 1
+      },
+      {
+        "key": "stock",
+        "amount": 150
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Lemon-oregano chicken traybake with potatoes and beans",
+    "path": "recipes/western/lemon-oregano-chicken-traybake.md",
+    "version": "0086ed3ed853",
+    "group": "western",
+    "steps": [
+      "Heat the oven to 220\u00b0C. Cut the potatoes into small wedges and slice the onion. Toss them with half the oil, half the garlic, salt and pepper in a roasting dish. Roast for 15 minutes.",
+      "Add the chicken, remaining garlic, lemon zest and juice, herbs and stock. Drizzle with the remaining oil and roast for 20\u201325 minutes, until the chicken is cooked through and the potatoes are browned.",
+      "Steam or microwave the beans for 4\u20135 minutes, then stir them through the tray juices.",
+      "Rest the chicken for 2 minutes and serve with the potatoes and beans."
+    ]
+  },
+  {
     "id": "lemon-pork-potatoes",
     "cuisine": "British-inspired",
     "protein": "Pork",
@@ -7398,6 +8079,66 @@
       "Add tomatoes, lentils and stock. Cover and simmer until lentils are tender.",
       "Fold in spinach for the final 2 minutes and season with lemon, salt and pepper.",
       "Serve as a thick stew with rice."
+    ]
+  },
+  {
+    "id": "mediterranean-whitefish-potato-pepper",
+    "cuisine": "Mediterranean-inspired",
+    "protein": "White fish",
+    "servings": 2,
+    "activeMinutes": 15,
+    "equipment": [
+      "oven"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "whitefish",
+        "amount": 300
+      },
+      {
+        "key": "potato",
+        "amount": 300
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "olives",
+        "amount": 50
+      },
+      {
+        "key": "lemon",
+        "amount": 0.5
+      },
+      {
+        "key": "herbs",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 2
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Mediterranean white fish with roast potatoes and capsicum",
+    "path": "recipes/western/mediterranean-whitefish-potato-pepper.md",
+    "version": "dd26a41ce0b4",
+    "group": "western",
+    "steps": [
+      "Heat the oven to 180\u00b0C. Slice the potatoes thinly and cut the capsicum into strips. Toss them with 1 tbsp oil, herbs, salt and pepper and roast for 25 minutes.",
+      "Place the fish over the vegetables. Add the olives and lemon slices, drizzle with the remaining oil and roast for 8\u201310 minutes, until the fish flakes easily.",
+      "Remove the tray from the oven and rest the fish for 2 minutes.",
+      "Spoon the pan juices over the fish and vegetables before serving."
     ]
   },
   {
@@ -7750,6 +8491,67 @@
     ]
   },
   {
+    "id": "mushroom-spinach-jacket-potatoes",
+    "cuisine": "British",
+    "protein": "Vegetarian",
+    "servings": 2,
+    "activeMinutes": 15,
+    "equipment": [
+      "oven",
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "potato",
+        "amount": 600
+      },
+      {
+        "key": "mushrooms",
+        "amount": 250
+      },
+      {
+        "key": "spinach",
+        "amount": 100
+      },
+      {
+        "key": "cream",
+        "amount": 100
+      },
+      {
+        "key": "cheese",
+        "amount": 50
+      },
+      {
+        "key": "garlic",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Mushroom and spinach jacket potatoes",
+    "path": "recipes/western/mushroom-spinach-jacket-potatoes.md",
+    "version": "bbd02cc52e5c",
+    "group": "western",
+    "steps": [
+      "Heat the oven to 200\u00b0C. Prick the potatoes, rub with half the oil and bake for 70\u201375 minutes, until tender all the way through.",
+      "Heat the remaining oil in a frying pan. Cook the sliced mushrooms for 5\u20137 minutes until browned, then add the garlic for 30 seconds.",
+      "Add the spinach and cream and cook for 2\u20133 minutes until the spinach wilts. Season with the salt and pepper.",
+      "Split the potatoes, spoon in the mushroom mixture, top with cheese and return to the oven for 3\u20135 minutes to melt. Serve hot."
+    ]
+  },
+  {
     "id": "mustard-beef-mushroom",
     "cuisine": "British",
     "protein": "Beef",
@@ -7937,6 +8739,207 @@
       "Cook onion, garlic and mushrooms until soft.",
       "Stir mustard, cream and stock into the pan and simmer until slightly thickened.",
       "Return protein, warm through, and serve over rice or potatoes."
+    ]
+  },
+  {
+    "id": "paprika-chicken-broccoli-potato-traybake",
+    "cuisine": "British-inspired",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "oven"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "potato",
+        "amount": 300
+      },
+      {
+        "key": "broccoli",
+        "amount": 1
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 3
+      },
+      {
+        "key": "paprika",
+        "amount": 1
+      },
+      {
+        "key": "herbs",
+        "amount": 1
+      },
+      {
+        "key": "lemon",
+        "amount": 1
+      },
+      {
+        "key": "stock",
+        "amount": 200
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Paprika chicken with broccoli and potatoes",
+    "path": "recipes/western/paprika-chicken-broccoli-potato-traybake.md",
+    "version": "94e50b81e9bb",
+    "group": "western",
+    "steps": [
+      "Heat the oven to 200\u00b0C. Cut the potatoes, capsicum and onion into small pieces and toss with half the oil, half the garlic, paprika, herbs, salt and pepper. Roast for 15 minutes.",
+      "Add the chicken rubbed with the remaining oil, garlic, lemon zest and juice. Roast for 30 minutes, turning the potatoes once.",
+      "Add the broccoli florets and pour the stock around the vegetables. Cover loosely with foil and roast for 10 minutes, until the chicken is cooked through and the broccoli is tender.",
+      "Rest for 2 minutes, then serve with the tray juices."
+    ]
+  },
+  {
+    "id": "pork-chops-mustardy-chickpeas",
+    "cuisine": "British-inspired",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork-loin",
+        "amount": 350
+      },
+      {
+        "key": "chickpea",
+        "amount": 240
+      },
+      {
+        "key": "spinach",
+        "amount": 120
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 1
+      },
+      {
+        "key": "stock",
+        "amount": 100
+      },
+      {
+        "key": "cream",
+        "amount": 60
+      },
+      {
+        "key": "mustard",
+        "amount": 0.5
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Pork chops with mustardy chickpeas and spinach",
+    "path": "recipes/western/pork-chops-mustardy-chickpeas.md",
+    "version": "6364e91f8417",
+    "group": "western",
+    "steps": [
+      "Heat 0.5 tbsp oil in a large frying pan. Cook the sliced onion for 8\u201310 minutes until soft and lightly golden. Add the garlic for 30 seconds.",
+      "Stir in the chickpeas and stock. Add the spinach and cook for 3 minutes until wilted. Mash about one-third of the chickpeas against the pan.",
+      "Stir in the cream and mustard and simmer for 3 minutes. Season with half the salt and pepper, then keep warm.",
+      "Season the pork with the remaining salt and pepper. Heat the remaining oil in a second pan and sear the chops for 6\u20137 minutes per side, until cooked through. Rest for 3 minutes and serve over the chickpeas."
+    ]
+  },
+  {
+    "id": "pork-chops-potato-tomato-bake",
+    "cuisine": "Mediterranean-inspired",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "oven",
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "pork-loin",
+        "amount": 350
+      },
+      {
+        "key": "potato",
+        "amount": 400
+      },
+      {
+        "key": "fresh-tomato",
+        "amount": 250
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "herbs",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Pork chops with roast potatoes and tomatoes",
+    "path": "recipes/western/pork-chops-potato-tomato-bake.md",
+    "version": "bb37f67a9926",
+    "group": "western",
+    "steps": [
+      "Heat the oven to 200\u00b0C. Cut the potatoes into thin wedges and boil for 6\u20138 minutes. Drain.",
+      "Layer the potatoes and sliced tomatoes in a roasting dish with the garlic, herbs, half the oil, salt and pepper. Bake for 15 minutes.",
+      "Rub the pork chops with the remaining oil and season. Set them over the potatoes and roast for 30\u201335 minutes, turning once, until cooked through.",
+      "Rest the chops for 3 minutes, then serve with the tomato potatoes."
     ]
   },
   {
@@ -8247,6 +9250,67 @@
     ]
   },
   {
+    "id": "rosemary-garlic-chicken-potatoes",
+    "cuisine": "Mediterranean-inspired",
+    "protein": "Chicken",
+    "servings": 2,
+    "activeMinutes": 20,
+    "equipment": [
+      "oven",
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "chicken",
+        "amount": 350
+      },
+      {
+        "key": "potato",
+        "amount": 450
+      },
+      {
+        "key": "beans",
+        "amount": 200
+      },
+      {
+        "key": "garlic",
+        "amount": 4
+      },
+      {
+        "key": "lemon",
+        "amount": 1
+      },
+      {
+        "key": "herbs",
+        "amount": 1.5
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Rosemary-garlic chicken with roast potatoes and beans",
+    "path": "recipes/western/rosemary-garlic-chicken-potatoes.md",
+    "version": "22008206037c",
+    "group": "western",
+    "steps": [
+      "Heat the oven to 200\u00b0C. Cut the potatoes into wedges and toss them with half the oil, half the crushed garlic, lemon zest, salt and pepper. Roast for 15 minutes.",
+      "Add the chicken, remaining garlic, herbs, lemon juice and remaining oil. Roast for 25\u201330 minutes, turning the potatoes once, until the chicken is cooked through.",
+      "Steam or microwave the beans for 4\u20135 minutes while the chicken rests.",
+      "Serve the chicken and potatoes with the beans and spoon over the garlicky tray juices."
+    ]
+  },
+  {
     "id": "salmon-fajitas",
     "cuisine": "Mexican-inspired",
     "protein": "Salmon",
@@ -8483,6 +9547,74 @@
     ]
   },
   {
+    "id": "sausage-potato-chickpea-traybake",
+    "cuisine": "Mediterranean-inspired",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 15,
+    "equipment": [
+      "oven"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "sausage",
+        "amount": 300
+      },
+      {
+        "key": "potato",
+        "amount": 400
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "fresh-tomato",
+        "amount": 200
+      },
+      {
+        "key": "chickpea",
+        "amount": 240
+      },
+      {
+        "key": "lemon",
+        "amount": 1
+      },
+      {
+        "key": "stock",
+        "amount": 150
+      },
+      {
+        "key": "herbs",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 1
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Sausage, roast potato and chickpea traybake",
+    "path": "recipes/western/sausage-potato-chickpea-traybake.md",
+    "version": "ecda51fe7da7",
+    "group": "western",
+    "steps": [
+      "Heat the oven to 200\u00b0C. Cut the potatoes into wedges and the onion into thick slices. Put them in a roasting dish with the sausages, tomatoes, lemon wedges, oil, herbs, salt and pepper.",
+      "Roast for 25 minutes, turning the potatoes and sausages once.",
+      "Stir in the drained chickpeas and stock. Roast for a further 15\u201320 minutes, until the potatoes are tender and the sausages are cooked through.",
+      "Squeeze the roasted lemon over the tray and serve."
+    ]
+  },
+  {
     "id": "smoky-chickpea-eggplant-tomato",
     "cuisine": "Mediterranean-inspired",
     "protein": "Chickpeas",
@@ -8564,6 +9696,466 @@
     ]
   },
   {
+    "id": "smoky-sausage-potato-capsicum",
+    "cuisine": "American-inspired",
+    "protein": "Pork",
+    "servings": 2,
+    "activeMinutes": 15,
+    "equipment": [
+      "oven"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "sausage",
+        "amount": 300
+      },
+      {
+        "key": "potato",
+        "amount": 450
+      },
+      {
+        "key": "capsicum",
+        "amount": 1
+      },
+      {
+        "key": "onion",
+        "amount": 1
+      },
+      {
+        "key": "paprika",
+        "amount": 1
+      },
+      {
+        "key": "cumin",
+        "amount": 1
+      },
+      {
+        "key": "honey",
+        "amount": 1
+      },
+      {
+        "key": "paste",
+        "amount": 1
+      },
+      {
+        "key": "chilli",
+        "amount": 0.25
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Smoky sausage with roast potatoes and capsicum",
+    "path": "recipes/western/smoky-sausage-potato-capsicum.md",
+    "version": "547f81098c3e",
+    "group": "western",
+    "steps": [
+      "Heat the oven to 200\u00b0C. Cut the potatoes, capsicum and onion into bite-sized pieces. Mix the paprika, cumin, honey, tomato paste, chilli, oil, salt and pepper.",
+      "Toss the sausages and vegetables with the smoky coating in a roasting dish.",
+      "Roast for 35\u201340 minutes, turning everything once, until the potatoes are tender and the sausages are cooked through.",
+      "Rest for 2 minutes, then serve hot."
+    ]
+  },
+  {
+    "id": "steak-cajun-potatoes-cabbage",
+    "cuisine": "American-inspired",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "oven",
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef-steak",
+        "amount": 350
+      },
+      {
+        "key": "potato",
+        "amount": 430
+      },
+      {
+        "key": "cabbage",
+        "amount": 250
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 1
+      },
+      {
+        "key": "paprika",
+        "amount": 1
+      },
+      {
+        "key": "cumin",
+        "amount": 0.5
+      },
+      {
+        "key": "chilli",
+        "amount": 0.5
+      },
+      {
+        "key": "oil",
+        "amount": 2
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Smoky steak with Cajun potatoes and warm cabbage",
+    "path": "recipes/western/steak-cajun-potatoes-cabbage.md",
+    "version": "123849ddce46",
+    "group": "western",
+    "steps": [
+      "Heat the oven to 220\u00b0C. Boil the potatoes for 5 minutes, drain and steam-dry, then toss with the paprika, cumin, chilli, 1 tbsp oil, half the salt and half the pepper.",
+      "Spread the potatoes on a baking tray and roast for 25\u201330 minutes, turning halfway, until crisp and golden.",
+      "Pat the steak dry and season with the remaining salt and pepper. Sear in a very hot frying pan for about 2\u20134 minutes per side, depending on thickness and preferred doneness. Rest for 5 minutes.",
+      "While the steak rests, heat the remaining oil in a frying pan. Cook the onion, cabbage and garlic for 5\u20137 minutes, adding a splash of water if needed, until soft and fully cooked.",
+      "Slice the steak and serve with the Cajun potatoes and warm cabbage."
+    ]
+  },
+  {
+    "id": "steak-diane-saute-potatoes",
+    "cuisine": "British-inspired",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 30,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef-steak",
+        "amount": 350
+      },
+      {
+        "key": "potato",
+        "amount": 450
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "mustard",
+        "amount": 1
+      },
+      {
+        "key": "worcestershire",
+        "amount": 1
+      },
+      {
+        "key": "stock",
+        "amount": 150
+      },
+      {
+        "key": "cream",
+        "amount": 60
+      },
+      {
+        "key": "herbs",
+        "amount": 1
+      },
+      {
+        "key": "pepper",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 2
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Steak Diane with saut\u00e9 potatoes",
+    "path": "recipes/western/steak-diane-saute-potatoes.md",
+    "version": "7ec6ffa3ef55",
+    "group": "western",
+    "steps": [
+      "Cut the potatoes into 2.5 cm chunks and simmer in salted water for 5 minutes. Drain and shake the colander gently to roughen the edges.",
+      "Heat 1 tbsp oil in a large frying pan. Fry the potatoes over medium heat for 10 minutes, turning occasionally, then add the garlic and herbs and cook for another 5 minutes until golden.",
+      "Season the steaks with the salt and half the pepper. Heat the remaining oil in a second pan, or move the potatoes to a covered plate, and sear the steaks for 2\u20133 minutes per side for medium-rare or longer to preference. Rest on a board.",
+      "Cook the onion in the steak pan for 2\u20133 minutes. Stir in the Worcestershire sauce, mustard and remaining pepper, then add the stock and reduce by about half.",
+      "Stir in the cream and simmer until the sauce lightly coats a spoon. Slice the steaks and serve with the sauce and saut\u00e9 potatoes."
+    ]
+  },
+  {
+    "id": "steak-garlic-herb-potatoes",
+    "cuisine": "Argentinian-inspired",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "oven",
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef-steak",
+        "amount": 350
+      },
+      {
+        "key": "potato",
+        "amount": 450
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "herbs",
+        "amount": 2
+      },
+      {
+        "key": "balsamic",
+        "amount": 1
+      },
+      {
+        "key": "lemon",
+        "amount": 0.5
+      },
+      {
+        "key": "chilli",
+        "amount": 0.25
+      },
+      {
+        "key": "oil",
+        "amount": 2
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Garlic-herb steak with roast potatoes",
+    "path": "recipes/western/steak-garlic-herb-potatoes.md",
+    "version": "465a7b898f25",
+    "group": "western",
+    "steps": [
+      "Heat the oven to 220\u00b0C. Cut the potatoes into wedges, toss with 1 tbsp oil, half the salt and pepper, and roast for 25\u201330 minutes until crisp.",
+      "Stir together the garlic, herbs, balsamic vinegar, juice of the lemon half, chilli flakes and 0.5 tbsp oil. Set the sharp herb dressing aside.",
+      "Rub the steaks with the remaining oil and season with the remaining salt and pepper. Sear in a very hot pan for 3\u20134 minutes per side, or to preference, then rest for 5 minutes.",
+      "Slice the steaks across the grain and spoon the garlic-herb dressing over them. Serve with the roast potatoes."
+    ]
+  },
+  {
+    "id": "steak-pan-potatoes-peas",
+    "cuisine": "British-inspired",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef-steak",
+        "amount": 350
+      },
+      {
+        "key": "potato",
+        "amount": 400
+      },
+      {
+        "key": "peas",
+        "amount": 100
+      },
+      {
+        "key": "garlic",
+        "amount": 2
+      },
+      {
+        "key": "balsamic",
+        "amount": 0.5
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Rump steak with pan potatoes and peas",
+    "path": "recipes/western/steak-pan-potatoes-peas.md",
+    "version": "954884bf5a09",
+    "group": "western",
+    "steps": [
+      "Cut the potatoes into 2 cm chunks and boil for 8\u201310 minutes until just tender. Drain and leave to steam-dry.",
+      "Mix the garlic, balsamic vinegar, 0.5 tbsp of the oil and half the pepper. Coat the steaks and leave them while the potatoes cook.",
+      "Heat a large frying pan until very hot. Sear the steaks for about 3\u20134 minutes per side, or to the preferred doneness, then transfer to a board to rest.",
+      "Add the remaining oil and potatoes to the steak pan. Fry until browned, then add the peas and 2 tbsp water for 2 minutes. Season with the salt and remaining pepper.",
+      "Slice the rested steaks and serve with the browned potatoes and peas."
+    ]
+  },
+  {
+    "id": "steak-peppercorn-mushroom-potatoes",
+    "cuisine": "British",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "oven",
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef-steak",
+        "amount": 350
+      },
+      {
+        "key": "potato",
+        "amount": 400
+      },
+      {
+        "key": "mushrooms",
+        "amount": 200
+      },
+      {
+        "key": "onion",
+        "amount": 0.5
+      },
+      {
+        "key": "garlic",
+        "amount": 1
+      },
+      {
+        "key": "pepper",
+        "amount": 1
+      },
+      {
+        "key": "cream",
+        "amount": 100
+      },
+      {
+        "key": "stock",
+        "amount": 150
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Steak with peppercorn mushroom cream and roast potatoes",
+    "path": "recipes/western/steak-peppercorn-mushroom-potatoes.md",
+    "version": "c94458c47453",
+    "group": "western",
+    "steps": [
+      "Heat the oven to 220\u00b0C. Cut the potatoes into small wedges, toss with 0.75 tbsp oil and a pinch of salt, and roast for 25\u201330 minutes until golden.",
+      "Season the steaks with half the pepper and salt. Heat a large frying pan until very hot, add 0.5 tbsp oil and sear the steaks for 2\u20134 minutes per side. Transfer to a board to rest.",
+      "Add the remaining oil to the pan. Cook the onion and mushrooms for 5 minutes until browned, then add the garlic and remaining pepper for 30 seconds.",
+      "Pour in the stock and reduce for 3\u20134 minutes. Stir in the cream and simmer for 2 minutes until lightly thickened.",
+      "Slice the rested steaks and spoon the mushroom-pepper cream over them. Serve with the roast potatoes."
+    ]
+  },
+  {
+    "id": "steak-pizzaiola-potatoes",
+    "cuisine": "Italian-inspired",
+    "protein": "Beef",
+    "servings": 2,
+    "activeMinutes": 25,
+    "equipment": [
+      "stovetop"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "beef-steak",
+        "amount": 350
+      },
+      {
+        "key": "tomato",
+        "amount": 400
+      },
+      {
+        "key": "potato",
+        "amount": 400
+      },
+      {
+        "key": "garlic",
+        "amount": 1
+      },
+      {
+        "key": "herbs",
+        "amount": 1
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Italian steak pizzaiola with potatoes",
+    "path": "recipes/western/steak-pizzaiola-potatoes.md",
+    "version": "397411dbcf5b",
+    "group": "western",
+    "steps": [
+      "Cut the potatoes into 2 cm pieces and boil for 10\u201312 minutes until tender. Drain and keep covered.",
+      "Heat 1 tbsp oil in a heavy frying pan with the garlic. Season the steaks and sear them briefly on both sides, working in batches if needed.",
+      "Return the steaks to the pan, add the canned tomatoes, Italian herbs, salt and pepper, and partially cover. Simmer gently for 8\u201310 minutes, turning the steaks once, until cooked to preference.",
+      "Transfer the steaks to a clean board and rest. Increase the heat and reduce the tomato sauce for about 5 minutes.",
+      "Slice the steak and spoon over the pizzaiola sauce. Serve with the potatoes."
+    ]
+  },
+  {
     "id": "tofu-fajitas",
     "cuisine": "Mexican-inspired",
     "protein": "Tofu",
@@ -8621,6 +10213,66 @@
       "Mix paprika, cumin, garlic, oil and lime and coat the firm tofu with capsicum and onion.",
       "Cook everything in a very hot pan until the protein is done and vegetables are charred and tender.",
       "Serve hot filling in warm tortillas; omit raw salsa or salad."
+    ]
+  },
+  {
+    "id": "whitefish-oven-chips",
+    "cuisine": "British",
+    "protein": "White fish",
+    "servings": 2,
+    "activeMinutes": 15,
+    "equipment": [
+      "oven"
+    ],
+    "status": "Not yet cooked",
+    "ingredients": [
+      {
+        "key": "whitefish",
+        "amount": 300
+      },
+      {
+        "key": "potato",
+        "amount": 500
+      },
+      {
+        "key": "breadcrumbs",
+        "amount": 30
+      },
+      {
+        "key": "fresh-tomato",
+        "amount": 200
+      },
+      {
+        "key": "lemon",
+        "amount": 1
+      },
+      {
+        "key": "herbs",
+        "amount": 0.5
+      },
+      {
+        "key": "oil",
+        "amount": 1.5
+      },
+      {
+        "key": "salt",
+        "amount": 0.5
+      },
+      {
+        "key": "pepper",
+        "amount": 0.5
+      }
+    ],
+    "notes": "",
+    "title": "Oven-baked white fish and chips",
+    "path": "recipes/western/whitefish-oven-chips.md",
+    "version": "f696b1866f07",
+    "group": "western",
+    "steps": [
+      "Heat the oven to 220\u00b0C. Cut the potatoes into chips, toss with 1 tbsp oil, salt and pepper, and spread on a tray. Roast for 30 minutes, turning once.",
+      "Mix the breadcrumbs with the lemon zest, herbs and remaining oil. Put the fish in a small baking dish, season, and press the crumb mixture on top.",
+      "Add the halved tomatoes to the chip tray and put the fish in the oven for the final 10\u201312 minutes, until the crumb is golden and the fish flakes.",
+      "Serve with the roast tomatoes, chips and lemon wedges."
     ]
   }
 ]

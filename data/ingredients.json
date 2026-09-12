@@ -550,5 +550,23 @@
     "unit": "tbsp",
     "pack": null,
     "category": "Pantry"
+  },
+  "worcestershire": {
+    "name": "Worcestershire sauce",
+    "unit": "tbsp",
+    "pack": null,
+    "category": "Pantry"
+  },
+  "breadcrumbs": {
+    "name": "breadcrumbs",
+    "unit": "g",
+    "pack": 200,
+    "category": "Dry goods"
+  },
+  "olives": {
+    "name": "pitted black olives",
+    "unit": "g",
+    "pack": 200,
+    "category": "Pantry"
   }
 }

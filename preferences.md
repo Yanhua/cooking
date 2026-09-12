@@ -13,6 +13,7 @@
 - No dietary requirements or allergies.
 - Prefer a mixture of Asian and Western food.
 - Thai and Chinese are particular favourites.
+- Prefer dinners with a substantial protein; do not automatically suggest pure vegetarian mains.
 - Aim for distinct cuisines across the selected dinners, with variety appropriate to the meal count; do not repeat a cuisine (for example, two Thai dinners) unless ingredient batching or the available options make it impractical. When a repeat is necessary, prioritise variety across the other dinners.
 - Avoid raw salads, raw onions, and raw-vegetable-forward meals. Cooked vegetables are preferred.
 - Comfortable with a range of Asian cuisines, including Thai, Chinese, Japanese, Korean, Vietnamese, and Malaysian.

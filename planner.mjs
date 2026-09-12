@@ -8,6 +8,7 @@ const reusableIngredientKeys = new Set([
   'fresh-tomato', 'garlic', 'ginger', 'green-beans', 'mushrooms', 'noodles', 'onion',
   'peas', 'pasta', 'potato', 'rice', 'rice-noodles', 'spaghetti', 'spinach', 'zucchini',
 ]);
+const isPureVegetarian = recipe => recipe?.protein === 'Vegetarian';
 
 const countsBy = (items, key) => items.reduce((counts, item) => {
   const value = key(item);
@@ -105,8 +106,13 @@ export function suggest(recipes,count,recentIds=[],locked=[],excludedIds=[],opti
     // remaining slots. The score below is still a soft fallback for small or
     // heavily explored libraries.
     const pool=unexplored.length>=remaining?unexplored:fresh.length>=remaining?fresh:candidates;
-    pool.sort((a,b)=>score(b)-score(a)||a.title.localeCompare(b.title));
-    const next=pool[0];
+    // Pure vegetarian mains are optional, not a requirement for automatic
+    // suggestions. Keep them as a fallback when they are needed to fill the
+    // requested count, while preserving explicitly locked selections.
+    const preferredPool=pool.filter(r=>!isPureVegetarian(r));
+    const selectionPool=preferredPool.length?preferredPool:pool;
+    selectionPool.sort((a,b)=>score(b)-score(a)||a.title.localeCompare(b.title));
+    const next=selectionPool[0];
     candidates.splice(candidates.indexOf(next),1);
     chosen.push(next);
   }

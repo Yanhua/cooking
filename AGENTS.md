@@ -17,6 +17,13 @@ This repository is both a static dinner-planning app and a reusable recipe libra
 
 The app has no package-manager install or bundling step for normal development. It uses browser ES modules, generated static JSON, and Firebase modules loaded from Google's CDN.
 
+## Local browser verification
+
+- `scripts/dev-server.mjs` binds to `127.0.0.1`. Prefer the exact loopback URL (`http://127.0.0.1:8000/`, replacing `8000` when needed) in the browser; managed browser previews can fail on an equivalent `localhost` URL with `ERR_EMPTY_RESPONSE`.
+- Before opening a preview, verify that the endpoint returns a real response: `curl -fsS --max-time 3 http://127.0.0.1:8000/ >/dev/null` (replace `8000` with the chosen port). A port reported as occupied is not necessarily healthy; probe it before reusing it.
+- If the probe fails, choose a different high port, for example `PORT=8765 node scripts/dev-server.mjs`, and verify that port before opening it. If the server reports `listen EPERM`, retry the same command with the execution approval/escalation required by the environment. If it reports `EADDRINUSE`, do not kill an unknown process or keep retrying the same port; probe it or choose another port.
+- Open the exact verified `127.0.0.1` URL in a fresh or known-good browser tab. After the page loads, check the rendered UI and browser console; a successful server start alone is not a browser verification.
+
 ## Source and generated-file boundaries
 
 - Treat recipe Markdown and `data/ingredients.json` as source. Never hand-edit `data/recipes.json`; regenerate it with `python3 scripts/build-data.py` and commit it with its source changes.

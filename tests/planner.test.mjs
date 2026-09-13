@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {totals,validate,suggest,proteinCounts,advisories} from '../planner.mjs';
+import {totals,validate,suggest,proteinCounts,advisories,shoppingItems,shoppingSections} from '../planner.mjs';
 const recipes=JSON.parse(fs.readFileSync(new URL('../data/recipes.json',import.meta.url)));
 const catalog=JSON.parse(fs.readFileSync(new URL('../data/ingredients.json',import.meta.url)));
 test('variable counts are respected, including more than four',()=>{
@@ -51,6 +51,12 @@ test('shared protein, fractional onions, rice and pack remainders aggregate corr
  assert.equal(rows.find(r=>r.key==='rice').amount,150);
  assert.equal(totals(chosen,catalog,{pork:400}).find(r=>r.key==='pork').left,350);
  assert.ok(!rows.some(r=>r.key==='water'));
+});
+test('shopping items retain stable ingredient keys for checklist persistence',()=>{
+ const rows=totals(['creamy-tomato-pork-spaghetti','mexican-pork-corn-skillet'].map(id=>recipes.find(r=>r.id===id)),catalog);
+ const items=shoppingItems(rows);
+ assert.ok(items.some(item=>item.key==='pork'&&item.text.includes('pork mince: need')));
+ assert.deepEqual(shoppingSections(rows).flatMap(group=>group.items),items.map(item=>item.text));
 });
 test('all cards have usable metadata and quantified ingredients',()=>{
  assert.ok(recipes.length>0);

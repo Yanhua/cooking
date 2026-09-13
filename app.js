@@ -1,4 +1,4 @@
-import { DEFAULT_COUNT, totals, validate, advisories, suggest, proteinCounts, fmt, shoppingSections } from 'planner';
+import { DEFAULT_COUNT, totals, validate, advisories, suggest, proteinCounts, fmt, shoppingItems, shoppingSections } from 'planner';
 import { connectCloud, changesFor, decodeRecords } from 'cloud-store';
 const app=document.querySelector('#app');
 let removedPlan=null;
@@ -46,8 +46,11 @@ function read(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fa
 let cloud=null, config=null, signedIn=false, ready=false, busy=false, authError='', records={}, incoming=null, feedbackEdit=null, commentEdit=null, devAuthPassword='';
 const SUGGESTION_HISTORY_LIMIT=32;
 const SWAP_HISTORY_LIMIT=24;
-const emptyDraft=()=>({date:today(),count:DEFAULT_COUNT,ids:[],packs:{},suggestionHistory:[],swapHistory:{},snapshots:[],editingWeekId:null,feedback:''});
+const emptyDraft=()=>({date:today(),count:DEFAULT_COUNT,ids:[],packs:{},checkedIngredients:{},suggestionHistory:[],swapHistory:{},snapshots:[],editingWeekId:null,feedback:''});
 const normaliseIds=value=>[...new Set(Array.isArray(value)?value.filter(id=>typeof id==='string'):[])];
+const normaliseCheckedIngredients=value=>value&&typeof value==='object'&&!Array.isArray(value)
+  ?Object.fromEntries(Object.entries(value).filter(([key,checked])=>typeof key==='string'&&checked===true))
+  :{};
 const normaliseDraft=value=>{
   const source=value&&typeof value==='object'&&!Array.isArray(value)?value:{};
   const base=emptyDraft();
@@ -58,7 +61,7 @@ const normaliseDraft=value=>{
   const snapshots=Array.isArray(source.snapshots)?source.snapshots.filter(snapshot=>snapshot&&typeof snapshot==='object'&&typeof snapshot.id==='string'):[];
   const editingWeekId=typeof source.editingWeekId==='string'?source.editingWeekId:null;
   const feedback=typeof source.feedback==='string'?source.feedback:'';
-  return {...base,...source,date:typeof source.date==='string'?source.date:base.date,count,ids:normaliseIds(source.ids),packs:source.packs&&typeof source.packs==='object'&&!Array.isArray(source.packs)?{...source.packs}:{},suggestionHistory:normaliseIds(source.suggestionHistory).slice(0,SUGGESTION_HISTORY_LIMIT),swapHistory,snapshots,editingWeekId,feedback};
+  return {...base,...source,date:typeof source.date==='string'?source.date:base.date,count,ids:normaliseIds(source.ids),packs:source.packs&&typeof source.packs==='object'&&!Array.isArray(source.packs)?{...source.packs}:{},checkedIngredients:normaliseCheckedIngredients(source.checkedIngredients),suggestionHistory:normaliseIds(source.suggestionHistory).slice(0,SUGGESTION_HISTORY_LIMIT),swapHistory,snapshots,editingWeekId,feedback};
 };
 let legacy=null;
 function applyRecords(next) {
@@ -121,8 +124,10 @@ const recentIds=()=>weeks().filter(w=>w.id<draft.date&&w.id!==draft.editingWeekI
 const selected=()=>draft.ids.map(id=>draft.snapshots.find(r=>r.id===id)||recipes.find(r=>r.id===id)).filter(Boolean);
 const rememberIds=(history,ids,limit)=>normaliseIds([...ids,...history]).slice(0,limit);
 const proteinMix=chosen=>Object.entries(proteinCounts(chosen)).map(([protein,count])=>`${count} × ${protein}`).join(' · ');
+const checkedForItems=(items,checked)=>Object.fromEntries(items.filter(item=>checked?.[item.key]===true).map(item=>[item.key,true]));
 function savedWeekFromDraft(existing=null){
   const chosen=selected(), rows=totals(chosen,catalog,draft.packs);
+  const items=shoppingItems(rows);
   return {
     id:draft.date,
     title:existing?.title||'Dinners from the recipe library',
@@ -130,6 +135,8 @@ function savedWeekFromDraft(existing=null){
     dinners:chosen.map(r=>[r.id,r.title]),
     snapshots:JSON.parse(JSON.stringify(chosen.map(r=>({...r,status:status(r),ingredients:r.ingredients.map(i=>({...i,name:i.name||catalog[i.key].name,unit:i.unit||catalog[i.key].unit}))})))),
     shopping:shoppingSections(rows),
+    shoppingItems:items,
+    checkedIngredients:checkedForItems(items,draft.checkedIngredients),
     reuse:reuse(rows),
     packSizes:{...draft.packs},
     feedback:typeof draft.feedback==='string'?draft.feedback:existing?.feedback||'',
@@ -143,6 +150,23 @@ const nav=()=>{
 };
 const back=()=>'<button class="back" data-action="back">← Back</button>';
 const shopping=sections=>sections.map(g=>`<div class="shopping-group"><h3>${esc(g.category)}</h3><ul class="shopping">${g.items.map(s=>`<li>${esc(s)}</li>`).join('')}</ul></div>`).join('');
+function checklistItemsForWeek(w){
+  if(Array.isArray(w.shoppingItems))return w.shoppingItems.filter(item=>item&&typeof item.key==='string'&&typeof item.category==='string'&&typeof item.text==='string');
+  if(Array.isArray(w.snapshots)&&w.snapshots.length){
+    try{return shoppingItems(totals(w.snapshots,catalog,w.packSizes));}catch{}
+  }
+  return Array.isArray(w.shopping)?w.shopping.flatMap((group,groupIndex)=>(Array.isArray(group.items)?group.items:[]).map((text,itemIndex)=>({key:`legacy-${w.id}-${groupIndex}-${itemIndex}`,category:group.category,text}))).filter(item=>typeof item.text==='string'):[];
+}
+function checklistHTML(items,checked={}){
+  const groups=[];
+  for(const item of items){
+    let group=groups.find(existing=>existing.category===item.category);
+    if(!group){group={category:item.category,items:[]};groups.push(group);}
+    group.items.push(item);
+  }
+  const checkedCount=items.filter(item=>checked[item.key]===true).length;
+  return `<div class="checklist" aria-label="Ingredient checklist"><p class="checklist-progress">${checkedCount} of ${items.length} ingredients checked</p>${groups.map(group=>`<div class="shopping-group"><h3>${esc(group.category)}</h3><div class="checklist-items">${group.items.map(item=>`<label class="checklist-item ${checked[item.key]===true?'checked':''}"><input type="checkbox" data-checklist="${esc(item.key)}" ${checked[item.key]===true?'checked':''}><span>${esc(item.text)}</span></label>`).join('')}</div></div>`).join('')}</div>`;
+}
 function options(values,current){return '<option value="">All</option>'+[...new Set(values)].sort().map(v=>`<option ${v===current?'selected':''} value="${esc(v)}">${esc(v)}</option>`).join('');}
 function filterUI(){return `<div class="filters recipe-filters"><label class="wide">Search recipes<input id="search" type="search" value="${esc(filters.search)}" placeholder="Recipe or ingredient"></label><label>Cuisine<select data-filter="cuisine">${options(recipes.map(r=>r.cuisine),filters.cuisine)}</select></label><label>Protein<select data-filter="protein">${options(recipes.map(r=>r.protein),filters.protein)}</select></label><label>Cooking status<select data-filter="status">${options(['Not yet cooked','Tried'],filters.status)}</select></label><label>Active time<select data-filter="time">${[15,20,25,30].map(t=>`<option value="${t}" ${String(t)===filters.time?'selected':''}>≤ ${t} minutes</option>`).join('')}</select></label></div>`;}
 function visibleRecipes(){return recipes.filter(r=>(!filters.cuisine||r.cuisine===filters.cuisine)&&(!filters.protein||r.protein===filters.protein)&&(!filters.status||status(r)===filters.status)&&r.activeMinutes<=Number(filters.time)&&`${r.title} ${r.ingredients.map(i=>catalog[i.key].name).join(' ')}`.toLowerCase().includes(filters.search.toLowerCase())).sort((a,b)=>Number(isFavourite(b))-Number(isFavourite(a)));}
@@ -164,12 +188,12 @@ function render(keepScroll=false){
   }
   if(screen.type==='review'){
     const chosen=selected(), rows=totals(chosen,catalog,draft.packs);
-    html=header('Review your week',`${chosen.length} dinners for two · ${draft.date}`,scenePhotos.shopping)+`<section class="content">${back()}<div class="meal-gallery">${chosen.map(r=>`<figure>${remoteImage(recipeImage(r),'')}<figcaption>${esc(r.title)}</figcaption></figure>`).join('')}</div>${advisories(chosen,recentIds()).map(s=>`<p class="advice">${esc(s)}</p>`).join('')}<h2 class="spaced">Shopping list</h2>${shopping(shoppingSections(rows))}<details><summary>Adjust pack sizes</summary><p class="sub">These are editable shopping estimates; available packs vary by supermarket. Garlic assumes 10 cloves per bulb.</p>${rows.filter(r=>r.pack).map(r=>`<label class="pack-label">${esc(r.name)} (${esc(r.unit)} per pack)<input type="number" min="0.01" step="any" data-pack="${r.key}" value="${r.pack}"></label>`).join('')}</details><h2 class="spaced">Ingredient reuse</h2>${reuseHTML(rows)}<button class="primary" data-action="save">${draft.editingWeekId?'Update week':'Save week'}</button></section>`;
+    html=header('Review your week',`${chosen.length} dinners for two · ${draft.date}`,scenePhotos.shopping)+`<section class="content">${back()}<div class="meal-gallery">${chosen.map(r=>`<figure>${remoteImage(recipeImage(r),'')}<figcaption>${esc(r.title)}</figcaption></figure>`).join('')}</div>${advisories(chosen,recentIds()).map(s=>`<p class="advice">${esc(s)}</p>`).join('')}<h2 class="spaced">Shopping list</h2>${checklistHTML(shoppingItems(rows),draft.checkedIngredients)}<details><summary>Adjust pack sizes</summary><p class="sub">These are editable shopping estimates; available packs vary by supermarket. Garlic assumes 10 cloves per bulb.</p>${rows.filter(r=>r.pack).map(r=>`<label class="pack-label">${esc(r.name)} (${esc(r.unit)} per pack)<input type="number" min="0.01" step="any" data-pack="${r.key}" value="${r.pack}"></label>`).join('')}</details><h2 class="spaced">Ingredient reuse</h2>${reuseHTML(rows)}<button class="primary" data-action="save">${draft.editingWeekId?'Update week':'Save week'}</button></section>`;
   }
   if(screen.type==='week'){
     const w=weeks().find(w=>w.id===screen.id);
     if(!w){screen={type:'weeks'};return render();}
-    html=header(`Week of ${w.id}`,`${w.mealCount} dinners · 2 people`,recipeImage(w.snapshots?.[0]||{id:w.id}))+`<section class="content">${back()}<div class="actions week-actions"><button class="primary" data-action="edit-week">Edit week</button></div>${w.dinners.map(([id,name])=>{const recipe=w.snapshots?.find(r=>r.id===id)||{id,title:name};return `<article class="dinner-row"><span class="dinner-thumb">${remoteImage(recipeImage(recipe),'')}</span><span><h3>${esc(name)}</h3><button data-recipe="${esc(id)}" data-snapshot="${esc(w.id)}">Open saved recipe →</button></span></article>`;}).join('')}<h2 class="spaced">Shopping list</h2>${shopping(w.shopping)}<h2 class="spaced">Ingredient reuse</h2><ul class="reuse">${w.reuse.map(s=>`<li>${esc(s)}</li>`).join('')}</ul><h2 class="spaced">After cooking</h2><label>Ratings, changes and whether to repeat<textarea id="feedback" rows="4">${esc(feedbackEdit?.id===w.id?feedbackEdit.text:w.feedback||'')}</textarea></label><div class="feedback-actions"><button class="secondary" data-action="feedback">Save feedback</button>${saved.some(s=>s.id===w.id)?'<button class="secondary" data-action="remove-local">Remove saved week</button>':''}</div></section>`;
+    html=header(`Week of ${w.id}`,`${w.mealCount} dinners · 2 people`,recipeImage(w.snapshots?.[0]||{id:w.id}))+`<section class="content">${back()}<div class="actions week-actions"><button class="primary" data-action="edit-week">Edit week</button></div>${w.dinners.map(([id,name])=>{const recipe=w.snapshots?.find(r=>r.id===id)||{id,title:name};return `<article class="dinner-row"><span class="dinner-thumb">${remoteImage(recipeImage(recipe),'')}</span><span><h3>${esc(name)}</h3><button data-recipe="${esc(id)}" data-snapshot="${esc(w.id)}">Open saved recipe →</button></span></article>`;}).join('')}<h2 class="spaced">Shopping list</h2>${checklistHTML(checklistItemsForWeek(w),normaliseCheckedIngredients(w.checkedIngredients))}<h2 class="spaced">Ingredient reuse</h2><ul class="reuse">${w.reuse.map(s=>`<li>${esc(s)}</li>`).join('')}</ul><h2 class="spaced">After cooking</h2><label>Ratings, changes and whether to repeat<textarea id="feedback" rows="4">${esc(feedbackEdit?.id===w.id?feedbackEdit.text:w.feedback||'')}</textarea></label><div class="feedback-actions"><button class="secondary" data-action="feedback">Save feedback</button>${saved.some(s=>s.id===w.id)?'<button class="secondary" data-action="remove-local">Remove saved week</button>':''}</div></section>`;
   }
   if(screen.type==='recipe'){
     const r=screen.snapshot?weeks().find(w=>w.id===screen.snapshot)?.snapshots?.find(r=>r.id===screen.id):recipes.find(r=>r.id===screen.id);
@@ -197,7 +221,7 @@ app.addEventListener('input',e=>{
   if(e.target.id==='search'){filters.search=e.target.value;document.querySelector('#recipe-results').innerHTML=cards(screen.type==='plan');}
 });
 app.addEventListener('change',e=>{
-  if(!e.target.dataset.filter && !e.target.dataset.pack && !['week-date','meal-count'].includes(e.target.id))return;
+  if(!e.target.dataset.filter && !e.target.dataset.pack && !e.target.dataset.checklist && !['week-date','meal-count'].includes(e.target.id))return;
   return mutate(async()=>{
   const el=e.target;
   if(el.dataset.filter){filters[el.dataset.filter]=el.value;render(true);}
@@ -211,6 +235,24 @@ app.addEventListener('change',e=>{
     draft.count=n;notice=n<draft.ids.length?'Remove dinners to match the new count. Your selections have been kept.':'';await saveDraft();render(true);
   }
   if(el.dataset.pack){const n=Number(el.value);if(n>0&&Number.isFinite(n)){draft.packs[el.dataset.pack]=n;await saveDraft();}render(true);}
+  if(el.dataset.checklist){
+    const key=el.dataset.checklist;
+    if(screen.type==='review'){
+      const checked={...normaliseCheckedIngredients(draft.checkedIngredients)};
+      if(el.checked)checked[key]=true;else delete checked[key];
+      draft.checkedIngredients=checked;
+      await saveDraft();
+    }else if(screen.type==='week'){
+      const week=weeks().find(w=>w.id===screen.id);
+      if(!week){notice='This saved week is no longer available. Load the latest saves before changing its checklist.';render(true);return;}
+      const checked={...normaliseCheckedIngredients(week.checkedIngredients)};
+      if(el.checked)checked[key]=true;else delete checked[key];
+      const next={...week,checkedIngredients:checked};
+      saved=saved.filter(w=>w.id!==week.id).concat(next);
+      await persist('dinner-plans-v1',saved);
+    }
+    render(true);return;
+  }
 });
 });
 app.addEventListener('click',async e=>{
@@ -235,7 +277,7 @@ app.addEventListener('click',async e=>{
     const snapshots=Array.isArray(w.snapshots)?JSON.parse(JSON.stringify(w.snapshots)):[];
     const snapshotIds=new Set(snapshots.map(r=>r.id));
     const ids=normaliseIds(dinnerIds.filter(id=>recipes.some(r=>r.id===id)||snapshotIds.has(id)));
-    draft={...emptyDraft(),date:w.id,count:Number.isSafeInteger(w.mealCount)&&w.mealCount>0?w.mealCount:ids.length||DEFAULT_COUNT,ids,packs:w.packSizes&&typeof w.packSizes==='object'&&!Array.isArray(w.packSizes)?{...w.packSizes}:{},snapshots,editingWeekId:w.id,feedback:feedbackEdit?.id===w.id?feedbackEdit.text:(typeof w.feedback==='string'?w.feedback:'')};
+    draft={...emptyDraft(),date:w.id,count:Number.isSafeInteger(w.mealCount)&&w.mealCount>0?w.mealCount:ids.length||DEFAULT_COUNT,ids,packs:w.packSizes&&typeof w.packSizes==='object'&&!Array.isArray(w.packSizes)?{...w.packSizes}:{},checkedIngredients:normaliseCheckedIngredients(w.checkedIngredients),snapshots,editingWeekId:w.id,feedback:feedbackEdit?.id===w.id?feedbackEdit.text:(typeof w.feedback==='string'?w.feedback:'')};
     feedbackEdit=null;commentEdit=null;notice=ids.length<dinnerIds.length?'One or more saved recipes is no longer in the library. Replace it before updating this week.':'';
     await saveDraft();screen={type:'plan'};
   }

@@ -119,11 +119,19 @@ export function suggest(recipes,count,recentIds=[],locked=[],excludedIds=[],opti
   return chosen;
 }
 export const fmt = n => String(Number(n.toFixed(2)));
+
+export function shoppingItems(rows) {
+  return rows.map(r => ({
+    key: r.key,
+    category: r.category === 'Pantry' ? 'Pantry check' : r.category,
+    text: `${r.name}: need ${fmt(r.amount)} ${r.unit}${r.pack ? `; ${r.category === 'Pantry' ? 'if needed, ' : ''}buy ${r.count} × ${fmt(r.pack)} ${r.unit}; ${fmt(r.left)} ${r.unit} remaining` : ''}`,
+  }));
+}
+
 export function shoppingSections(rows) {
   const groups={};
-  for(const r of rows) {
-    const category=r.category==='Pantry'?'Pantry check':r.category;
-    (groups[category] ||= []).push(`${r.name}: need ${fmt(r.amount)} ${r.unit}${r.pack?`; ${r.category==='Pantry'?'if needed, ':''}buy ${r.count} × ${fmt(r.pack)} ${r.unit}; ${fmt(r.left)} ${r.unit} remaining`:''}`);
+  for(const item of shoppingItems(rows)) {
+    (groups[item.category] ||= []).push(item.text);
   }
   return Object.entries(groups).map(([category,items])=>({category,items}));
 }

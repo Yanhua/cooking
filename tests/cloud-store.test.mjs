@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {changesFor,decodeRecords} from '../cloud-store.mjs';
 const record=(value,revision=1)=>({payload:JSON.stringify(value),revision});
 test('plan JSON round-trips nested arrays and full recipe snapshots',()=>{
-  const week={id:'2026-09-21',dinners:[['chicken','Chicken']],snapshots:[{steps:['Cook'],ingredients:[{amount:2}]}]};
+  const week={id:'2026-09-21',dinners:[['chicken','Chicken']],snapshots:[{steps:['Cook'],ingredients:[{amount:2}]}],shoppingItems:[{key:'chicken',category:'Meat',text:'Chicken: need 2 g'}],checkedIngredients:{chicken:true}};
   const [change]=changesFor('dinner-plans-v1',[week],{});
   assert.deepEqual(decodeRecords({[change.id]:record(week)},{}).saved,[week]);
 });
@@ -12,6 +12,14 @@ test('saving feedback changes only its week, preserving other record revisions',
   const records={'week-2026-09-21':record(one,3),'week-2026-09-28':record(two,7)};
   assert.deepEqual(changesFor('dinner-plans-v1',[{...one,feedback:'Great'},two],records),[
     {id:'week-2026-09-21',payload:JSON.stringify({...one,feedback:'Great'}),revision:3}
+  ]);
+});
+test('checking an ingredient updates only that week record',()=>{
+  const one={id:'2026-09-21',checkedIngredients:{}},two={id:'2026-09-28',checkedIngredients:{rice:true}};
+  const records={'week-2026-09-21':record(one,3),'week-2026-09-28':record(two,7)};
+  const updated={...one,checkedIngredients:{pork:true}};
+  assert.deepEqual(changesFor('dinner-plans-v1',[updated,two],records),[
+    {id:'week-2026-09-21',payload:JSON.stringify(updated),revision:3}
   ]);
 });
 test('moving an edited week keeps the old date tombstoned and the new date versioned',()=>{
@@ -30,8 +38,8 @@ test('deletions retain tombstone revision and restoring uses it',()=>{
   assert.deepEqual(decodeRecords(records,{}).saved,[]);
   assert.equal(changesFor('dinner-plans-v1',[week],records)[0].revision,3);
 });
-test('recipe comments, favourites, draft pack sizes and suggestion history survive decoding',()=>{
-  const draft={date:'2026-09-21',ids:['chicken'],count:1,packs:{chicken:500},suggestionHistory:['pork'],swapHistory:{0:['chicken','pork']}};
+test('recipe comments, favourites, draft pack sizes, checklist and suggestion history survive decoding',()=>{
+  const draft={date:'2026-09-21',ids:['chicken'],count:1,packs:{chicken:500},checkedIngredients:{chicken:true},suggestionHistory:['pork'],swapHistory:{0:['chicken','pork']}};
   assert.deepEqual(decodeRecords({draft:record(draft),'tried-chicken':record(false),'comment-chicken':record('Use less salt'),'favourite-chicken':record(true)},{}),{saved:[],draft,tried:{chicken:false},comments:{chicken:'Use less salt'},favourites:{chicken:true}});
 });
 test('recipe preference maps only write changed records and retain tombstone revisions',()=>{

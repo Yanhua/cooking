@@ -71,6 +71,13 @@ h2 { margin:0; font-size:17px; letter-spacing:-.02em; }
 .shopping-group { margin-bottom:18px; }
 .shopping-group:last-child { margin-bottom:0; }
 .shopping-group h3 { margin:0 0 8px; color:var(--muted); font:500 11px "DM Mono", monospace; letter-spacing:.06em; text-transform:uppercase; }
+.checklist { margin-bottom:2px; }
+.checklist-progress { margin:0 0 13px; color:var(--muted); font:500 11px "DM Mono", monospace; }
+.checklist-items { border-top:1px solid var(--line); }
+.checklist-item { display:flex; align-items:flex-start; gap:10px; padding:11px 0; border-bottom:1px solid var(--line); color:#514a44; font-size:14px; line-height:1.45; cursor:pointer; }
+.checklist-item input { flex:0 0 auto; width:19px; height:19px; margin:0; padding:0; border:0; border-radius:4px; background:transparent; accent-color:var(--olive); cursor:pointer; }
+.checklist-item span { min-width:0; }
+.checklist-item.checked span { color:var(--muted); text-decoration:line-through; text-decoration-thickness:1px; }
 .empty { color:var(--muted); font-size:14px; }
 @media (min-width:601px) { body { padding:20px 0; } .app { height:calc(100svh - 40px); min-height:calc(100svh - 40px); border-radius:22px; overflow:hidden; box-shadow:0 16px 45px rgba(72,49,31,.12); } .app-controls { min-height:0; height:100%; } .bottom-nav { border-radius:0 0 22px 22px; } }
 label { display:block; font-size:13px; color:var(--muted); }

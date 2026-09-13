@@ -50,7 +50,7 @@ To auto-unlock during local browser testing, copy `.env.example` to `.env.local`
 
 1. Choose **Plan a week**, a date, and the number of dinners. Four is the default, but any positive whole-number count is supported.
 2. Search or filter the library and add dinners. **Suggest remaining dinners** preserves current selections and fills open slots while balancing protein families and cuisine variety and avoiding the latest two earlier weeks. **Swap** evaluates the whole week and rotates through recently explored alternatives. Ingredient reuse is a tie-breaker; suggestions never create recipes.
-3. Review ingredient reuse and shopping totals. Pack sizes are editable estimates rather than live supermarket listings. Pantry items are a check before buying. Reducing the dinner count preserves selections until extras are removed.
+3. Review ingredient reuse and shopping totals. Tick ingredients off as you shop; checklist state is saved with the draft or week. Pack sizes are editable estimates rather than live supermarket listings. Pantry items are a check before buying. Reducing the dinner count preserves selections until extras are removed.
 4. Unlock with the shared household password and save. Drafts, saved weeks, feedback, tried status, comments, and favourites sync through Firebase as private household data; they are not published from this repository.
 5. Open any saved week and choose **Edit week** to change its dinners, count, date, or pack-size estimates. Saving recalculates its shopping list and updates the saved week while preserving feedback; changing to another occupied date is blocked.
 6. Existing dates cannot be overwritten from the date picker when creating a new plan.

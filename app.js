@@ -309,7 +309,14 @@ app.addEventListener('click',async e=>{
     else notice='No different recipe is available to swap in.';
   }
   else if(a==='back')screen=screen.type==='recipe'?returnScreen:screen.type==='review'?{type:'plan'}:{type:'weeks'};
-  else if(a==='plan')screen={type:'plan'};
+  else if(a==='plan'){
+    if(draft.editingWeekId&&!editingWeek()){
+      draft={...draft,editingWeekId:null};
+      await saveDraft();
+      notice='The saved week is no longer available. This draft will be saved as a new week.';
+    }
+    screen={type:'plan'};
+  }
   else if(a==='suggest'){
     if(draft.count<draft.ids.length){notice='Remove dinners to match your chosen count first.';}
     else {
@@ -327,7 +334,18 @@ app.addEventListener('click',async e=>{
   else if(a==='save'){
     const problem=validate(draft.count,selected());if(problem){notice=problem;render();return;}
     if(!/^\d{4}-\d{2}-\d{2}$/.test(draft.date)){notice='Choose a week date.';render();return;}
-    const editingId=draft.editingWeekId||null, existing=editingId?weeks().find(w=>w.id===editingId):null;
+    const editingId=draft.editingWeekId||null;
+    let existing=editingId?weeks().find(w=>w.id===editingId):null;
+    if(editingId&&!existing&&cloud.refresh){
+      const draftBeingEdited=draft;
+      const pending=incoming;
+      let latest;
+      try{latest=await cloud.refresh();}catch(e){if(!pending)throw e;latest=pending;}
+      incoming=null;
+      applyRecords(latest);
+      draft=draftBeingEdited;
+      existing=weeks().find(w=>w.id===editingId)||null;
+    }
     if(editingId&&!existing){notice='This saved week is no longer available. Load the latest saves before updating it.';render();return;}
     if(weeks().some(w=>w.id===draft.date&&w.id!==editingId)){notice='A plan already exists for this date. Choose another date in the planner to keep both plans.';render();return;}
     const w=savedWeekFromDraft(existing), nextSaved=existing?saved.filter(s=>s.id!==editingId).concat(w):[...saved,w];

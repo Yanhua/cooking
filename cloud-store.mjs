@@ -52,6 +52,7 @@ export async function connectCloud(config, onAuth, onRecords, onError) {
   const auth = authSDK.getAuth(firebase), db = dbSDK.getFirestore(firebase);
   await authSDK.setPersistence(auth, authSDK.browserLocalPersistence);
   const collection = dbSDK.collection(db, 'households', config.householdUid, 'records');
+  const recordsFromSnapshot = snapshot => Object.fromEntries(snapshot.docs.map(doc => [doc.id, doc.data()]));
   let unsubscribe = () => {};
   authSDK.onAuthStateChanged(auth, user => {
     unsubscribe();
@@ -61,14 +62,14 @@ export async function connectCloud(config, onAuth, onRecords, onError) {
     unsubscribe = dbSDK.onSnapshot(collection, {includeMetadataChanges:true}, snapshot => {
       // Never report a cached/optimistic write as saved to the server.
       if (snapshot.metadata.fromCache || snapshot.metadata.hasPendingWrites) return;
-      const records = Object.fromEntries(snapshot.docs.map(doc => [doc.id, doc.data()]));
-      onRecords(records);
+      onRecords(recordsFromSnapshot(snapshot));
     }, onError);
   }, onError);
   return {
     login: password => authSDK.signInWithEmailAndPassword(auth, config.householdEmail, password),
     logout: () => authSDK.signOut(auth),
     save: changes => writeChanges(dbSDK, db, collection, changes),
+    refresh: async () => recordsFromSnapshot(await dbSDK.getDocsFromServer(collection)),
   };
 }
 
